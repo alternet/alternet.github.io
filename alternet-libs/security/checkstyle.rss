@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<rss version="0.91">
+  <channel>
+    <title>Alternet Security - Checkstyle report</title>
+    <link>http://alternet.ml/alternet-libs/security/security.html</link>
+    <description>Alternet Security - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2014 Alternet</copyright>
+    <item>
+      <title>File: 15,
+             Errors: 174,
+             Warnings: 0,
+             Infos: 0
+      </title>
+            <link>http://alternet.ml/alternet-libs/security/security.html/checkstyle.html</link>
+      <description>
+        <p>Click <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.PasswordState.java">ml/alternet/security/PasswordState.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.impl.WeakPasswordManager.java">ml/alternet/security/impl/WeakPasswordManager.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.auth.package-info.java">ml/alternet/security/auth/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.impl.package-info.java">ml/alternet/security/impl/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.impl.StrongPasswordManager.java">ml/alternet/security/impl/StrongPasswordManager.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  16
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.impl.AbstractPassword.java">ml/alternet/security/impl/AbstractPassword.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  9
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.Password.java">ml/alternet/security/Password.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  22
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.PasswordManagerFactory.java">ml/alternet/security/PasswordManagerFactory.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  33
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.PasswordManager.java">ml/alternet/security/PasswordManager.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.EmptyPassword.java">ml/alternet/security/EmptyPassword.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  47
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.package-info.java">ml/alternet/security/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  9
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.impl.AbstractPasswordManager.java">ml/alternet/security/impl/AbstractPasswordManager.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.impl.StandardPasswordManager.java">ml/alternet/security/impl/StandardPasswordManager.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.SensitiveData.java">ml/alternet/security/SensitiveData.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.impl.AbstractClearPassword.java">ml/alternet/security/impl/AbstractClearPassword.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+

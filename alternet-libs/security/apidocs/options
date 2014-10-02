@@ -1,0 +1,30 @@
+-classpath
+'/Users/ppoulard/Travail/dev/ml.alternet/security/target/classes:/Users/ppoulard/Travail/dev/ml.alternet/tools/target/classes:/Users/ppoulard/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/Users/ppoulard/Travail/dev/ml.alternet/security/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2014 <a href="http://alternet.ml">Alternet</a>. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/ppoulard/Travail/dev/ml.alternet/security/target/../../alternet-libs/target/staging/security/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Alternet Security 1.0 API'
+-link
+'http://docs.oracle.com/javase/8/docs/api'
+-link
+'http://alternet.ml/alternet-libs/apidocs'
+-linkoffline
+'http://docs.oracle.com/javase/7/docs/api' '/Users/ppoulard/Travail/dev/ml.alternet/security/target/javadoc-bundle-options'
+-linkoffline
+'http://alternet.ml/alternet-libs/tools/tools.html/apidocs' '/Users/ppoulard/Travail/dev/ml.alternet/tools/target/../../alternet-libs/target/staging/security/apidocs'
+-use
+-version
+-windowtitle
+'Alternet Security 1.0 API'
