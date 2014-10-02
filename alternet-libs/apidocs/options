@@ -1,0 +1,28 @@
+-classpath
+'/Users/ppoulard/Travail/dev/ml.alternet/alternet-libs/target/classes:/Users/ppoulard/Travail/dev/ml.alternet/tools/target/classes:/Users/ppoulard/Travail/dev/ml.alternet/scanner/target/classes:/Users/ppoulard/Travail/dev/ml.alternet/security/target/classes:/Users/ppoulard/.m2/repository/ml/alternet/alternet-tools/1.0/alternet-tools-1.0.jar:/Users/ppoulard/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/Users/ppoulard/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/Users/ppoulard/Travail/dev/ml.alternet/tools/src/main/java:/Users/ppoulard/Travail/dev/ml.alternet/scanner/src/main/java:/Users/ppoulard/Travail/dev/ml.alternet/security/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2014 <a href="http://alternet.ml">Alternet</a>. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/Users/ppoulard/Travail/dev/ml.alternet/alternet-libs/target/staging/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Alternet Libs 1.0 API'
+-link
+'http://docs.oracle.com/javase/8/docs/api'
+-link
+'http://alternet.ml/alternet-libs/apidocs'
+-linkoffline
+'http://docs.oracle.com/javase/7/docs/api' '/Users/ppoulard/Travail/dev/ml.alternet/alternet-libs/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'Alternet Libs 1.0 API'

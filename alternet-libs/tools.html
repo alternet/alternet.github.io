@@ -222,7 +222,7 @@
   <h3 id="Lookup_keys_and_variants">Lookup keys and variants</h3> 
   <p>The lookup key is usually the fully qualified name of a class (usually abstract or an interface) : <tt>org.acme.Protocol</tt>, and the resolved class name should be a concrete implementation of it; the lookup key can also be a name, even a JNDI name.</p> 
   <p>Inner class names contains a $ sign in their name ; all lookup are performed on keys where the $ sign is replace by a dot. If you define manually a <tt>META-INF/xservices/</tt> entry, don’t write file names or directory names with a dollar, but with a dot instead.</p> 
-  <p>The lookup key can be supplied with a variant, in order to bind several implementations (this has to be taken in charge by the caller); for example, <tt>org.acme.SerializerFactory/image/png</tt>. Basically, it means that we want a factory that can supply a serializer for <tt>image/png</tt>.</p> 
+  <p>The lookup key can be supplied with an optional variant, in order to bind several implementations (this has to be taken in charge by the caller, that should know which variants are available if any); for example, <tt>org.acme.SerializerFactory/image/png</tt>. Basically, it means that we want a factory that can supply a serializer for <tt>image/png</tt>.</p> 
   <ul> 
    <li>An implementation can be render either as a raw <tt>Class</tt> or as a singleton instance (or both across multiple calls)</li> 
    <li>The class lookup is done <i>once</i> for every class name to discover.</li> 
@@ -246,13 +246,13 @@
  </div> 
  <div class="section"> 
   <h3 id="META-INF_services_and_xservices"><tt>META-INF</tt> services and xservices</h3> 
-  <p>The location used by this tool is <tt>META-INF/xservices/</tt>, not <tt>META-INF/services/</tt>. Actually, the common <tt>META-INF/services/</tt> directory is ruled by different conventions than those used here (specifically due to the “variant” of the key). To avoid confusion, another directory name has been retained, actually `xservices``(that stands for “extended services”).</p> 
+  <p>The location used by this tool is <tt>META-INF/xservices/</tt>, not <tt>META-INF/services/</tt>. Actually, the common <tt>META-INF/services/</tt> directory is ruled by different conventions than those used here (specifically due to the “variant” of the key). To avoid confusion, another directory name has been retained, actually <tt>xservices</tt>(that stands for “extended services”).</p> 
  </div> 
  <div class="section"> 
   <h3 id="Self-registration">Self-registration</h3> 
   <p>The <a href="apidocs/ml/alternet/discover/LookupKey.html">@LookupKey</a> annotation can be used in order to generate automatically an entry in <tt>META-INF/xservices/</tt> :</p> 
   <div class="source"> 
-   <pre>@LookupKey(impClass=org.acme.protocols.HttpProtocol.class)
+   <pre>@LookupKey(impClass=org.acme.protocols.HttpProtocol.class, variant=&quot;http&quot;)
 interface Protocol {
     // ...
 }
@@ -410,7 +410,7 @@ public interface B {
 							<a href="../" title="Home">Home</a>
 						</li>
 						<li >
-							<a href="https://github.com/alternet/alternet-libs" title="GitHub project" class="externalLink">GitHub project</a>
+							<a href="https://github.com/alternet/alternet.ml" title="GitHub project" class="externalLink">GitHub project</a>
 						</li>
 						<li >
 							<a href="http://semantic-mismatch.blogspot.fr/" title="Blog" class="externalLink">Blog</a>
