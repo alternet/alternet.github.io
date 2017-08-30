@@ -33,7 +33,7 @@
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>      <strong class="jxr_keyword">static</strong> {
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>          <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>              CONTEXT = <strong class="jxr_keyword">new</strong> InitialContext(<strong class="jxr_keyword">true</strong>) {
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>                  Map&lt;String, Object&gt; bindings = <strong class="jxr_keyword">new</strong> HashMap&lt;String, Object&gt;();
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>                  Map&lt;String, Object&gt; bindings = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>  
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>                  @Override
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>                  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> bind(String name, Object obj) <strong class="jxr_keyword">throws</strong> NamingException {
@@ -50,21 +50,33 @@
 <a class="jxr_linenumber" name="L42" href="#L42">42</a>          }
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>      }
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>  
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>      <strong class="jxr_keyword">public</strong> Context getInitialContext(Hashtable&lt;?, ?&gt; environment) <strong class="jxr_keyword">throws</strong> NamingException {
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>          <strong class="jxr_keyword">return</strong> CONTEXT;
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>      }
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>  
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> bind(String name, Object obj) {
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>          <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>              CONTEXT.bind(name, obj);
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>          } <strong class="jxr_keyword">catch</strong> (NamingException e) { <em class="jxr_comment">// can't happen.</em>
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>              <strong class="jxr_keyword">throw</strong> WtfException.throwException(e);
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>          }
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>      }
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>  
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>  }
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <em class="jxr_javadoccomment">     * Create an initial context.</em>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  <em class="jxr_javadoccomment">     * @param environment Unused.</em>
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>      @Override
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>      <strong class="jxr_keyword">public</strong> Context getInitialContext(Hashtable&lt;?, ?&gt; environment) <strong class="jxr_keyword">throws</strong> NamingException {
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>          <strong class="jxr_keyword">return</strong> CONTEXT;
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>      }
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  <em class="jxr_javadoccomment">     * Bind an object to a name.</em>
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  <em class="jxr_javadoccomment">     * @param name The name.</em>
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  <em class="jxr_javadoccomment">     * @param obj The object.</em>
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> bind(String name, Object obj) {
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>              CONTEXT.bind(name, obj);
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          } <strong class="jxr_keyword">catch</strong> (NamingException e) { <em class="jxr_comment">// can't happen.</em>
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>              <strong class="jxr_keyword">throw</strong> WtfException.throwException(e);
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>          }
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>      }
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2014 <a href="http://alternet.ml">Alternet</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2017 <a href="http://alternet.ml">Alternet</a>. All rights reserved.</div>
 </body>
 </html>

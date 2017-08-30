@@ -23,10 +23,10 @@ under the License.
     <link>http://alternet.ml/alternet-libs/scanner/scanner.html</link>
     <description>Alternet Scanner - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2014 Alternet</copyright>
+    <copyright>&#169;2017 Alternet</copyright>
     <item>
-      <title>File: 10,
-             Errors: 695,
+      <title>File: 12,
+             Errors: 3,
              Warnings: 0,
              Infos: 0
       </title>
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/scanner/scanner.html/checkstyle.html#ml.alternet.scan.UserData.java">ml/alternet/scan/UserData.java</a>
+                  <a href="http://alternet.ml/alternet-libs/scanner/scanner.html/checkstyle.html#ml.alternet.scan.EnumValues.java">ml/alternet/scan/EnumValues.java</a>
                 </td>
                 <td>
                   0
@@ -55,7 +55,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  12
+                  0
                 </td>
               </tr>
                           <tr>
@@ -69,7 +69,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  2
+                  0
                 </td>
               </tr>
                           <tr>
@@ -83,12 +83,12 @@ under the License.
                   0
                 </td>
                 <td>
-                  76
+                  0
                 </td>
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/scanner/scanner.html/checkstyle.html#ml.alternet.scan.DataConstraint.java">ml/alternet/scan/DataConstraint.java</a>
+                  <a href="http://alternet.ml/alternet-libs/scanner/scanner.html/checkstyle.html#ml.alternet.scan.JavaWhitespace.java">ml/alternet/scan/JavaWhitespace.java</a>
                 </td>
                 <td>
                   0
@@ -97,7 +97,21 @@ under the License.
                   0
                 </td>
                 <td>
-                  17
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/scanner/scanner.html/checkstyle.html#ml.alternet.scan.XMLWhitespace.java">ml/alternet/scan/XMLWhitespace.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
               </tr>
                           <tr>
@@ -125,7 +139,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  86
+                  2
                 </td>
               </tr>
                           <tr>
@@ -139,7 +153,21 @@ under the License.
                   0
                 </td>
                 <td>
-                  264
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/scanner/scanner.html/checkstyle.html#ml.alternet.scan.Readable.java">ml/alternet/scan/Readable.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
               </tr>
                           <tr>
@@ -153,7 +181,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  166
+                  0
                 </td>
               </tr>
                           <tr>
@@ -167,12 +195,12 @@ under the License.
                   0
                 </td>
                 <td>
-                  45
+                  0
                 </td>
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/scanner/scanner.html/checkstyle.html#ml.alternet.scan.TrackableReaderScanner.java">ml/alternet/scan/TrackableReaderScanner.java</a>
+                  <a href="http://alternet.ml/alternet-libs/scanner/scanner.html/checkstyle.html#ml.alternet.scan.TrackableScanner.java">ml/alternet/scan/TrackableScanner.java</a>
                 </td>
                 <td>
                   0
@@ -181,7 +209,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  27
+                  0
                 </td>
               </tr>
                       </tbody>

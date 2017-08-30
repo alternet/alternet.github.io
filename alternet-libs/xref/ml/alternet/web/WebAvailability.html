@@ -8,47 +8,49 @@
 <div id="overview"><a href="../../../../../site/apidocs/ml/alternet/web/WebAvailability.html">View Javadoc</a></div><pre>
 <a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> ml.alternet.web;
 <a class="jxr_linenumber" name="L2" href="#L2">2</a>   
-<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_javadoccomment"> * Indicates whether servlet classes are available.</em>
-<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_javadoccomment"> * </em>
-<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
-<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_javadoccomment"> * This class doesn't have any dependency with the servlet packages, and can be</em>
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_javadoccomment"> * used safely as a guard before using some classes that are referring to this</em>
-<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_javadoccomment"> * package (and might avoid some "ClassNotFoundException").</em>
-<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_javadoccomment"> * &lt;/p&gt;</em>
-<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_javadoccomment"> * </em>
-<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_javadoccomment"> * @author Philippe Poulard</em>
-<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_javadoccomment"> */</em>
-<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../ml/alternet/web/WebAvailability.html">WebAvailability</a> {
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>  
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>      <strong class="jxr_keyword">private</strong> <a href="../../../ml/alternet/web/WebAvailability.html">WebAvailability</a>() {
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>      }
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> ml.alternet.util.Util;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <em class="jxr_javadoccomment"> * Indicates whether servlet classes are available.</em>
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_javadoccomment"> * This class doesn't have any dependency with the servlet packages, and can be</em>
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_javadoccomment"> * used safely as a guard before using some classes that are referring to this</em>
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_javadoccomment"> * package (and might avoid some "ClassNotFoundException").</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_javadoccomment"> * &lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_javadoccomment"> * @author Philippe Poulard</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  @Util
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../ml/alternet/web/WebAvailability.html">WebAvailability</a> {
 <a class="jxr_linenumber" name="L18" href="#L18">18</a>  
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> Boolean isAvailable;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>      <strong class="jxr_keyword">private</strong> <a href="../../../ml/alternet/web/WebAvailability.html">WebAvailability</a>() { }
 <a class="jxr_linenumber" name="L20" href="#L20">20</a>  
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_javadoccomment">     * Indicates whether the servlet package is available; this doesn't imply</em>
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_javadoccomment">     * that a web application is running, it only states that the web classes</em>
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment">     * are available.</em>
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_javadoccomment">     * </em>
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment">     * @return &lt;tt&gt;true&lt;/tt&gt; if the servlet package is available, &lt;tt&gt;false&lt;/tt&gt;</em>
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment">     *         otherwise.</em>
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">boolean</strong> servletAvailable() {
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>          <strong class="jxr_keyword">if</strong> (isAvailable == <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>              <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>                  Class.forName(<span class="jxr_string">"javax.servlet.ServletContext"</span>);
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>                  isAvailable = Boolean.TRUE;
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>              } <strong class="jxr_keyword">catch</strong> (ClassNotFoundException cnfe) {
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>                  isAvailable = Boolean.FALSE;
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>              }
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>          }
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>          <strong class="jxr_keyword">return</strong> isAvailable.booleanValue();
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>      }
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>  
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>  }
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> Boolean IS_AVAILABLE;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment">     * Indicates whether the servlet package is available; this doesn't imply</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_javadoccomment">     * that a web application is running, it only states that the web classes</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment">     * are available.</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment">     * @return &lt;tt&gt;true&lt;/tt&gt; if the servlet package is available, &lt;tt&gt;false&lt;/tt&gt;</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment">     *         otherwise.</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">boolean</strong> servletAvailable() {
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>          <strong class="jxr_keyword">if</strong> (IS_AVAILABLE == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>              <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>                  Class.forName(<span class="jxr_string">"javax.servlet.ServletContext"</span>);
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>                  IS_AVAILABLE = Boolean.TRUE;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>              } <strong class="jxr_keyword">catch</strong> (ClassNotFoundException cnfe) {
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>                  IS_AVAILABLE = Boolean.FALSE;
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>              }
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>          }
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>          <strong class="jxr_keyword">return</strong> IS_AVAILABLE.booleanValue();
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>      }
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2014 <a href="http://alternet.ml">Alternet</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2017 <a href="http://alternet.ml">Alternet</a>. All rights reserved.</div>
 </body>
 </html>
