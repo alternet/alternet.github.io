@@ -65,7 +65,6 @@
             <li class="dropdown-submenu">
 <a href="project-reports.html" title="Project Reports">Project Reports</a>
               <ul class="dropdown-menu">
-                  <li><a href="apidocs/index.html" title="JavaDocs">JavaDocs</a></li>
                   <li><a href="xref/index.html" title="Source Xref">Source Xref</a></li>
                   <li><a href="xref-test/index.html" title="Test Source Xref">Test Source Xref</a></li>
                   <li><a href="failsafe-report.html" title="Failsafe Report">Failsafe Report</a></li>
@@ -142,12 +141,12 @@ function toggleDisplay(elementId) {
 <th>Success Rate</th>
 <th>Time</th></tr>
 <tr class="b">
-<td>46</td>
+<td>282</td>
 <td>0</td>
-<td>14</td>
+<td>3</td>
 <td>0</td>
-<td>69.565%</td>
-<td>1.384</td></tr></table><br />
+<td>98.936%</td>
+<td>35.46</td></tr></table><br />
 <p>Note: failures are anticipated and checked for with assertions while errors are unanticipated.</p><br /></div>
 <div class="section">
 <h2><a name="Package_List"></a>Package List</h2><a name="Package_List"></a>
@@ -168,7 +167,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.649</td></tr>
+<td>0.694</td></tr>
 <tr class="a">
 <td><a href="#ml.alternet.test.security">ml.alternet.test.security</a></td>
 <td>19</td>
@@ -176,15 +175,39 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.325</td></tr>
+<td>0.378</td></tr>
 <tr class="b">
+<td><a href="#ml.alternet.test.security.web.tomcat">ml.alternet.test.security.web.tomcat</a></td>
+<td>25</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>1.251</td></tr>
+<tr class="a">
+<td><a href="#ml.alternet.test.security.auth.hashers">ml.alternet.test.security.auth.hashers</a></td>
+<td>188</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+<td>98.404%</td>
+<td>31.812</td></tr>
+<tr class="b">
+<td><a href="#ml.alternet.test.security.web.jetty">ml.alternet.test.security.web.jetty</a></td>
+<td>32</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>1.32</td></tr>
+<tr class="a">
 <td><a href="#ml.alternet.test.security.auth">ml.alternet.test.security.auth</a></td>
-<td>14</td>
+<td>5</td>
 <td>0</td>
-<td>14</td>
 <td>0</td>
-<td>0%</td>
-<td>0.41</td></tr></table><br />
+<td>0</td>
+<td>100%</td>
+<td>0.005</td></tr></table><br />
 <p>Note: package statistics are not computed recursively, they only sum up all of its testsuites numbers.</p>
 <div class="section">
 <h3><a name="ml.alternet.test.security.web"></a>ml.alternet.test.security.web</h3><a name="ml.alternet.test.security.web"></a>
@@ -206,7 +229,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.008</td></tr>
+<td>0.012</td></tr>
 <tr class="a">
 <td><a href="#ml.alternet.test.security.webPasswordConverterTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
 <td><a href="#ml.alternet.test.security.webPasswordConverterTest">PasswordConverterTest</a></td>
@@ -215,7 +238,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.641</td></tr>
+<td>0.681</td></tr>
 <tr class="b">
 <td><a href="#ml.alternet.test.security.webPasswordParamTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
 <td><a href="#ml.alternet.test.security.webPasswordParamTest">PasswordParamTest</a></td>
@@ -224,7 +247,7 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0</td></tr></table></div>
+<td>0.001</td></tr></table></div>
 <div class="section">
 <h3><a name="ml.alternet.test.security"></a>ml.alternet.test.security</h3><a name="ml.alternet.test.security"></a>
 <table border="1" class="table table-striped">
@@ -245,7 +268,151 @@ function toggleDisplay(elementId) {
 <td>0</td>
 <td>0</td>
 <td>100%</td>
-<td>0.325</td></tr></table></div>
+<td>0.378</td></tr></table></div>
+<div class="section">
+<h3><a name="ml.alternet.test.security.web.tomcat"></a>ml.alternet.test.security.web.tomcat</h3><a name="ml.alternet.test.security.web.tomcat"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th></tr>
+<tr class="b">
+<td><a href="#ml.alternet.test.security.web.tomcatBasicAuthTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#ml.alternet.test.security.web.tomcatBasicAuthTest">BasicAuthTest</a></td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.898</td></tr>
+<tr class="a">
+<td><a href="#ml.alternet.test.security.web.tomcatFormAuthTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#ml.alternet.test.security.web.tomcatFormAuthTest">FormAuthTest</a></td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.225</td></tr>
+<tr class="b">
+<td><a href="#ml.alternet.test.security.web.tomcatRESTTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#ml.alternet.test.security.web.tomcatRESTTest">RESTTest</a></td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.128</td></tr></table></div>
+<div class="section">
+<h3><a name="ml.alternet.test.security.auth.hashers"></a>ml.alternet.test.security.auth.hashers</h3><a name="ml.alternet.test.security.auth.hashers"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th></tr>
+<tr class="b">
+<td><a href="#ml.alternet.test.security.auth.hashersBCryptTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#ml.alternet.test.security.auth.hashersBCryptTest">BCryptTest</a></td>
+<td>128</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>21.384</td></tr>
+<tr class="a">
+<td><a href="#ml.alternet.test.security.auth.hashersNTHashTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#ml.alternet.test.security.auth.hashersNTHashTest">NTHashTest</a></td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.008</td></tr>
+<tr class="b">
+<td><a href="#ml.alternet.test.security.auth.hashersCryptFormatTest"><img src="images/icon_warning_sml.gif" alt="" /></a></td>
+<td><a href="#ml.alternet.test.security.auth.hashersCryptFormatTest">CryptFormatTest</a></td>
+<td>30</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+<td>90%</td>
+<td>0.422</td></tr>
+<tr class="a">
+<td><a href="#ml.alternet.test.security.auth.hashersSHA2CryptTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#ml.alternet.test.security.auth.hashersSHA2CryptTest">SHA2CryptTest</a></td>
+<td>16</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>9.986</td></tr>
+<tr class="b">
+<td><a href="#ml.alternet.test.security.auth.hashersUnixCryptTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#ml.alternet.test.security.auth.hashersUnixCryptTest">UnixCryptTest</a></td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.012</td></tr></table></div>
+<div class="section">
+<h3><a name="ml.alternet.test.security.web.jetty"></a>ml.alternet.test.security.web.jetty</h3><a name="ml.alternet.test.security.web.jetty"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<th></th>
+<th>Class</th>
+<th>Tests</th>
+<th>Errors </th>
+<th>Failures</th>
+<th>Skipped</th>
+<th>Success Rate</th>
+<th>Time</th></tr>
+<tr class="b">
+<td><a href="#ml.alternet.test.security.web.jettyBasicAuthTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#ml.alternet.test.security.web.jettyBasicAuthTest">BasicAuthTest</a></td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.857</td></tr>
+<tr class="a">
+<td><a href="#ml.alternet.test.security.web.jettyLDAPAuthTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#ml.alternet.test.security.web.jettyLDAPAuthTest">LDAPAuthTest</a></td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.19</td></tr>
+<tr class="b">
+<td><a href="#ml.alternet.test.security.web.jettyFormAuthTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#ml.alternet.test.security.web.jettyFormAuthTest">FormAuthTest</a></td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.163</td></tr>
+<tr class="a">
+<td><a href="#ml.alternet.test.security.web.jettyRESTTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#ml.alternet.test.security.web.jettyRESTTest">RESTTest</a></td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+<td>0.11</td></tr></table></div>
 <div class="section">
 <h3><a name="ml.alternet.test.security.auth"></a>ml.alternet.test.security.auth</h3><a name="ml.alternet.test.security.auth"></a>
 <table border="1" class="table table-striped">
@@ -259,14 +426,14 @@ function toggleDisplay(elementId) {
 <th>Success Rate</th>
 <th>Time</th></tr>
 <tr class="b">
-<td><a href="#ml.alternet.test.security.authHasherTest"><img src="images/icon_warning_sml.gif" alt="" /></a></td>
-<td><a href="#ml.alternet.test.security.authHasherTest">HasherTest</a></td>
-<td>14</td>
+<td><a href="#ml.alternet.test.security.authSafeBufferTest"><img src="images/icon_success_sml.gif" alt="" /></a></td>
+<td><a href="#ml.alternet.test.security.authSafeBufferTest">SafeBufferTest</a></td>
+<td>5</td>
 <td>0</td>
-<td>14</td>
 <td>0</td>
-<td>0%</td>
-<td>0.41</td></tr></table></div><br /></div>
+<td>0</td>
+<td>100%</td>
+<td>0.005</td></tr></table></div><br /></div>
 <div class="section">
 <h2><a name="Test_Cases"></a>Test Cases</h2><a name="Test_Cases"></a>
 <p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p>
@@ -276,11 +443,11 @@ function toggleDisplay(elementId) {
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.PasswordTest.charArrayPassword_ShouldBe_Unset"></a>charArrayPassword_ShouldBe_Unset</td>
-<td>0.068</td></tr>
+<td>0.108</td></tr>
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.PasswordTest.clearCharArrayPassword_ShouldBe_Unset"></a>clearCharArrayPassword_ShouldBe_Unset</td>
-<td>0.003</td></tr>
+<td>0.007</td></tr>
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.PasswordTest.clearStandardPassword_ShouldBe_TheSame"></a>clearStandardPassword_ShouldBe_TheSame</td>
@@ -288,19 +455,19 @@ function toggleDisplay(elementId) {
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.PasswordTest.clearStrongPassword_ShouldBe_TheSame"></a>clearStrongPassword_ShouldBe_TheSame</td>
-<td>0.239</td></tr>
+<td>0.238</td></tr>
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.PasswordTest.clearWeakPassword_ShouldBe_TheSame"></a>clearWeakPassword_ShouldBe_TheSame</td>
-<td>0.003</td></tr>
+<td>0.007</td></tr>
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.PasswordTest.defaultManager_ShouldBe_StandardPasswordManager"></a>defaultManager_ShouldBe_StandardPasswordManager</td>
-<td>0.002</td></tr>
+<td>0.004</td></tr>
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.PasswordTest.emptyPassword_ShouldHave_TheEmptyState"></a>emptyPassword_ShouldHave_TheEmptyState</td>
-<td>0.005</td></tr>
+<td>0.009</td></tr>
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.PasswordTest.gettingSeveralClearStandardPasswords_ShouldNot_BreakThePassword"></a>gettingSeveralClearStandardPasswords_ShouldNot_BreakThePassword</td>
@@ -316,7 +483,7 @@ function toggleDisplay(elementId) {
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.PasswordTest.invalidatedClearPassword_Should_ThrowException"></a>invalidatedClearPassword_Should_ThrowException</td>
-<td>0</td></tr>
+<td>0.001</td></tr>
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.PasswordTest.invalidatedPassword_ShouldHave_TheInvalidState"></a>invalidatedPassword_ShouldHave_TheInvalidState</td>
@@ -328,7 +495,7 @@ function toggleDisplay(elementId) {
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.PasswordTest.newPassword_ShouldBe_Valid"></a>newPassword_ShouldBe_Valid</td>
-<td>0.001</td></tr>
+<td>0</td></tr>
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.PasswordTest.nullPassword_Should_ReturnEmptyPassword"></a>nullPassword_Should_ReturnEmptyPassword</td>
@@ -359,7 +526,7 @@ function toggleDisplay(elementId) {
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.web.BasicAuthBufferTest.credentials_ShouldNotBe_foundInHttpHeadersWithoutAuthorizationHeader"></a>credentials_ShouldNotBe_foundInHttpHeadersWithoutAuthorizationHeader</td>
-<td>0.001</td></tr>
+<td>0</td></tr>
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.web.BasicAuthBufferTest.credentials_ShouldNotBe_foundInOtherHttpHeader"></a>credentials_ShouldNotBe_foundInOtherHttpHeader</td>
@@ -367,7 +534,7 @@ function toggleDisplay(elementId) {
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.web.BasicAuthBufferTest.password_ShouldBe_extractedFromBasicCredential"></a>password_ShouldBe_extractedFromBasicCredential</td>
-<td>0.004</td></tr>
+<td>0.008</td></tr>
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.web.BasicAuthBufferTest.password_ShouldBe_extractedFromHttpHeaders"></a>password_ShouldBe_extractedFromHttpHeaders</td>
@@ -375,7 +542,7 @@ function toggleDisplay(elementId) {
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.web.BasicAuthBufferTest.password_ShouldBe_extractedFromHttpHeadersEndingWithCRLF"></a>password_ShouldBe_extractedFromHttpHeadersEndingWithCRLF</td>
-<td>0</td></tr>
+<td>0.001</td></tr>
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.web.BasicAuthBufferTest.password_ShouldBe_extractedFromSingleHttpHeader"></a>password_ShouldBe_extractedFromSingleHttpHeader</td>
@@ -386,22 +553,22 @@ function toggleDisplay(elementId) {
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.web.PasswordConverterTest.noPasswordSentByPOST_ShouldBe_empty"></a>noPasswordSentByPOST_ShouldBe_empty</td>
-<td>0.612</td></tr>
+<td>0.647</td></tr>
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.web.PasswordConverterTest.passwordsSentByGET_ShouldNotBe_converted"></a>passwordsSentByGET_ShouldNotBe_converted</td>
-<td>0.01</td></tr>
+<td>0.011</td></tr>
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.web.PasswordConverterTest.passwordsSentByPOST_ShouldBe_convertedToPasswordParamClass"></a>passwordsSentByPOST_ShouldBe_convertedToPasswordParamClass</td>
-<td>0.019</td></tr></table></div>
+<td>0.023</td></tr></table></div>
 <div class="section">
 <h3><a name="PasswordParamTest"></a>PasswordParamTest</h3><a name="ml.alternet.test.security.webPasswordParamTest"></a>
 <table border="1" class="table table-striped">
 <tr class="a">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.web.PasswordParamTest.defaultSequence_Should_containEmptyPassword"></a>defaultSequence_Should_containEmptyPassword</td>
-<td>0</td></tr>
+<td>0.001</td></tr>
 <tr class="b">
 <td><img src="images/icon_success_sml.gif" alt="" /></td>
 <td><a name="TC_ml.alternet.test.security.web.PasswordParamTest.fullSequence_Should_containWrapPasswords"></a>fullSequence_Should_containWrapPasswords</td>
@@ -411,424 +578,1117 @@ function toggleDisplay(elementId) {
 <td><a name="TC_ml.alternet.test.security.web.PasswordParamTest.singleSequence_Should_containWrapPassword"></a>singleSequence_Should_containWrapPassword</td>
 <td>0</td></tr></table></div>
 <div class="section">
-<h3><a name="HasherTest"></a>HasherTest</h3><a name="ml.alternet.test.security.authHasherTest"></a>
+<h3><a name="BCryptTest"></a>BCryptTest</h3><a name="ml.alternet.test.security.auth.hashersBCryptTest"></a>
 <table border="1" class="table table-striped">
 <tr class="a">
-<td><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_ShouldBe_DefaultHasher"><img src="images/icon_error_sml.gif" alt="" /></a></td>
-<td><a name="TC_ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_ShouldBe_DefaultHasher"></a><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_ShouldBe_DefaultHasher">PBKDF2Crypt_ShouldBe_DefaultHasher</a>
-<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_ShouldBe_DefaultHasher&apos;);"><span style="display:inline;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_ShouldBe_DefaultHasheroff"> + </span><span style="display:none;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_ShouldBe_DefaultHasheron"> - </span>[ Detail ]</a></div></td>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.243</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.044</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.174</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.701</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.025</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.046</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.171</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.698</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.012</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.044</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.178</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.7</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.012</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.044</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.175</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.715</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.012</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.043</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.18</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.695</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.045</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.045</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.045</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.023</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.024</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.014</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.045</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.174</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.69</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.012</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.044</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.176</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.7</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.011</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.046</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.173</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.694</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.012</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.044</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.176</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.69</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.012</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.046</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.173</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.694</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.044</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.047</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.045</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.022</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.023</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.internationalChars_should_beHashedCorrectly"></a>internationalChars_should_beHashedCorrectly</td>
+<td>0.35</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.007</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.004</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.004</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.004</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.003</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.004</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.004</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.006</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.007</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.006</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.007</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
 <td>0.007</td></tr>
 <tr class="b">
-<td></td>
-<td>Unresolved compilation problem:   The method getDefault() is undefined for the type Hasher </td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.006</td></tr>
 <tr class="a">
-<td></td>
-<td>
-<div id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_ShouldBe_DefaultHashererror" style="display:none;">
-<div>
-<pre>java.lang.Error: Unresolved compilation problem: 
-	The method getDefault() is undefined for the type Hasher
-	at ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_ShouldBe_DefaultHasher(HasherTest.java:41)</pre></div></div></td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.006</td></tr>
 <tr class="b">
-<td><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_GenerateDifferentCrypts"><img src="images/icon_error_sml.gif" alt="" /></a></td>
-<td><a name="TC_ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_GenerateDifferentCrypts"></a><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_GenerateDifferentCrypts">PBKDF2Crypt_Should_GenerateDifferentCrypts</a>
-<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_GenerateDifferentCrypts&apos;);"><span style="display:inline;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_GenerateDifferentCryptsoff"> + </span><span style="display:none;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_GenerateDifferentCryptson"> - </span>[ Detail ]</a></div></td>
-<td>0.001</td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.012</td></tr>
 <tr class="a">
-<td></td>
-<td>Unresolved compilation problems:   The method getDefault() is undefined for the type Hasher  Collections cannot be resolved </td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.012</td></tr>
 <tr class="b">
-<td></td>
-<td>
-<div id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_GenerateDifferentCryptserror" style="display:none;">
-<div>
-<pre>java.lang.Error: Unresolved compilation problems: 
-	The method getDefault() is undefined for the type Hasher
-	Collections cannot be resolved
-	at ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_GenerateDifferentCrypts(HasherTest.java:137)</pre></div></div></td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.011</td></tr>
 <tr class="a">
-<td><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_HaveCorrectForm"><img src="images/icon_error_sml.gif" alt="" /></a></td>
-<td><a name="TC_ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_HaveCorrectForm"></a><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_HaveCorrectForm">PBKDF2Crypt_Should_HaveCorrectForm</a>
-<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_HaveCorrectForm&apos;);"><span style="display:inline;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_HaveCorrectFormoff"> + </span><span style="display:none;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_HaveCorrectFormon"> - </span>[ Detail ]</a></div></td>
-<td>0.001</td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.012</td></tr>
 <tr class="b">
-<td></td>
-<td>Unresolved compilation problems:   The method getDefault() is undefined for the type Hasher  The method get() is undefined for the type Hasher.Configuration  ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field </td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.011</td></tr>
 <tr class="a">
-<td></td>
-<td>
-<div id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_HaveCorrectFormerror" style="display:none;">
-<div>
-<pre>java.lang.Error: Unresolved compilation problems: 
-	The method getDefault() is undefined for the type Hasher
-	The method get() is undefined for the type Hasher.Configuration
-	ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field
-	at ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_HaveCorrectForm(HasherTest.java:118)</pre></div></div></td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.012</td></tr>
 <tr class="b">
-<td><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword"><img src="images/icon_error_sml.gif" alt="" /></a></td>
-<td><a name="TC_ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword"></a><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword">PBKDF2Crypt_Should_MatchPassword</a>
-<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword&apos;);"><span style="display:inline;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPasswordoff"> + </span><span style="display:none;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPasswordon"> - </span>[ Detail ]</a></div></td>
-<td>0.001</td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.012</td></tr>
 <tr class="a">
-<td></td>
-<td>Unresolved compilation problem:   SINGLETON cannot be resolved or is not a field </td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.023</td></tr>
 <tr class="b">
-<td></td>
-<td>
-<div id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassworderror" style="display:none;">
-<div>
-<pre>java.lang.Error: Unresolved compilation problem: 
-	SINGLETON cannot be resolved or is not a field
-	at ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword(HasherTest.java:130)</pre></div></div></td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.023</td></tr>
 <tr class="a">
-<td><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword"><img src="images/icon_error_sml.gif" alt="" /></a></td>
-<td><a name="TC_ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword"></a><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword">PBKDF2Crypt_Should_MatchPassword</a>
-<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword&apos;);"><span style="display:inline;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPasswordoff"> + </span><span style="display:none;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPasswordon"> - </span>[ Detail ]</a></div></td>
-<td>0</td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.022</td></tr>
 <tr class="b">
-<td></td>
-<td>Unresolved compilation problem:   SINGLETON cannot be resolved or is not a field </td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.023</td></tr>
 <tr class="a">
-<td></td>
-<td>
-<div id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassworderror" style="display:none;">
-<div>
-<pre>java.lang.Error: Unresolved compilation problem: 
-	SINGLETON cannot be resolved or is not a field
-	at ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword(HasherTest.java:130)</pre></div></div></td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.022</td></tr>
 <tr class="b">
-<td><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword"><img src="images/icon_error_sml.gif" alt="" /></a></td>
-<td><a name="TC_ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword"></a><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword">PBKDF2Crypt_Should_MatchPassword</a>
-<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword&apos;);"><span style="display:inline;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPasswordoff"> + </span><span style="display:none;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPasswordon"> - </span>[ Detail ]</a></div></td>
-<td>0</td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.022</td></tr>
 <tr class="a">
-<td></td>
-<td>Unresolved compilation problem:   SINGLETON cannot be resolved or is not a field </td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.022</td></tr>
 <tr class="b">
-<td></td>
-<td>
-<div id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassworderror" style="display:none;">
-<div>
-<pre>java.lang.Error: Unresolved compilation problem: 
-	SINGLETON cannot be resolved or is not a field
-	at ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword(HasherTest.java:130)</pre></div></div></td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.047</td></tr>
 <tr class="a">
-<td><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword"><img src="images/icon_error_sml.gif" alt="" /></a></td>
-<td><a name="TC_ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword"></a><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword">PBKDF2Crypt_Should_MatchPassword</a>
-<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword&apos;);"><span style="display:inline;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPasswordoff"> + </span><span style="display:none;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPasswordon"> - </span>[ Detail ]</a></div></td>
-<td>0</td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.044</td></tr>
 <tr class="b">
-<td></td>
-<td>Unresolved compilation problem:   SINGLETON cannot be resolved or is not a field </td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.044</td></tr>
 <tr class="a">
-<td></td>
-<td>
-<div id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassworderror" style="display:none;">
-<div>
-<pre>java.lang.Error: Unresolved compilation problem: 
-	SINGLETON cannot be resolved or is not a field
-	at ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword(HasherTest.java:130)</pre></div></div></td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.045</td></tr>
 <tr class="b">
-<td><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_TakeCareOfConfiguration"><img src="images/icon_error_sml.gif" alt="" /></a></td>
-<td><a name="TC_ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_TakeCareOfConfiguration"></a><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_TakeCareOfConfiguration">PBKDF2Crypt_Should_TakeCareOfConfiguration</a>
-<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_TakeCareOfConfiguration&apos;);"><span style="display:inline;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_TakeCareOfConfigurationoff"> + </span><span style="display:none;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_TakeCareOfConfigurationon"> - </span>[ Detail ]</a></div></td>
-<td>0</td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.045</td></tr>
 <tr class="a">
-<td></td>
-<td>Unresolved compilation problems:   The method get() is undefined for the type Hasher.Configuration  ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field </td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.044</td></tr>
 <tr class="b">
-<td></td>
-<td>
-<div id="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_TakeCareOfConfigurationerror" style="display:none;">
-<div>
-<pre>java.lang.Error: Unresolved compilation problems: 
-	The method get() is undefined for the type Hasher.Configuration
-	ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field
-	at ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_TakeCareOfConfiguration(HasherTest.java:96)</pre></div></div></td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.046</td></tr>
 <tr class="a">
-<td><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_CheckHash"><img src="images/icon_error_sml.gif" alt="" /></a></td>
-<td><a name="TC_ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_CheckHash"></a><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_CheckHash">PBKDF2HasherCLI_Should_CheckHash</a>
-<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_CheckHash&apos;);"><span style="display:inline;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_CheckHashoff"> + </span><span style="display:none;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_CheckHashon"> - </span>[ Detail ]</a></div></td>
-<td>0.001</td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.087</td></tr>
 <tr class="b">
-<td></td>
-<td>Unresolved compilation problem:   The method main(Arrays.array(&quot;--check&quot;, (String) crypts()[0][0], &quot;--unsafe&quot;, new String(UNSAFE_PASSWORD))) is undefined for the type PBKDF2Hasher </td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.087</td></tr>
 <tr class="a">
-<td></td>
-<td>
-<div id="ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_CheckHasherror" style="display:none;">
-<div>
-<pre>java.lang.Error: Unresolved compilation problem: 
-	The method main(Arrays.array(&quot;--check&quot;, (String) crypts()[0][0], &quot;--unsafe&quot;, new String(UNSAFE_PASSWORD))) is undefined for the type PBKDF2Hasher
-	at ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_CheckHash(HasherTest.java:184)</pre></div></div></td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.09</td></tr>
 <tr class="b">
-<td><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_ComputeHash"><img src="images/icon_error_sml.gif" alt="" /></a></td>
-<td><a name="TC_ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_ComputeHash"></a><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_ComputeHash">PBKDF2HasherCLI_Should_ComputeHash</a>
-<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_ComputeHash&apos;);"><span style="display:inline;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_ComputeHashoff"> + </span><span style="display:none;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_ComputeHashon"> - </span>[ Detail ]</a></div></td>
-<td>0</td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.088</td></tr>
 <tr class="a">
-<td></td>
-<td>Unresolved compilation problem:   The method main(Arrays.array(&quot;--encrypt&quot;, &quot;--unsafe&quot;, UNSAFE_PASSWORD)) is undefined for the type PBKDF2Hasher </td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.087</td></tr>
 <tr class="b">
-<td></td>
-<td>
-<div id="ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_ComputeHasherror" style="display:none;">
-<div>
-<pre>java.lang.Error: Unresolved compilation problem: 
-	The method main(Arrays.array(&quot;--encrypt&quot;, &quot;--unsafe&quot;, UNSAFE_PASSWORD)) is undefined for the type PBKDF2Hasher
-	at ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_ComputeHash(HasherTest.java:164)</pre></div></div></td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.086</td></tr>
 <tr class="a">
-<td><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_AcceptKnownProperties"><img src="images/icon_error_sml.gif" alt="" /></a></td>
-<td><a name="TC_ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_AcceptKnownProperties"></a><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_AcceptKnownProperties">PBKDF2Hasher_Should_AcceptKnownProperties</a>
-<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_AcceptKnownProperties&apos;);"><span style="display:inline;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_AcceptKnownPropertiesoff"> + </span><span style="display:none;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_AcceptKnownPropertieson"> - </span>[ Detail ]</a></div></td>
-<td>0</td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.087</td></tr>
 <tr class="b">
-<td></td>
-<td>Unresolved compilation problems:   The method get() is undefined for the type Hasher.Configuration  SALT_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field  HASH_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field  ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field  ENCODING_PROPERTY_NAME cannot be resolved or is not a field </td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.176</td></tr>
 <tr class="a">
-<td></td>
-<td>
-<div id="ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_AcceptKnownPropertieserror" style="display:none;">
-<div>
-<pre>java.lang.Error: Unresolved compilation problems: 
-	The method get() is undefined for the type Hasher.Configuration
-	SALT_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field
-	HASH_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field
-	ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field
-	ENCODING_PROPERTY_NAME cannot be resolved or is not a field
-	at ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_AcceptKnownProperties(HasherTest.java:70)</pre></div></div></td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.175</td></tr>
 <tr class="b">
-<td><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_HaveDefaultConfiguration"><img src="images/icon_error_sml.gif" alt="" /></a></td>
-<td><a name="TC_ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_HaveDefaultConfiguration"></a><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_HaveDefaultConfiguration">PBKDF2Hasher_Should_HaveDefaultConfiguration</a>
-<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_HaveDefaultConfiguration&apos;);"><span style="display:inline;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_HaveDefaultConfigurationoff"> + </span><span style="display:none;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_HaveDefaultConfigurationon"> - </span>[ Detail ]</a></div></td>
-<td>0.001</td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.173</td></tr>
 <tr class="a">
-<td></td>
-<td>Unresolved compilation problems:   The method getDefault() is undefined for the type Hasher  The method get() is undefined for the type Hasher.Configuration  SALT_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field  HASH_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field  ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field  ENCODING_PROPERTY_NAME cannot be resolved or is not a field </td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.177</td></tr>
 <tr class="b">
-<td></td>
-<td>
-<div id="ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_HaveDefaultConfigurationerror" style="display:none;">
-<div>
-<pre>java.lang.Error: Unresolved compilation problems: 
-	The method getDefault() is undefined for the type Hasher
-	The method get() is undefined for the type Hasher.Configuration
-	SALT_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field
-	HASH_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field
-	ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field
-	ENCODING_PROPERTY_NAME cannot be resolved or is not a field
-	at ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_HaveDefaultConfiguration(HasherTest.java:106)</pre></div></div></td>
-<td></td></tr>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.174</td></tr>
 <tr class="a">
-<td><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectPropertyWithBadType"><img src="images/icon_error_sml.gif" alt="" /></a></td>
-<td><a name="TC_ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectPropertyWithBadType"></a><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectPropertyWithBadType">PBKDF2Hasher_Should_RejectPropertyWithBadType</a>
-<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectPropertyWithBadType&apos;);"><span style="display:inline;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectPropertyWithBadTypeoff"> + </span><span style="display:none;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectPropertyWithBadTypeon"> - </span>[ Detail ]</a></div></td>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.175</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.175</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.353</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.351</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.353</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.349</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.355</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.361</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.347</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.697</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.696</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.694</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.694</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.701</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.703</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.logRound_should_affectCrypt"></a>logRound_should_affectCrypt</td>
+<td>0.706</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_fail"></a>checkPassword_should_fail</td>
+<td>0.011</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_fail"></a>checkPassword_should_fail</td>
+<td>0.011</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_fail"></a>checkPassword_should_fail</td>
+<td>0.011</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_fail"></a>checkPassword_should_fail</td>
+<td>0.011</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_fail"></a>checkPassword_should_fail</td>
+<td>0.012</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_fail"></a>checkPassword_should_fail</td>
+<td>0.011</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.checkPassword_should_fail"></a>checkPassword_should_fail</td>
+<td>0.013</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.generatedCrypt_should_match"></a>generatedCrypt_should_match</td>
+<td>0.174</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.generatedCrypt_should_match"></a>generatedCrypt_should_match</td>
+<td>0.176</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.generatedCrypt_should_match"></a>generatedCrypt_should_match</td>
+<td>0.174</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.generatedCrypt_should_match"></a>generatedCrypt_should_match</td>
+<td>0.179</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.generatedCrypt_should_match"></a>generatedCrypt_should_match</td>
+<td>0.175</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.generatedCrypt_should_match"></a>generatedCrypt_should_match</td>
+<td>0.176</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.BCryptTest.generatedCrypt_should_match"></a>generatedCrypt_should_match</td>
+<td>0.173</td></tr></table></div>
+<div class="section">
+<h3><a name="NTHashTest"></a>NTHashTest</h3><a name="ml.alternet.test.security.auth.hashersNTHashTest"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.NTHashTest.checkPassword_should_fail"></a>checkPassword_should_fail</td>
 <td>0.003</td></tr>
 <tr class="b">
-<td></td>
-<td>Unresolved compilation problems:   SALT_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field  HASH_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field  ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field  SINGLETON cannot be resolved or is not a field </td>
-<td></td></tr>
-<tr class="a">
-<td></td>
-<td>
-<div id="ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectPropertyWithBadTypeerror" style="display:none;">
-<div>
-<pre>java.lang.Error: Unresolved compilation problems: 
-	SALT_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field
-	HASH_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field
-	ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field
-	SINGLETON cannot be resolved or is not a field
-	at ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectPropertyWithBadType(HasherTest.java:60)</pre></div></div></td>
-<td></td></tr>
-<tr class="b">
-<td><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectUnknownProperty"><img src="images/icon_error_sml.gif" alt="" /></a></td>
-<td><a name="TC_ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectUnknownProperty"></a><a href="#ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectUnknownProperty">PBKDF2Hasher_Should_RejectUnknownProperty</a>
-<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectUnknownProperty&apos;);"><span style="display:inline;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectUnknownPropertyoff"> + </span><span style="display:none;" id="ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectUnknownPropertyon"> - </span>[ Detail ]</a></div></td>
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.NTHashTest.checkPassword_should_fail"></a>checkPassword_should_fail</td>
 <td>0.001</td></tr>
 <tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.NTHashTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.001</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.NTHashTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.NTHashTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.NTHashTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.001</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.NTHashTest.generatedCrypt_should_match"></a>generatedCrypt_should_match</td>
+<td>0.001</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.NTHashTest.generatedCrypt_should_match"></a>generatedCrypt_should_match</td>
+<td>0.001</td></tr></table></div>
+<div class="section">
+<h3><a name="CryptFormatTest"></a>CryptFormatTest</h3><a name="ml.alternet.test.security.auth.hashersCryptFormatTest"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a>password_should_matchCrypt</td>
+<td>0.198</td></tr>
+<tr class="b">
+<td><a href="#ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"><img src="images/icon_error_sml.gif" alt="" /></a></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a><a href="#ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt">password_should_matchCrypt</a>
+<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt&apos;);"><span style="display:inline;" id="ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCryptoff"> + </span><span style="display:none;" id="ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypton"> - </span>[ Detail ]</a></div></td>
+<td>0.03</td></tr>
+<tr class="a">
 <td></td>
-<td>Unresolved compilation problems:   SALT_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field  HASH_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field  ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field  ENCODING_PROPERTY_NAME cannot be resolved or is not a field  SINGLETON cannot be resolved or is not a field </td>
+<td>expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;</td>
 <td></td></tr>
 <tr class="b">
 <td></td>
 <td>
-<div id="ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectUnknownPropertyerror" style="display:none;">
+<div id="ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypterror" style="display:none;">
 <div>
-<pre>java.lang.Error: Unresolved compilation problems: 
-	SALT_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field
-	HASH_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field
-	ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field
-	ENCODING_PROPERTY_NAME cannot be resolved or is not a field
-	SINGLETON cannot be resolved or is not a field
-	at ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectUnknownProperty(HasherTest.java:48)</pre></div></div></td>
-<td></td></tr></table></div><br /></div>
+<pre>org.junit.ComparisonFailure: expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;
+	at ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt(CryptFormatTest.java:77)</pre></div></div></td>
+<td></td></tr>
+<tr class="a">
+<td><a href="#ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"><img src="images/icon_error_sml.gif" alt="" /></a></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a><a href="#ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt">password_should_matchCrypt</a>
+<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt&apos;);"><span style="display:inline;" id="ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCryptoff"> + </span><span style="display:none;" id="ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypton"> - </span>[ Detail ]</a></div></td>
+<td>0.002</td></tr>
+<tr class="b">
+<td></td>
+<td>expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;</td>
+<td></td></tr>
+<tr class="a">
+<td></td>
+<td>
+<div id="ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypterror" style="display:none;">
+<div>
+<pre>org.junit.ComparisonFailure: expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;
+	at ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt(CryptFormatTest.java:77)</pre></div></div></td>
+<td></td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a>password_should_matchCrypt</td>
+<td>0.007</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a>password_should_matchCrypt</td>
+<td>0.002</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a>password_should_matchCrypt</td>
+<td>0.001</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a>password_should_matchCrypt</td>
+<td>0.003</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a>password_should_matchCrypt</td>
+<td>0.001</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a>password_should_matchCrypt</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a>password_should_matchCrypt</td>
+<td>0.001</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a>password_should_matchCrypt</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a>password_should_matchCrypt</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a>password_should_matchCrypt</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a>password_should_matchCrypt</td>
+<td>0</td></tr>
+<tr class="a">
+<td><a href="#ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"><img src="images/icon_error_sml.gif" alt="" /></a></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a><a href="#ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt">password_should_matchCrypt</a>
+<div class="detailToggle" style="display:inline"><a href="javascript:toggleDisplay(&apos;ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt&apos;);"><span style="display:inline;" id="ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCryptoff"> + </span><span style="display:none;" id="ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypton"> - </span>[ Detail ]</a></div></td>
+<td>0.002</td></tr>
+<tr class="b">
+<td></td>
+<td>expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;</td>
+<td></td></tr>
+<tr class="a">
+<td></td>
+<td>
+<div id="ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypterror" style="display:none;">
+<div>
+<pre>org.junit.ComparisonFailure: expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;
+	at ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt(CryptFormatTest.java:77)</pre></div></div></td>
+<td></td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.wrongPassword_shouldNot_matchCrypt"></a>wrongPassword_shouldNot_matchCrypt</td>
+<td>0.169</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.wrongPassword_shouldNot_matchCrypt"></a>wrongPassword_shouldNot_matchCrypt</td>
+<td>0.001</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.wrongPassword_shouldNot_matchCrypt"></a>wrongPassword_shouldNot_matchCrypt</td>
+<td>0.001</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.wrongPassword_shouldNot_matchCrypt"></a>wrongPassword_shouldNot_matchCrypt</td>
+<td>0.001</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.wrongPassword_shouldNot_matchCrypt"></a>wrongPassword_shouldNot_matchCrypt</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.wrongPassword_shouldNot_matchCrypt"></a>wrongPassword_shouldNot_matchCrypt</td>
+<td>0.001</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.wrongPassword_shouldNot_matchCrypt"></a>wrongPassword_shouldNot_matchCrypt</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.wrongPassword_shouldNot_matchCrypt"></a>wrongPassword_shouldNot_matchCrypt</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.wrongPassword_shouldNot_matchCrypt"></a>wrongPassword_shouldNot_matchCrypt</td>
+<td>0.001</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.wrongPassword_shouldNot_matchCrypt"></a>wrongPassword_shouldNot_matchCrypt</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.wrongPassword_shouldNot_matchCrypt"></a>wrongPassword_shouldNot_matchCrypt</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.wrongPassword_shouldNot_matchCrypt"></a>wrongPassword_shouldNot_matchCrypt</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.wrongPassword_shouldNot_matchCrypt"></a>wrongPassword_shouldNot_matchCrypt</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.wrongPassword_shouldNot_matchCrypt"></a>wrongPassword_shouldNot_matchCrypt</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.CryptFormatTest.wrongPassword_shouldNot_matchCrypt"></a>wrongPassword_shouldNot_matchCrypt</td>
+<td>0.001</td></tr></table></div>
+<div class="section">
+<h3><a name="SHA2CryptTest"></a>SHA2CryptTest</h3><a name="ml.alternet.test.security.auth.hashersSHA2CryptTest"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.SHA2CryptTest.checkPassword_should_fail"></a>checkPassword_should_fail</td>
+<td>1.625</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.SHA2CryptTest.checkPassword_should_fail"></a>checkPassword_should_fail</td>
+<td>1.791</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.SHA2CryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>1.278</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.SHA2CryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>1.775</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.SHA2CryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.01</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.SHA2CryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.011</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.SHA2CryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.156</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.SHA2CryptTest.checkPassword_should_success"></a>checkPassword_should_success</td>
+<td>0.025</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.SHA2CryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>1.298</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.SHA2CryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>1.79</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.SHA2CryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.011</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.SHA2CryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.01</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.SHA2CryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.157</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.SHA2CryptTest.crypts_should_match"></a>crypts_should_match</td>
+<td>0.027</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.SHA2CryptTest.generatedCrypt_should_match"></a>generatedCrypt_should_match</td>
+<td>0.011</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.SHA2CryptTest.generatedCrypt_should_match"></a>generatedCrypt_should_match</td>
+<td>0.011</td></tr></table></div>
+<div class="section">
+<h3><a name="UnixCryptTest"></a>UnixCryptTest</h3><a name="ml.alternet.test.security.auth.hashersUnixCryptTest"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.UnixCryptTest.testUnixCryptEncodedStrings"></a>testUnixCryptEncodedStrings</td>
+<td>0.01</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.UnixCryptTest.testUnixCryptEncodedStrings"></a>testUnixCryptEncodedStrings</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.UnixCryptTest.testUnixCryptStrings"></a>testUnixCryptStrings</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.UnixCryptTest.testUnixCryptStrings"></a>testUnixCryptStrings</td>
+<td>0.001</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.UnixCryptTest.testUnixCryptStrings"></a>testUnixCryptStrings</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.hashers.UnixCryptTest.testUnixCryptStrings"></a>testUnixCryptStrings</td>
+<td>0.001</td></tr></table></div>
+<div class="section">
+<h3><a name="SafeBufferTest"></a>SafeBufferTest</h3><a name="ml.alternet.test.security.authSafeBufferTest"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.SafeBufferTest.ByteArrayOfFullBuffer_ShouldBe_TheOneExtracted"></a>ByteArrayOfFullBuffer_ShouldBe_TheOneExtracted</td>
+<td>0.004</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.SafeBufferTest.ByteArrayOfPartialBuffer_ShouldNotBe_TheOneExtracted"></a>ByteArrayOfPartialBuffer_ShouldNotBe_TheOneExtracted</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.SafeBufferTest.Bytes_ShouldBe_AppendedToBuffer"></a>Bytes_ShouldBe_AppendedToBuffer</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.SafeBufferTest.SafeEncoding_ShouldWork_LikeStandardEncoding"></a>SafeEncoding_ShouldWork_LikeStandardEncoding</td>
+<td>0.001</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.auth.SafeBufferTest.TooMuchBytes_ShouldBe_AppendedToBuffer"></a>TooMuchBytes_ShouldBe_AppendedToBuffer</td>
+<td>0</td></tr></table></div>
+<div class="section">
+<h3><a name="BasicAuthTest"></a>BasicAuthTest</h3><a name="ml.alternet.test.security.web.jettyBasicAuthTest"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.BasicAuthTest.authPassword_ShouldBe_capturedByServer"></a>authPassword_ShouldBe_capturedByServer</td>
+<td>0.854</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.BasicAuthTest.HTTPAuthenticationMissing"></a>HTTPAuthenticationMissing</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.BasicAuthTest.HTTPBasicAuthenticationMissing"></a>HTTPBasicAuthenticationMissing</td>
+<td>0.001</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.BasicAuthTest.credential_Should_containTheRightUserName"></a>credential_Should_containTheRightUserName</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.BasicAuthTest.passwordHeader_ShouldBe_FilledWithStars"></a>passwordHeader_ShouldBe_FilledWithStars</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.BasicAuthTest.password_Should_HaveTheRigthValue"></a>password_Should_HaveTheRigthValue</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.BasicAuthTest.request_Should_SupplyPassword"></a>request_Should_SupplyPassword</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.BasicAuthTest.request_Should_SupplyValidPassword"></a>request_Should_SupplyValidPassword</td>
+<td>0.002</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.BasicAuthTest.user_ShouldHave_AdminRole"></a>user_ShouldHave_AdminRole</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.BasicAuthTest.user_ShouldNotHave_CustomerRole"></a>user_ShouldNotHave_CustomerRole</td>
+<td>0</td></tr></table></div>
+<div class="section">
+<h3><a name="LDAPAuthTest"></a>LDAPAuthTest</h3><a name="ml.alternet.test.security.web.jettyLDAPAuthTest"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.LDAPAuthTest.authPassword_ShouldBe_capturedByWebServer"></a>authPassword_ShouldBe_capturedByWebServer</td>
+<td>0.188</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.LDAPAuthTest.passwordSession_ShouldBe_FilledWithStarsOrUnavailable"></a>passwordSession_ShouldBe_FilledWithStarsOrUnavailable</td>
+<td>0.001</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.LDAPAuthTest.sessionAuthentication_ShouldBe_Define"></a>sessionAuthentication_ShouldBe_Define</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.LDAPAuthTest.userName_ShouldBe_Defined"></a>userName_ShouldBe_Defined</td>
+<td>0.001</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.LDAPAuthTest.user_ShouldBe_Authentified"></a>user_ShouldBe_Authentified</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.LDAPAuthTest.user_ShouldHave_AdminRole"></a>user_ShouldHave_AdminRole</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.LDAPAuthTest.user_ShouldNotHave_CustomerRole"></a>user_ShouldNotHave_CustomerRole</td>
+<td>0</td></tr></table></div>
+<div class="section">
+<h3><a name="FormAuthTest"></a>FormAuthTest</h3><a name="ml.alternet.test.security.web.jettyFormAuthTest"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.FormAuthTest.authPassword_ShouldBe_capturedByWebServer"></a>authPassword_ShouldBe_capturedByWebServer</td>
+<td>0.162</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.FormAuthTest.passwordSession_ShouldBe_FilledWithStarsOrUnavailable"></a>passwordSession_ShouldBe_FilledWithStarsOrUnavailable</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.FormAuthTest.sessionAuthentication_ShouldBe_Define"></a>sessionAuthentication_ShouldBe_Define</td>
+<td>0.001</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.FormAuthTest.userName_ShouldBe_Defined"></a>userName_ShouldBe_Defined</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.FormAuthTest.user_ShouldBe_Authentified"></a>user_ShouldBe_Authentified</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.FormAuthTest.user_ShouldHave_AdminRole"></a>user_ShouldHave_AdminRole</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.FormAuthTest.user_ShouldNotHave_CustomerRole"></a>user_ShouldNotHave_CustomerRole</td>
+<td>0</td></tr></table></div>
+<div class="section">
+<h3><a name="RESTTest"></a>RESTTest</h3><a name="ml.alternet.test.security.web.jettyRESTTest"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.RESTTest.passwords_ShouldBe_capturedByServer"></a>passwords_ShouldBe_capturedByServer</td>
+<td>0.108</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.RESTTest.RESTPasswordConverter_Should_ConvertRequestPassword"></a>RESTPasswordConverter_Should_ConvertRequestPassword</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.RESTTest.RESTPasswordConverter_Should_SupplyPassword"></a>RESTPasswordConverter_Should_SupplyPassword</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.RESTTest.RESTPasswordConverter_Should_SupplyValidPassword"></a>RESTPasswordConverter_Should_SupplyValidPassword</td>
+<td>0.001</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.RESTTest.rawValueAndPassword_Should_HaveTheSameLength"></a>rawValueAndPassword_Should_HaveTheSameLength</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.RESTTest.rawValue_ShouldBe_FilledWithStars"></a>rawValue_ShouldBe_FilledWithStars</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.RESTTest.unrelatedFields_ShouldNot_BeCaptured"></a>unrelatedFields_ShouldNot_BeCaptured</td>
+<td>0.001</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.jetty.RESTTest.unrelatedFields_Should_HaveTheirValueUnchanged"></a>unrelatedFields_Should_HaveTheirValueUnchanged</td>
+<td>0</td></tr></table></div>
+<div class="section">
+<h3><a name="BasicAuthTest"></a>BasicAuthTest</h3><a name="ml.alternet.test.security.web.tomcatBasicAuthTest"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.BasicAuthTest.authPassword_ShouldBe_capturedByServer"></a>authPassword_ShouldBe_capturedByServer</td>
+<td>0.894</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.BasicAuthTest.HTTPAuthenticationMissing"></a>HTTPAuthenticationMissing</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.BasicAuthTest.HTTPBasicAuthenticationMissing"></a>HTTPBasicAuthenticationMissing</td>
+<td>0.001</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.BasicAuthTest.credential_Should_containTheRightUserName"></a>credential_Should_containTheRightUserName</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.BasicAuthTest.passwordHeader_ShouldBe_FilledWithStars"></a>passwordHeader_ShouldBe_FilledWithStars</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.BasicAuthTest.password_Should_HaveTheRigthValue"></a>password_Should_HaveTheRigthValue</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.BasicAuthTest.request_Should_SupplyPassword"></a>request_Should_SupplyPassword</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.BasicAuthTest.request_Should_SupplyValidPassword"></a>request_Should_SupplyValidPassword</td>
+<td>0.002</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.BasicAuthTest.user_ShouldHave_AdminRole"></a>user_ShouldHave_AdminRole</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.BasicAuthTest.user_ShouldNotHave_CustomerRole"></a>user_ShouldNotHave_CustomerRole</td>
+<td>0.001</td></tr></table></div>
+<div class="section">
+<h3><a name="FormAuthTest"></a>FormAuthTest</h3><a name="ml.alternet.test.security.web.tomcatFormAuthTest"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.FormAuthTest.authPassword_ShouldBe_capturedByWebServer"></a>authPassword_ShouldBe_capturedByWebServer</td>
+<td>0.223</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.FormAuthTest.passwordSession_ShouldBe_FilledWithStarsOrUnavailable"></a>passwordSession_ShouldBe_FilledWithStarsOrUnavailable</td>
+<td>0.001</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.FormAuthTest.sessionAuthentication_ShouldBe_Define"></a>sessionAuthentication_ShouldBe_Define</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.FormAuthTest.userName_ShouldBe_Defined"></a>userName_ShouldBe_Defined</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.FormAuthTest.user_ShouldBe_Authentified"></a>user_ShouldBe_Authentified</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.FormAuthTest.user_ShouldHave_AdminRole"></a>user_ShouldHave_AdminRole</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.FormAuthTest.user_ShouldNotHave_CustomerRole"></a>user_ShouldNotHave_CustomerRole</td>
+<td>0.001</td></tr></table></div>
+<div class="section">
+<h3><a name="RESTTest"></a>RESTTest</h3><a name="ml.alternet.test.security.web.tomcatRESTTest"></a>
+<table border="1" class="table table-striped">
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.RESTTest.passwords_ShouldBe_capturedByServer"></a>passwords_ShouldBe_capturedByServer</td>
+<td>0.127</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.RESTTest.RESTPasswordConverter_Should_ConvertRequestPassword"></a>RESTPasswordConverter_Should_ConvertRequestPassword</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.RESTTest.RESTPasswordConverter_Should_SupplyPassword"></a>RESTPasswordConverter_Should_SupplyPassword</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.RESTTest.RESTPasswordConverter_Should_SupplyValidPassword"></a>RESTPasswordConverter_Should_SupplyValidPassword</td>
+<td>0</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.RESTTest.rawValueAndPassword_Should_HaveTheSameLength"></a>rawValueAndPassword_Should_HaveTheSameLength</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.RESTTest.rawValue_ShouldBe_FilledWithStars"></a>rawValue_ShouldBe_FilledWithStars</td>
+<td>0.001</td></tr>
+<tr class="a">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.RESTTest.unrelatedFields_ShouldNot_BeCaptured"></a>unrelatedFields_ShouldNot_BeCaptured</td>
+<td>0</td></tr>
+<tr class="b">
+<td><img src="images/icon_success_sml.gif" alt="" /></td>
+<td><a name="TC_ml.alternet.test.security.web.tomcat.RESTTest.unrelatedFields_Should_HaveTheirValueUnchanged"></a>unrelatedFields_Should_HaveTheirValueUnchanged</td>
+<td>0</td></tr></table></div><br /></div>
 <div class="section">
 <h2><a name="Failure_Details"></a>Failure Details</h2><a name="Failure_Details"></a>
 <p>[<a href="#Summary">Summary</a>] [<a href="#Package_List">Package List</a>] [<a href="#Test_Cases">Test Cases</a>]</p><br />
 <table border="1" class="table table-striped">
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" /></td>
-<td><a name="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_ShouldBe_DefaultHasher"></a>PBKDF2Crypt_ShouldBe_DefaultHasher</td></tr>
+<td><a name="ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a>password_should_matchCrypt</td></tr>
 <tr class="b">
 <td></td>
-<td>java.lang.Error: Unresolved compilation problem:   The method getDefault() is undefined for the type Hasher </td></tr>
+<td>org.junit.ComparisonFailure: expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;</td></tr>
 <tr class="a">
 <td></td>
 <td>
-<div id="PBKDF2Crypt_ShouldBe_DefaultHashererror"><a href="./xref-test/ml/alternet/test/security/auth/HasherTest.html#41">ml.alternet.test.security.auth.HasherTest:41</a></div></td></tr>
+<div id="password_should_matchCrypterror"><a href="./xref-test/ml/alternet/test/security/auth/hashers/CryptFormatTest.html#77">ml.alternet.test.security.auth.hashers.CryptFormatTest:77</a></div></td></tr>
 <tr class="b">
 <td><img src="images/icon_error_sml.gif" alt="" /></td>
-<td><a name="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_GenerateDifferentCrypts"></a>PBKDF2Crypt_Should_GenerateDifferentCrypts</td></tr>
+<td><a name="ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a>password_should_matchCrypt</td></tr>
 <tr class="a">
 <td></td>
-<td>java.lang.Error: Unresolved compilation problems:   The method getDefault() is undefined for the type Hasher  Collections cannot be resolved </td></tr>
+<td>org.junit.ComparisonFailure: expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;</td></tr>
 <tr class="b">
 <td></td>
 <td>
-<div id="PBKDF2Crypt_Should_GenerateDifferentCryptserror"><a href="./xref-test/ml/alternet/test/security/auth/HasherTest.html#137">ml.alternet.test.security.auth.HasherTest:137</a></div></td></tr>
+<div id="password_should_matchCrypterror"><a href="./xref-test/ml/alternet/test/security/auth/hashers/CryptFormatTest.html#77">ml.alternet.test.security.auth.hashers.CryptFormatTest:77</a></div></td></tr>
 <tr class="a">
 <td><img src="images/icon_error_sml.gif" alt="" /></td>
-<td><a name="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_HaveCorrectForm"></a>PBKDF2Crypt_Should_HaveCorrectForm</td></tr>
+<td><a name="ml.alternet.test.security.auth.hashers.CryptFormatTest.password_should_matchCrypt"></a>password_should_matchCrypt</td></tr>
 <tr class="b">
 <td></td>
-<td>java.lang.Error: Unresolved compilation problems:   The method getDefault() is undefined for the type Hasher  The method get() is undefined for the type Hasher.Configuration  ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field </td></tr>
+<td>org.junit.ComparisonFailure: expected:&lt;[tru]e&gt; but was:&lt;[fals]e&gt;</td></tr>
 <tr class="a">
 <td></td>
 <td>
-<div id="PBKDF2Crypt_Should_HaveCorrectFormerror"><a href="./xref-test/ml/alternet/test/security/auth/HasherTest.html#118">ml.alternet.test.security.auth.HasherTest:118</a></div></td></tr>
-<tr class="b">
-<td><img src="images/icon_error_sml.gif" alt="" /></td>
-<td><a name="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword"></a>PBKDF2Crypt_Should_MatchPassword</td></tr>
-<tr class="a">
-<td></td>
-<td>java.lang.Error: Unresolved compilation problem:   SINGLETON cannot be resolved or is not a field </td></tr>
-<tr class="b">
-<td></td>
-<td>
-<div id="PBKDF2Crypt_Should_MatchPassworderror"><a href="./xref-test/ml/alternet/test/security/auth/HasherTest.html#130">ml.alternet.test.security.auth.HasherTest:130</a></div></td></tr>
-<tr class="a">
-<td><img src="images/icon_error_sml.gif" alt="" /></td>
-<td><a name="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword"></a>PBKDF2Crypt_Should_MatchPassword</td></tr>
-<tr class="b">
-<td></td>
-<td>java.lang.Error: Unresolved compilation problem:   SINGLETON cannot be resolved or is not a field </td></tr>
-<tr class="a">
-<td></td>
-<td>
-<div id="PBKDF2Crypt_Should_MatchPassworderror"><a href="./xref-test/ml/alternet/test/security/auth/HasherTest.html#130">ml.alternet.test.security.auth.HasherTest:130</a></div></td></tr>
-<tr class="b">
-<td><img src="images/icon_error_sml.gif" alt="" /></td>
-<td><a name="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword"></a>PBKDF2Crypt_Should_MatchPassword</td></tr>
-<tr class="a">
-<td></td>
-<td>java.lang.Error: Unresolved compilation problem:   SINGLETON cannot be resolved or is not a field </td></tr>
-<tr class="b">
-<td></td>
-<td>
-<div id="PBKDF2Crypt_Should_MatchPassworderror"><a href="./xref-test/ml/alternet/test/security/auth/HasherTest.html#130">ml.alternet.test.security.auth.HasherTest:130</a></div></td></tr>
-<tr class="a">
-<td><img src="images/icon_error_sml.gif" alt="" /></td>
-<td><a name="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_MatchPassword"></a>PBKDF2Crypt_Should_MatchPassword</td></tr>
-<tr class="b">
-<td></td>
-<td>java.lang.Error: Unresolved compilation problem:   SINGLETON cannot be resolved or is not a field </td></tr>
-<tr class="a">
-<td></td>
-<td>
-<div id="PBKDF2Crypt_Should_MatchPassworderror"><a href="./xref-test/ml/alternet/test/security/auth/HasherTest.html#130">ml.alternet.test.security.auth.HasherTest:130</a></div></td></tr>
-<tr class="b">
-<td><img src="images/icon_error_sml.gif" alt="" /></td>
-<td><a name="ml.alternet.test.security.auth.HasherTest.PBKDF2Crypt_Should_TakeCareOfConfiguration"></a>PBKDF2Crypt_Should_TakeCareOfConfiguration</td></tr>
-<tr class="a">
-<td></td>
-<td>java.lang.Error: Unresolved compilation problems:   The method get() is undefined for the type Hasher.Configuration  ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field </td></tr>
-<tr class="b">
-<td></td>
-<td>
-<div id="PBKDF2Crypt_Should_TakeCareOfConfigurationerror"><a href="./xref-test/ml/alternet/test/security/auth/HasherTest.html#96">ml.alternet.test.security.auth.HasherTest:96</a></div></td></tr>
-<tr class="a">
-<td><img src="images/icon_error_sml.gif" alt="" /></td>
-<td><a name="ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_CheckHash"></a>PBKDF2HasherCLI_Should_CheckHash</td></tr>
-<tr class="b">
-<td></td>
-<td>java.lang.Error: Unresolved compilation problem:   The method main(Arrays.array(&quot;--check&quot;, (String) crypts()[0][0], &quot;--unsafe&quot;, new String(UNSAFE_PASSWORD))) is undefined for the type PBKDF2Hasher </td></tr>
-<tr class="a">
-<td></td>
-<td>
-<div id="PBKDF2HasherCLI_Should_CheckHasherror"><a href="./xref-test/ml/alternet/test/security/auth/HasherTest.html#184">ml.alternet.test.security.auth.HasherTest:184</a></div></td></tr>
-<tr class="b">
-<td><img src="images/icon_error_sml.gif" alt="" /></td>
-<td><a name="ml.alternet.test.security.auth.HasherTest.PBKDF2HasherCLI_Should_ComputeHash"></a>PBKDF2HasherCLI_Should_ComputeHash</td></tr>
-<tr class="a">
-<td></td>
-<td>java.lang.Error: Unresolved compilation problem:   The method main(Arrays.array(&quot;--encrypt&quot;, &quot;--unsafe&quot;, UNSAFE_PASSWORD)) is undefined for the type PBKDF2Hasher </td></tr>
-<tr class="b">
-<td></td>
-<td>
-<div id="PBKDF2HasherCLI_Should_ComputeHasherror"><a href="./xref-test/ml/alternet/test/security/auth/HasherTest.html#164">ml.alternet.test.security.auth.HasherTest:164</a></div></td></tr>
-<tr class="a">
-<td><img src="images/icon_error_sml.gif" alt="" /></td>
-<td><a name="ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_AcceptKnownProperties"></a>PBKDF2Hasher_Should_AcceptKnownProperties</td></tr>
-<tr class="b">
-<td></td>
-<td>java.lang.Error: Unresolved compilation problems:   The method get() is undefined for the type Hasher.Configuration  SALT_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field  HASH_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field  ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field  ENCODING_PROPERTY_NAME cannot be resolved or is not a field </td></tr>
-<tr class="a">
-<td></td>
-<td>
-<div id="PBKDF2Hasher_Should_AcceptKnownPropertieserror"><a href="./xref-test/ml/alternet/test/security/auth/HasherTest.html#70">ml.alternet.test.security.auth.HasherTest:70</a></div></td></tr>
-<tr class="b">
-<td><img src="images/icon_error_sml.gif" alt="" /></td>
-<td><a name="ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_HaveDefaultConfiguration"></a>PBKDF2Hasher_Should_HaveDefaultConfiguration</td></tr>
-<tr class="a">
-<td></td>
-<td>java.lang.Error: Unresolved compilation problems:   The method getDefault() is undefined for the type Hasher  The method get() is undefined for the type Hasher.Configuration  SALT_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field  HASH_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field  ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field  ENCODING_PROPERTY_NAME cannot be resolved or is not a field </td></tr>
-<tr class="b">
-<td></td>
-<td>
-<div id="PBKDF2Hasher_Should_HaveDefaultConfigurationerror"><a href="./xref-test/ml/alternet/test/security/auth/HasherTest.html#106">ml.alternet.test.security.auth.HasherTest:106</a></div></td></tr>
-<tr class="a">
-<td><img src="images/icon_error_sml.gif" alt="" /></td>
-<td><a name="ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectPropertyWithBadType"></a>PBKDF2Hasher_Should_RejectPropertyWithBadType</td></tr>
-<tr class="b">
-<td></td>
-<td>java.lang.Error: Unresolved compilation problems:   SALT_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field  HASH_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field  ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field  SINGLETON cannot be resolved or is not a field </td></tr>
-<tr class="a">
-<td></td>
-<td>
-<div id="PBKDF2Hasher_Should_RejectPropertyWithBadTypeerror"><a href="./xref-test/ml/alternet/test/security/auth/HasherTest.html#60">ml.alternet.test.security.auth.HasherTest:60</a></div></td></tr>
-<tr class="b">
-<td><img src="images/icon_error_sml.gif" alt="" /></td>
-<td><a name="ml.alternet.test.security.auth.HasherTest.PBKDF2Hasher_Should_RejectUnknownProperty"></a>PBKDF2Hasher_Should_RejectUnknownProperty</td></tr>
-<tr class="a">
-<td></td>
-<td>java.lang.Error: Unresolved compilation problems:   SALT_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field  HASH_BYTE_SIZE_PROPERTY_NAME cannot be resolved or is not a field  ITERATIONS_PROPERTY_NAME cannot be resolved or is not a field  ENCODING_PROPERTY_NAME cannot be resolved or is not a field  SINGLETON cannot be resolved or is not a field </td></tr>
-<tr class="b">
-<td></td>
-<td>
-<div id="PBKDF2Hasher_Should_RejectUnknownPropertyerror"><a href="./xref-test/ml/alternet/test/security/auth/HasherTest.html#48">ml.alternet.test.security.auth.HasherTest:48</a></div></td></tr></table><br /></div>
+<div id="password_should_matchCrypterror"><a href="./xref-test/ml/alternet/test/security/auth/hashers/CryptFormatTest.html#77">ml.alternet.test.security.auth.hashers.CryptFormatTest:77</a></div></td></tr></table><br /></div>
         </div>
     </div>
     <hr/>
