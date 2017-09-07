@@ -193,7 +193,7 @@
 <a class="jxr_linenumber" name="L185" href="#L185">185</a>                 <strong class="jxr_keyword">break</strong>;
 <a class="jxr_linenumber" name="L186" href="#L186">186</a> 
 <a class="jxr_linenumber" name="L187" href="#L187">187</a>             <strong class="jxr_keyword">case</strong> UTF8_REJECT:
-<a class="jxr_linenumber" name="L188" href="#L188">188</a>                 String reason = <span class="jxr_string">"byte "</span>+StringUtil.getHex(<strong class="jxr_keyword">new</strong> byte[] {b})+<span class="jxr_string">" in state "</span>+(_state/12);
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>                 String reason = <span class="jxr_string">"byte "</span>+StringUtil.getHex(<strong class="jxr_keyword">new</strong> byte[] {b}, false)+<span class="jxr_string">" in state "</span>+(_state/12);
 <a class="jxr_linenumber" name="L189" href="#L189">189</a>                 _codep=0;
 <a class="jxr_linenumber" name="L190" href="#L190">190</a>                 _state = UTF8_ACCEPT;
 <a class="jxr_linenumber" name="L191" href="#L191">191</a>                 _appendable.append(REPLACEMENT);

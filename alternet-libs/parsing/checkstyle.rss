@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017 Alternet</copyright>
     <item>
-      <title>File: 24,
-             Errors: 9,
+      <title>File: 25,
+             Errors: 15,
              Warnings: 0,
              Infos: 22
       </title>
@@ -46,20 +46,6 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.util.Grammar$.java">ml/alternet/parser/util/Grammar$.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.handlers.HandlerAccumulator.java">ml/alternet/parser/handlers/HandlerAccumulator.java</a>
                 </td>
                 <td>
@@ -75,6 +61,160 @@ under the License.
                           <tr>
                 <td>
                   <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.util.package-info.java">ml/alternet/parser/util/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.util.ByteCodeFactory$.java">ml/alternet/parser/util/ByteCodeFactory$.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.Handler.java">ml/alternet/parser/Handler.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.ast.NodeBuilder.java">ml/alternet/parser/ast/NodeBuilder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.util.ComposedRule.java">ml/alternet/parser/util/ComposedRule.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.util.ValueStack.java">ml/alternet/parser/util/ValueStack.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.handlers.DataHandler.java">ml/alternet/parser/handlers/DataHandler.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.grammars.RegexpGrammar.java">ml/alternet/grammars/RegexpGrammar.java</a>
+                </td>
+                <td>
+                  22
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.handlers.TreeHandler.java">ml/alternet/parser/handlers/TreeHandler.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.ast.RuleMapper.java">ml/alternet/parser/ast/RuleMapper.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.handlers.HandlerBuffer.java">ml/alternet/parser/handlers/HandlerBuffer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.util.Grammar$.java">ml/alternet/parser/util/Grammar$.java</a>
                 </td>
                 <td>
                   0
@@ -130,34 +270,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.Handler.java">ml/alternet/parser/Handler.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.ast.NodeBuilder.java">ml/alternet/parser/ast/NodeBuilder.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.Grammar.java">ml/alternet/parser/Grammar.java</a>
                 </td>
                 <td>
@@ -168,48 +280,6 @@ under the License.
                 </td>
                 <td>
                   4
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.util.ComposedRule.java">ml/alternet/parser/util/ComposedRule.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.util.ValueStack.java">ml/alternet/parser/util/ValueStack.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.handlers.DataHandler.java">ml/alternet/parser/handlers/DataHandler.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
                 </td>
               </tr>
                           <tr>
@@ -284,63 +354,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.grammars.RegexpGrammar.java">ml/alternet/grammars/RegexpGrammar.java</a>
-                </td>
-                <td>
-                  22
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  2
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.handlers.TreeHandler.java">ml/alternet/parser/handlers/TreeHandler.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.handlers.package-info.java">ml/alternet/parser/handlers/package-info.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.ast.RuleMapper.java">ml/alternet/parser/ast/RuleMapper.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.handlers.HandlerBuffer.java">ml/alternet/parser/handlers/HandlerBuffer.java</a>
                 </td>
                 <td>
                   0

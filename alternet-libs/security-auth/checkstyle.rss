@@ -25,10 +25,10 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017 Alternet</copyright>
     <item>
-      <title>File: 34,
-             Errors: 176,
-             Warnings: 24,
-             Infos: 23
+      <title>File: 36,
+             Errors: 181,
+             Warnings: 41,
+             Infos: 32
       </title>
             <link>http://alternet.ml/alternet-libs/security/security.html/checkstyle.html</link>
       <description>
@@ -55,7 +55,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  2
                 </td>
               </tr>
                           <tr>
@@ -105,13 +105,13 @@ under the License.
                   <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.auth.hashers.ModularCryptFormatHashers.java">ml/alternet/security/auth/hashers/ModularCryptFormatHashers.java</a>
                 </td>
                 <td>
-                  7
+                  10
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  1
+                  2
                 </td>
               </tr>
                           <tr>
@@ -150,10 +150,24 @@ under the License.
                   5
                 </td>
                 <td>
-                  15
+                  16
                 </td>
                 <td>
                   14
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.auth.hashers.impl.Argon2Hasher.java">ml/alternet/security/auth/hashers/impl/Argon2Hasher.java</a>
+                </td>
+                <td>
+                  6
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  25
                 </td>
               </tr>
                           <tr>
@@ -237,7 +251,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  18
+                  0
                 </td>
               </tr>
                           <tr>
@@ -251,7 +265,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>
@@ -280,6 +294,20 @@ under the License.
                 </td>
                 <td>
                   0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.ml/alternet-libs/security/security.html/checkstyle.html#ml.alternet.security.binary.LittleEndian.java">ml/alternet/security/binary/LittleEndian.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  13
+                </td>
+                <td>
+                  8
                 </td>
               </tr>
                           <tr>
@@ -363,7 +391,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  2
                 </td>
               </tr>
                           <tr>
@@ -374,10 +402,10 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  2
                 </td>
                 <td>
-                  17
+                  19
                 </td>
               </tr>
                           <tr>
@@ -405,7 +433,7 @@ under the License.
                   2
                 </td>
                 <td>
-                  23
+                  7
                 </td>
               </tr>
                           <tr>
@@ -419,7 +447,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>

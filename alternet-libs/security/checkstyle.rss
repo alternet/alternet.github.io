@@ -26,8 +26,8 @@ under the License.
     <copyright>&#169;2017 Alternet</copyright>
     <item>
       <title>File: 31,
-             Errors: 23,
-             Warnings: 3,
+             Errors: 17,
+             Warnings: 4,
              Infos: 7
       </title>
             <link>http://alternet.ml/alternet-libs/security/security.html/checkstyle.html</link>
@@ -234,10 +234,10 @@ under the License.
                   0
                 </td>
                 <td>
-                  3
+                  4
                 </td>
                 <td>
-                  13
+                  7
                 </td>
               </tr>
                           <tr>
