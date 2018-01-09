@@ -44,6 +44,7 @@
             <li><a href="security/index.html" title="Alternet Security">Alternet Security</a></li>
             <li><a href="tools/index.html" title="Alternet Tools">Alternet Tools</a></li>
             <li><a href="tools-generator/index.html" title="Alternet Tools - Generator">Alternet Tools - Generator</a></li>
+            <li><a href="prop-bind-maven-plugin/index.html" title="Properties Binder Maven Plugin">Properties Binder Maven Plugin</a></li>
         </ul>
       </li>
         <li class="dropdown">
@@ -139,26 +140,15 @@
 
 <ul>
   
-<li>Step 1 : build a local site : (run test before site since some reports are aggregated)</li>
+<li>Step 1 : build the local sites and run the aggregation : (run test before site since some reports are aggregated)</li>
 </ul>
 
 <div class="source">
-<div class="source"><pre class="prettyprint linenums">cd [workspace]/ml.alternet/tools-generator/
-mvn clean install site
-cd [workspace]/ml.alternet/tools/
-mvn clean install site
+<div class="source"><pre class="prettyprint linenums">cd [workspace]/ml.alternet/
+./mvn-site.sh
 </pre></div></div>
-<p>If one fails but you want to publish anyway, rinse and repeat :</p>
-
-<div class="source">
-<div class="source"><pre class="prettyprint linenums">mvn -DskipTests install site
-</pre></div></div>
-<p>Finally, run the aggregation :</p>
-
-<div class="source">
-<div class="source"><pre class="prettyprint linenums">cd [workspace]/ml.alternet/alternet-libs
-mvn clean install site
-</pre></div></div>
+<p>(clean alternet-libs, clean install site all subprojects, install site alternet-libs)</p>
+<p>Tests failures are ignored.</p>
 
 <ul>
   

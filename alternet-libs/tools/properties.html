@@ -44,6 +44,7 @@
             <li><a href="../security/index.html" title="Alternet Security">Alternet Security</a></li>
             <li><a href="../tools/index.html" title="Alternet Tools">Alternet Tools</a></li>
             <li><a href="../tools-generator/index.html" title="Alternet Tools - Generator">Alternet Tools - Generator</a></li>
+            <li><a href="../prop-bind-maven-plugin/index.html" title="Properties Binder Maven Plugin">Properties Binder Maven Plugin</a></li>
         </ul>
       </li>
         <li class="dropdown">
@@ -65,6 +66,7 @@
             <li class="dropdown-submenu">
 <a href="project-reports.html" title="Project Reports">Project Reports</a>
               <ul class="dropdown-menu">
+                  <li><a href="apidocs/index.html" title="JavaDocs">JavaDocs</a></li>
                   <li><a href="xref/index.html" title="Source Xref">Source Xref</a></li>
                   <li><a href="xref-test/index.html" title="Test Source Xref">Test Source Xref</a></li>
                   <li><a href="surefire-report.html" title="Surefire Report">Surefire Report</a></li>
@@ -386,6 +388,24 @@ jndi.ds = java:/comp/env/jdbc/someDB
 <pre class="prettyprint">
 db.account.password = *****
 </pre></div></div>
+
+<div class="alert alert-info" role="alert">
+Instead of getting a <tt>char[]</tt> field, it is possible to get a <tt><a href="../apidocs/ml/alternet/security/Password.html">ml.alternet.security.Password</a></tt>.
+To achieve this, simply add the Maven declaration in your build :
+
+
+<div>
+<pre>
+&lt;dependency&gt;
+    &lt;groupId&gt;ml.alternet&lt;/groupId&gt;
+    &lt;artifactId&gt;alternet-security&lt;/artifactId&gt;
+    &lt;version&gt;1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</pre></div>
+
+You also have to write your own adapter (see below). Note that since such password live aside the application in a configuration file, using that secure password has not so much advantages. Note also that they will be built from a `java.lang.String`, not from a `char[]`.
+
+</div>
 <p><a name="adapters"></a></p></div>
 <div class="section">
 <h4><a name="Other_types_adapters_and_other_directives"></a>Other types, adapters, and other directives</h4>
@@ -795,7 +815,7 @@ account.password = thePassword
 <p>Accessing a property in your Java program remains unchanged :</p>
 
 <div class="source">
-<div class="source"><pre class="prettyprint linenums">    if (&quot;admin&quot;.equals(conf.db.account.login) {
+<div class="source"><pre class="prettyprint linenums">    if (&quot;admin&quot;.equals(conf.db.account.login)) {
         // TODO
     }
 </pre></div></div>
