@@ -1571,661 +1571,654 @@
 <a class="jxr_linenumber" name="L1563" href="#L1563">1563</a>             <strong class="jxr_keyword">return</strong> CharToken.unwrap(<strong class="jxr_keyword">this</strong>);
 <a class="jxr_linenumber" name="L1564" href="#L1564">1564</a>         }
 <a class="jxr_linenumber" name="L1565" href="#L1565">1565</a> 
-<a class="jxr_linenumber" name="L1566" href="#L1566">1566</a>         @Override
-<a class="jxr_linenumber" name="L1567" href="#L1567">1567</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">Rule</a> traverse(<a href="../../../ml/alternet/parser/Grammar.html">Rule</a> hostRule, Set&lt;Rule&gt; traversed,
-<a class="jxr_linenumber" name="L1568" href="#L1568">1568</a>                 BiFunction&lt;Rule, Rule, Rule&gt; transformer, Function&lt;Rule, Rule&gt; targetRule)
-<a class="jxr_linenumber" name="L1569" href="#L1569">1569</a>         {
-<a class="jxr_linenumber" name="L1570" href="#L1570">1570</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>;
-<a class="jxr_linenumber" name="L1571" href="#L1571">1571</a>         }
-<a class="jxr_linenumber" name="L1572" href="#L1572">1572</a> 
-<a class="jxr_linenumber" name="L1573" href="#L1573">1573</a>     }
-<a class="jxr_linenumber" name="L1574" href="#L1574">1574</a> 
-<a class="jxr_linenumber" name="L1575" href="#L1575">1575</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1576" href="#L1576">1576</a> <em class="jxr_javadoccomment">     * A character token, based on compositions of character ranges.</em>
+<a class="jxr_linenumber" name="L1566" href="#L1566">1566</a>     }
+<a class="jxr_linenumber" name="L1567" href="#L1567">1567</a> 
+<a class="jxr_linenumber" name="L1568" href="#L1568">1568</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1569" href="#L1569">1569</a> <em class="jxr_javadoccomment">     * A character token, based on compositions of character ranges.</em>
+<a class="jxr_linenumber" name="L1570" href="#L1570">1570</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L1571" href="#L1571">1571</a> <em class="jxr_javadoccomment">     * @see Grammar#is(int)</em>
+<a class="jxr_linenumber" name="L1572" href="#L1572">1572</a> <em class="jxr_javadoccomment">     * @see Grammar#isOneOf(String)</em>
+<a class="jxr_linenumber" name="L1573" href="#L1573">1573</a> <em class="jxr_javadoccomment">     * @see Grammar#range(int, int)</em>
+<a class="jxr_linenumber" name="L1574" href="#L1574">1574</a> <em class="jxr_javadoccomment">     * @see Grammar#isNot(int)</em>
+<a class="jxr_linenumber" name="L1575" href="#L1575">1575</a> <em class="jxr_javadoccomment">     * @see Grammar#isNot(Token...)</em>
+<a class="jxr_linenumber" name="L1576" href="#L1576">1576</a> <em class="jxr_javadoccomment">     * @see Grammar#isNotOneOf(String)</em>
 <a class="jxr_linenumber" name="L1577" href="#L1577">1577</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L1578" href="#L1578">1578</a> <em class="jxr_javadoccomment">     * @see Grammar#is(int)</em>
-<a class="jxr_linenumber" name="L1579" href="#L1579">1579</a> <em class="jxr_javadoccomment">     * @see Grammar#isOneOf(String)</em>
-<a class="jxr_linenumber" name="L1580" href="#L1580">1580</a> <em class="jxr_javadoccomment">     * @see Grammar#range(int, int)</em>
-<a class="jxr_linenumber" name="L1581" href="#L1581">1581</a> <em class="jxr_javadoccomment">     * @see Grammar#isNot(int)</em>
-<a class="jxr_linenumber" name="L1582" href="#L1582">1582</a> <em class="jxr_javadoccomment">     * @see Grammar#isNot(Token...)</em>
-<a class="jxr_linenumber" name="L1583" href="#L1583">1583</a> <em class="jxr_javadoccomment">     * @see Grammar#isNotOneOf(String)</em>
-<a class="jxr_linenumber" name="L1584" href="#L1584">1584</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L1585" href="#L1585">1585</a> <em class="jxr_javadoccomment">     * @author Philippe Poulard</em>
-<a class="jxr_linenumber" name="L1586" href="#L1586">1586</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L1587" href="#L1587">1587</a>     <strong class="jxr_keyword">class</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> <strong class="jxr_keyword">extends</strong> <a href="../../../ml/alternet/parser/Grammar.html">Token</a> {
-<a class="jxr_linenumber" name="L1588" href="#L1588">1588</a> 
-<a class="jxr_linenumber" name="L1589" href="#L1589">1589</a>         <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> charRange;
-<a class="jxr_linenumber" name="L1590" href="#L1590">1590</a> 
-<a class="jxr_linenumber" name="L1591" href="#L1591">1591</a>         <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1592" href="#L1592">1592</a> <em class="jxr_javadoccomment">         * Create a char token based on a char range.</em>
-<a class="jxr_linenumber" name="L1593" href="#L1593">1593</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1594" href="#L1594">1594</a> <em class="jxr_javadoccomment">         * @param charRange The underlying char range.</em>
-<a class="jxr_linenumber" name="L1595" href="#L1595">1595</a> <em class="jxr_javadoccomment">         */</em>
-<a class="jxr_linenumber" name="L1596" href="#L1596">1596</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(<a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> charRange) {
-<a class="jxr_linenumber" name="L1597" href="#L1597">1597</a>             <strong class="jxr_keyword">this</strong>.charRange = charRange;
-<a class="jxr_linenumber" name="L1598" href="#L1598">1598</a>         }
-<a class="jxr_linenumber" name="L1599" href="#L1599">1599</a> 
-<a class="jxr_linenumber" name="L1600" href="#L1600">1600</a>         <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1601" href="#L1601">1601</a> <em class="jxr_javadoccomment">         * Return the char token wrapped in the given token, if any.</em>
-<a class="jxr_linenumber" name="L1602" href="#L1602">1602</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1603" href="#L1603">1603</a> <em class="jxr_javadoccomment">         * @param token The token to examine, may be or may wrap a char token.</em>
-<a class="jxr_linenumber" name="L1604" href="#L1604">1604</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1605" href="#L1605">1605</a> <em class="jxr_javadoccomment">         * @return The char token if any.</em>
-<a class="jxr_linenumber" name="L1606" href="#L1606">1606</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1607" href="#L1607">1607</a> <em class="jxr_javadoccomment">         * @see TraversableRule.SimpleRule</em>
-<a class="jxr_linenumber" name="L1608" href="#L1608">1608</a> <em class="jxr_javadoccomment">         */</em>
-<a class="jxr_linenumber" name="L1609" href="#L1609">1609</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> java.util.Optional&lt;CharToken&gt; unwrapSafely(<a href="../../../ml/alternet/parser/Grammar.html">Token</a> token) {
-<a class="jxr_linenumber" name="L1610" href="#L1610">1610</a>             <strong class="jxr_keyword">while</strong> (! (token instanceof CharToken) &amp;&amp; token instanceof TraversableRule.SimpleRule) {
-<a class="jxr_linenumber" name="L1611" href="#L1611">1611</a>                 token = (Token) ((TraversableRule.SimpleRule) token).getComponent();
-<a class="jxr_linenumber" name="L1612" href="#L1612">1612</a>             }
-<a class="jxr_linenumber" name="L1613" href="#L1613">1613</a>             <strong class="jxr_keyword">if</strong> (token instanceof CharToken) {
-<a class="jxr_linenumber" name="L1614" href="#L1614">1614</a>                 <strong class="jxr_keyword">return</strong> java.util.Optional.of((CharToken) token);
-<a class="jxr_linenumber" name="L1615" href="#L1615">1615</a>             } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L1616" href="#L1616">1616</a>                 <strong class="jxr_keyword">return</strong> java.util.Optional.empty();
-<a class="jxr_linenumber" name="L1617" href="#L1617">1617</a>             }
-<a class="jxr_linenumber" name="L1618" href="#L1618">1618</a>         }
-<a class="jxr_linenumber" name="L1619" href="#L1619">1619</a> 
-<a class="jxr_linenumber" name="L1620" href="#L1620">1620</a>         <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1621" href="#L1621">1621</a> <em class="jxr_javadoccomment">         * Return the char token wrapped in the given token, if any.</em>
+<a class="jxr_linenumber" name="L1578" href="#L1578">1578</a> <em class="jxr_javadoccomment">     * @author Philippe Poulard</em>
+<a class="jxr_linenumber" name="L1579" href="#L1579">1579</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L1580" href="#L1580">1580</a>     <strong class="jxr_keyword">class</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> <strong class="jxr_keyword">extends</strong> <a href="../../../ml/alternet/parser/Grammar.html">Token</a> <strong class="jxr_keyword">implements</strong> TraversableRule.SelfRule {
+<a class="jxr_linenumber" name="L1581" href="#L1581">1581</a> 
+<a class="jxr_linenumber" name="L1582" href="#L1582">1582</a>         <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> charRange;
+<a class="jxr_linenumber" name="L1583" href="#L1583">1583</a> 
+<a class="jxr_linenumber" name="L1584" href="#L1584">1584</a>         <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1585" href="#L1585">1585</a> <em class="jxr_javadoccomment">         * Create a char token based on a char range.</em>
+<a class="jxr_linenumber" name="L1586" href="#L1586">1586</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1587" href="#L1587">1587</a> <em class="jxr_javadoccomment">         * @param charRange The underlying char range.</em>
+<a class="jxr_linenumber" name="L1588" href="#L1588">1588</a> <em class="jxr_javadoccomment">         */</em>
+<a class="jxr_linenumber" name="L1589" href="#L1589">1589</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(<a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> charRange) {
+<a class="jxr_linenumber" name="L1590" href="#L1590">1590</a>             <strong class="jxr_keyword">this</strong>.charRange = charRange;
+<a class="jxr_linenumber" name="L1591" href="#L1591">1591</a>         }
+<a class="jxr_linenumber" name="L1592" href="#L1592">1592</a> 
+<a class="jxr_linenumber" name="L1593" href="#L1593">1593</a>         <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1594" href="#L1594">1594</a> <em class="jxr_javadoccomment">         * Return the char token wrapped in the given token, if any.</em>
+<a class="jxr_linenumber" name="L1595" href="#L1595">1595</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1596" href="#L1596">1596</a> <em class="jxr_javadoccomment">         * @param token The token to examine, may be or may wrap a char token.</em>
+<a class="jxr_linenumber" name="L1597" href="#L1597">1597</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1598" href="#L1598">1598</a> <em class="jxr_javadoccomment">         * @return The char token if any.</em>
+<a class="jxr_linenumber" name="L1599" href="#L1599">1599</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1600" href="#L1600">1600</a> <em class="jxr_javadoccomment">         * @see TraversableRule.SimpleRule</em>
+<a class="jxr_linenumber" name="L1601" href="#L1601">1601</a> <em class="jxr_javadoccomment">         */</em>
+<a class="jxr_linenumber" name="L1602" href="#L1602">1602</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> java.util.Optional&lt;CharToken&gt; unwrapSafely(<a href="../../../ml/alternet/parser/Grammar.html">Token</a> token) {
+<a class="jxr_linenumber" name="L1603" href="#L1603">1603</a>             <strong class="jxr_keyword">while</strong> (! (token instanceof CharToken) &amp;&amp; token instanceof TraversableRule.SimpleRule) {
+<a class="jxr_linenumber" name="L1604" href="#L1604">1604</a>                 token = (Token) ((TraversableRule.SimpleRule) token).getComponent();
+<a class="jxr_linenumber" name="L1605" href="#L1605">1605</a>             }
+<a class="jxr_linenumber" name="L1606" href="#L1606">1606</a>             <strong class="jxr_keyword">if</strong> (token instanceof CharToken) {
+<a class="jxr_linenumber" name="L1607" href="#L1607">1607</a>                 <strong class="jxr_keyword">return</strong> java.util.Optional.of((CharToken) token);
+<a class="jxr_linenumber" name="L1608" href="#L1608">1608</a>             } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L1609" href="#L1609">1609</a>                 <strong class="jxr_keyword">return</strong> java.util.Optional.empty();
+<a class="jxr_linenumber" name="L1610" href="#L1610">1610</a>             }
+<a class="jxr_linenumber" name="L1611" href="#L1611">1611</a>         }
+<a class="jxr_linenumber" name="L1612" href="#L1612">1612</a> 
+<a class="jxr_linenumber" name="L1613" href="#L1613">1613</a>         <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1614" href="#L1614">1614</a> <em class="jxr_javadoccomment">         * Return the char token wrapped in the given token, if any.</em>
+<a class="jxr_linenumber" name="L1615" href="#L1615">1615</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1616" href="#L1616">1616</a> <em class="jxr_javadoccomment">         * @param token The token to examine, must be or must wrap a char token.</em>
+<a class="jxr_linenumber" name="L1617" href="#L1617">1617</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1618" href="#L1618">1618</a> <em class="jxr_javadoccomment">         * @return The char token if any.</em>
+<a class="jxr_linenumber" name="L1619" href="#L1619">1619</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1620" href="#L1620">1620</a> <em class="jxr_javadoccomment">         * @throws IllegalArgumentException If the token is not a char token and</em>
+<a class="jxr_linenumber" name="L1621" href="#L1621">1621</a> <em class="jxr_javadoccomment">         *      doesn't wrap a char token.</em>
 <a class="jxr_linenumber" name="L1622" href="#L1622">1622</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1623" href="#L1623">1623</a> <em class="jxr_javadoccomment">         * @param token The token to examine, must be or must wrap a char token.</em>
-<a class="jxr_linenumber" name="L1624" href="#L1624">1624</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1625" href="#L1625">1625</a> <em class="jxr_javadoccomment">         * @return The char token if any.</em>
-<a class="jxr_linenumber" name="L1626" href="#L1626">1626</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1627" href="#L1627">1627</a> <em class="jxr_javadoccomment">         * @throws IllegalArgumentException If the token is not a char token and</em>
-<a class="jxr_linenumber" name="L1628" href="#L1628">1628</a> <em class="jxr_javadoccomment">         *      doesn't wrap a char token.</em>
-<a class="jxr_linenumber" name="L1629" href="#L1629">1629</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1630" href="#L1630">1630</a> <em class="jxr_javadoccomment">         * @see TraversableRule.SimpleRule</em>
-<a class="jxr_linenumber" name="L1631" href="#L1631">1631</a> <em class="jxr_javadoccomment">         */</em>
-<a class="jxr_linenumber" name="L1632" href="#L1632">1632</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> unwrap(<a href="../../../ml/alternet/parser/Grammar.html">Token</a> token) {
-<a class="jxr_linenumber" name="L1633" href="#L1633">1633</a>             <strong class="jxr_keyword">return</strong> unwrapSafely(token).orElseThrow(
-<a class="jxr_linenumber" name="L1634" href="#L1634">1634</a>                 () -&gt; <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"The token argument MUST BE CharToken"</span>
-<a class="jxr_linenumber" name="L1635" href="#L1635">1635</a>                     + <span class="jxr_string">" or MUST WRAP CharToken, but "</span> + token + <span class="jxr_string">" is not ; it is "</span>
-<a class="jxr_linenumber" name="L1636" href="#L1636">1636</a>                     + token.getClass()));
-<a class="jxr_linenumber" name="L1637" href="#L1637">1637</a>         };
-<a class="jxr_linenumber" name="L1638" href="#L1638">1638</a> 
-<a class="jxr_linenumber" name="L1639" href="#L1639">1639</a>         <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1640" href="#L1640">1640</a> <em class="jxr_javadoccomment">         * Combine this char token with the given Unicode codepoint.</em>
-<a class="jxr_linenumber" name="L1641" href="#L1641">1641</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1642" href="#L1642">1642</a> <em class="jxr_javadoccomment">         * @param codepoint The Unicode codepoint.</em>
-<a class="jxr_linenumber" name="L1643" href="#L1643">1643</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1644" href="#L1644">1644</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token union the Unicode codepoint.</em>
-<a class="jxr_linenumber" name="L1645" href="#L1645">1645</a> <em class="jxr_javadoccomment">         */</em>
-<a class="jxr_linenumber" name="L1646" href="#L1646">1646</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> union(<strong class="jxr_keyword">int</strong> codepoint) {
-<a class="jxr_linenumber" name="L1647" href="#L1647">1647</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(CharRange.is(codepoint));
-<a class="jxr_linenumber" name="L1648" href="#L1648">1648</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
-<a class="jxr_linenumber" name="L1649" href="#L1649">1649</a>         }
-<a class="jxr_linenumber" name="L1650" href="#L1650">1650</a> 
-<a class="jxr_linenumber" name="L1651" href="#L1651">1651</a>         <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1652" href="#L1652">1652</a> <em class="jxr_javadoccomment">         * Combine this char token with the given range.</em>
-<a class="jxr_linenumber" name="L1653" href="#L1653">1653</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1654" href="#L1654">1654</a> <em class="jxr_javadoccomment">         * @param startCodepoint The start Unicode codepoint, included.</em>
-<a class="jxr_linenumber" name="L1655" href="#L1655">1655</a> <em class="jxr_javadoccomment">         * @param endCodepoint The end Unicode codepoint, included.</em>
-<a class="jxr_linenumber" name="L1656" href="#L1656">1656</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1657" href="#L1657">1657</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token union the given range.</em>
-<a class="jxr_linenumber" name="L1658" href="#L1658">1658</a> <em class="jxr_javadoccomment">         */</em>
-<a class="jxr_linenumber" name="L1659" href="#L1659">1659</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> union(<strong class="jxr_keyword">int</strong> startCodepoint, <strong class="jxr_keyword">int</strong> endCodepoint) {
-<a class="jxr_linenumber" name="L1660" href="#L1660">1660</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(CharRange.range(startCodepoint, endCodepoint));
-<a class="jxr_linenumber" name="L1661" href="#L1661">1661</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
-<a class="jxr_linenumber" name="L1662" href="#L1662">1662</a>         }
-<a class="jxr_linenumber" name="L1663" href="#L1663">1663</a> 
-<a class="jxr_linenumber" name="L1664" href="#L1664">1664</a>         <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1665" href="#L1665">1665</a> <em class="jxr_javadoccomment">         * Combine this char token with the given characters.</em>
-<a class="jxr_linenumber" name="L1666" href="#L1666">1666</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1667" href="#L1667">1667</a> <em class="jxr_javadoccomment">         * @param characters The characters to add.</em>
-<a class="jxr_linenumber" name="L1668" href="#L1668">1668</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1669" href="#L1669">1669</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token union all the characters given.</em>
-<a class="jxr_linenumber" name="L1670" href="#L1670">1670</a> <em class="jxr_javadoccomment">         */</em>
-<a class="jxr_linenumber" name="L1671" href="#L1671">1671</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> union(CharSequence characters) {
-<a class="jxr_linenumber" name="L1672" href="#L1672">1672</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(CharRange.isOneOf(characters));
-<a class="jxr_linenumber" name="L1673" href="#L1673">1673</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
-<a class="jxr_linenumber" name="L1674" href="#L1674">1674</a>         }
-<a class="jxr_linenumber" name="L1675" href="#L1675">1675</a> 
-<a class="jxr_linenumber" name="L1676" href="#L1676">1676</a>         <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1677" href="#L1677">1677</a> <em class="jxr_javadoccomment">         * Combine this char token with the given char ranges.</em>
-<a class="jxr_linenumber" name="L1678" href="#L1678">1678</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1679" href="#L1679">1679</a> <em class="jxr_javadoccomment">         * @param charRanges The char ranges to add.</em>
-<a class="jxr_linenumber" name="L1680" href="#L1680">1680</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1681" href="#L1681">1681</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token union the given char ranges.</em>
-<a class="jxr_linenumber" name="L1682" href="#L1682">1682</a> <em class="jxr_javadoccomment">         */</em>
-<a class="jxr_linenumber" name="L1683" href="#L1683">1683</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> union(CharRange... charRanges) {
-<a class="jxr_linenumber" name="L1684" href="#L1684">1684</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(charRanges);
-<a class="jxr_linenumber" name="L1685" href="#L1685">1685</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
-<a class="jxr_linenumber" name="L1686" href="#L1686">1686</a>         }
-<a class="jxr_linenumber" name="L1687" href="#L1687">1687</a> 
-<a class="jxr_linenumber" name="L1688" href="#L1688">1688</a>         <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1689" href="#L1689">1689</a> <em class="jxr_javadoccomment">         * Combine this char token with the given char tokens.</em>
-<a class="jxr_linenumber" name="L1690" href="#L1690">1690</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1691" href="#L1691">1691</a> <em class="jxr_javadoccomment">         * @param charTokens The char ranges to combine, must be</em>
-<a class="jxr_linenumber" name="L1692" href="#L1692">1692</a> <em class="jxr_javadoccomment">         *      CharToken or wrap a CharToken.</em>
-<a class="jxr_linenumber" name="L1693" href="#L1693">1693</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1694" href="#L1694">1694</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token union the given char tokens.</em>
-<a class="jxr_linenumber" name="L1695" href="#L1695">1695</a> <em class="jxr_javadoccomment">         */</em>
-<a class="jxr_linenumber" name="L1696" href="#L1696">1696</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> union(Token... charTokens) {
-<a class="jxr_linenumber" name="L1697" href="#L1697">1697</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(
-<a class="jxr_linenumber" name="L1698" href="#L1698">1698</a>                 Arrays.stream(charTokens)
-<a class="jxr_linenumber" name="L1699" href="#L1699">1699</a>                     .map(c -&gt; CharToken.unwrap(c).charRange)
-<a class="jxr_linenumber" name="L1700" href="#L1700">1700</a>                     .toArray(l -&gt; <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a>[l]));
-<a class="jxr_linenumber" name="L1701" href="#L1701">1701</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
-<a class="jxr_linenumber" name="L1702" href="#L1702">1702</a>         }
-<a class="jxr_linenumber" name="L1703" href="#L1703">1703</a> 
-<a class="jxr_linenumber" name="L1704" href="#L1704">1704</a>         @Override
-<a class="jxr_linenumber" name="L1705" href="#L1705">1705</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">Rule</a> or(Rule... alt) {
-<a class="jxr_linenumber" name="L1706" href="#L1706">1706</a>             <strong class="jxr_keyword">if</strong> (Arrays.stream(alt).filter(r -&gt; ! (r instanceof CharToken)).findFirst().isPresent()) {
-<a class="jxr_linenumber" name="L1707" href="#L1707">1707</a>                 <em class="jxr_comment">// if we find one that is not a char token =&gt; process it normally</em>
-<a class="jxr_linenumber" name="L1708" href="#L1708">1708</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">super</strong>.or(alt);
-<a class="jxr_linenumber" name="L1709" href="#L1709">1709</a>             } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L1710" href="#L1710">1710</a>                 <em class="jxr_comment">// all are char token =&gt; merge with union</em>
-<a class="jxr_linenumber" name="L1711" href="#L1711">1711</a>                 <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>[] ct = Arrays.stream(alt).map(r -&gt; (Token) r).toArray(l -&gt; <strong class="jxr_keyword">new</strong> CharToken[l]);
-<a class="jxr_linenumber" name="L1712" href="#L1712">1712</a>                 <strong class="jxr_keyword">return</strong> union(ct);
-<a class="jxr_linenumber" name="L1713" href="#L1713">1713</a>             }
-<a class="jxr_linenumber" name="L1714" href="#L1714">1714</a>         }
-<a class="jxr_linenumber" name="L1715" href="#L1715">1715</a> 
-<a class="jxr_linenumber" name="L1716" href="#L1716">1716</a>         <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1717" href="#L1717">1717</a> <em class="jxr_javadoccomment">         * Remove from this char token the given Unicode codepoint.</em>
-<a class="jxr_linenumber" name="L1718" href="#L1718">1718</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1719" href="#L1719">1719</a> <em class="jxr_javadoccomment">         * @param codepoint The Unicode codepoint to remove.</em>
-<a class="jxr_linenumber" name="L1720" href="#L1720">1720</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1721" href="#L1721">1721</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token minus the Unicode codepoint.</em>
-<a class="jxr_linenumber" name="L1722" href="#L1722">1722</a> <em class="jxr_javadoccomment">         */</em>
-<a class="jxr_linenumber" name="L1723" href="#L1723">1723</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> except(<strong class="jxr_keyword">int</strong> codepoint) {
-<a class="jxr_linenumber" name="L1724" href="#L1724">1724</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(CharRange.is(codepoint));
-<a class="jxr_linenumber" name="L1725" href="#L1725">1725</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
-<a class="jxr_linenumber" name="L1726" href="#L1726">1726</a>         }
-<a class="jxr_linenumber" name="L1727" href="#L1727">1727</a> 
-<a class="jxr_linenumber" name="L1728" href="#L1728">1728</a>         <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1729" href="#L1729">1729</a> <em class="jxr_javadoccomment">         * Remove from this char token the given range.</em>
-<a class="jxr_linenumber" name="L1730" href="#L1730">1730</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1731" href="#L1731">1731</a> <em class="jxr_javadoccomment">         * @param startCodepoint The start Unicode codepoint of the range to remove, included.</em>
-<a class="jxr_linenumber" name="L1732" href="#L1732">1732</a> <em class="jxr_javadoccomment">         * @param endCodepoint The end Unicode codepoint of the range to remove, included.</em>
-<a class="jxr_linenumber" name="L1733" href="#L1733">1733</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1734" href="#L1734">1734</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token minus the given range.</em>
-<a class="jxr_linenumber" name="L1735" href="#L1735">1735</a> <em class="jxr_javadoccomment">         */</em>
-<a class="jxr_linenumber" name="L1736" href="#L1736">1736</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> except(<strong class="jxr_keyword">int</strong> startCodepoint, <strong class="jxr_keyword">int</strong> endCodepoint) {
-<a class="jxr_linenumber" name="L1737" href="#L1737">1737</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(CharRange.range(startCodepoint, endCodepoint));
-<a class="jxr_linenumber" name="L1738" href="#L1738">1738</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
-<a class="jxr_linenumber" name="L1739" href="#L1739">1739</a>         }
-<a class="jxr_linenumber" name="L1740" href="#L1740">1740</a> 
-<a class="jxr_linenumber" name="L1741" href="#L1741">1741</a>         <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1742" href="#L1742">1742</a> <em class="jxr_javadoccomment">         * Remove from this char token the given characters.</em>
-<a class="jxr_linenumber" name="L1743" href="#L1743">1743</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1744" href="#L1744">1744</a> <em class="jxr_javadoccomment">         * @param characters The characters to remove.</em>
-<a class="jxr_linenumber" name="L1745" href="#L1745">1745</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1746" href="#L1746">1746</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token minus all the characters given.</em>
-<a class="jxr_linenumber" name="L1747" href="#L1747">1747</a> <em class="jxr_javadoccomment">         */</em>
-<a class="jxr_linenumber" name="L1748" href="#L1748">1748</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> except(CharSequence characters) {
-<a class="jxr_linenumber" name="L1749" href="#L1749">1749</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(CharRange.isOneOf(characters));
-<a class="jxr_linenumber" name="L1750" href="#L1750">1750</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
-<a class="jxr_linenumber" name="L1751" href="#L1751">1751</a>         }
-<a class="jxr_linenumber" name="L1752" href="#L1752">1752</a> 
-<a class="jxr_linenumber" name="L1753" href="#L1753">1753</a>         <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1754" href="#L1754">1754</a> <em class="jxr_javadoccomment">         * Remove from this char token the given char ranges.</em>
-<a class="jxr_linenumber" name="L1755" href="#L1755">1755</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1756" href="#L1756">1756</a> <em class="jxr_javadoccomment">         * @param charRanges The char ranges to remove.</em>
-<a class="jxr_linenumber" name="L1757" href="#L1757">1757</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1758" href="#L1758">1758</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token minus the char ranges given.</em>
-<a class="jxr_linenumber" name="L1759" href="#L1759">1759</a> <em class="jxr_javadoccomment">         */</em>
-<a class="jxr_linenumber" name="L1760" href="#L1760">1760</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> except(CharRange... charRanges) {
-<a class="jxr_linenumber" name="L1761" href="#L1761">1761</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(charRanges);
-<a class="jxr_linenumber" name="L1762" href="#L1762">1762</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
-<a class="jxr_linenumber" name="L1763" href="#L1763">1763</a>         }
-<a class="jxr_linenumber" name="L1764" href="#L1764">1764</a> 
-<a class="jxr_linenumber" name="L1765" href="#L1765">1765</a>         <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1766" href="#L1766">1766</a> <em class="jxr_javadoccomment">         * Remove from this char token the given char tokens.</em>
-<a class="jxr_linenumber" name="L1767" href="#L1767">1767</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1768" href="#L1768">1768</a> <em class="jxr_javadoccomment">         * @param charTokens The char tokens to combine, must be</em>
-<a class="jxr_linenumber" name="L1769" href="#L1769">1769</a> <em class="jxr_javadoccomment">         *      CharToken or wrap a CharToken.</em>
-<a class="jxr_linenumber" name="L1770" href="#L1770">1770</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L1771" href="#L1771">1771</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token minus the given char tokens.</em>
-<a class="jxr_linenumber" name="L1772" href="#L1772">1772</a> <em class="jxr_javadoccomment">         */</em>
-<a class="jxr_linenumber" name="L1773" href="#L1773">1773</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> except(Token... charTokens) {
-<a class="jxr_linenumber" name="L1774" href="#L1774">1774</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(
-<a class="jxr_linenumber" name="L1775" href="#L1775">1775</a>                 Arrays.stream(charTokens)
-<a class="jxr_linenumber" name="L1776" href="#L1776">1776</a>                     .map(c -&gt; CharToken.unwrap(c).charRange)
-<a class="jxr_linenumber" name="L1777" href="#L1777">1777</a>                     .toArray(l -&gt; <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a>[l]));
-<a class="jxr_linenumber" name="L1778" href="#L1778">1778</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
-<a class="jxr_linenumber" name="L1779" href="#L1779">1779</a>         }
-<a class="jxr_linenumber" name="L1780" href="#L1780">1780</a> 
-<a class="jxr_linenumber" name="L1781" href="#L1781">1781</a>         @Override
-<a class="jxr_linenumber" name="L1782" href="#L1782">1782</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> parse(<a href="../../../ml/alternet/scan/Scanner.html">Scanner</a> scanner, <a href="../../../ml/alternet/parser/Handler.html">Handler</a> handler, <strong class="jxr_keyword">boolean</strong> alreadyMarked) <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="L1783" href="#L1783">1783</a>             java.util.Optional&lt;String&gt; car = scanner.nextChar(<strong class="jxr_keyword">this</strong>.charRange)
-<a class="jxr_linenumber" name="L1784" href="#L1784">1784</a>                     .map(c -&gt; <strong class="jxr_keyword">new</strong> String(Character.toChars(c)));
-<a class="jxr_linenumber" name="L1785" href="#L1785">1785</a>             <strong class="jxr_keyword">if</strong> (car.isPresent()) {
-<a class="jxr_linenumber" name="L1786" href="#L1786">1786</a>                 handler.receive(<strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/EventsHandler.html">StringValue</a>(<strong class="jxr_keyword">this</strong>, car.get(), scanner));
-<a class="jxr_linenumber" name="L1787" href="#L1787">1787</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L1788" href="#L1788">1788</a>             } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L1789" href="#L1789">1789</a>                 <strong class="jxr_keyword">return</strong> false;
-<a class="jxr_linenumber" name="L1790" href="#L1790">1790</a>             }
-<a class="jxr_linenumber" name="L1791" href="#L1791">1791</a>         }
-<a class="jxr_linenumber" name="L1792" href="#L1792">1792</a> 
-<a class="jxr_linenumber" name="L1793" href="#L1793">1793</a>         @Override
-<a class="jxr_linenumber" name="L1794" href="#L1794">1794</a>         <strong class="jxr_keyword">public</strong> StringBuilder toPrettyString(StringBuilder buf) {
-<a class="jxr_linenumber" name="L1795" href="#L1795">1795</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.charRange.toPrettyString(buf);
-<a class="jxr_linenumber" name="L1796" href="#L1796">1796</a>         }
-<a class="jxr_linenumber" name="L1797" href="#L1797">1797</a>     }
-<a class="jxr_linenumber" name="L1798" href="#L1798">1798</a> 
-<a class="jxr_linenumber" name="L1799" href="#L1799">1799</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1800" href="#L1800">1800</a> <em class="jxr_javadoccomment">     * A string token.</em>
-<a class="jxr_linenumber" name="L1801" href="#L1801">1801</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L1802" href="#L1802">1802</a> <em class="jxr_javadoccomment">     * @see Grammar#is(String)</em>
-<a class="jxr_linenumber" name="L1803" href="#L1803">1803</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L1804" href="#L1804">1804</a> <em class="jxr_javadoccomment">     * @author Philippe Poulard</em>
-<a class="jxr_linenumber" name="L1805" href="#L1805">1805</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L1806" href="#L1806">1806</a>     <strong class="jxr_keyword">class</strong> <a href="../../../ml/alternet/parser/Grammar.html">StringToken</a> <strong class="jxr_keyword">extends</strong> <a href="../../../ml/alternet/parser/Grammar.html">Token</a> {
-<a class="jxr_linenumber" name="L1807" href="#L1807">1807</a> 
-<a class="jxr_linenumber" name="L1808" href="#L1808">1808</a>         String string;
-<a class="jxr_linenumber" name="L1809" href="#L1809">1809</a>         <strong class="jxr_keyword">boolean</strong> equal;
-<a class="jxr_linenumber" name="L1810" href="#L1810">1810</a> 
-<a class="jxr_linenumber" name="L1811" href="#L1811">1811</a>         <a href="../../../ml/alternet/parser/Grammar.html">StringToken</a>(String string, <strong class="jxr_keyword">boolean</strong> equal) {
-<a class="jxr_linenumber" name="L1812" href="#L1812">1812</a>             <strong class="jxr_keyword">this</strong>.string = string;
-<a class="jxr_linenumber" name="L1813" href="#L1813">1813</a>             <strong class="jxr_keyword">this</strong>.equal = equal;
-<a class="jxr_linenumber" name="L1814" href="#L1814">1814</a>         }
-<a class="jxr_linenumber" name="L1815" href="#L1815">1815</a> 
-<a class="jxr_linenumber" name="L1816" href="#L1816">1816</a>         @Override
-<a class="jxr_linenumber" name="L1817" href="#L1817">1817</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> parse(<a href="../../../ml/alternet/scan/Scanner.html">Scanner</a> scanner, <a href="../../../ml/alternet/parser/Handler.html">Handler</a> handler, <strong class="jxr_keyword">boolean</strong> alreadyMarked) <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="L1818" href="#L1818">1818</a>             <strong class="jxr_keyword">if</strong> (! (equal ^ scanner.hasNextString(string, <strong class="jxr_keyword">true</strong>))) {
-<a class="jxr_linenumber" name="L1819" href="#L1819">1819</a>                 <em class="jxr_comment">// match</em>
-<a class="jxr_linenumber" name="L1820" href="#L1820">1820</a>                 <strong class="jxr_keyword">if</strong> (equal) {
-<a class="jxr_linenumber" name="L1821" href="#L1821">1821</a>                     handler.receive(<strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/EventsHandler.html">StringValue</a>(<strong class="jxr_keyword">this</strong>, string, scanner));
-<a class="jxr_linenumber" name="L1822" href="#L1822">1822</a>                 } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L1823" href="#L1823">1823</a>                     StringBuilder buf = <strong class="jxr_keyword">new</strong> StringBuilder(string.length());
-<a class="jxr_linenumber" name="L1824" href="#L1824">1824</a>                     scanner.nextString(<strong class="jxr_keyword">new</strong> StringConstraint.ReadLength(string.length()), buf);
-<a class="jxr_linenumber" name="L1825" href="#L1825">1825</a>                     handler.receive(<strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/EventsHandler.html">StringValue</a>(<strong class="jxr_keyword">this</strong>, buf.toString(), scanner));
-<a class="jxr_linenumber" name="L1826" href="#L1826">1826</a>                 }
-<a class="jxr_linenumber" name="L1827" href="#L1827">1827</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L1828" href="#L1828">1828</a>             }
-<a class="jxr_linenumber" name="L1829" href="#L1829">1829</a>             <strong class="jxr_keyword">return</strong> false;
-<a class="jxr_linenumber" name="L1830" href="#L1830">1830</a>         }
-<a class="jxr_linenumber" name="L1831" href="#L1831">1831</a> 
-<a class="jxr_linenumber" name="L1832" href="#L1832">1832</a>         @Override
-<a class="jxr_linenumber" name="L1833" href="#L1833">1833</a>         <strong class="jxr_keyword">public</strong> StringBuilder toPrettyString(StringBuilder buf) {
-<a class="jxr_linenumber" name="L1834" href="#L1834">1834</a>             <strong class="jxr_keyword">if</strong> (! <strong class="jxr_keyword">this</strong>.equal) {
-<a class="jxr_linenumber" name="L1835" href="#L1835">1835</a>                 buf.append(<span class="jxr_string">"!"</span>);
-<a class="jxr_linenumber" name="L1836" href="#L1836">1836</a>             }
-<a class="jxr_linenumber" name="L1837" href="#L1837">1837</a>             <strong class="jxr_keyword">return</strong> buf.append('\'').append(<strong class="jxr_keyword">this</strong>.string).append('\'');
-<a class="jxr_linenumber" name="L1838" href="#L1838">1838</a>         }
-<a class="jxr_linenumber" name="L1839" href="#L1839">1839</a> 
-<a class="jxr_linenumber" name="L1840" href="#L1840">1840</a>     }
-<a class="jxr_linenumber" name="L1841" href="#L1841">1841</a> 
-<a class="jxr_linenumber" name="L1842" href="#L1842">1842</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1843" href="#L1843">1843</a> <em class="jxr_javadoccomment">     * A token made from an enum class or a list of string values.</em>
+<a class="jxr_linenumber" name="L1623" href="#L1623">1623</a> <em class="jxr_javadoccomment">         * @see TraversableRule.SimpleRule</em>
+<a class="jxr_linenumber" name="L1624" href="#L1624">1624</a> <em class="jxr_javadoccomment">         */</em>
+<a class="jxr_linenumber" name="L1625" href="#L1625">1625</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> unwrap(<a href="../../../ml/alternet/parser/Grammar.html">Token</a> token) {
+<a class="jxr_linenumber" name="L1626" href="#L1626">1626</a>             <strong class="jxr_keyword">return</strong> unwrapSafely(token).orElseThrow(
+<a class="jxr_linenumber" name="L1627" href="#L1627">1627</a>                 () -&gt; <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"The token argument MUST BE CharToken"</span>
+<a class="jxr_linenumber" name="L1628" href="#L1628">1628</a>                     + <span class="jxr_string">" or MUST WRAP CharToken, but "</span> + token + <span class="jxr_string">" is not ; it is "</span>
+<a class="jxr_linenumber" name="L1629" href="#L1629">1629</a>                     + token.getClass()));
+<a class="jxr_linenumber" name="L1630" href="#L1630">1630</a>         };
+<a class="jxr_linenumber" name="L1631" href="#L1631">1631</a> 
+<a class="jxr_linenumber" name="L1632" href="#L1632">1632</a>         <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1633" href="#L1633">1633</a> <em class="jxr_javadoccomment">         * Combine this char token with the given Unicode codepoint.</em>
+<a class="jxr_linenumber" name="L1634" href="#L1634">1634</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1635" href="#L1635">1635</a> <em class="jxr_javadoccomment">         * @param codepoint The Unicode codepoint.</em>
+<a class="jxr_linenumber" name="L1636" href="#L1636">1636</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1637" href="#L1637">1637</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token union the Unicode codepoint.</em>
+<a class="jxr_linenumber" name="L1638" href="#L1638">1638</a> <em class="jxr_javadoccomment">         */</em>
+<a class="jxr_linenumber" name="L1639" href="#L1639">1639</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> union(<strong class="jxr_keyword">int</strong> codepoint) {
+<a class="jxr_linenumber" name="L1640" href="#L1640">1640</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(CharRange.is(codepoint));
+<a class="jxr_linenumber" name="L1641" href="#L1641">1641</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
+<a class="jxr_linenumber" name="L1642" href="#L1642">1642</a>         }
+<a class="jxr_linenumber" name="L1643" href="#L1643">1643</a> 
+<a class="jxr_linenumber" name="L1644" href="#L1644">1644</a>         <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1645" href="#L1645">1645</a> <em class="jxr_javadoccomment">         * Combine this char token with the given range.</em>
+<a class="jxr_linenumber" name="L1646" href="#L1646">1646</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1647" href="#L1647">1647</a> <em class="jxr_javadoccomment">         * @param startCodepoint The start Unicode codepoint, included.</em>
+<a class="jxr_linenumber" name="L1648" href="#L1648">1648</a> <em class="jxr_javadoccomment">         * @param endCodepoint The end Unicode codepoint, included.</em>
+<a class="jxr_linenumber" name="L1649" href="#L1649">1649</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1650" href="#L1650">1650</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token union the given range.</em>
+<a class="jxr_linenumber" name="L1651" href="#L1651">1651</a> <em class="jxr_javadoccomment">         */</em>
+<a class="jxr_linenumber" name="L1652" href="#L1652">1652</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> union(<strong class="jxr_keyword">int</strong> startCodepoint, <strong class="jxr_keyword">int</strong> endCodepoint) {
+<a class="jxr_linenumber" name="L1653" href="#L1653">1653</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(CharRange.range(startCodepoint, endCodepoint));
+<a class="jxr_linenumber" name="L1654" href="#L1654">1654</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
+<a class="jxr_linenumber" name="L1655" href="#L1655">1655</a>         }
+<a class="jxr_linenumber" name="L1656" href="#L1656">1656</a> 
+<a class="jxr_linenumber" name="L1657" href="#L1657">1657</a>         <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1658" href="#L1658">1658</a> <em class="jxr_javadoccomment">         * Combine this char token with the given characters.</em>
+<a class="jxr_linenumber" name="L1659" href="#L1659">1659</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1660" href="#L1660">1660</a> <em class="jxr_javadoccomment">         * @param characters The characters to add.</em>
+<a class="jxr_linenumber" name="L1661" href="#L1661">1661</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1662" href="#L1662">1662</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token union all the characters given.</em>
+<a class="jxr_linenumber" name="L1663" href="#L1663">1663</a> <em class="jxr_javadoccomment">         */</em>
+<a class="jxr_linenumber" name="L1664" href="#L1664">1664</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> union(CharSequence characters) {
+<a class="jxr_linenumber" name="L1665" href="#L1665">1665</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(CharRange.isOneOf(characters));
+<a class="jxr_linenumber" name="L1666" href="#L1666">1666</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
+<a class="jxr_linenumber" name="L1667" href="#L1667">1667</a>         }
+<a class="jxr_linenumber" name="L1668" href="#L1668">1668</a> 
+<a class="jxr_linenumber" name="L1669" href="#L1669">1669</a>         <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1670" href="#L1670">1670</a> <em class="jxr_javadoccomment">         * Combine this char token with the given char ranges.</em>
+<a class="jxr_linenumber" name="L1671" href="#L1671">1671</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1672" href="#L1672">1672</a> <em class="jxr_javadoccomment">         * @param charRanges The char ranges to add.</em>
+<a class="jxr_linenumber" name="L1673" href="#L1673">1673</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1674" href="#L1674">1674</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token union the given char ranges.</em>
+<a class="jxr_linenumber" name="L1675" href="#L1675">1675</a> <em class="jxr_javadoccomment">         */</em>
+<a class="jxr_linenumber" name="L1676" href="#L1676">1676</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> union(CharRange... charRanges) {
+<a class="jxr_linenumber" name="L1677" href="#L1677">1677</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(charRanges);
+<a class="jxr_linenumber" name="L1678" href="#L1678">1678</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
+<a class="jxr_linenumber" name="L1679" href="#L1679">1679</a>         }
+<a class="jxr_linenumber" name="L1680" href="#L1680">1680</a> 
+<a class="jxr_linenumber" name="L1681" href="#L1681">1681</a>         <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1682" href="#L1682">1682</a> <em class="jxr_javadoccomment">         * Combine this char token with the given char tokens.</em>
+<a class="jxr_linenumber" name="L1683" href="#L1683">1683</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1684" href="#L1684">1684</a> <em class="jxr_javadoccomment">         * @param charTokens The char ranges to combine, must be</em>
+<a class="jxr_linenumber" name="L1685" href="#L1685">1685</a> <em class="jxr_javadoccomment">         *      CharToken or wrap a CharToken.</em>
+<a class="jxr_linenumber" name="L1686" href="#L1686">1686</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1687" href="#L1687">1687</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token union the given char tokens.</em>
+<a class="jxr_linenumber" name="L1688" href="#L1688">1688</a> <em class="jxr_javadoccomment">         */</em>
+<a class="jxr_linenumber" name="L1689" href="#L1689">1689</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> union(Token... charTokens) {
+<a class="jxr_linenumber" name="L1690" href="#L1690">1690</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(
+<a class="jxr_linenumber" name="L1691" href="#L1691">1691</a>                 Arrays.stream(charTokens)
+<a class="jxr_linenumber" name="L1692" href="#L1692">1692</a>                     .map(c -&gt; CharToken.unwrap(c).charRange)
+<a class="jxr_linenumber" name="L1693" href="#L1693">1693</a>                     .toArray(l -&gt; <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a>[l]));
+<a class="jxr_linenumber" name="L1694" href="#L1694">1694</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
+<a class="jxr_linenumber" name="L1695" href="#L1695">1695</a>         }
+<a class="jxr_linenumber" name="L1696" href="#L1696">1696</a> 
+<a class="jxr_linenumber" name="L1697" href="#L1697">1697</a>         @Override
+<a class="jxr_linenumber" name="L1698" href="#L1698">1698</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">Rule</a> or(Rule... alt) {
+<a class="jxr_linenumber" name="L1699" href="#L1699">1699</a>             <strong class="jxr_keyword">if</strong> (Arrays.stream(alt).filter(r -&gt; ! (r instanceof CharToken)).findFirst().isPresent()) {
+<a class="jxr_linenumber" name="L1700" href="#L1700">1700</a>                 <em class="jxr_comment">// if we find one that is not a char token =&gt; process it normally</em>
+<a class="jxr_linenumber" name="L1701" href="#L1701">1701</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">super</strong>.or(alt);
+<a class="jxr_linenumber" name="L1702" href="#L1702">1702</a>             } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L1703" href="#L1703">1703</a>                 <em class="jxr_comment">// all are char token =&gt; merge with union</em>
+<a class="jxr_linenumber" name="L1704" href="#L1704">1704</a>                 <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>[] ct = Arrays.stream(alt).map(r -&gt; (Token) r).toArray(l -&gt; <strong class="jxr_keyword">new</strong> CharToken[l]);
+<a class="jxr_linenumber" name="L1705" href="#L1705">1705</a>                 <strong class="jxr_keyword">return</strong> union(ct);
+<a class="jxr_linenumber" name="L1706" href="#L1706">1706</a>             }
+<a class="jxr_linenumber" name="L1707" href="#L1707">1707</a>         }
+<a class="jxr_linenumber" name="L1708" href="#L1708">1708</a> 
+<a class="jxr_linenumber" name="L1709" href="#L1709">1709</a>         <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1710" href="#L1710">1710</a> <em class="jxr_javadoccomment">         * Remove from this char token the given Unicode codepoint.</em>
+<a class="jxr_linenumber" name="L1711" href="#L1711">1711</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1712" href="#L1712">1712</a> <em class="jxr_javadoccomment">         * @param codepoint The Unicode codepoint to remove.</em>
+<a class="jxr_linenumber" name="L1713" href="#L1713">1713</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1714" href="#L1714">1714</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token minus the Unicode codepoint.</em>
+<a class="jxr_linenumber" name="L1715" href="#L1715">1715</a> <em class="jxr_javadoccomment">         */</em>
+<a class="jxr_linenumber" name="L1716" href="#L1716">1716</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> except(<strong class="jxr_keyword">int</strong> codepoint) {
+<a class="jxr_linenumber" name="L1717" href="#L1717">1717</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(CharRange.is(codepoint));
+<a class="jxr_linenumber" name="L1718" href="#L1718">1718</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
+<a class="jxr_linenumber" name="L1719" href="#L1719">1719</a>         }
+<a class="jxr_linenumber" name="L1720" href="#L1720">1720</a> 
+<a class="jxr_linenumber" name="L1721" href="#L1721">1721</a>         <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1722" href="#L1722">1722</a> <em class="jxr_javadoccomment">         * Remove from this char token the given range.</em>
+<a class="jxr_linenumber" name="L1723" href="#L1723">1723</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1724" href="#L1724">1724</a> <em class="jxr_javadoccomment">         * @param startCodepoint The start Unicode codepoint of the range to remove, included.</em>
+<a class="jxr_linenumber" name="L1725" href="#L1725">1725</a> <em class="jxr_javadoccomment">         * @param endCodepoint The end Unicode codepoint of the range to remove, included.</em>
+<a class="jxr_linenumber" name="L1726" href="#L1726">1726</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1727" href="#L1727">1727</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token minus the given range.</em>
+<a class="jxr_linenumber" name="L1728" href="#L1728">1728</a> <em class="jxr_javadoccomment">         */</em>
+<a class="jxr_linenumber" name="L1729" href="#L1729">1729</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> except(<strong class="jxr_keyword">int</strong> startCodepoint, <strong class="jxr_keyword">int</strong> endCodepoint) {
+<a class="jxr_linenumber" name="L1730" href="#L1730">1730</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(CharRange.range(startCodepoint, endCodepoint));
+<a class="jxr_linenumber" name="L1731" href="#L1731">1731</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
+<a class="jxr_linenumber" name="L1732" href="#L1732">1732</a>         }
+<a class="jxr_linenumber" name="L1733" href="#L1733">1733</a> 
+<a class="jxr_linenumber" name="L1734" href="#L1734">1734</a>         <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1735" href="#L1735">1735</a> <em class="jxr_javadoccomment">         * Remove from this char token the given characters.</em>
+<a class="jxr_linenumber" name="L1736" href="#L1736">1736</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1737" href="#L1737">1737</a> <em class="jxr_javadoccomment">         * @param characters The characters to remove.</em>
+<a class="jxr_linenumber" name="L1738" href="#L1738">1738</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1739" href="#L1739">1739</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token minus all the characters given.</em>
+<a class="jxr_linenumber" name="L1740" href="#L1740">1740</a> <em class="jxr_javadoccomment">         */</em>
+<a class="jxr_linenumber" name="L1741" href="#L1741">1741</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> except(CharSequence characters) {
+<a class="jxr_linenumber" name="L1742" href="#L1742">1742</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(CharRange.isOneOf(characters));
+<a class="jxr_linenumber" name="L1743" href="#L1743">1743</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
+<a class="jxr_linenumber" name="L1744" href="#L1744">1744</a>         }
+<a class="jxr_linenumber" name="L1745" href="#L1745">1745</a> 
+<a class="jxr_linenumber" name="L1746" href="#L1746">1746</a>         <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1747" href="#L1747">1747</a> <em class="jxr_javadoccomment">         * Remove from this char token the given char ranges.</em>
+<a class="jxr_linenumber" name="L1748" href="#L1748">1748</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1749" href="#L1749">1749</a> <em class="jxr_javadoccomment">         * @param charRanges The char ranges to remove.</em>
+<a class="jxr_linenumber" name="L1750" href="#L1750">1750</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1751" href="#L1751">1751</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token minus the char ranges given.</em>
+<a class="jxr_linenumber" name="L1752" href="#L1752">1752</a> <em class="jxr_javadoccomment">         */</em>
+<a class="jxr_linenumber" name="L1753" href="#L1753">1753</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> except(CharRange... charRanges) {
+<a class="jxr_linenumber" name="L1754" href="#L1754">1754</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(charRanges);
+<a class="jxr_linenumber" name="L1755" href="#L1755">1755</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
+<a class="jxr_linenumber" name="L1756" href="#L1756">1756</a>         }
+<a class="jxr_linenumber" name="L1757" href="#L1757">1757</a> 
+<a class="jxr_linenumber" name="L1758" href="#L1758">1758</a>         <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1759" href="#L1759">1759</a> <em class="jxr_javadoccomment">         * Remove from this char token the given char tokens.</em>
+<a class="jxr_linenumber" name="L1760" href="#L1760">1760</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1761" href="#L1761">1761</a> <em class="jxr_javadoccomment">         * @param charTokens The char tokens to combine, must be</em>
+<a class="jxr_linenumber" name="L1762" href="#L1762">1762</a> <em class="jxr_javadoccomment">         *      CharToken or wrap a CharToken.</em>
+<a class="jxr_linenumber" name="L1763" href="#L1763">1763</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L1764" href="#L1764">1764</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token minus the given char tokens.</em>
+<a class="jxr_linenumber" name="L1765" href="#L1765">1765</a> <em class="jxr_javadoccomment">         */</em>
+<a class="jxr_linenumber" name="L1766" href="#L1766">1766</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> except(Token... charTokens) {
+<a class="jxr_linenumber" name="L1767" href="#L1767">1767</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(
+<a class="jxr_linenumber" name="L1768" href="#L1768">1768</a>                 Arrays.stream(charTokens)
+<a class="jxr_linenumber" name="L1769" href="#L1769">1769</a>                     .map(c -&gt; CharToken.unwrap(c).charRange)
+<a class="jxr_linenumber" name="L1770" href="#L1770">1770</a>                     .toArray(l -&gt; <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a>[l]));
+<a class="jxr_linenumber" name="L1771" href="#L1771">1771</a>             <strong class="jxr_keyword">return</strong> cr == <strong class="jxr_keyword">this</strong>.charRange ? <strong class="jxr_keyword">this</strong> : <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(cr);
+<a class="jxr_linenumber" name="L1772" href="#L1772">1772</a>         }
+<a class="jxr_linenumber" name="L1773" href="#L1773">1773</a> 
+<a class="jxr_linenumber" name="L1774" href="#L1774">1774</a>         @Override
+<a class="jxr_linenumber" name="L1775" href="#L1775">1775</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> parse(<a href="../../../ml/alternet/scan/Scanner.html">Scanner</a> scanner, <a href="../../../ml/alternet/parser/Handler.html">Handler</a> handler, <strong class="jxr_keyword">boolean</strong> alreadyMarked) <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L1776" href="#L1776">1776</a>             java.util.Optional&lt;String&gt; car = scanner.nextChar(<strong class="jxr_keyword">this</strong>.charRange)
+<a class="jxr_linenumber" name="L1777" href="#L1777">1777</a>                     .map(c -&gt; <strong class="jxr_keyword">new</strong> String(Character.toChars(c)));
+<a class="jxr_linenumber" name="L1778" href="#L1778">1778</a>             <strong class="jxr_keyword">if</strong> (car.isPresent()) {
+<a class="jxr_linenumber" name="L1779" href="#L1779">1779</a>                 handler.receive(<strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/EventsHandler.html">StringValue</a>(<strong class="jxr_keyword">this</strong>, car.get(), scanner));
+<a class="jxr_linenumber" name="L1780" href="#L1780">1780</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L1781" href="#L1781">1781</a>             } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L1782" href="#L1782">1782</a>                 <strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="L1783" href="#L1783">1783</a>             }
+<a class="jxr_linenumber" name="L1784" href="#L1784">1784</a>         }
+<a class="jxr_linenumber" name="L1785" href="#L1785">1785</a> 
+<a class="jxr_linenumber" name="L1786" href="#L1786">1786</a>         @Override
+<a class="jxr_linenumber" name="L1787" href="#L1787">1787</a>         <strong class="jxr_keyword">public</strong> StringBuilder toPrettyString(StringBuilder buf) {
+<a class="jxr_linenumber" name="L1788" href="#L1788">1788</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.charRange.toPrettyString(buf);
+<a class="jxr_linenumber" name="L1789" href="#L1789">1789</a>         }
+<a class="jxr_linenumber" name="L1790" href="#L1790">1790</a>     }
+<a class="jxr_linenumber" name="L1791" href="#L1791">1791</a> 
+<a class="jxr_linenumber" name="L1792" href="#L1792">1792</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1793" href="#L1793">1793</a> <em class="jxr_javadoccomment">     * A string token.</em>
+<a class="jxr_linenumber" name="L1794" href="#L1794">1794</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L1795" href="#L1795">1795</a> <em class="jxr_javadoccomment">     * @see Grammar#is(String)</em>
+<a class="jxr_linenumber" name="L1796" href="#L1796">1796</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L1797" href="#L1797">1797</a> <em class="jxr_javadoccomment">     * @author Philippe Poulard</em>
+<a class="jxr_linenumber" name="L1798" href="#L1798">1798</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L1799" href="#L1799">1799</a>     <strong class="jxr_keyword">class</strong> <a href="../../../ml/alternet/parser/Grammar.html">StringToken</a> <strong class="jxr_keyword">extends</strong> <a href="../../../ml/alternet/parser/Grammar.html">Token</a> <strong class="jxr_keyword">implements</strong> TraversableRule.SelfRule {
+<a class="jxr_linenumber" name="L1800" href="#L1800">1800</a> 
+<a class="jxr_linenumber" name="L1801" href="#L1801">1801</a>         String string;
+<a class="jxr_linenumber" name="L1802" href="#L1802">1802</a>         <strong class="jxr_keyword">boolean</strong> equal;
+<a class="jxr_linenumber" name="L1803" href="#L1803">1803</a> 
+<a class="jxr_linenumber" name="L1804" href="#L1804">1804</a>         <a href="../../../ml/alternet/parser/Grammar.html">StringToken</a>(String string, <strong class="jxr_keyword">boolean</strong> equal) {
+<a class="jxr_linenumber" name="L1805" href="#L1805">1805</a>             <strong class="jxr_keyword">this</strong>.string = string;
+<a class="jxr_linenumber" name="L1806" href="#L1806">1806</a>             <strong class="jxr_keyword">this</strong>.equal = equal;
+<a class="jxr_linenumber" name="L1807" href="#L1807">1807</a>         }
+<a class="jxr_linenumber" name="L1808" href="#L1808">1808</a> 
+<a class="jxr_linenumber" name="L1809" href="#L1809">1809</a>         @Override
+<a class="jxr_linenumber" name="L1810" href="#L1810">1810</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> parse(<a href="../../../ml/alternet/scan/Scanner.html">Scanner</a> scanner, <a href="../../../ml/alternet/parser/Handler.html">Handler</a> handler, <strong class="jxr_keyword">boolean</strong> alreadyMarked) <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L1811" href="#L1811">1811</a>             <strong class="jxr_keyword">if</strong> (! (equal ^ scanner.hasNextString(string, <strong class="jxr_keyword">true</strong>))) {
+<a class="jxr_linenumber" name="L1812" href="#L1812">1812</a>                 <em class="jxr_comment">// match</em>
+<a class="jxr_linenumber" name="L1813" href="#L1813">1813</a>                 <strong class="jxr_keyword">if</strong> (equal) {
+<a class="jxr_linenumber" name="L1814" href="#L1814">1814</a>                     handler.receive(<strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/EventsHandler.html">StringValue</a>(<strong class="jxr_keyword">this</strong>, string, scanner));
+<a class="jxr_linenumber" name="L1815" href="#L1815">1815</a>                 } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L1816" href="#L1816">1816</a>                     StringBuilder buf = <strong class="jxr_keyword">new</strong> StringBuilder(string.length());
+<a class="jxr_linenumber" name="L1817" href="#L1817">1817</a>                     scanner.nextString(<strong class="jxr_keyword">new</strong> StringConstraint.ReadLength(string.length()), buf);
+<a class="jxr_linenumber" name="L1818" href="#L1818">1818</a>                     handler.receive(<strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/EventsHandler.html">StringValue</a>(<strong class="jxr_keyword">this</strong>, buf.toString(), scanner));
+<a class="jxr_linenumber" name="L1819" href="#L1819">1819</a>                 }
+<a class="jxr_linenumber" name="L1820" href="#L1820">1820</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L1821" href="#L1821">1821</a>             }
+<a class="jxr_linenumber" name="L1822" href="#L1822">1822</a>             <strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="L1823" href="#L1823">1823</a>         }
+<a class="jxr_linenumber" name="L1824" href="#L1824">1824</a> 
+<a class="jxr_linenumber" name="L1825" href="#L1825">1825</a>         @Override
+<a class="jxr_linenumber" name="L1826" href="#L1826">1826</a>         <strong class="jxr_keyword">public</strong> StringBuilder toPrettyString(StringBuilder buf) {
+<a class="jxr_linenumber" name="L1827" href="#L1827">1827</a>             <strong class="jxr_keyword">if</strong> (! <strong class="jxr_keyword">this</strong>.equal) {
+<a class="jxr_linenumber" name="L1828" href="#L1828">1828</a>                 buf.append(<span class="jxr_string">"!"</span>);
+<a class="jxr_linenumber" name="L1829" href="#L1829">1829</a>             }
+<a class="jxr_linenumber" name="L1830" href="#L1830">1830</a>             <strong class="jxr_keyword">return</strong> buf.append('\'').append(<strong class="jxr_keyword">this</strong>.string).append('\'');
+<a class="jxr_linenumber" name="L1831" href="#L1831">1831</a>         }
+<a class="jxr_linenumber" name="L1832" href="#L1832">1832</a> 
+<a class="jxr_linenumber" name="L1833" href="#L1833">1833</a>     }
+<a class="jxr_linenumber" name="L1834" href="#L1834">1834</a> 
+<a class="jxr_linenumber" name="L1835" href="#L1835">1835</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1836" href="#L1836">1836</a> <em class="jxr_javadoccomment">     * A token made from an enum class or a list of string values.</em>
+<a class="jxr_linenumber" name="L1837" href="#L1837">1837</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L1838" href="#L1838">1838</a> <em class="jxr_javadoccomment">     * @see Grammar#is(Class)</em>
+<a class="jxr_linenumber" name="L1839" href="#L1839">1839</a> <em class="jxr_javadoccomment">     * @see Grammar#is(String...)</em>
+<a class="jxr_linenumber" name="L1840" href="#L1840">1840</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L1841" href="#L1841">1841</a> <em class="jxr_javadoccomment">     * @author Philippe Poulard</em>
+<a class="jxr_linenumber" name="L1842" href="#L1842">1842</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L1843" href="#L1843">1843</a> <em class="jxr_javadoccomment">     * @param &lt;T&gt; The type of values : &lt;code&gt;String&lt;/code&gt; or an enum class.</em>
 <a class="jxr_linenumber" name="L1844" href="#L1844">1844</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L1845" href="#L1845">1845</a> <em class="jxr_javadoccomment">     * @see Grammar#is(Class)</em>
-<a class="jxr_linenumber" name="L1846" href="#L1846">1846</a> <em class="jxr_javadoccomment">     * @see Grammar#is(String...)</em>
-<a class="jxr_linenumber" name="L1847" href="#L1847">1847</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L1848" href="#L1848">1848</a> <em class="jxr_javadoccomment">     * @author Philippe Poulard</em>
-<a class="jxr_linenumber" name="L1849" href="#L1849">1849</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L1850" href="#L1850">1850</a> <em class="jxr_javadoccomment">     * @param &lt;T&gt; The type of values : &lt;code&gt;String&lt;/code&gt; or an enum class.</em>
-<a class="jxr_linenumber" name="L1851" href="#L1851">1851</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L1852" href="#L1852">1852</a> <em class="jxr_javadoccomment">     * @see EnumValues</em>
-<a class="jxr_linenumber" name="L1853" href="#L1853">1853</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L1854" href="#L1854">1854</a>     <strong class="jxr_keyword">class</strong> EnumToken&lt;T&gt; <strong class="jxr_keyword">extends</strong> <a href="../../../ml/alternet/parser/Grammar.html">Token</a> {
-<a class="jxr_linenumber" name="L1855" href="#L1855">1855</a> 
-<a class="jxr_linenumber" name="L1856" href="#L1856">1856</a>         <em class="jxr_comment">// hierarchy of enum string values by char</em>
-<a class="jxr_linenumber" name="L1857" href="#L1857">1857</a>         EnumValues&lt;T&gt; values;
-<a class="jxr_linenumber" name="L1858" href="#L1858">1858</a> 
-<a class="jxr_linenumber" name="L1859" href="#L1859">1859</a>         @SuppressWarnings(<span class="jxr_string">"unchecked"</span>)
-<a class="jxr_linenumber" name="L1860" href="#L1860">1860</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">EnumToken</a>(@SuppressWarnings(<span class="jxr_string">"rawtypes"</span>) Class&lt;? <strong class="jxr_keyword">extends</strong> Enum&gt; values) {
-<a class="jxr_linenumber" name="L1861" href="#L1861">1861</a>             <strong class="jxr_keyword">this</strong>.values = (EnumValues&lt;T&gt;) EnumValues.from(values);
-<a class="jxr_linenumber" name="L1862" href="#L1862">1862</a>         }
-<a class="jxr_linenumber" name="L1863" href="#L1863">1863</a> 
-<a class="jxr_linenumber" name="L1864" href="#L1864">1864</a>         @SuppressWarnings(<span class="jxr_string">"unchecked"</span>)
-<a class="jxr_linenumber" name="L1865" href="#L1865">1865</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">EnumToken</a>(String... values) {
-<a class="jxr_linenumber" name="L1866" href="#L1866">1866</a>             <strong class="jxr_keyword">this</strong>.values = (EnumValues&lt;T&gt;) EnumValues.from(values);
-<a class="jxr_linenumber" name="L1867" href="#L1867">1867</a>         }
-<a class="jxr_linenumber" name="L1868" href="#L1868">1868</a> 
-<a class="jxr_linenumber" name="L1869" href="#L1869">1869</a>         @Override
-<a class="jxr_linenumber" name="L1870" href="#L1870">1870</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> parse(<a href="../../../ml/alternet/scan/Scanner.html">Scanner</a> scanner, <a href="../../../ml/alternet/parser/Handler.html">Handler</a> handler, <strong class="jxr_keyword">boolean</strong> alreadyMarked) <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="L1871" href="#L1871">1871</a>             java.util.Optional&lt;T&gt; value = <strong class="jxr_keyword">this</strong>.values.nextValue(scanner);
-<a class="jxr_linenumber" name="L1872" href="#L1872">1872</a>             value.ifPresent(
-<a class="jxr_linenumber" name="L1873" href="#L1873">1873</a>                 e -&gt; handler.receive(<strong class="jxr_keyword">new</strong> TokenValue&lt;&gt;(<strong class="jxr_keyword">this</strong>, e, scanner))
-<a class="jxr_linenumber" name="L1874" href="#L1874">1874</a>             );
-<a class="jxr_linenumber" name="L1875" href="#L1875">1875</a>             <strong class="jxr_keyword">return</strong> value.isPresent();
-<a class="jxr_linenumber" name="L1876" href="#L1876">1876</a>         }
+<a class="jxr_linenumber" name="L1845" href="#L1845">1845</a> <em class="jxr_javadoccomment">     * @see EnumValues</em>
+<a class="jxr_linenumber" name="L1846" href="#L1846">1846</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L1847" href="#L1847">1847</a>     <strong class="jxr_keyword">class</strong> EnumToken&lt;T&gt; <strong class="jxr_keyword">extends</strong> <a href="../../../ml/alternet/parser/Grammar.html">Token</a> <strong class="jxr_keyword">implements</strong> TraversableRule.SelfRule {
+<a class="jxr_linenumber" name="L1848" href="#L1848">1848</a> 
+<a class="jxr_linenumber" name="L1849" href="#L1849">1849</a>         <em class="jxr_comment">// hierarchy of enum string values by char</em>
+<a class="jxr_linenumber" name="L1850" href="#L1850">1850</a>         EnumValues&lt;T&gt; values;
+<a class="jxr_linenumber" name="L1851" href="#L1851">1851</a> 
+<a class="jxr_linenumber" name="L1852" href="#L1852">1852</a>         @SuppressWarnings(<span class="jxr_string">"unchecked"</span>)
+<a class="jxr_linenumber" name="L1853" href="#L1853">1853</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">EnumToken</a>(@SuppressWarnings(<span class="jxr_string">"rawtypes"</span>) Class&lt;? <strong class="jxr_keyword">extends</strong> Enum&gt; values) {
+<a class="jxr_linenumber" name="L1854" href="#L1854">1854</a>             <strong class="jxr_keyword">this</strong>.values = (EnumValues&lt;T&gt;) EnumValues.from(values);
+<a class="jxr_linenumber" name="L1855" href="#L1855">1855</a>         }
+<a class="jxr_linenumber" name="L1856" href="#L1856">1856</a> 
+<a class="jxr_linenumber" name="L1857" href="#L1857">1857</a>         @SuppressWarnings(<span class="jxr_string">"unchecked"</span>)
+<a class="jxr_linenumber" name="L1858" href="#L1858">1858</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">EnumToken</a>(String... values) {
+<a class="jxr_linenumber" name="L1859" href="#L1859">1859</a>             <strong class="jxr_keyword">this</strong>.values = (EnumValues&lt;T&gt;) EnumValues.from(values);
+<a class="jxr_linenumber" name="L1860" href="#L1860">1860</a>         }
+<a class="jxr_linenumber" name="L1861" href="#L1861">1861</a> 
+<a class="jxr_linenumber" name="L1862" href="#L1862">1862</a>         @Override
+<a class="jxr_linenumber" name="L1863" href="#L1863">1863</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> parse(<a href="../../../ml/alternet/scan/Scanner.html">Scanner</a> scanner, <a href="../../../ml/alternet/parser/Handler.html">Handler</a> handler, <strong class="jxr_keyword">boolean</strong> alreadyMarked) <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L1864" href="#L1864">1864</a>             java.util.Optional&lt;T&gt; value = <strong class="jxr_keyword">this</strong>.values.nextValue(scanner);
+<a class="jxr_linenumber" name="L1865" href="#L1865">1865</a>             value.ifPresent(
+<a class="jxr_linenumber" name="L1866" href="#L1866">1866</a>                 e -&gt; handler.receive(<strong class="jxr_keyword">new</strong> TokenValue&lt;&gt;(<strong class="jxr_keyword">this</strong>, e, scanner))
+<a class="jxr_linenumber" name="L1867" href="#L1867">1867</a>             );
+<a class="jxr_linenumber" name="L1868" href="#L1868">1868</a>             <strong class="jxr_keyword">return</strong> value.isPresent();
+<a class="jxr_linenumber" name="L1869" href="#L1869">1869</a>         }
+<a class="jxr_linenumber" name="L1870" href="#L1870">1870</a> 
+<a class="jxr_linenumber" name="L1871" href="#L1871">1871</a>         @Override
+<a class="jxr_linenumber" name="L1872" href="#L1872">1872</a>         <strong class="jxr_keyword">public</strong> StringBuilder toPrettyString(StringBuilder buf) {
+<a class="jxr_linenumber" name="L1873" href="#L1873">1873</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.values.toPrettyString(buf);
+<a class="jxr_linenumber" name="L1874" href="#L1874">1874</a>         }
+<a class="jxr_linenumber" name="L1875" href="#L1875">1875</a> 
+<a class="jxr_linenumber" name="L1876" href="#L1876">1876</a>     }
 <a class="jxr_linenumber" name="L1877" href="#L1877">1877</a> 
-<a class="jxr_linenumber" name="L1878" href="#L1878">1878</a>         @Override
-<a class="jxr_linenumber" name="L1879" href="#L1879">1879</a>         <strong class="jxr_keyword">public</strong> StringBuilder toPrettyString(StringBuilder buf) {
-<a class="jxr_linenumber" name="L1880" href="#L1880">1880</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.values.toPrettyString(buf);
-<a class="jxr_linenumber" name="L1881" href="#L1881">1881</a>         }
-<a class="jxr_linenumber" name="L1882" href="#L1882">1882</a> 
-<a class="jxr_linenumber" name="L1883" href="#L1883">1883</a>     }
-<a class="jxr_linenumber" name="L1884" href="#L1884">1884</a> 
-<a class="jxr_linenumber" name="L1885" href="#L1885">1885</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1886" href="#L1886">1886</a> <em class="jxr_javadoccomment">     * An enum value token.</em>
-<a class="jxr_linenumber" name="L1887" href="#L1887">1887</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L1888" href="#L1888">1888</a> <em class="jxr_javadoccomment">     * @see Grammar#is(Enum)</em>
-<a class="jxr_linenumber" name="L1889" href="#L1889">1889</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L1890" href="#L1890">1890</a> <em class="jxr_javadoccomment">     * @author Philippe Poulard</em>
-<a class="jxr_linenumber" name="L1891" href="#L1891">1891</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L1892" href="#L1892">1892</a>     <strong class="jxr_keyword">class</strong> <a href="../../../ml/alternet/parser/Grammar.html">EnumValueToken</a> <strong class="jxr_keyword">extends</strong> <a href="../../../ml/alternet/parser/Grammar.html">Token</a> {
-<a class="jxr_linenumber" name="L1893" href="#L1893">1893</a> 
-<a class="jxr_linenumber" name="L1894" href="#L1894">1894</a>         Enum&lt;?&gt; value;
-<a class="jxr_linenumber" name="L1895" href="#L1895">1895</a> 
-<a class="jxr_linenumber" name="L1896" href="#L1896">1896</a>         <a href="../../../ml/alternet/parser/Grammar.html">EnumValueToken</a>(Enum&lt;?&gt; value) {
-<a class="jxr_linenumber" name="L1897" href="#L1897">1897</a>             <strong class="jxr_keyword">this</strong>.value = value;
-<a class="jxr_linenumber" name="L1898" href="#L1898">1898</a>         }
-<a class="jxr_linenumber" name="L1899" href="#L1899">1899</a> 
-<a class="jxr_linenumber" name="L1900" href="#L1900">1900</a>         @Override
-<a class="jxr_linenumber" name="L1901" href="#L1901">1901</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> parse(<a href="../../../ml/alternet/scan/Scanner.html">Scanner</a> scanner, <a href="../../../ml/alternet/parser/Handler.html">Handler</a> handler, <strong class="jxr_keyword">boolean</strong> alreadyMarked) <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="L1902" href="#L1902">1902</a>             <strong class="jxr_keyword">if</strong> (scanner.hasNextString(value.name(), <strong class="jxr_keyword">true</strong>)) {
-<a class="jxr_linenumber" name="L1903" href="#L1903">1903</a>                 <em class="jxr_comment">// match</em>
-<a class="jxr_linenumber" name="L1904" href="#L1904">1904</a>                 handler.receive(<strong class="jxr_keyword">new</strong> TokenValue&lt;&gt;(<strong class="jxr_keyword">this</strong>, value, scanner));
-<a class="jxr_linenumber" name="L1905" href="#L1905">1905</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L1906" href="#L1906">1906</a>             }
-<a class="jxr_linenumber" name="L1907" href="#L1907">1907</a>             <strong class="jxr_keyword">return</strong> false;
-<a class="jxr_linenumber" name="L1908" href="#L1908">1908</a>         }
-<a class="jxr_linenumber" name="L1909" href="#L1909">1909</a> 
-<a class="jxr_linenumber" name="L1910" href="#L1910">1910</a>         @Override
-<a class="jxr_linenumber" name="L1911" href="#L1911">1911</a>         <strong class="jxr_keyword">public</strong> StringBuilder toPrettyString(StringBuilder buf) {
-<a class="jxr_linenumber" name="L1912" href="#L1912">1912</a>             <strong class="jxr_keyword">return</strong> buf.append('\'').append(<strong class="jxr_keyword">this</strong>.value.toString()).append('\'');
-<a class="jxr_linenumber" name="L1913" href="#L1913">1913</a>         }
-<a class="jxr_linenumber" name="L1914" href="#L1914">1914</a>     }
-<a class="jxr_linenumber" name="L1915" href="#L1915">1915</a> 
-<a class="jxr_linenumber" name="L1916" href="#L1916">1916</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1917" href="#L1917">1917</a> <em class="jxr_javadoccomment">     * A number token.</em>
-<a class="jxr_linenumber" name="L1918" href="#L1918">1918</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L1919" href="#L1919">1919</a> <em class="jxr_javadoccomment">     * @see Grammar#number()</em>
-<a class="jxr_linenumber" name="L1920" href="#L1920">1920</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L1921" href="#L1921">1921</a> <em class="jxr_javadoccomment">     * @author Philippe Poulard</em>
-<a class="jxr_linenumber" name="L1922" href="#L1922">1922</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L1923" href="#L1923">1923</a>     <strong class="jxr_keyword">class</strong> <a href="../../../ml/alternet/parser/Grammar.html">Number</a> <strong class="jxr_keyword">extends</strong> <a href="../../../ml/alternet/parser/Grammar.html">Token</a> {
-<a class="jxr_linenumber" name="L1924" href="#L1924">1924</a> 
-<a class="jxr_linenumber" name="L1925" href="#L1925">1925</a>         <a href="../../../ml/alternet/scan/NumberConstraint.html">NumberConstraint</a> constraint;
-<a class="jxr_linenumber" name="L1926" href="#L1926">1926</a> 
-<a class="jxr_linenumber" name="L1927" href="#L1927">1927</a>         <a href="../../../ml/alternet/parser/Grammar.html">Number</a>(<a href="../../../ml/alternet/scan/NumberConstraint.html">NumberConstraint</a> constraint) {
-<a class="jxr_linenumber" name="L1928" href="#L1928">1928</a>             <strong class="jxr_keyword">this</strong>.constraint = constraint;
-<a class="jxr_linenumber" name="L1929" href="#L1929">1929</a>         }
-<a class="jxr_linenumber" name="L1930" href="#L1930">1930</a> 
-<a class="jxr_linenumber" name="L1931" href="#L1931">1931</a>         <a href="../../../ml/alternet/parser/Grammar.html">Number</a>() { }
-<a class="jxr_linenumber" name="L1932" href="#L1932">1932</a> 
-<a class="jxr_linenumber" name="L1933" href="#L1933">1933</a>         @Override
-<a class="jxr_linenumber" name="L1934" href="#L1934">1934</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> parse(<a href="../../../ml/alternet/scan/Scanner.html">Scanner</a> scanner, <a href="../../../ml/alternet/parser/Handler.html">Handler</a> handler, <strong class="jxr_keyword">boolean</strong> alreadyMarked) <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="L1935" href="#L1935">1935</a>             <strong class="jxr_keyword">if</strong> (! alreadyMarked) {
-<a class="jxr_linenumber" name="L1936" href="#L1936">1936</a>                 scanner.mark();
-<a class="jxr_linenumber" name="L1937" href="#L1937">1937</a>             }
-<a class="jxr_linenumber" name="L1938" href="#L1938">1938</a>             java.lang.Number number = <strong class="jxr_keyword">this</strong>.constraint == <strong class="jxr_keyword">null</strong>
-<a class="jxr_linenumber" name="L1939" href="#L1939">1939</a>                   ?  scanner.nextNumber()
-<a class="jxr_linenumber" name="L1940" href="#L1940">1940</a>                   : scanner.nextNumber(<strong class="jxr_keyword">this</strong>.constraint);
-<a class="jxr_linenumber" name="L1941" href="#L1941">1941</a>             <strong class="jxr_keyword">if</strong> (number == <strong class="jxr_keyword">null</strong> || number instanceof BigInteger || number instanceof BigDecimal) {
-<a class="jxr_linenumber" name="L1942" href="#L1942">1942</a>                 <strong class="jxr_keyword">if</strong> (! alreadyMarked) {
-<a class="jxr_linenumber" name="L1943" href="#L1943">1943</a>                     scanner.cancel();
-<a class="jxr_linenumber" name="L1944" href="#L1944">1944</a>                 }
-<a class="jxr_linenumber" name="L1945" href="#L1945">1945</a>                 <strong class="jxr_keyword">return</strong> false;
-<a class="jxr_linenumber" name="L1946" href="#L1946">1946</a>             } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L1947" href="#L1947">1947</a>                 <strong class="jxr_keyword">if</strong> (! alreadyMarked) {
-<a class="jxr_linenumber" name="L1948" href="#L1948">1948</a>                     scanner.consume();
-<a class="jxr_linenumber" name="L1949" href="#L1949">1949</a>                 }
-<a class="jxr_linenumber" name="L1950" href="#L1950">1950</a>                 handler.receive(<strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/EventsHandler.html">NumberValue</a>(<strong class="jxr_keyword">this</strong>, number, scanner));
-<a class="jxr_linenumber" name="L1951" href="#L1951">1951</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L1952" href="#L1952">1952</a>             }
-<a class="jxr_linenumber" name="L1953" href="#L1953">1953</a>         }
-<a class="jxr_linenumber" name="L1954" href="#L1954">1954</a> 
-<a class="jxr_linenumber" name="L1955" href="#L1955">1955</a>         @Override
-<a class="jxr_linenumber" name="L1956" href="#L1956">1956</a>         <strong class="jxr_keyword">public</strong> StringBuilder toPrettyString(StringBuilder buf) {
-<a class="jxr_linenumber" name="L1957" href="#L1957">1957</a>             <strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.constraint != <strong class="jxr_keyword">null</strong> &amp;&amp; <strong class="jxr_keyword">this</strong>.constraint.getNumberType() != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L1958" href="#L1958">1958</a>                 <strong class="jxr_keyword">return</strong> buf.append('#')
-<a class="jxr_linenumber" name="L1959" href="#L1959">1959</a>                     .append(<strong class="jxr_keyword">this</strong>.constraint.getNumberType().getName());
-<a class="jxr_linenumber" name="L1960" href="#L1960">1960</a>             } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L1961" href="#L1961">1961</a>                 <strong class="jxr_keyword">return</strong> buf.append(<span class="jxr_string">"#NUMBER"</span>);
-<a class="jxr_linenumber" name="L1962" href="#L1962">1962</a>             }
-<a class="jxr_linenumber" name="L1963" href="#L1963">1963</a>         }
-<a class="jxr_linenumber" name="L1964" href="#L1964">1964</a> 
-<a class="jxr_linenumber" name="L1965" href="#L1965">1965</a>     }
+<a class="jxr_linenumber" name="L1878" href="#L1878">1878</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1879" href="#L1879">1879</a> <em class="jxr_javadoccomment">     * An enum value token.</em>
+<a class="jxr_linenumber" name="L1880" href="#L1880">1880</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L1881" href="#L1881">1881</a> <em class="jxr_javadoccomment">     * @see Grammar#is(Enum)</em>
+<a class="jxr_linenumber" name="L1882" href="#L1882">1882</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L1883" href="#L1883">1883</a> <em class="jxr_javadoccomment">     * @author Philippe Poulard</em>
+<a class="jxr_linenumber" name="L1884" href="#L1884">1884</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L1885" href="#L1885">1885</a>     <strong class="jxr_keyword">class</strong> <a href="../../../ml/alternet/parser/Grammar.html">EnumValueToken</a> <strong class="jxr_keyword">extends</strong> <a href="../../../ml/alternet/parser/Grammar.html">Token</a> <strong class="jxr_keyword">implements</strong> TraversableRule.SelfRule {
+<a class="jxr_linenumber" name="L1886" href="#L1886">1886</a> 
+<a class="jxr_linenumber" name="L1887" href="#L1887">1887</a>         Enum&lt;?&gt; value;
+<a class="jxr_linenumber" name="L1888" href="#L1888">1888</a> 
+<a class="jxr_linenumber" name="L1889" href="#L1889">1889</a>         <a href="../../../ml/alternet/parser/Grammar.html">EnumValueToken</a>(Enum&lt;?&gt; value) {
+<a class="jxr_linenumber" name="L1890" href="#L1890">1890</a>             <strong class="jxr_keyword">this</strong>.value = value;
+<a class="jxr_linenumber" name="L1891" href="#L1891">1891</a>         }
+<a class="jxr_linenumber" name="L1892" href="#L1892">1892</a> 
+<a class="jxr_linenumber" name="L1893" href="#L1893">1893</a>         @Override
+<a class="jxr_linenumber" name="L1894" href="#L1894">1894</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> parse(<a href="../../../ml/alternet/scan/Scanner.html">Scanner</a> scanner, <a href="../../../ml/alternet/parser/Handler.html">Handler</a> handler, <strong class="jxr_keyword">boolean</strong> alreadyMarked) <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L1895" href="#L1895">1895</a>             <strong class="jxr_keyword">if</strong> (scanner.hasNextString(value.name(), <strong class="jxr_keyword">true</strong>)) {
+<a class="jxr_linenumber" name="L1896" href="#L1896">1896</a>                 <em class="jxr_comment">// match</em>
+<a class="jxr_linenumber" name="L1897" href="#L1897">1897</a>                 handler.receive(<strong class="jxr_keyword">new</strong> TokenValue&lt;&gt;(<strong class="jxr_keyword">this</strong>, value, scanner));
+<a class="jxr_linenumber" name="L1898" href="#L1898">1898</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L1899" href="#L1899">1899</a>             }
+<a class="jxr_linenumber" name="L1900" href="#L1900">1900</a>             <strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="L1901" href="#L1901">1901</a>         }
+<a class="jxr_linenumber" name="L1902" href="#L1902">1902</a> 
+<a class="jxr_linenumber" name="L1903" href="#L1903">1903</a>         @Override
+<a class="jxr_linenumber" name="L1904" href="#L1904">1904</a>         <strong class="jxr_keyword">public</strong> StringBuilder toPrettyString(StringBuilder buf) {
+<a class="jxr_linenumber" name="L1905" href="#L1905">1905</a>             <strong class="jxr_keyword">return</strong> buf.append('\'').append(<strong class="jxr_keyword">this</strong>.value.toString()).append('\'');
+<a class="jxr_linenumber" name="L1906" href="#L1906">1906</a>         }
+<a class="jxr_linenumber" name="L1907" href="#L1907">1907</a>     }
+<a class="jxr_linenumber" name="L1908" href="#L1908">1908</a> 
+<a class="jxr_linenumber" name="L1909" href="#L1909">1909</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1910" href="#L1910">1910</a> <em class="jxr_javadoccomment">     * A number token.</em>
+<a class="jxr_linenumber" name="L1911" href="#L1911">1911</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L1912" href="#L1912">1912</a> <em class="jxr_javadoccomment">     * @see Grammar#number()</em>
+<a class="jxr_linenumber" name="L1913" href="#L1913">1913</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L1914" href="#L1914">1914</a> <em class="jxr_javadoccomment">     * @author Philippe Poulard</em>
+<a class="jxr_linenumber" name="L1915" href="#L1915">1915</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L1916" href="#L1916">1916</a>     <strong class="jxr_keyword">class</strong> <a href="../../../ml/alternet/parser/Grammar.html">Number</a> <strong class="jxr_keyword">extends</strong> <a href="../../../ml/alternet/parser/Grammar.html">Token</a> <strong class="jxr_keyword">implements</strong> TraversableRule.SelfRule {
+<a class="jxr_linenumber" name="L1917" href="#L1917">1917</a> 
+<a class="jxr_linenumber" name="L1918" href="#L1918">1918</a>         <a href="../../../ml/alternet/scan/NumberConstraint.html">NumberConstraint</a> constraint;
+<a class="jxr_linenumber" name="L1919" href="#L1919">1919</a> 
+<a class="jxr_linenumber" name="L1920" href="#L1920">1920</a>         <a href="../../../ml/alternet/parser/Grammar.html">Number</a>(<a href="../../../ml/alternet/scan/NumberConstraint.html">NumberConstraint</a> constraint) {
+<a class="jxr_linenumber" name="L1921" href="#L1921">1921</a>             <strong class="jxr_keyword">this</strong>.constraint = constraint;
+<a class="jxr_linenumber" name="L1922" href="#L1922">1922</a>         }
+<a class="jxr_linenumber" name="L1923" href="#L1923">1923</a> 
+<a class="jxr_linenumber" name="L1924" href="#L1924">1924</a>         <a href="../../../ml/alternet/parser/Grammar.html">Number</a>() { }
+<a class="jxr_linenumber" name="L1925" href="#L1925">1925</a> 
+<a class="jxr_linenumber" name="L1926" href="#L1926">1926</a>         @Override
+<a class="jxr_linenumber" name="L1927" href="#L1927">1927</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> parse(<a href="../../../ml/alternet/scan/Scanner.html">Scanner</a> scanner, <a href="../../../ml/alternet/parser/Handler.html">Handler</a> handler, <strong class="jxr_keyword">boolean</strong> alreadyMarked) <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L1928" href="#L1928">1928</a>             <strong class="jxr_keyword">if</strong> (! alreadyMarked) {
+<a class="jxr_linenumber" name="L1929" href="#L1929">1929</a>                 scanner.mark();
+<a class="jxr_linenumber" name="L1930" href="#L1930">1930</a>             }
+<a class="jxr_linenumber" name="L1931" href="#L1931">1931</a>             java.lang.Number number = <strong class="jxr_keyword">this</strong>.constraint == <strong class="jxr_keyword">null</strong>
+<a class="jxr_linenumber" name="L1932" href="#L1932">1932</a>                   ?  scanner.nextNumber()
+<a class="jxr_linenumber" name="L1933" href="#L1933">1933</a>                   : scanner.nextNumber(<strong class="jxr_keyword">this</strong>.constraint);
+<a class="jxr_linenumber" name="L1934" href="#L1934">1934</a>             <strong class="jxr_keyword">if</strong> (number == <strong class="jxr_keyword">null</strong> || number instanceof BigInteger || number instanceof BigDecimal) {
+<a class="jxr_linenumber" name="L1935" href="#L1935">1935</a>                 <strong class="jxr_keyword">if</strong> (! alreadyMarked) {
+<a class="jxr_linenumber" name="L1936" href="#L1936">1936</a>                     scanner.cancel();
+<a class="jxr_linenumber" name="L1937" href="#L1937">1937</a>                 }
+<a class="jxr_linenumber" name="L1938" href="#L1938">1938</a>                 <strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="L1939" href="#L1939">1939</a>             } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L1940" href="#L1940">1940</a>                 <strong class="jxr_keyword">if</strong> (! alreadyMarked) {
+<a class="jxr_linenumber" name="L1941" href="#L1941">1941</a>                     scanner.consume();
+<a class="jxr_linenumber" name="L1942" href="#L1942">1942</a>                 }
+<a class="jxr_linenumber" name="L1943" href="#L1943">1943</a>                 handler.receive(<strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/EventsHandler.html">NumberValue</a>(<strong class="jxr_keyword">this</strong>, number, scanner));
+<a class="jxr_linenumber" name="L1944" href="#L1944">1944</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L1945" href="#L1945">1945</a>             }
+<a class="jxr_linenumber" name="L1946" href="#L1946">1946</a>         }
+<a class="jxr_linenumber" name="L1947" href="#L1947">1947</a> 
+<a class="jxr_linenumber" name="L1948" href="#L1948">1948</a>         @Override
+<a class="jxr_linenumber" name="L1949" href="#L1949">1949</a>         <strong class="jxr_keyword">public</strong> StringBuilder toPrettyString(StringBuilder buf) {
+<a class="jxr_linenumber" name="L1950" href="#L1950">1950</a>             <strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.constraint != <strong class="jxr_keyword">null</strong> &amp;&amp; <strong class="jxr_keyword">this</strong>.constraint.getNumberType() != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L1951" href="#L1951">1951</a>                 <strong class="jxr_keyword">return</strong> buf.append('#')
+<a class="jxr_linenumber" name="L1952" href="#L1952">1952</a>                     .append(<strong class="jxr_keyword">this</strong>.constraint.getNumberType().getName());
+<a class="jxr_linenumber" name="L1953" href="#L1953">1953</a>             } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L1954" href="#L1954">1954</a>                 <strong class="jxr_keyword">return</strong> buf.append(<span class="jxr_string">"#NUMBER"</span>);
+<a class="jxr_linenumber" name="L1955" href="#L1955">1955</a>             }
+<a class="jxr_linenumber" name="L1956" href="#L1956">1956</a>         }
+<a class="jxr_linenumber" name="L1957" href="#L1957">1957</a> 
+<a class="jxr_linenumber" name="L1958" href="#L1958">1958</a>     }
+<a class="jxr_linenumber" name="L1959" href="#L1959">1959</a> 
+<a class="jxr_linenumber" name="L1960" href="#L1960">1960</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1961" href="#L1961">1961</a> <em class="jxr_javadoccomment">     * A token based on a grammar.</em>
+<a class="jxr_linenumber" name="L1962" href="#L1962">1962</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L1963" href="#L1963">1963</a> <em class="jxr_javadoccomment">     * @author Philippe Poulard</em>
+<a class="jxr_linenumber" name="L1964" href="#L1964">1964</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L1965" href="#L1965">1965</a>     <strong class="jxr_keyword">class</strong> <a href="../../../ml/alternet/parser/Grammar.html">GrammarToken</a> <strong class="jxr_keyword">extends</strong> <a href="../../../ml/alternet/parser/Grammar.html">Token</a> <strong class="jxr_keyword">implements</strong> TraversableRule.SelfRule {
 <a class="jxr_linenumber" name="L1966" href="#L1966">1966</a> 
-<a class="jxr_linenumber" name="L1967" href="#L1967">1967</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L1968" href="#L1968">1968</a> <em class="jxr_javadoccomment">     * A token based on a grammar.</em>
-<a class="jxr_linenumber" name="L1969" href="#L1969">1969</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L1970" href="#L1970">1970</a> <em class="jxr_javadoccomment">     * @author Philippe Poulard</em>
-<a class="jxr_linenumber" name="L1971" href="#L1971">1971</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L1972" href="#L1972">1972</a>     <strong class="jxr_keyword">class</strong> <a href="../../../ml/alternet/parser/Grammar.html">GrammarToken</a> <strong class="jxr_keyword">extends</strong> <a href="../../../ml/alternet/parser/Grammar.html">Token</a> {
-<a class="jxr_linenumber" name="L1973" href="#L1973">1973</a> 
-<a class="jxr_linenumber" name="L1974" href="#L1974">1974</a>         <a href="../../../ml/alternet/parser/util/Grammar$.html">Grammar</a> grammar;
-<a class="jxr_linenumber" name="L1975" href="#L1975">1975</a>         Supplier&lt;DataHandler&lt;?&gt;&gt; dataHandlerSupplier;
-<a class="jxr_linenumber" name="L1976" href="#L1976">1976</a> 
-<a class="jxr_linenumber" name="L1977" href="#L1977">1977</a>         <a href="../../../ml/alternet/parser/Grammar.html">GrammarToken</a>(<a href="../../../ml/alternet/parser/util/Grammar$.html">Grammar</a> grammar, Supplier&lt;DataHandler&lt;?&gt;&gt; dataHandlerSupplier) {
-<a class="jxr_linenumber" name="L1978" href="#L1978">1978</a>             <strong class="jxr_keyword">this</strong>.grammar = grammar;
-<a class="jxr_linenumber" name="L1979" href="#L1979">1979</a>             <strong class="jxr_keyword">this</strong>.dataHandlerSupplier = dataHandlerSupplier;
-<a class="jxr_linenumber" name="L1980" href="#L1980">1980</a>         }
-<a class="jxr_linenumber" name="L1981" href="#L1981">1981</a> 
-<a class="jxr_linenumber" name="L1982" href="#L1982">1982</a>         @Override
-<a class="jxr_linenumber" name="L1983" href="#L1983">1983</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> parse(<a href="../../../ml/alternet/scan/Scanner.html">Scanner</a> scanner, <a href="../../../ml/alternet/parser/Handler.html">Handler</a> handler, <strong class="jxr_keyword">boolean</strong> alreadyMarked) <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="L1984" href="#L1984">1984</a>             DataHandler&lt;?&gt; dataHandler = <strong class="jxr_keyword">this</strong>.dataHandlerSupplier.get();
-<a class="jxr_linenumber" name="L1985" href="#L1985">1985</a>             <strong class="jxr_keyword">boolean</strong> parsed = <strong class="jxr_keyword">this</strong>.grammar.parse(scanner, dataHandler, false);
-<a class="jxr_linenumber" name="L1986" href="#L1986">1986</a>             <strong class="jxr_keyword">if</strong> (parsed) {
-<a class="jxr_linenumber" name="L1987" href="#L1987">1987</a>                 Object value = dataHandler.get();
-<a class="jxr_linenumber" name="L1988" href="#L1988">1988</a>                 TokenValue&lt;?&gt; tokenValue = <strong class="jxr_keyword">new</strong> TokenValue&lt;&gt;(<strong class="jxr_keyword">this</strong>, value, scanner);
-<a class="jxr_linenumber" name="L1989" href="#L1989">1989</a>                 handler.receive(tokenValue);
-<a class="jxr_linenumber" name="L1990" href="#L1990">1990</a>             }
-<a class="jxr_linenumber" name="L1991" href="#L1991">1991</a>             <strong class="jxr_keyword">return</strong> parsed;
-<a class="jxr_linenumber" name="L1992" href="#L1992">1992</a>         }
+<a class="jxr_linenumber" name="L1967" href="#L1967">1967</a>         <a href="../../../ml/alternet/parser/util/Grammar$.html">Grammar</a> grammar;
+<a class="jxr_linenumber" name="L1968" href="#L1968">1968</a>         Supplier&lt;DataHandler&lt;?&gt;&gt; dataHandlerSupplier;
+<a class="jxr_linenumber" name="L1969" href="#L1969">1969</a> 
+<a class="jxr_linenumber" name="L1970" href="#L1970">1970</a>         <a href="../../../ml/alternet/parser/Grammar.html">GrammarToken</a>(<a href="../../../ml/alternet/parser/util/Grammar$.html">Grammar</a> grammar, Supplier&lt;DataHandler&lt;?&gt;&gt; dataHandlerSupplier) {
+<a class="jxr_linenumber" name="L1971" href="#L1971">1971</a>             <strong class="jxr_keyword">this</strong>.grammar = grammar;
+<a class="jxr_linenumber" name="L1972" href="#L1972">1972</a>             <strong class="jxr_keyword">this</strong>.dataHandlerSupplier = dataHandlerSupplier;
+<a class="jxr_linenumber" name="L1973" href="#L1973">1973</a>         }
+<a class="jxr_linenumber" name="L1974" href="#L1974">1974</a> 
+<a class="jxr_linenumber" name="L1975" href="#L1975">1975</a>         @Override
+<a class="jxr_linenumber" name="L1976" href="#L1976">1976</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> parse(<a href="../../../ml/alternet/scan/Scanner.html">Scanner</a> scanner, <a href="../../../ml/alternet/parser/Handler.html">Handler</a> handler, <strong class="jxr_keyword">boolean</strong> alreadyMarked) <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L1977" href="#L1977">1977</a>             DataHandler&lt;?&gt; dataHandler = <strong class="jxr_keyword">this</strong>.dataHandlerSupplier.get();
+<a class="jxr_linenumber" name="L1978" href="#L1978">1978</a>             <strong class="jxr_keyword">boolean</strong> parsed = <strong class="jxr_keyword">this</strong>.grammar.parse(scanner, dataHandler, false);
+<a class="jxr_linenumber" name="L1979" href="#L1979">1979</a>             <strong class="jxr_keyword">if</strong> (parsed) {
+<a class="jxr_linenumber" name="L1980" href="#L1980">1980</a>                 Object value = dataHandler.get();
+<a class="jxr_linenumber" name="L1981" href="#L1981">1981</a>                 TokenValue&lt;?&gt; tokenValue = <strong class="jxr_keyword">new</strong> TokenValue&lt;&gt;(<strong class="jxr_keyword">this</strong>, value, scanner);
+<a class="jxr_linenumber" name="L1982" href="#L1982">1982</a>                 handler.receive(tokenValue);
+<a class="jxr_linenumber" name="L1983" href="#L1983">1983</a>             }
+<a class="jxr_linenumber" name="L1984" href="#L1984">1984</a>             <strong class="jxr_keyword">return</strong> parsed;
+<a class="jxr_linenumber" name="L1985" href="#L1985">1985</a>         }
+<a class="jxr_linenumber" name="L1986" href="#L1986">1986</a> 
+<a class="jxr_linenumber" name="L1987" href="#L1987">1987</a>         @Override
+<a class="jxr_linenumber" name="L1988" href="#L1988">1988</a>         <strong class="jxr_keyword">public</strong> StringBuilder toPrettyString(StringBuilder buf) {
+<a class="jxr_linenumber" name="L1989" href="#L1989">1989</a>             <strong class="jxr_keyword">return</strong> buf.append('#').append(<strong class="jxr_keyword">this</strong>.grammar.getClass().getInterfaces()[0].getName());
+<a class="jxr_linenumber" name="L1990" href="#L1990">1990</a>         }
+<a class="jxr_linenumber" name="L1991" href="#L1991">1991</a> 
+<a class="jxr_linenumber" name="L1992" href="#L1992">1992</a>     }
 <a class="jxr_linenumber" name="L1993" href="#L1993">1993</a> 
-<a class="jxr_linenumber" name="L1994" href="#L1994">1994</a>         @Override
-<a class="jxr_linenumber" name="L1995" href="#L1995">1995</a>         <strong class="jxr_keyword">public</strong> StringBuilder toPrettyString(StringBuilder buf) {
-<a class="jxr_linenumber" name="L1996" href="#L1996">1996</a>             <strong class="jxr_keyword">return</strong> buf.append('#').append(<strong class="jxr_keyword">this</strong>.grammar.getClass().getInterfaces()[0].getName());
-<a class="jxr_linenumber" name="L1997" href="#L1997">1997</a>         }
-<a class="jxr_linenumber" name="L1998" href="#L1998">1998</a> 
-<a class="jxr_linenumber" name="L1999" href="#L1999">1999</a>     }
-<a class="jxr_linenumber" name="L2000" href="#L2000">2000</a> 
-<a class="jxr_linenumber" name="L2001" href="#L2001">2001</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2002" href="#L2002">2002</a> <em class="jxr_javadoccomment">     * A token based on rules.</em>
-<a class="jxr_linenumber" name="L2003" href="#L2003">2003</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2004" href="#L2004">2004</a> <em class="jxr_javadoccomment">     * @author Philippe Poulard</em>
-<a class="jxr_linenumber" name="L2005" href="#L2005">2005</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2006" href="#L2006">2006</a> <em class="jxr_javadoccomment">     * @param &lt;T&gt; The type of the token value.</em>
-<a class="jxr_linenumber" name="L2007" href="#L2007">2007</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2008" href="#L2008">2008</a>     <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">class</strong> TypedToken&lt;T&gt; <strong class="jxr_keyword">extends</strong> <a href="../../../ml/alternet/parser/Grammar.html">Token</a> <strong class="jxr_keyword">implements</strong> TraversableRule.SimpleRule {
-<a class="jxr_linenumber" name="L2009" href="#L2009">2009</a> 
-<a class="jxr_linenumber" name="L2010" href="#L2010">2010</a>         <a href="../../../ml/alternet/parser/Grammar.html">Rule</a> rule;
-<a class="jxr_linenumber" name="L2011" href="#L2011">2011</a> 
-<a class="jxr_linenumber" name="L2012" href="#L2012">2012</a>         <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2013" href="#L2013">2013</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L2014" href="#L2014">2014</a> <em class="jxr_javadoccomment">         * @param rule The rule from which this token is built.</em>
-<a class="jxr_linenumber" name="L2015" href="#L2015">2015</a> <em class="jxr_javadoccomment">         */</em>
-<a class="jxr_linenumber" name="L2016" href="#L2016">2016</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">TypedToken</a>(<a href="../../../ml/alternet/parser/Grammar.html">Rule</a> rule) {
-<a class="jxr_linenumber" name="L2017" href="#L2017">2017</a>             <strong class="jxr_keyword">this</strong>.rule = rule;
-<a class="jxr_linenumber" name="L2018" href="#L2018">2018</a>         }
-<a class="jxr_linenumber" name="L2019" href="#L2019">2019</a> 
-<a class="jxr_linenumber" name="L2020" href="#L2020">2020</a>         @Override
-<a class="jxr_linenumber" name="L2021" href="#L2021">2021</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">Rule</a> getComponent() {
-<a class="jxr_linenumber" name="L2022" href="#L2022">2022</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.rule;
-<a class="jxr_linenumber" name="L2023" href="#L2023">2023</a>         }
-<a class="jxr_linenumber" name="L2024" href="#L2024">2024</a> 
-<a class="jxr_linenumber" name="L2025" href="#L2025">2025</a>         @Override
-<a class="jxr_linenumber" name="L2026" href="#L2026">2026</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setComponent(<a href="../../../ml/alternet/parser/Grammar.html">Rule</a> rule) {
-<a class="jxr_linenumber" name="L2027" href="#L2027">2027</a>             <strong class="jxr_keyword">this</strong>.rule = rule;
-<a class="jxr_linenumber" name="L2028" href="#L2028">2028</a>         }
-<a class="jxr_linenumber" name="L2029" href="#L2029">2029</a> 
-<a class="jxr_linenumber" name="L2030" href="#L2030">2030</a>         <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2031" href="#L2031">2031</a> <em class="jxr_javadoccomment">         * Create a token value.</em>
-<a class="jxr_linenumber" name="L2032" href="#L2032">2032</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L2033" href="#L2033">2033</a> <em class="jxr_javadoccomment">         * @param buf Contains the tokens collected by the rule.</em>
-<a class="jxr_linenumber" name="L2034" href="#L2034">2034</a> <em class="jxr_javadoccomment">         * @param trackable Allow to determine the position of the data in the input.</em>
+<a class="jxr_linenumber" name="L1994" href="#L1994">1994</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L1995" href="#L1995">1995</a> <em class="jxr_javadoccomment">     * A token based on rules.</em>
+<a class="jxr_linenumber" name="L1996" href="#L1996">1996</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L1997" href="#L1997">1997</a> <em class="jxr_javadoccomment">     * @author Philippe Poulard</em>
+<a class="jxr_linenumber" name="L1998" href="#L1998">1998</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L1999" href="#L1999">1999</a> <em class="jxr_javadoccomment">     * @param &lt;T&gt; The type of the token value.</em>
+<a class="jxr_linenumber" name="L2000" href="#L2000">2000</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L2001" href="#L2001">2001</a>     <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">class</strong> TypedToken&lt;T&gt; <strong class="jxr_keyword">extends</strong> <a href="../../../ml/alternet/parser/Grammar.html">Token</a> <strong class="jxr_keyword">implements</strong> TraversableRule.SimpleRule {
+<a class="jxr_linenumber" name="L2002" href="#L2002">2002</a> 
+<a class="jxr_linenumber" name="L2003" href="#L2003">2003</a>         <a href="../../../ml/alternet/parser/Grammar.html">Rule</a> rule;
+<a class="jxr_linenumber" name="L2004" href="#L2004">2004</a> 
+<a class="jxr_linenumber" name="L2005" href="#L2005">2005</a>         <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2006" href="#L2006">2006</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L2007" href="#L2007">2007</a> <em class="jxr_javadoccomment">         * @param rule The rule from which this token is built.</em>
+<a class="jxr_linenumber" name="L2008" href="#L2008">2008</a> <em class="jxr_javadoccomment">         */</em>
+<a class="jxr_linenumber" name="L2009" href="#L2009">2009</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">TypedToken</a>(<a href="../../../ml/alternet/parser/Grammar.html">Rule</a> rule) {
+<a class="jxr_linenumber" name="L2010" href="#L2010">2010</a>             <strong class="jxr_keyword">this</strong>.rule = rule;
+<a class="jxr_linenumber" name="L2011" href="#L2011">2011</a>         }
+<a class="jxr_linenumber" name="L2012" href="#L2012">2012</a> 
+<a class="jxr_linenumber" name="L2013" href="#L2013">2013</a>         @Override
+<a class="jxr_linenumber" name="L2014" href="#L2014">2014</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">Rule</a> getComponent() {
+<a class="jxr_linenumber" name="L2015" href="#L2015">2015</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.rule;
+<a class="jxr_linenumber" name="L2016" href="#L2016">2016</a>         }
+<a class="jxr_linenumber" name="L2017" href="#L2017">2017</a> 
+<a class="jxr_linenumber" name="L2018" href="#L2018">2018</a>         @Override
+<a class="jxr_linenumber" name="L2019" href="#L2019">2019</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setComponent(<a href="../../../ml/alternet/parser/Grammar.html">Rule</a> rule) {
+<a class="jxr_linenumber" name="L2020" href="#L2020">2020</a>             <strong class="jxr_keyword">this</strong>.rule = rule;
+<a class="jxr_linenumber" name="L2021" href="#L2021">2021</a>         }
+<a class="jxr_linenumber" name="L2022" href="#L2022">2022</a> 
+<a class="jxr_linenumber" name="L2023" href="#L2023">2023</a>         <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2024" href="#L2024">2024</a> <em class="jxr_javadoccomment">         * Create a token value.</em>
+<a class="jxr_linenumber" name="L2025" href="#L2025">2025</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L2026" href="#L2026">2026</a> <em class="jxr_javadoccomment">         * @param buf Contains the tokens collected by the rule.</em>
+<a class="jxr_linenumber" name="L2027" href="#L2027">2027</a> <em class="jxr_javadoccomment">         * @param trackable Allow to determine the position of the data in the input.</em>
+<a class="jxr_linenumber" name="L2028" href="#L2028">2028</a> <em class="jxr_javadoccomment">         *</em>
+<a class="jxr_linenumber" name="L2029" href="#L2029">2029</a> <em class="jxr_javadoccomment">         * @return The token value.</em>
+<a class="jxr_linenumber" name="L2030" href="#L2030">2030</a> <em class="jxr_javadoccomment">         */</em>
+<a class="jxr_linenumber" name="L2031" href="#L2031">2031</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> TokenValue&lt;T&gt; newTokenValue(TokensCollector&lt;?&gt; buf, <a href="../../../ml/alternet/facet/Trackable.html">Trackable</a> trackable);
+<a class="jxr_linenumber" name="L2032" href="#L2032">2032</a> 
+<a class="jxr_linenumber" name="L2033" href="#L2033">2033</a>         <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2034" href="#L2034">2034</a> <em class="jxr_javadoccomment">         * Create the handler that collect all tokens within.</em>
 <a class="jxr_linenumber" name="L2035" href="#L2035">2035</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L2036" href="#L2036">2036</a> <em class="jxr_javadoccomment">         * @return The token value.</em>
+<a class="jxr_linenumber" name="L2036" href="#L2036">2036</a> <em class="jxr_javadoccomment">         * @return The handler for collecting values.</em>
 <a class="jxr_linenumber" name="L2037" href="#L2037">2037</a> <em class="jxr_javadoccomment">         */</em>
-<a class="jxr_linenumber" name="L2038" href="#L2038">2038</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> TokenValue&lt;T&gt; newTokenValue(TokensCollector&lt;?&gt; buf, <a href="../../../ml/alternet/facet/Trackable.html">Trackable</a> trackable);
+<a class="jxr_linenumber" name="L2038" href="#L2038">2038</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> TokensCollector&lt;?&gt; collector();
 <a class="jxr_linenumber" name="L2039" href="#L2039">2039</a> 
-<a class="jxr_linenumber" name="L2040" href="#L2040">2040</a>         <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2041" href="#L2041">2041</a> <em class="jxr_javadoccomment">         * Create the handler that collect all tokens within.</em>
-<a class="jxr_linenumber" name="L2042" href="#L2042">2042</a> <em class="jxr_javadoccomment">         *</em>
-<a class="jxr_linenumber" name="L2043" href="#L2043">2043</a> <em class="jxr_javadoccomment">         * @return The handler for collecting values.</em>
-<a class="jxr_linenumber" name="L2044" href="#L2044">2044</a> <em class="jxr_javadoccomment">         */</em>
-<a class="jxr_linenumber" name="L2045" href="#L2045">2045</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> TokensCollector&lt;?&gt; collector();
-<a class="jxr_linenumber" name="L2046" href="#L2046">2046</a> 
-<a class="jxr_linenumber" name="L2047" href="#L2047">2047</a>         @Override
-<a class="jxr_linenumber" name="L2048" href="#L2048">2048</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> parse(<a href="../../../ml/alternet/scan/Scanner.html">Scanner</a> scanner, <a href="../../../ml/alternet/parser/Handler.html">Handler</a> handler, <strong class="jxr_keyword">boolean</strong> alreadyMarked) <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="L2049" href="#L2049">2049</a>             TokensCollector&lt;?&gt; collector = collector();
-<a class="jxr_linenumber" name="L2050" href="#L2050">2050</a>             <strong class="jxr_keyword">if</strong> (! <strong class="jxr_keyword">this</strong>.rule.parse(scanner, collector).fail() &amp;&amp; ! collector.isEmpty()) {
-<a class="jxr_linenumber" name="L2051" href="#L2051">2051</a>                 handler.receive(newTokenValue(collector, scanner));
-<a class="jxr_linenumber" name="L2052" href="#L2052">2052</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L2053" href="#L2053">2053</a>             } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L2054" href="#L2054">2054</a>                 <strong class="jxr_keyword">return</strong> false;
-<a class="jxr_linenumber" name="L2055" href="#L2055">2055</a>             }
-<a class="jxr_linenumber" name="L2056" href="#L2056">2056</a>         }
+<a class="jxr_linenumber" name="L2040" href="#L2040">2040</a>         @Override
+<a class="jxr_linenumber" name="L2041" href="#L2041">2041</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> parse(<a href="../../../ml/alternet/scan/Scanner.html">Scanner</a> scanner, <a href="../../../ml/alternet/parser/Handler.html">Handler</a> handler, <strong class="jxr_keyword">boolean</strong> alreadyMarked) <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L2042" href="#L2042">2042</a>             TokensCollector&lt;?&gt; collector = collector();
+<a class="jxr_linenumber" name="L2043" href="#L2043">2043</a>             <strong class="jxr_keyword">if</strong> (! <strong class="jxr_keyword">this</strong>.rule.parse(scanner, collector).fail() &amp;&amp; ! collector.isEmpty()) {
+<a class="jxr_linenumber" name="L2044" href="#L2044">2044</a>                 handler.receive(newTokenValue(collector, scanner));
+<a class="jxr_linenumber" name="L2045" href="#L2045">2045</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L2046" href="#L2046">2046</a>             } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L2047" href="#L2047">2047</a>                 <strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="L2048" href="#L2048">2048</a>             }
+<a class="jxr_linenumber" name="L2049" href="#L2049">2049</a>         }
+<a class="jxr_linenumber" name="L2050" href="#L2050">2050</a> 
+<a class="jxr_linenumber" name="L2051" href="#L2051">2051</a>         @Override
+<a class="jxr_linenumber" name="L2052" href="#L2052">2052</a>         <strong class="jxr_keyword">public</strong> StringBuilder toPrettyString(StringBuilder buf) {
+<a class="jxr_linenumber" name="L2053" href="#L2053">2053</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.rule.toStringBuilder(buf);
+<a class="jxr_linenumber" name="L2054" href="#L2054">2054</a>         }
+<a class="jxr_linenumber" name="L2055" href="#L2055">2055</a> 
+<a class="jxr_linenumber" name="L2056" href="#L2056">2056</a>     }
 <a class="jxr_linenumber" name="L2057" href="#L2057">2057</a> 
-<a class="jxr_linenumber" name="L2058" href="#L2058">2058</a>         @Override
-<a class="jxr_linenumber" name="L2059" href="#L2059">2059</a>         <strong class="jxr_keyword">public</strong> StringBuilder toPrettyString(StringBuilder buf) {
-<a class="jxr_linenumber" name="L2060" href="#L2060">2060</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.rule.toStringBuilder(buf);
-<a class="jxr_linenumber" name="L2061" href="#L2061">2061</a>         }
-<a class="jxr_linenumber" name="L2062" href="#L2062">2062</a> 
-<a class="jxr_linenumber" name="L2063" href="#L2063">2063</a>     }
-<a class="jxr_linenumber" name="L2064" href="#L2064">2064</a> 
-<a class="jxr_linenumber" name="L2065" href="#L2065">2065</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2066" href="#L2066">2066</a> <em class="jxr_javadoccomment">     * Return a reference to the given rule.</em>
-<a class="jxr_linenumber" name="L2067" href="#L2067">2067</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2068" href="#L2068">2068</a> <em class="jxr_javadoccomment">     * @param rule The name of the referred rule,</em>
-<a class="jxr_linenumber" name="L2069" href="#L2069">2069</a> <em class="jxr_javadoccomment">     *  MUST NOT be empty.</em>
-<a class="jxr_linenumber" name="L2070" href="#L2070">2070</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2071" href="#L2071">2071</a> <em class="jxr_javadoccomment">     * @return A proxy rule.</em>
-<a class="jxr_linenumber" name="L2072" href="#L2072">2072</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2073" href="#L2073">2073</a>     <strong class="jxr_keyword">static</strong> <a href="../../../ml/alternet/parser/Grammar.html">Rule</a> $(String rule) {
-<a class="jxr_linenumber" name="L2074" href="#L2074">2074</a>         assert rule.length() &gt; 0;
-<a class="jxr_linenumber" name="L2075" href="#L2075">2075</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> Proxy.Named(rule);
-<a class="jxr_linenumber" name="L2076" href="#L2076">2076</a>     }
-<a class="jxr_linenumber" name="L2077" href="#L2077">2077</a> 
-<a class="jxr_linenumber" name="L2078" href="#L2078">2078</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2079" href="#L2079">2079</a> <em class="jxr_javadoccomment">     * &lt;code&gt;$self&lt;/code&gt; is a reference to</em>
-<a class="jxr_linenumber" name="L2080" href="#L2080">2080</a> <em class="jxr_javadoccomment">     * the current rule definition.</em>
-<a class="jxr_linenumber" name="L2081" href="#L2081">2081</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2082" href="#L2082">2082</a> <em class="jxr_javadoccomment">     * Used when a rule definition refers to itself :</em>
-<a class="jxr_linenumber" name="L2083" href="#L2083">2083</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2084" href="#L2084">2084</a> <em class="jxr_javadoccomment">     * &lt;pre&gt;// Argument ::= FUNCTION Argument | Value | '(' Expression ')'</em>
-<a class="jxr_linenumber" name="L2085" href="#L2085">2085</a> <em class="jxr_javadoccomment">     *&amp;#x40;Fragment Rule Argument = ( FUNCTION.seq($self) ).or(Value).or( LBRACKET.seq( Expression, RBRACKET ) );&lt;/pre&gt;</em>
-<a class="jxr_linenumber" name="L2086" href="#L2086">2086</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2087" href="#L2087">2087</a>     <a href="../../../ml/alternet/parser/Grammar.html">Rule</a> $self = <strong class="jxr_keyword">new</strong> Proxy.Named(<span class="jxr_string">""</span>);
-<a class="jxr_linenumber" name="L2088" href="#L2088">2088</a> 
-<a class="jxr_linenumber" name="L2089" href="#L2089">2089</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2090" href="#L2090">2090</a> <em class="jxr_javadoccomment">     * The char token for any Unicode codepoint.</em>
-<a class="jxr_linenumber" name="L2091" href="#L2091">2091</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2092" href="#L2092">2092</a>     <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> $any = <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(CharRange.ANY);
-<a class="jxr_linenumber" name="L2093" href="#L2093">2093</a> 
-<a class="jxr_linenumber" name="L2094" href="#L2094">2094</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2095" href="#L2095">2095</a> <em class="jxr_javadoccomment">     * The char token that matches nothing.</em>
-<a class="jxr_linenumber" name="L2096" href="#L2096">2096</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2097" href="#L2097">2097</a>     <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> $empty = <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(CharRange.EMPTY);
-<a class="jxr_linenumber" name="L2098" href="#L2098">2098</a> 
-<a class="jxr_linenumber" name="L2099" href="#L2099">2099</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2100" href="#L2100">2100</a> <em class="jxr_javadoccomment">     * Return the singleton instance of the given grammar.</em>
+<a class="jxr_linenumber" name="L2058" href="#L2058">2058</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2059" href="#L2059">2059</a> <em class="jxr_javadoccomment">     * Return a reference to the given rule.</em>
+<a class="jxr_linenumber" name="L2060" href="#L2060">2060</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2061" href="#L2061">2061</a> <em class="jxr_javadoccomment">     * @param rule The name of the referred rule,</em>
+<a class="jxr_linenumber" name="L2062" href="#L2062">2062</a> <em class="jxr_javadoccomment">     *  MUST NOT be empty.</em>
+<a class="jxr_linenumber" name="L2063" href="#L2063">2063</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2064" href="#L2064">2064</a> <em class="jxr_javadoccomment">     * @return A proxy rule.</em>
+<a class="jxr_linenumber" name="L2065" href="#L2065">2065</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L2066" href="#L2066">2066</a>     <strong class="jxr_keyword">static</strong> <a href="../../../ml/alternet/parser/Grammar.html">Rule</a> $(String rule) {
+<a class="jxr_linenumber" name="L2067" href="#L2067">2067</a>         assert rule.length() &gt; 0;
+<a class="jxr_linenumber" name="L2068" href="#L2068">2068</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> Proxy.Named(rule);
+<a class="jxr_linenumber" name="L2069" href="#L2069">2069</a>     }
+<a class="jxr_linenumber" name="L2070" href="#L2070">2070</a> 
+<a class="jxr_linenumber" name="L2071" href="#L2071">2071</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2072" href="#L2072">2072</a> <em class="jxr_javadoccomment">     * &lt;code&gt;$self&lt;/code&gt; is a reference to</em>
+<a class="jxr_linenumber" name="L2073" href="#L2073">2073</a> <em class="jxr_javadoccomment">     * the current rule definition.</em>
+<a class="jxr_linenumber" name="L2074" href="#L2074">2074</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2075" href="#L2075">2075</a> <em class="jxr_javadoccomment">     * Used when a rule definition refers to itself :</em>
+<a class="jxr_linenumber" name="L2076" href="#L2076">2076</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2077" href="#L2077">2077</a> <em class="jxr_javadoccomment">     * &lt;pre&gt;// Argument ::= FUNCTION Argument | Value | '(' Expression ')'</em>
+<a class="jxr_linenumber" name="L2078" href="#L2078">2078</a> <em class="jxr_javadoccomment">     *&amp;#x40;Fragment Rule Argument = ( FUNCTION.seq($self) ).or(Value).or( LBRACKET.seq( Expression, RBRACKET ) );&lt;/pre&gt;</em>
+<a class="jxr_linenumber" name="L2079" href="#L2079">2079</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L2080" href="#L2080">2080</a>     <a href="../../../ml/alternet/parser/Grammar.html">Rule</a> $self = <strong class="jxr_keyword">new</strong> Proxy.Named(<span class="jxr_string">""</span>);
+<a class="jxr_linenumber" name="L2081" href="#L2081">2081</a> 
+<a class="jxr_linenumber" name="L2082" href="#L2082">2082</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2083" href="#L2083">2083</a> <em class="jxr_javadoccomment">     * The char token for any Unicode codepoint.</em>
+<a class="jxr_linenumber" name="L2084" href="#L2084">2084</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L2085" href="#L2085">2085</a>     <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> $any = <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(CharRange.ANY);
+<a class="jxr_linenumber" name="L2086" href="#L2086">2086</a> 
+<a class="jxr_linenumber" name="L2087" href="#L2087">2087</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2088" href="#L2088">2088</a> <em class="jxr_javadoccomment">     * The char token that matches nothing.</em>
+<a class="jxr_linenumber" name="L2089" href="#L2089">2089</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L2090" href="#L2090">2090</a>     <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> $empty = <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(CharRange.EMPTY);
+<a class="jxr_linenumber" name="L2091" href="#L2091">2091</a> 
+<a class="jxr_linenumber" name="L2092" href="#L2092">2092</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2093" href="#L2093">2093</a> <em class="jxr_javadoccomment">     * Return the singleton instance of the given grammar.</em>
+<a class="jxr_linenumber" name="L2094" href="#L2094">2094</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2095" href="#L2095">2095</a> <em class="jxr_javadoccomment">     * @param grammar The grammar must be an interface.</em>
+<a class="jxr_linenumber" name="L2096" href="#L2096">2096</a> <em class="jxr_javadoccomment">     * @param &lt;T&gt; The target grammar interface.</em>
+<a class="jxr_linenumber" name="L2097" href="#L2097">2097</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2098" href="#L2098">2098</a> <em class="jxr_javadoccomment">     * @return An instance of the given interface,</em>
+<a class="jxr_linenumber" name="L2099" href="#L2099">2099</a> <em class="jxr_javadoccomment">     *      generated without methods implementation</em>
+<a class="jxr_linenumber" name="L2100" href="#L2100">2100</a> <em class="jxr_javadoccomment">     *      that would be specified in the interface.</em>
 <a class="jxr_linenumber" name="L2101" href="#L2101">2101</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2102" href="#L2102">2102</a> <em class="jxr_javadoccomment">     * @param grammar The grammar must be an interface.</em>
-<a class="jxr_linenumber" name="L2103" href="#L2103">2103</a> <em class="jxr_javadoccomment">     * @param &lt;T&gt; The target grammar interface.</em>
-<a class="jxr_linenumber" name="L2104" href="#L2104">2104</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2105" href="#L2105">2105</a> <em class="jxr_javadoccomment">     * @return An instance of the given interface,</em>
-<a class="jxr_linenumber" name="L2106" href="#L2106">2106</a> <em class="jxr_javadoccomment">     *      generated without methods implementation</em>
-<a class="jxr_linenumber" name="L2107" href="#L2107">2107</a> <em class="jxr_javadoccomment">     *      that would be specified in the interface.</em>
-<a class="jxr_linenumber" name="L2108" href="#L2108">2108</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2109" href="#L2109">2109</a> <em class="jxr_javadoccomment">     * @see ByteCodeFactory#getInstance(Class)</em>
-<a class="jxr_linenumber" name="L2110" href="#L2110">2110</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2111" href="#L2111">2111</a>     <strong class="jxr_keyword">static</strong> &lt;T <strong class="jxr_keyword">extends</strong> Grammar&gt; T $(Class&lt;? <strong class="jxr_keyword">extends</strong> Grammar&gt; grammar) {
-<a class="jxr_linenumber" name="L2112" href="#L2112">2112</a>         <strong class="jxr_keyword">return</strong> Grammar$.$(grammar);
-<a class="jxr_linenumber" name="L2113" href="#L2113">2113</a>     }
-<a class="jxr_linenumber" name="L2114" href="#L2114">2114</a> 
-<a class="jxr_linenumber" name="L2115" href="#L2115">2115</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2116" href="#L2116">2116</a> <em class="jxr_javadoccomment">     * Create either the singleton instance of the current Grammar</em>
-<a class="jxr_linenumber" name="L2117" href="#L2117">2117</a> <em class="jxr_javadoccomment">     * or a new proxy Rule, according to how this method is invoked.</em>
+<a class="jxr_linenumber" name="L2102" href="#L2102">2102</a> <em class="jxr_javadoccomment">     * @see ByteCodeFactory#getInstance(Class)</em>
+<a class="jxr_linenumber" name="L2103" href="#L2103">2103</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L2104" href="#L2104">2104</a>     <strong class="jxr_keyword">static</strong> &lt;T <strong class="jxr_keyword">extends</strong> Grammar&gt; T $(Class&lt;? <strong class="jxr_keyword">extends</strong> Grammar&gt; grammar) {
+<a class="jxr_linenumber" name="L2105" href="#L2105">2105</a>         <strong class="jxr_keyword">return</strong> Grammar$.$(grammar);
+<a class="jxr_linenumber" name="L2106" href="#L2106">2106</a>     }
+<a class="jxr_linenumber" name="L2107" href="#L2107">2107</a> 
+<a class="jxr_linenumber" name="L2108" href="#L2108">2108</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2109" href="#L2109">2109</a> <em class="jxr_javadoccomment">     * Create either the singleton instance of the current Grammar</em>
+<a class="jxr_linenumber" name="L2110" href="#L2110">2110</a> <em class="jxr_javadoccomment">     * or a new proxy Rule, according to how this method is invoked.</em>
+<a class="jxr_linenumber" name="L2111" href="#L2111">2111</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2112" href="#L2112">2112</a> <em class="jxr_javadoccomment">     * &lt;p&gt;In the following sample code, the method &lt;code&gt;$()&lt;/code&gt;</em>
+<a class="jxr_linenumber" name="L2113" href="#L2113">2113</a> <em class="jxr_javadoccomment">     * is called twice, once on a rule field, then on the grammar</em>
+<a class="jxr_linenumber" name="L2114" href="#L2114">2114</a> <em class="jxr_javadoccomment">     * singleton field :&lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L2115" href="#L2115">2115</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2116" href="#L2116">2116</a> <em class="jxr_javadoccomment">     * &lt;pre&gt;import static ml.alternet.parser.Grammar.*;</em>
+<a class="jxr_linenumber" name="L2117" href="#L2117">2117</a> <em class="jxr_javadoccomment">     *import ml.alternet.parser.Grammar;</em>
 <a class="jxr_linenumber" name="L2118" href="#L2118">2118</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2119" href="#L2119">2119</a> <em class="jxr_javadoccomment">     * &lt;p&gt;In the following sample code, the method &lt;code&gt;$()&lt;/code&gt;</em>
-<a class="jxr_linenumber" name="L2120" href="#L2120">2120</a> <em class="jxr_javadoccomment">     * is called twice, once on a rule field, then on the grammar</em>
-<a class="jxr_linenumber" name="L2121" href="#L2121">2121</a> <em class="jxr_javadoccomment">     * singleton field :&lt;/p&gt;</em>
-<a class="jxr_linenumber" name="L2122" href="#L2122">2122</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2123" href="#L2123">2123</a> <em class="jxr_javadoccomment">     * &lt;pre&gt;import static ml.alternet.parser.Grammar.*;</em>
-<a class="jxr_linenumber" name="L2124" href="#L2124">2124</a> <em class="jxr_javadoccomment">     *import ml.alternet.parser.Grammar;</em>
-<a class="jxr_linenumber" name="L2125" href="#L2125">2125</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2126" href="#L2126">2126</a> <em class="jxr_javadoccomment">     *public interface Foo extends Grammar {</em>
-<a class="jxr_linenumber" name="L2127" href="#L2127">2127</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2128" href="#L2128">2128</a> <em class="jxr_javadoccomment">     *    // create a proxy rule that will be initialized later</em>
-<a class="jxr_linenumber" name="L2129" href="#L2129">2129</a> <em class="jxr_javadoccomment">     *    Rule MyRule = $();</em>
-<a class="jxr_linenumber" name="L2130" href="#L2130">2130</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2131" href="#L2131">2131</a> <em class="jxr_javadoccomment">     *    // create the grammar instance to use for parsing an input</em>
-<a class="jxr_linenumber" name="L2132" href="#L2132">2132</a> <em class="jxr_javadoccomment">     *    Foo $ = $(); // must be the last field</em>
-<a class="jxr_linenumber" name="L2133" href="#L2133">2133</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2134" href="#L2134">2134</a> <em class="jxr_javadoccomment">     *}&lt;/pre&gt;</em>
-<a class="jxr_linenumber" name="L2135" href="#L2135">2135</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2136" href="#L2136">2136</a> <em class="jxr_javadoccomment">     * &lt;p&gt;In both cases, the caller of this method must be the</em>
-<a class="jxr_linenumber" name="L2137" href="#L2137">2137</a> <em class="jxr_javadoccomment">     * actual grammar interface, that is to say you MUST NOT</em>
-<a class="jxr_linenumber" name="L2138" href="#L2138">2138</a> <em class="jxr_javadoccomment">     * invoke that method outside for initializing a Rule or</em>
-<a class="jxr_linenumber" name="L2139" href="#L2139">2139</a> <em class="jxr_javadoccomment">     * the Grammar instance elsewhere than in your grammar</em>
-<a class="jxr_linenumber" name="L2140" href="#L2140">2140</a> <em class="jxr_javadoccomment">     * interface.&lt;/p&gt;</em>
-<a class="jxr_linenumber" name="L2141" href="#L2141">2141</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2142" href="#L2142">2142</a> <em class="jxr_javadoccomment">     * &lt;h1&gt;Grammar field&lt;/h1&gt;</em>
-<a class="jxr_linenumber" name="L2143" href="#L2143">2143</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2144" href="#L2144">2144</a> <em class="jxr_javadoccomment">     * &lt;p&gt;&lt;code&gt;$()&lt;/code&gt; return the singleton instance of the</em>
-<a class="jxr_linenumber" name="L2145" href="#L2145">2145</a> <em class="jxr_javadoccomment">     * current grammar.&lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L2119" href="#L2119">2119</a> <em class="jxr_javadoccomment">     *public interface Foo extends Grammar {</em>
+<a class="jxr_linenumber" name="L2120" href="#L2120">2120</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2121" href="#L2121">2121</a> <em class="jxr_javadoccomment">     *    // create a proxy rule that will be initialized later</em>
+<a class="jxr_linenumber" name="L2122" href="#L2122">2122</a> <em class="jxr_javadoccomment">     *    Rule MyRule = $();</em>
+<a class="jxr_linenumber" name="L2123" href="#L2123">2123</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2124" href="#L2124">2124</a> <em class="jxr_javadoccomment">     *    // create the grammar instance to use for parsing an input</em>
+<a class="jxr_linenumber" name="L2125" href="#L2125">2125</a> <em class="jxr_javadoccomment">     *    Foo $ = $(); // must be the last field</em>
+<a class="jxr_linenumber" name="L2126" href="#L2126">2126</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2127" href="#L2127">2127</a> <em class="jxr_javadoccomment">     *}&lt;/pre&gt;</em>
+<a class="jxr_linenumber" name="L2128" href="#L2128">2128</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2129" href="#L2129">2129</a> <em class="jxr_javadoccomment">     * &lt;p&gt;In both cases, the caller of this method must be the</em>
+<a class="jxr_linenumber" name="L2130" href="#L2130">2130</a> <em class="jxr_javadoccomment">     * actual grammar interface, that is to say you MUST NOT</em>
+<a class="jxr_linenumber" name="L2131" href="#L2131">2131</a> <em class="jxr_javadoccomment">     * invoke that method outside for initializing a Rule or</em>
+<a class="jxr_linenumber" name="L2132" href="#L2132">2132</a> <em class="jxr_javadoccomment">     * the Grammar instance elsewhere than in your grammar</em>
+<a class="jxr_linenumber" name="L2133" href="#L2133">2133</a> <em class="jxr_javadoccomment">     * interface.&lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L2134" href="#L2134">2134</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2135" href="#L2135">2135</a> <em class="jxr_javadoccomment">     * &lt;h1&gt;Grammar field&lt;/h1&gt;</em>
+<a class="jxr_linenumber" name="L2136" href="#L2136">2136</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2137" href="#L2137">2137</a> <em class="jxr_javadoccomment">     * &lt;p&gt;&lt;code&gt;$()&lt;/code&gt; return the singleton instance of the</em>
+<a class="jxr_linenumber" name="L2138" href="#L2138">2138</a> <em class="jxr_javadoccomment">     * current grammar.&lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L2139" href="#L2139">2139</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2140" href="#L2140">2140</a> <em class="jxr_javadoccomment">     * &lt;p&gt;NOTE : this method MUST BE called after all fields of</em>
+<a class="jxr_linenumber" name="L2141" href="#L2141">2141</a> <em class="jxr_javadoccomment">     * the interface have been properly initialized ; typically</em>
+<a class="jxr_linenumber" name="L2142" href="#L2142">2142</a> <em class="jxr_javadoccomment">     * this method is used to set the LAST field of the grammar</em>
+<a class="jxr_linenumber" name="L2143" href="#L2143">2143</a> <em class="jxr_javadoccomment">     * by getting its instance.&lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L2144" href="#L2144">2144</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2145" href="#L2145">2145</a> <em class="jxr_javadoccomment">     * &lt;h1&gt;Rule field&lt;/h1&gt;</em>
 <a class="jxr_linenumber" name="L2146" href="#L2146">2146</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2147" href="#L2147">2147</a> <em class="jxr_javadoccomment">     * &lt;p&gt;NOTE : this method MUST BE called after all fields of</em>
-<a class="jxr_linenumber" name="L2148" href="#L2148">2148</a> <em class="jxr_javadoccomment">     * the interface have been properly initialized ; typically</em>
-<a class="jxr_linenumber" name="L2149" href="#L2149">2149</a> <em class="jxr_javadoccomment">     * this method is used to set the LAST field of the grammar</em>
-<a class="jxr_linenumber" name="L2150" href="#L2150">2150</a> <em class="jxr_javadoccomment">     * by getting its instance.&lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L2147" href="#L2147">2147</a> <em class="jxr_javadoccomment">     * &lt;p&gt;&lt;code&gt;$()&lt;/code&gt; return a new proxy rule, useful when a</em>
+<a class="jxr_linenumber" name="L2148" href="#L2148">2148</a> <em class="jxr_javadoccomment">     * rule reference is expected while its definition will be</em>
+<a class="jxr_linenumber" name="L2149" href="#L2149">2149</a> <em class="jxr_javadoccomment">     * specified later. It is useful when a rule is made of other</em>
+<a class="jxr_linenumber" name="L2150" href="#L2150">2150</a> <em class="jxr_javadoccomment">     * rules/tokens that are defined later in the grammar.&lt;/p&gt;</em>
 <a class="jxr_linenumber" name="L2151" href="#L2151">2151</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2152" href="#L2152">2152</a> <em class="jxr_javadoccomment">     * &lt;h1&gt;Rule field&lt;/h1&gt;</em>
+<a class="jxr_linenumber" name="L2152" href="#L2152">2152</a> <em class="jxr_javadoccomment">     * &lt;p&gt;NOTE : all Rule fields in a grammar MUST NOT be null.&lt;/p&gt;</em>
 <a class="jxr_linenumber" name="L2153" href="#L2153">2153</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2154" href="#L2154">2154</a> <em class="jxr_javadoccomment">     * &lt;p&gt;&lt;code&gt;$()&lt;/code&gt; return a new proxy rule, useful when a</em>
-<a class="jxr_linenumber" name="L2155" href="#L2155">2155</a> <em class="jxr_javadoccomment">     * rule reference is expected while its definition will be</em>
-<a class="jxr_linenumber" name="L2156" href="#L2156">2156</a> <em class="jxr_javadoccomment">     * specified later. It is useful when a rule is made of other</em>
-<a class="jxr_linenumber" name="L2157" href="#L2157">2157</a> <em class="jxr_javadoccomment">     * rules/tokens that are defined later in the grammar.&lt;/p&gt;</em>
-<a class="jxr_linenumber" name="L2158" href="#L2158">2158</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2159" href="#L2159">2159</a> <em class="jxr_javadoccomment">     * &lt;p&gt;NOTE : all Rule fields in a grammar MUST NOT be null.&lt;/p&gt;</em>
-<a class="jxr_linenumber" name="L2160" href="#L2160">2160</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2161" href="#L2161">2161</a> <em class="jxr_javadoccomment">     * &lt;p&gt;When such proxy rule has been declared as a field in a</em>
-<a class="jxr_linenumber" name="L2162" href="#L2162">2162</a> <em class="jxr_javadoccomment">     * grammar, it have to be initialized later in the grammar :&lt;/p&gt;</em>
-<a class="jxr_linenumber" name="L2163" href="#L2163">2163</a> <em class="jxr_javadoccomment">     * &lt;ul&gt;</em>
-<a class="jxr_linenumber" name="L2164" href="#L2164">2164</a> <em class="jxr_javadoccomment">     *  &lt;li&gt;Either by declaring a STATIC method with the same name as</em>
-<a class="jxr_linenumber" name="L2165" href="#L2165">2165</a> <em class="jxr_javadoccomment">     *      the field :</em>
-<a class="jxr_linenumber" name="L2166" href="#L2166">2166</a> <em class="jxr_javadoccomment">     *      &lt;pre&gt;    static Rule MyRule() {</em>
-<a class="jxr_linenumber" name="L2167" href="#L2167">2167</a> <em class="jxr_javadoccomment">     *        return SomeRule.seq(OtherRule);</em>
-<a class="jxr_linenumber" name="L2168" href="#L2168">2168</a> <em class="jxr_javadoccomment">     *    }&lt;/pre&gt;&lt;/li&gt;</em>
-<a class="jxr_linenumber" name="L2169" href="#L2169">2169</a> <em class="jxr_javadoccomment">     *  &lt;li&gt;Or by declaring a supplier field with the same name as</em>
-<a class="jxr_linenumber" name="L2170" href="#L2170">2170</a> <em class="jxr_javadoccomment">     *      the field prepend with "$" :</em>
-<a class="jxr_linenumber" name="L2171" href="#L2171">2171</a> <em class="jxr_javadoccomment">     *      &lt;pre&gt;    Supplier&amp;lt;Rule&amp;gt; $MyRule = () -&amp;gt; SomeRule.seq(OtherRule);&lt;/pre&gt;&lt;/li&gt;</em>
-<a class="jxr_linenumber" name="L2172" href="#L2172">2172</a> <em class="jxr_javadoccomment">     *  &lt;li&gt;Or by declaring a dummy field that perform the initialization :</em>
-<a class="jxr_linenumber" name="L2173" href="#L2173">2173</a> <em class="jxr_javadoccomment">     *      &lt;pre&gt;    boolean b1 = ((Proxy) MyRule).is(</em>
-<a class="jxr_linenumber" name="L2174" href="#L2174">2174</a> <em class="jxr_javadoccomment">     *        SomeRule.seq(OtherRule)</em>
-<a class="jxr_linenumber" name="L2175" href="#L2175">2175</a> <em class="jxr_javadoccomment">     *    );&lt;/pre&gt;&lt;/li&gt;</em>
-<a class="jxr_linenumber" name="L2176" href="#L2176">2176</a> <em class="jxr_javadoccomment">     * &lt;/ul&gt;</em>
-<a class="jxr_linenumber" name="L2177" href="#L2177">2177</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2178" href="#L2178">2178</a> <em class="jxr_javadoccomment">     * @param &lt;T&gt; The target grammar interface OR a Rule.</em>
-<a class="jxr_linenumber" name="L2179" href="#L2179">2179</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2180" href="#L2180">2180</a> <em class="jxr_javadoccomment">     * @return For the grammar field, return an instance of</em>
-<a class="jxr_linenumber" name="L2181" href="#L2181">2181</a> <em class="jxr_javadoccomment">     *      the given interface, generated without methods</em>
-<a class="jxr_linenumber" name="L2182" href="#L2182">2182</a> <em class="jxr_javadoccomment">     *      implementation that would be specified in the</em>
-<a class="jxr_linenumber" name="L2183" href="#L2183">2183</a> <em class="jxr_javadoccomment">     *      interface ; for a rule field, return a new proxy</em>
-<a class="jxr_linenumber" name="L2184" href="#L2184">2184</a> <em class="jxr_javadoccomment">     *      rule.</em>
-<a class="jxr_linenumber" name="L2185" href="#L2185">2185</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2186" href="#L2186">2186</a> <em class="jxr_javadoccomment">     * @see ByteCodeFactory#getInstance(Class)</em>
-<a class="jxr_linenumber" name="L2187" href="#L2187">2187</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2188" href="#L2188">2188</a> <em class="jxr_javadoccomment">     * @throws ClassCastException If the grammar interface defines</em>
-<a class="jxr_linenumber" name="L2189" href="#L2189">2189</a> <em class="jxr_javadoccomment">     *      a rule field left &lt;code&gt;null&lt;/code&gt;.</em>
-<a class="jxr_linenumber" name="L2190" href="#L2190">2190</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2191" href="#L2191">2191</a>     <strong class="jxr_keyword">static</strong> &lt;T&gt; T $() {
-<a class="jxr_linenumber" name="L2192" href="#L2192">2192</a>         <strong class="jxr_keyword">return</strong> Grammar$.$();
-<a class="jxr_linenumber" name="L2193" href="#L2193">2193</a>     }
-<a class="jxr_linenumber" name="L2194" href="#L2194">2194</a> 
-<a class="jxr_linenumber" name="L2195" href="#L2195">2195</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2196" href="#L2196">2196</a> <em class="jxr_javadoccomment">     * Return the "tokenizer rule", that is to</em>
-<a class="jxr_linenumber" name="L2197" href="#L2197">2197</a> <em class="jxr_javadoccomment">     * say all the non-fragment tokens explicitly</em>
-<a class="jxr_linenumber" name="L2198" href="#L2198">2198</a> <em class="jxr_javadoccomment">     * specified by this grammar, in their natural</em>
-<a class="jxr_linenumber" name="L2199" href="#L2199">2199</a> <em class="jxr_javadoccomment">     * order.</em>
-<a class="jxr_linenumber" name="L2200" href="#L2200">2200</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2201" href="#L2201">2201</a> <em class="jxr_javadoccomment">     * @return A rule with all the tokens that are not fragments :</em>
-<a class="jxr_linenumber" name="L2202" href="#L2202">2202</a> <em class="jxr_javadoccomment">     *      the rule &lt;code&gt;(T1 | T2 | T3 ...)*&lt;/code&gt;</em>
+<a class="jxr_linenumber" name="L2154" href="#L2154">2154</a> <em class="jxr_javadoccomment">     * &lt;p&gt;When such proxy rule has been declared as a field in a</em>
+<a class="jxr_linenumber" name="L2155" href="#L2155">2155</a> <em class="jxr_javadoccomment">     * grammar, it have to be initialized later in the grammar :&lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L2156" href="#L2156">2156</a> <em class="jxr_javadoccomment">     * &lt;ul&gt;</em>
+<a class="jxr_linenumber" name="L2157" href="#L2157">2157</a> <em class="jxr_javadoccomment">     *  &lt;li&gt;Either by declaring a STATIC method with the same name as</em>
+<a class="jxr_linenumber" name="L2158" href="#L2158">2158</a> <em class="jxr_javadoccomment">     *      the field :</em>
+<a class="jxr_linenumber" name="L2159" href="#L2159">2159</a> <em class="jxr_javadoccomment">     *      &lt;pre&gt;    static Rule MyRule() {</em>
+<a class="jxr_linenumber" name="L2160" href="#L2160">2160</a> <em class="jxr_javadoccomment">     *        return SomeRule.seq(OtherRule);</em>
+<a class="jxr_linenumber" name="L2161" href="#L2161">2161</a> <em class="jxr_javadoccomment">     *    }&lt;/pre&gt;&lt;/li&gt;</em>
+<a class="jxr_linenumber" name="L2162" href="#L2162">2162</a> <em class="jxr_javadoccomment">     *  &lt;li&gt;Or by declaring a supplier field with the same name as</em>
+<a class="jxr_linenumber" name="L2163" href="#L2163">2163</a> <em class="jxr_javadoccomment">     *      the field prepend with "$" :</em>
+<a class="jxr_linenumber" name="L2164" href="#L2164">2164</a> <em class="jxr_javadoccomment">     *      &lt;pre&gt;    Supplier&amp;lt;Rule&amp;gt; $MyRule = () -&amp;gt; SomeRule.seq(OtherRule);&lt;/pre&gt;&lt;/li&gt;</em>
+<a class="jxr_linenumber" name="L2165" href="#L2165">2165</a> <em class="jxr_javadoccomment">     *  &lt;li&gt;Or by declaring a dummy field that perform the initialization :</em>
+<a class="jxr_linenumber" name="L2166" href="#L2166">2166</a> <em class="jxr_javadoccomment">     *      &lt;pre&gt;    boolean b1 = ((Proxy) MyRule).is(</em>
+<a class="jxr_linenumber" name="L2167" href="#L2167">2167</a> <em class="jxr_javadoccomment">     *        SomeRule.seq(OtherRule)</em>
+<a class="jxr_linenumber" name="L2168" href="#L2168">2168</a> <em class="jxr_javadoccomment">     *    );&lt;/pre&gt;&lt;/li&gt;</em>
+<a class="jxr_linenumber" name="L2169" href="#L2169">2169</a> <em class="jxr_javadoccomment">     * &lt;/ul&gt;</em>
+<a class="jxr_linenumber" name="L2170" href="#L2170">2170</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2171" href="#L2171">2171</a> <em class="jxr_javadoccomment">     * @param &lt;T&gt; The target grammar interface OR a Rule.</em>
+<a class="jxr_linenumber" name="L2172" href="#L2172">2172</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2173" href="#L2173">2173</a> <em class="jxr_javadoccomment">     * @return For the grammar field, return an instance of</em>
+<a class="jxr_linenumber" name="L2174" href="#L2174">2174</a> <em class="jxr_javadoccomment">     *      the given interface, generated without methods</em>
+<a class="jxr_linenumber" name="L2175" href="#L2175">2175</a> <em class="jxr_javadoccomment">     *      implementation that would be specified in the</em>
+<a class="jxr_linenumber" name="L2176" href="#L2176">2176</a> <em class="jxr_javadoccomment">     *      interface ; for a rule field, return a new proxy</em>
+<a class="jxr_linenumber" name="L2177" href="#L2177">2177</a> <em class="jxr_javadoccomment">     *      rule.</em>
+<a class="jxr_linenumber" name="L2178" href="#L2178">2178</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2179" href="#L2179">2179</a> <em class="jxr_javadoccomment">     * @see ByteCodeFactory#getInstance(Class)</em>
+<a class="jxr_linenumber" name="L2180" href="#L2180">2180</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2181" href="#L2181">2181</a> <em class="jxr_javadoccomment">     * @throws ClassCastException If the grammar interface defines</em>
+<a class="jxr_linenumber" name="L2182" href="#L2182">2182</a> <em class="jxr_javadoccomment">     *      a rule field left &lt;code&gt;null&lt;/code&gt;.</em>
+<a class="jxr_linenumber" name="L2183" href="#L2183">2183</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L2184" href="#L2184">2184</a>     <strong class="jxr_keyword">static</strong> &lt;T&gt; T $() {
+<a class="jxr_linenumber" name="L2185" href="#L2185">2185</a>         <strong class="jxr_keyword">return</strong> Grammar$.$();
+<a class="jxr_linenumber" name="L2186" href="#L2186">2186</a>     }
+<a class="jxr_linenumber" name="L2187" href="#L2187">2187</a> 
+<a class="jxr_linenumber" name="L2188" href="#L2188">2188</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2189" href="#L2189">2189</a> <em class="jxr_javadoccomment">     * Return the "tokenizer rule", that is to</em>
+<a class="jxr_linenumber" name="L2190" href="#L2190">2190</a> <em class="jxr_javadoccomment">     * say all the non-fragment tokens explicitly</em>
+<a class="jxr_linenumber" name="L2191" href="#L2191">2191</a> <em class="jxr_javadoccomment">     * specified by this grammar, in their natural</em>
+<a class="jxr_linenumber" name="L2192" href="#L2192">2192</a> <em class="jxr_javadoccomment">     * order.</em>
+<a class="jxr_linenumber" name="L2193" href="#L2193">2193</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2194" href="#L2194">2194</a> <em class="jxr_javadoccomment">     * @return A rule with all the tokens that are not fragments :</em>
+<a class="jxr_linenumber" name="L2195" href="#L2195">2195</a> <em class="jxr_javadoccomment">     *      the rule &lt;code&gt;(T1 | T2 | T3 ...)*&lt;/code&gt;</em>
+<a class="jxr_linenumber" name="L2196" href="#L2196">2196</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2197" href="#L2197">2197</a> <em class="jxr_javadoccomment">     * @see Fragment</em>
+<a class="jxr_linenumber" name="L2198" href="#L2198">2198</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L2199" href="#L2199">2199</a>     <a href="../../../ml/alternet/parser/Grammar.html">Rule</a> tokenizer();
+<a class="jxr_linenumber" name="L2200" href="#L2200">2200</a> 
+<a class="jxr_linenumber" name="L2201" href="#L2201">2201</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L2202" href="#L2202">2202</a> <em class="jxr_javadoccomment">     * Return the main rule of the grammar.</em>
 <a class="jxr_linenumber" name="L2203" href="#L2203">2203</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2204" href="#L2204">2204</a> <em class="jxr_javadoccomment">     * @see Fragment</em>
-<a class="jxr_linenumber" name="L2205" href="#L2205">2205</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2206" href="#L2206">2206</a>     <a href="../../../ml/alternet/parser/Grammar.html">Rule</a> tokenizer();
-<a class="jxr_linenumber" name="L2207" href="#L2207">2207</a> 
-<a class="jxr_linenumber" name="L2208" href="#L2208">2208</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L2209" href="#L2209">2209</a> <em class="jxr_javadoccomment">     * Return the main rule of the grammar.</em>
-<a class="jxr_linenumber" name="L2210" href="#L2210">2210</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2211" href="#L2211">2211</a> <em class="jxr_javadoccomment">     * @return The main rule if one has been set</em>
-<a class="jxr_linenumber" name="L2212" href="#L2212">2212</a> <em class="jxr_javadoccomment">     *      on the grammar or one of its interfaces.</em>
-<a class="jxr_linenumber" name="L2213" href="#L2213">2213</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L2214" href="#L2214">2214</a> <em class="jxr_javadoccomment">     * @see MainRule</em>
-<a class="jxr_linenumber" name="L2215" href="#L2215">2215</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L2216" href="#L2216">2216</a>     java.util.Optional&lt;Rule&gt; mainRule();
-<a class="jxr_linenumber" name="L2217" href="#L2217">2217</a> 
-<a class="jxr_linenumber" name="L2218" href="#L2218">2218</a> }
+<a class="jxr_linenumber" name="L2204" href="#L2204">2204</a> <em class="jxr_javadoccomment">     * @return The main rule if one has been set</em>
+<a class="jxr_linenumber" name="L2205" href="#L2205">2205</a> <em class="jxr_javadoccomment">     *      on the grammar or one of its interfaces.</em>
+<a class="jxr_linenumber" name="L2206" href="#L2206">2206</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L2207" href="#L2207">2207</a> <em class="jxr_javadoccomment">     * @see MainRule</em>
+<a class="jxr_linenumber" name="L2208" href="#L2208">2208</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L2209" href="#L2209">2209</a>     java.util.Optional&lt;Rule&gt; mainRule();
+<a class="jxr_linenumber" name="L2210" href="#L2210">2210</a> 
+<a class="jxr_linenumber" name="L2211" href="#L2211">2211</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2017 <a href="http://alternet.ml">Alternet</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2018 <a href="http://alternet.ml">Alternet</a>. All rights reserved.</div>
 </body>
 </html>

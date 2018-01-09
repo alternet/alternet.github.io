@@ -293,7 +293,7 @@
 <a class="jxr_linenumber" name="L285" href="#L285">285</a>     @LookupKey(byDefault=<strong class="jxr_keyword">true</strong>, implClass=Bridge.<strong class="jxr_keyword">class</strong>)
 <a class="jxr_linenumber" name="L286" href="#L286">286</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">interface</strong> <a href="../../../../../../ml/alternet/security/auth/hashers/impl/Argon2Hasher.html">Argon2Bridge</a> {
 <a class="jxr_linenumber" name="L287" href="#L287">287</a> 
-<a class="jxr_linenumber" name="L288" href="#L288">288</a>         enum <a href="../../../../../../ml/alternet/security/auth/hashers/impl/Argon2Hasher.html">Type</a> {
+<a class="jxr_linenumber" name="L288" href="#L288">288</a>         enum <a href="../../../../../../ml/alternet/misc/Type.html">Type</a> {
 <a class="jxr_linenumber" name="L289" href="#L289">289</a>             <em class="jxr_comment">// order matters !!!</em>
 <a class="jxr_linenumber" name="L290" href="#L290">290</a>             argon2d, argon2i, argon2id
 <a class="jxr_linenumber" name="L291" href="#L291">291</a>         }
@@ -315,7 +315,7 @@
 <a class="jxr_linenumber" name="L307" href="#L307">307</a> <em class="jxr_javadoccomment">         * @return The hash.</em>
 <a class="jxr_linenumber" name="L308" href="#L308">308</a> <em class="jxr_javadoccomment">         */</em>
 <a class="jxr_linenumber" name="L309" href="#L309">309</a>         byte[] encrypt(byte[] passwordb, byte[] salt, <strong class="jxr_keyword">int</strong> memoryCost, <strong class="jxr_keyword">int</strong> timeCost, <strong class="jxr_keyword">int</strong> parallelism,
-<a class="jxr_linenumber" name="L310" href="#L310">310</a>                 <a href="../../../../../../ml/alternet/security/auth/hashers/impl/Argon2Hasher.html">Type</a> variant, <strong class="jxr_keyword">int</strong> version, <strong class="jxr_keyword">int</strong> outputLength, byte[] additional, byte[] secret);
+<a class="jxr_linenumber" name="L310" href="#L310">310</a>                 <a href="../../../../../../ml/alternet/misc/Type.html">Type</a> variant, <strong class="jxr_keyword">int</strong> version, <strong class="jxr_keyword">int</strong> outputLength, byte[] additional, byte[] secret);
 <a class="jxr_linenumber" name="L311" href="#L311">311</a> 
 <a class="jxr_linenumber" name="L312" href="#L312">312</a>         <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L313" href="#L313">313</a> <em class="jxr_javadoccomment">         * The singleton implementation.</em>
@@ -335,7 +335,7 @@
 <a class="jxr_linenumber" name="L327" href="#L327">327</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../../ml/alternet/security/auth/hashers/impl/Argon2Hasher.html">Bridge</a> <strong class="jxr_keyword">implements</strong> <a href="../../../../../../ml/alternet/security/auth/hashers/impl/Argon2Hasher.html">Argon2Bridge</a> {
 <a class="jxr_linenumber" name="L328" href="#L328">328</a>         @Override
 <a class="jxr_linenumber" name="L329" href="#L329">329</a>         <strong class="jxr_keyword">public</strong> byte[] encrypt(byte[] passwordb, byte[] salt, <strong class="jxr_keyword">int</strong> memoryCost, <strong class="jxr_keyword">int</strong> timeCost, <strong class="jxr_keyword">int</strong> parallelism,
-<a class="jxr_linenumber" name="L330" href="#L330">330</a>                 <a href="../../../../../../ml/alternet/security/auth/hashers/impl/Argon2Hasher.html">Type</a> type, <strong class="jxr_keyword">int</strong> version, <strong class="jxr_keyword">int</strong> outputLength, byte[] additional, byte[] secret) {
+<a class="jxr_linenumber" name="L330" href="#L330">330</a>                 <a href="../../../../../../ml/alternet/misc/Type.html">Type</a> type, <strong class="jxr_keyword">int</strong> version, <strong class="jxr_keyword">int</strong> outputLength, byte[] additional, byte[] secret) {
 <a class="jxr_linenumber" name="L331" href="#L331">331</a>             <a href="../../../../../../ml/alternet/security/algorithms/Argon2.html">Argon2</a> argon2 = <strong class="jxr_keyword">new</strong> <a href="../../../../../../ml/alternet/security/algorithms/Argon2.html">Argon2</a>();
 <a class="jxr_linenumber" name="L332" href="#L332">332</a> 
 <a class="jxr_linenumber" name="L333" href="#L333">333</a>             <strong class="jxr_keyword">if</strong> (memoryCost != -1) {
@@ -367,6 +367,6 @@
 <a class="jxr_linenumber" name="L359" href="#L359">359</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2017 <a href="http://alternet.ml">Alternet</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2018 <a href="http://alternet.ml">Alternet</a>. All rights reserved.</div>
 </body>
 </html>

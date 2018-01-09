@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>BindWithHandmadeClassesTest xref</title>
+<link type="text/css" rel="stylesheet" href="../../../stylesheet.css" />
+</head>
+<body>
+<div id="overview"><a href="../../../../../../../../tools/target/site/testapidocs/ml/alternet/properties/BindWithHandmadeClassesTest.html">View Javadoc</a></div><pre>
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> ml.alternet.properties;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.awt.Point;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> java.io.File;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> java.io.IOException;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> java.io.StringReader;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> java.net.URL;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> java.util.List;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> javax.xml.parsers.DocumentBuilderFactory;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> javax.xml.parsers.ParserConfigurationException;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.assertj.core.api.Assertions.assertThat;
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">import</strong> org.example.conf.handmade.test.Geo;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> org.example.conf.handmade.test.MyConf;
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> org.example.conf.handmade.test.Status;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> org.example.conf.handmade.test.Stuff;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> org.example.conf.handmade.test.MyConf.MyNestedConf.Ext;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> org.example.conf.handmade.test.MyConf.MyNestedConf.NestedConfMember;
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> org.testng.annotations.Test;
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> org.w3c.dom.Document;
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> org.xml.sax.InputSource;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <strong class="jxr_keyword">import</strong> org.xml.sax.SAXException;
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <strong class="jxr_keyword">import</strong> ml.alternet.misc.Thrower;
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <strong class="jxr_keyword">import</strong> ml.alternet.properties.$;
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <strong class="jxr_keyword">import</strong> ml.alternet.properties.Binder;
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <strong class="jxr_keyword">import</strong> ml.alternet.properties.Binder.Adapter;
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../ml/alternet/properties/BindWithHandmadeClassesTest.html">BindWithHandmadeClassesTest</a> {
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>      <strong class="jxr_keyword">static</strong> Document parseXml(String xml) {
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>          <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>              <strong class="jxr_keyword">return</strong> DocumentBuilderFactory.newInstance()
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>                      .newDocumentBuilder().parse(
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>                          <strong class="jxr_keyword">new</strong> InputSource(<strong class="jxr_keyword">new</strong> StringReader(xml)));
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>          } <strong class="jxr_keyword">catch</strong> (SAXException | IOException | ParserConfigurationException e) {
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>              <strong class="jxr_keyword">return</strong> Thrower.doThrow(e);
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>          }
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>      }
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>      <strong class="jxr_keyword">static</strong> Point parsePoint(String coords) {
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>          String[] xy = coords.split(<span class="jxr_string">"[{;}]"</span>);
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> Point(Integer.parseInt(xy[1]), Integer.parseInt(xy[2]));
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>      }
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>      @Test
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> unmarshallProperties() <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          <a href="../../../org/example/conf/handmade/test/MyConf.html">MyConf</a> conf = Binder.unmarshall(
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>              BindWithHandmadeClassesTest.<strong class="jxr_keyword">class</strong>.getResourceAsStream(<span class="jxr_string">"conf-cases.properties"</span>),
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>              MyConf.<strong class="jxr_keyword">class</strong>,
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>              Adapter.map(Document.<strong class="jxr_keyword">class</strong>, BindWithHandmadeClassesTest::parseXml),
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>              Adapter.map(Point.<strong class="jxr_keyword">class</strong>, BindWithHandmadeClassesTest::parsePoint),
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>              Adapter.map(<span class="jxr_string">"subConf.file"</span>, File::<strong class="jxr_keyword">new</strong>),
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>              Adapter.mapList(<span class="jxr_string">"subConf.points"</span>, BindWithHandmadeClassesTest::parsePoint),
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>              Adapter.mapList(<span class="jxr_string">"subConf.booleans"</span>, Boolean::valueOf),
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>              Adapter.mapList(<span class="jxr_string">"subConf.integers"</span>, Integer::parseInt),
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>              Adapter.map(<span class="jxr_string">"map.*.geo"</span>, Geo::parse)
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>          );
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          assertThat(conf.listOfStrings).containsExactly(<span class="jxr_string">"a"</span>, <span class="jxr_string">"b"</span>, <span class="jxr_string">"cdef ghi"</span>, <span class="jxr_string">"jkl"</span>, <span class="jxr_string">"mnoP"</span>);
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>  
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          assertThat(conf.b1).isTrue();
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>          assertThat(conf.b2).isFalse();
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          assertThat(conf.s1).isEqualTo((<strong class="jxr_keyword">short</strong>) 1);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          assertThat(conf.s2).isEqualTo((<strong class="jxr_keyword">short</strong>) 2);
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>          assertThat(conf.subConf).isInstanceOf(MyConf.MyNestedConf.<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>          assertThat(conf.subConf.string).isEqualTo(<span class="jxr_string">"the actual value"</span>);
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>          assertThat(conf.subConf.someOtherString).isEqualTo(<span class="jxr_string">"some other value"</span>);
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>          assertThat(conf.subConf.tmpFile).isEqualTo(<strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"file:///path/to/some/tmp.txt"</span>));
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>          assertThat(conf.subConf.&lt;File&gt; $(<span class="jxr_string">"file"</span>)).isEqualTo(<strong class="jxr_keyword">new</strong> File(<span class="jxr_string">"file:///path/to/some/other/tmp.txt"</span>));
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>          assertThat(conf.subConf.&lt;List&lt;Point&gt;&gt; $(<span class="jxr_string">"points"</span>)).containsExactly(<strong class="jxr_keyword">new</strong> Point(-1, 2), <strong class="jxr_keyword">new</strong> Point(0, 3), <strong class="jxr_keyword">new</strong> Point(-2, 1), <strong class="jxr_keyword">new</strong> Point(-2, 0));
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>          assertThat(conf.subConf.&lt;List&lt;Boolean&gt;&gt; $(<span class="jxr_string">"booleans"</span>)).containsExactly(<strong class="jxr_keyword">true</strong>, <strong class="jxr_keyword">true</strong>, false, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>          assertThat(conf.subConf.unsetValue).isNull();
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>  
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          assertThat(conf.subConf.subConf).isInstanceOf(MyConf.MyNestedConf.NestedConfWithGlobal.<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>          assertThat(conf.subConf.subConf.$).isEqualTo(<span class="jxr_string">"global Value"</span>);
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>          assertThat(conf.subConf.subConf.string).isEqualTo(<span class="jxr_string">"this is the VALUE"</span>);
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>          assertThat(conf.subConf.subConf.anotherString).isEqualTo(<span class="jxr_string">"another String"</span>);
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>          assertThat(conf.subConf.subConf.listOfStuff).containsExactly(<strong class="jxr_keyword">new</strong> <a href="../../../org/example/conf/handmade/test/Stuff.html">Stuff</a>(<span class="jxr_string">"list"</span>), <strong class="jxr_keyword">new</strong> <a href="../../../org/example/conf/handmade/test/Stuff.html">Stuff</a>(<span class="jxr_string">"Of"</span>), <strong class="jxr_keyword">new</strong> <a href="../../../org/example/conf/handmade/test/Stuff.html">Stuff</a>(<span class="jxr_string">"Stuff"</span>));
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>          assertThat(conf.subConf.subConf.end).isEqualTo(Status.Inactive);
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>          assertThat(conf.start).isEqualTo(Status.Active);
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>          assertThat(conf.unknown).isNull();
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>  
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>          assertThat(conf.website).isEqualTo(<strong class="jxr_keyword">new</strong> URL(<span class="jxr_string">"http://example.com/"</span>));
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>          assertThat(conf.someStuff).isEqualTo(<strong class="jxr_keyword">new</strong> <a href="../../../org/example/conf/handmade/test/Stuff.html">Stuff</a>(<span class="jxr_string">"that Stuff"</span>));
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>          assertThat(conf.i1).isEqualTo(10001);
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>          assertThat(conf.i2).isEqualTo(10002);
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>  
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>          assertThat(conf.subConf.&lt;NestedConfMember&gt; $(<span class="jxr_string">"nestedConfMember"</span>).foo).isEqualTo(<strong class="jxr_keyword">new</strong> <a href="../../../org/example/conf/handmade/test/Stuff.html">Stuff</a>(<span class="jxr_string">"STUFF"</span>));
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>          assertThat(conf.subConf.&lt;NestedConfMember&gt; $(<span class="jxr_string">"nestedConfMember"</span>).bar).isEqualTo(123.456);
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>  
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>          assertThat(conf.subConf.subConf.anotherString).isEqualTo(<span class="jxr_string">"another String"</span>);
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>  
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>         assertThat(conf.subConf.&lt;$&gt; $(<span class="jxr_string">"level"</span>).&lt;$&gt; $(<span class="jxr_string">"subLevel"</span>).&lt;String&gt; $(<span class="jxr_string">"subSubLevel"</span>)).isEqualTo(<span class="jxr_string">"unknown level paths"</span>);
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>         assertThat(conf.subConf.&lt;String&gt; $(<span class="jxr_string">"level.subLevel.subSubLevel"</span>)).isEqualTo(<span class="jxr_string">"unknown level paths"</span>);
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>         assertThat(conf.subConf.&lt;$&gt; $(<span class="jxr_string">"level.subLevel"</span>).&lt;String&gt; $(<span class="jxr_string">"subSubLevel"</span>)).isEqualTo(<span class="jxr_string">"unknown level paths"</span>);
+<a class="jxr_linenumber" name="L103" href="#L103">103</a> 
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>         assertThat(conf.subConf.&lt;Ext&gt; $(<span class="jxr_string">"ext"</span>).foo).isNull();
+<a class="jxr_linenumber" name="L105" href="#L105">105</a>         assertThat(conf.subConf.&lt;NestedConfMember&gt; $(<span class="jxr_string">"ext"</span>).bar).isEqualTo(456.789);
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>         assertThat(conf.subConf.&lt;Ext&gt; $(<span class="jxr_string">"ext"</span>).xml.getDocumentElement().getTextContent()).isEqualTo(<span class="jxr_string">"need an adapter"</span>);
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>         assertThat(conf.subConf.&lt;Ext&gt; $(<span class="jxr_string">"ext"</span>).xml.getDocumentElement().getAttribute(<span class="jxr_string">"foo"</span>)).isEqualTo(<span class="jxr_string">"xml attribute"</span>);
+<a class="jxr_linenumber" name="L108" href="#L108">108</a> 
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>         assertThat(conf.subConf.&lt;Ext&gt; $(<span class="jxr_string">"ext"</span>).points).containsExactly(<strong class="jxr_keyword">new</strong> Point(0, 1), <strong class="jxr_keyword">new</strong> Point(1, 2), <strong class="jxr_keyword">new</strong> Point(-1, 0), <strong class="jxr_keyword">new</strong> Point(-1, -1));
+<a class="jxr_linenumber" name="L110" href="#L110">110</a> 
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>         assertThat(conf.map.&lt;Geo&gt; $(<span class="jxr_string">"paris.geo"</span>)).isEqualTo(<strong class="jxr_keyword">new</strong> <a href="../../../org/example/conf/handmade/test/Geo.html">Geo</a>(48.864716, 2.349014));
+<a class="jxr_linenumber" name="L112" href="#L112">112</a> 
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>     }
+<a class="jxr_linenumber" name="L114" href="#L114">114</a> 
+<a class="jxr_linenumber" name="L115" href="#L115">115</a> }
+</pre>
+<hr/>
+<div id="footer">Copyright &#169; 2018 <a href="http://alternet.ml">Alternet</a>. All rights reserved.</div>
+</body>
+</html>

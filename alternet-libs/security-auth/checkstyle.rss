@@ -23,11 +23,11 @@ under the License.
     <link>http://alternet.ml/alternet-libs/security/security.html</link>
     <description>Alternet Security - Authentication - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2017 Alternet</copyright>
+    <copyright>&#169;2018 Alternet</copyright>
     <item>
       <title>File: 36,
-             Errors: 181,
-             Warnings: 41,
+             Errors: 173,
+             Warnings: 39,
              Infos: 32
       </title>
             <link>http://alternet.ml/alternet-libs/security/security.html/checkstyle.html</link>
@@ -195,7 +195,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>
@@ -265,7 +265,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  4
                 </td>
               </tr>
                           <tr>
@@ -402,10 +402,10 @@ under the License.
                   0
                 </td>
                 <td>
-                  2
+                  0
                 </td>
                 <td>
-                  19
+                  8
                 </td>
               </tr>
                           <tr>
