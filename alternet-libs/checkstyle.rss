@@ -26,8 +26,8 @@ under the License.
     <copyright>&#169;2018 Alternet</copyright>
     <item>
       <title>File: 190,
-             Errors: 268,
-             Warnings: 54,
+             Errors: 273,
+             Warnings: 53,
              Infos: 66
       </title>
             <link>http://alternet.ml/alternet-libs//checkstyle.html</link>
@@ -808,10 +808,10 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
@@ -1007,7 +1007,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  5
+                  2
                 </td>
               </tr>
                           <tr>
@@ -1063,7 +1063,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  4
+                  9
                 </td>
               </tr>
                           <tr>
@@ -1287,7 +1287,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
@@ -1385,7 +1385,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
@@ -1567,7 +1567,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
               </tr>
                           <tr>
@@ -1777,7 +1777,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  1
+                  0
                 </td>
               </tr>
                           <tr>

@@ -8,7 +8,7 @@
 <div id="overview"><a href="../../../../../../../../../parsing/target/site/testapidocs/ml/alternet/parser/step1/CalcTest.html">View Javadoc</a></div><pre>
 <a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> ml.alternet.parser.step1;
 <a class="jxr_linenumber" name="L2" href="#L2">2</a>   
-<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> ml.alternet.parser.tests.CalcGrammar.*;
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> ml.alternet.parser.tests.Calculator.*;
 <a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.assertj.core.api.Assertions.assertThat;
 <a class="jxr_linenumber" name="L5" href="#L5">5</a>   
 <a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> java.io.IOException;
@@ -83,20 +83,20 @@
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>  
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>      @Test
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> calcGrammar_Should_consumeTokens() <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>          List&lt;String&gt; res = parseToAcc(<span class="jxr_string">"sin(x)*(1+var_12)"</span>, Calc.<strong class="jxr_keyword">class</strong>, C.tokenizer());
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>          List&lt;String&gt; res = parseToAcc(<span class="jxr_string">"sin(x)*(1+var_12)"</span>, Calc.<strong class="jxr_keyword">class</strong>, Calc.$.tokenizer());
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>          assertThat(res).containsExactly(<span class="jxr_string">"Function:sin"</span>, <span class="jxr_string">"String:("</span>, <span class="jxr_string">"String:x"</span>, <span class="jxr_string">"String:)"</span>, <span class="jxr_string">"Multiplicative:*"</span>,
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>                                  <span class="jxr_string">"String:("</span>, <span class="jxr_string">"Number:1"</span>, <span class="jxr_string">"Additive:+"</span>, <span class="jxr_string">"String:var_12"</span>, <span class="jxr_string">"String:)"</span>);
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>      }
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>  
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>      @Test
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> calcGrammar_Should_consumeFunctionCall() <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>          List&lt;String&gt; res = parseToAcc(<span class="jxr_string">"sin(x)"</span>, Calc.<strong class="jxr_keyword">class</strong>, C.tokenizer());
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>          List&lt;String&gt; res = parseToAcc(<span class="jxr_string">"sin(x)"</span>, Calc.<strong class="jxr_keyword">class</strong>, Calc.$.tokenizer());
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>          assertThat(res).containsExactly(<span class="jxr_string">"Function:sin"</span>, <span class="jxr_string">"String:("</span>, <span class="jxr_string">"String:x"</span>, <span class="jxr_string">"String:)"</span>);
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>      }
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>  
 <a class="jxr_linenumber" name="L89" href="#L89">89</a>      @Test
 <a class="jxr_linenumber" name="L90" href="#L90">90</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> calcGrammar_Should_consumeMult() <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>          List&lt;String&gt; res = parseToAcc(<span class="jxr_string">"*"</span>, Calc.<strong class="jxr_keyword">class</strong>, C.tokenizer());
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>          List&lt;String&gt; res = parseToAcc(<span class="jxr_string">"*"</span>, Calc.<strong class="jxr_keyword">class</strong>, Calc.$.tokenizer());
 <a class="jxr_linenumber" name="L92" href="#L92">92</a>          assertThat(res).containsExactly(<span class="jxr_string">"Multiplicative:*"</span>);
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>      }
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>  

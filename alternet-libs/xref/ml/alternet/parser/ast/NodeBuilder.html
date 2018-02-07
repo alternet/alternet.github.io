@@ -75,7 +75,7 @@
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>      @SuppressWarnings({ <span class="jxr_string">"rawtypes"</span>, <span class="jxr_string">"unchecked"</span> })
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>      <strong class="jxr_keyword">public</strong> NodeBuilder&lt;Node&gt; setTokenMapper(Class&lt;? <strong class="jxr_keyword">extends</strong> Enum&lt;? <strong class="jxr_keyword">extends</strong> TokenMapper&lt;Node&gt;&gt;&gt; tokenMapper) {
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>          <strong class="jxr_keyword">this</strong>.tokenMapper = (token) -&gt; {
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>              String tokenName = token.getName(); <em class="jxr_comment">// e.g. "FUNCTION"</em>
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>              <a href="../../../../ml/alternet/parser/Grammar.html">String</a> tokenName = token.getName(); <em class="jxr_comment">// e.g. "FUNCTION"</em>
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>              <em class="jxr_comment">// find it with the same name</em>
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>              <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>                  <strong class="jxr_keyword">return</strong> (TokenMapper&lt;Node&gt;) Enum.valueOf((Class&lt;? <strong class="jxr_keyword">extends</strong> Enum&gt;) tokenMapper, tokenName);
@@ -156,7 +156,7 @@
 <a class="jxr_linenumber" name="L148" href="#L148">148</a>     @SuppressWarnings({ <span class="jxr_string">"rawtypes"</span>, <span class="jxr_string">"unchecked"</span> })
 <a class="jxr_linenumber" name="L149" href="#L149">149</a>     <strong class="jxr_keyword">public</strong> NodeBuilder&lt;Node&gt; setRuleMapper(Class&lt;? <strong class="jxr_keyword">extends</strong> Enum&lt;? <strong class="jxr_keyword">extends</strong> RuleMapper&lt;Node&gt;&gt;&gt; ruleMapper) {
 <a class="jxr_linenumber" name="L150" href="#L150">150</a>         <strong class="jxr_keyword">this</strong>.ruleMapper = (rule) -&gt; {
-<a class="jxr_linenumber" name="L151" href="#L151">151</a>             String ruleName = rule.getName(); <em class="jxr_comment">// e.g. "Product"</em>
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>             <a href="../../../../ml/alternet/parser/Grammar.html">String</a> ruleName = rule.getName(); <em class="jxr_comment">// e.g. "Product"</em>
 <a class="jxr_linenumber" name="L152" href="#L152">152</a>             <em class="jxr_comment">// find it with the same name</em>
 <a class="jxr_linenumber" name="L153" href="#L153">153</a>             <strong class="jxr_keyword">return</strong> (RuleMapper&lt;Node&gt;) Enum.valueOf((Class&lt;? <strong class="jxr_keyword">extends</strong> Enum&gt;) ruleMapper, ruleName);
 <a class="jxr_linenumber" name="L154" href="#L154">154</a>         };
@@ -200,7 +200,7 @@
 <a class="jxr_linenumber" name="L192" href="#L192">192</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L193" href="#L193">193</a> <em class="jxr_javadoccomment">     * @throws IOException When an I/O error occurs.</em>
 <a class="jxr_linenumber" name="L194" href="#L194">194</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L195" href="#L195">195</a>     <strong class="jxr_keyword">public</strong> Optional&lt;Node&gt; build(String input, <strong class="jxr_keyword">boolean</strong> matchAll) <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>     <strong class="jxr_keyword">public</strong> Optional&lt;Node&gt; build(<a href="../../../../ml/alternet/parser/Grammar.html">String</a> input, <strong class="jxr_keyword">boolean</strong> matchAll) <strong class="jxr_keyword">throws</strong> IOException {
 <a class="jxr_linenumber" name="L196" href="#L196">196</a>         <strong class="jxr_keyword">return</strong> build(Scanner.of(input), matchAll);
 <a class="jxr_linenumber" name="L197" href="#L197">197</a>     }
 <a class="jxr_linenumber" name="L198" href="#L198">198</a> 

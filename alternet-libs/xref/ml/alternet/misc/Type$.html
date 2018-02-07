@@ -163,7 +163,7 @@
 <a class="jxr_linenumber" name="L155" href="#L155">155</a> 
 <a class="jxr_linenumber" name="L156" href="#L156">156</a>         <a href="../../../ml/alternet/misc/Type$.html">Native</a>(Class&lt;?&gt; clazz) {
 <a class="jxr_linenumber" name="L157" href="#L157">157</a>             <em class="jxr_comment">// remove the first _   e.g. change  _int  to  int</em>
-<a class="jxr_linenumber" name="L158" href="#L158">158</a>             EnumUtil.replace(Type$.Native.<strong class="jxr_keyword">class</strong>, <strong class="jxr_keyword">this</strong>, s -&gt; s.charAt(0) == '_' ? s.substring(1) : s );
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>             EnumUtil.replace(<strong class="jxr_keyword">this</strong>, s -&gt; s.charAt(0) == '_' ? s.substring(1) : s );
 <a class="jxr_linenumber" name="L159" href="#L159">159</a>             <strong class="jxr_keyword">this</strong>.type = <strong class="jxr_keyword">new</strong> Type$(clazz) {
 <a class="jxr_linenumber" name="L160" href="#L160">160</a>                 @Override
 <a class="jxr_linenumber" name="L161" href="#L161">161</a>                 <strong class="jxr_keyword">public</strong> &lt;T&gt; T parse(String value) {

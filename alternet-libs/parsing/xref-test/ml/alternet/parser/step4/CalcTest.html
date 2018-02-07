@@ -50,32 +50,34 @@
 <a class="jxr_linenumber" name="L42" href="#L42">42</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> Object[][] createData() {
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>          Object[][] data = {
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>              {<span class="jxr_string">" 1 "</span>, 1},
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>              {<span class="jxr_string">"sin( x )* (1 + var_12) "</span>, Math.sin(1)*(1+10)},
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>              {<span class="jxr_string">"1 + 20 * 300"</span>, 1+20*300},
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>              {<span class="jxr_string">"1*20 + 300"</span>, 1*20+300},
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>              {<span class="jxr_string">"( 1+20 )*300"</span>, (1+20)*300},
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>              {<span class="jxr_string">"1* (20+300) "</span>, 1*(20+300)},
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>              {<span class="jxr_string">"1+(20 * 300)"</span>, 1+(20*300)},
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>              {<span class="jxr_string">"(1 * 20)+300"</span>, (1*20)+300}
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>          };
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>          <strong class="jxr_keyword">return</strong> data;
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>      }
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>  
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>      @Test(dataProvider = <span class="jxr_string">"expressions"</span>)
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> calcExpression_Can_compute(String expression, <strong class="jxr_keyword">double</strong> expected) <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>          Map&lt;String, Number &gt; variables = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>          variables.put(<span class="jxr_string">"x"</span>, 1.0);
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>          variables.put(<span class="jxr_string">"var_12"</span>, 10.0);
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>  
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>          Optional&lt;NumericExpression&gt; exp = <strong class="jxr_keyword">new</strong> <a href="../../../../ml/alternet/parser/step4/ExpressionBuilder.html">ExpressionBuilder</a>().build(expression, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>              {<span class="jxr_string">"+1"</span>, 1},
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>              {<span class="jxr_string">"-1"</span>, -1},
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>              {<span class="jxr_string">"sin( x )* (1 + var_12) "</span>, Math.sin(1)*(1+10)},
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>              {<span class="jxr_string">"1 + 20 * 300"</span>, 1+20*300},
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>              {<span class="jxr_string">"1*20 + 300"</span>, 1*20+300},
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>              {<span class="jxr_string">"( 1+20 )*300"</span>, (1+20)*300},
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>              {<span class="jxr_string">"1* (20+300) "</span>, 1*(20+300)},
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>              {<span class="jxr_string">"1+(20 * 300)"</span>, 1+(20*300)},
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>              {<span class="jxr_string">"(1 * 20)+300"</span>, (1*20)+300}
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>          };
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          <strong class="jxr_keyword">return</strong> data;
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>      }
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>      @Test(dataProvider = <span class="jxr_string">"expressions"</span>)
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> calcExpression_Can_compute(String expression, <strong class="jxr_keyword">double</strong> expected) <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>          Map&lt;String, Number &gt; variables = <strong class="jxr_keyword">new</strong> HashMap&lt;&gt;();
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>          variables.put(<span class="jxr_string">"x"</span>, 1.0);
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          variables.put(<span class="jxr_string">"var_12"</span>, 10.0);
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>  
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>          assertThat(exp).isNotEmpty();
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          Optional&lt;NumericExpression&gt; exp = <strong class="jxr_keyword">new</strong> <a href="../../../../ml/alternet/parser/step4/ExpressionBuilder.html">ExpressionBuilder</a>().build(expression, <strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>          Number res = exp.get().eval(variables);
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>          assertThat(res.doubleValue()).isEqualTo(expected);
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>      }
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>  
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>  }
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>          assertThat(exp).isNotEmpty();
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          Number res = exp.get().eval(variables);
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>          assertThat(res.doubleValue()).isEqualTo(expected);
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>      }
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>  
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2018 <a href="http://alternet.ml">Alternet</a>. All rights reserved.</div>

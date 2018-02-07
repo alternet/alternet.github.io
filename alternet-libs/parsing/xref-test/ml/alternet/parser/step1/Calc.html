@@ -30,7 +30,7 @@
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>      enum <a href="../../../../ml/alternet/parser/step1/Calc.html">Additive</a> {
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>          PLUS(<span class="jxr_string">"+"</span>), MINUS(<span class="jxr_string">"-"</span>);
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>          <a href="../../../../ml/alternet/parser/step1/Calc.html">Additive</a>(String str) {
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>              replace(Additive.<strong class="jxr_keyword">class</strong>, <strong class="jxr_keyword">this</strong>, s -&gt; str);
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>              replace(<strong class="jxr_keyword">this</strong>, s -&gt; str);
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>          }
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>      }
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>      Token ADDITIVE = is(Additive.<strong class="jxr_keyword">class</strong>);
@@ -39,7 +39,7 @@
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>      enum <a href="../../../../ml/alternet/parser/step1/Calc.html">Multiplicative</a> {
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>          MULT(<span class="jxr_string">"*"</span>), DIV(<span class="jxr_string">"/"</span>);
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>          <a href="../../../../ml/alternet/parser/step1/Calc.html">Multiplicative</a>(String str) {
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>              replace(Multiplicative.<strong class="jxr_keyword">class</strong>, <strong class="jxr_keyword">this</strong>, s -&gt; str);
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>              replace(<strong class="jxr_keyword">this</strong>, s -&gt; str);
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>          }
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>      }
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>      Token MULTIPLICATIVE = is(Multiplicative.<strong class="jxr_keyword">class</strong>);
@@ -97,7 +97,7 @@
 <a class="jxr_linenumber" name="L89" href="#L89">89</a>          <strong class="jxr_keyword">return</strong> SignedTerm.seq(SumOp);
 <a class="jxr_linenumber" name="L90" href="#L90">90</a>      }
 <a class="jxr_linenumber" name="L91" href="#L91">91</a>  
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>      <a href="../../../../ml/alternet/parser/step1/Calc.html">Calc</a> $ = $(Calc.<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>      <a href="../../../../ml/alternet/parser/step1/Calc.html">Calc</a> $ = $();
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>  
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>  }
 </pre>
