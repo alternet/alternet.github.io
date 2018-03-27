@@ -23,9 +23,9 @@
 <a class="jxr_linenumber" name="L15" href="#L15">15</a>  
 <a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> jodd.methref.Methref;
 <a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> ml.alternet.security.auth.formats.CurlyBracesCryptFormat;
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> ml.alternet.security.auth.formats.ModularCryptFormat;
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> ml.alternet.security.auth.formats.PlainTextCryptFormat;
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> ml.alternet.security.auth.hashers.ModularCryptFormatHashers;
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> ml.alternet.security.auth.formats.PlainTextCryptFormat;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> ml.alternet.security.auth.formats.ModularCryptFormat;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> ml.alternet.security.auth.formats.ModularCryptFormat.Hashers;
 <a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> ml.alternet.security.web.Config;
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> ml.alternet.security.web.jetty.AltHttpConnectionFactory;
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> ml.alternet.test.security.web.server.BasicAuthServerTestHarness;
@@ -91,28 +91,27 @@
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>                  PlainTextCryptFormat.<strong class="jxr_keyword">class</strong>.getName()
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>          );
 <a class="jxr_linenumber" name="L85" href="#L85">85</a>          <em class="jxr_comment">// store a user with its crypt</em>
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>          String crypt = ModularCryptFormatHashers.$2$.get().build()
-<a class="jxr_linenumber" name="L87" href="#L87">87</a>              .encrypt(unsafePwd.toCharArray());
-<a class="jxr_linenumber" name="L88" href="#L88">88</a>          loginService.putUser(userName, crypt, <strong class="jxr_keyword">new</strong> String[] {<span class="jxr_string">"admin"</span>});
-<a class="jxr_linenumber" name="L89" href="#L89">89</a>  
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>          ConstraintSecurityHandler security = <strong class="jxr_keyword">new</strong> ConstraintSecurityHandler();
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>          security.setAuthMethod(Constraint.__BASIC_AUTH);
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>          security.setLoginService(loginService);
-<a class="jxr_linenumber" name="L93" href="#L93">93</a>          ConstraintMapping cm = <strong class="jxr_keyword">new</strong> ConstraintMapping();
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>          cm.setConstraint(constraint);
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>          cm.setPathSpec(<span class="jxr_string">"/*"</span>);
-<a class="jxr_linenumber" name="L96" href="#L96">96</a>          security.setConstraintMappings(<strong class="jxr_keyword">new</strong> ConstraintMapping[]{cm});
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>  
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>          wac.setSecurityHandler(security);
-<a class="jxr_linenumber" name="L99" href="#L99">99</a>          wac.setInitParameter(Config.AUTH_METHOD_INIT_PARAM, <span class="jxr_string">"Basic"</span>);
-<a class="jxr_linenumber" name="L100" href="#L100">100</a> 
-<a class="jxr_linenumber" name="L101" href="#L101">101</a>         server.setHandler(wac);
-<a class="jxr_linenumber" name="L102" href="#L102">102</a> 
-<a class="jxr_linenumber" name="L103" href="#L103">103</a>         server.start();
-<a class="jxr_linenumber" name="L104" href="#L104">104</a> <em class="jxr_comment">//        server.dumpStdErr();</em>
-<a class="jxr_linenumber" name="L105" href="#L105">105</a>     }
-<a class="jxr_linenumber" name="L106" href="#L106">106</a> 
-<a class="jxr_linenumber" name="L107" href="#L107">107</a> }
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>          String crypt = Hashers.$2$.get().encrypt(unsafePwd.toCharArray());
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>          loginService.putUser(userName, crypt, <strong class="jxr_keyword">new</strong> String[] {<span class="jxr_string">"admin"</span>});
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>  
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>          ConstraintSecurityHandler security = <strong class="jxr_keyword">new</strong> ConstraintSecurityHandler();
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>          security.setAuthMethod(Constraint.__BASIC_AUTH);
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>          security.setLoginService(loginService);
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>          ConstraintMapping cm = <strong class="jxr_keyword">new</strong> ConstraintMapping();
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>          cm.setConstraint(constraint);
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>          cm.setPathSpec(<span class="jxr_string">"/*"</span>);
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>          security.setConstraintMappings(<strong class="jxr_keyword">new</strong> ConstraintMapping[]{cm});
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>  
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>          wac.setSecurityHandler(security);
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>          wac.setInitParameter(Config.AUTH_METHOD_INIT_PARAM, <span class="jxr_string">"Basic"</span>);
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>  
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>         server.setHandler(wac);
+<a class="jxr_linenumber" name="L101" href="#L101">101</a> 
+<a class="jxr_linenumber" name="L102" href="#L102">102</a>         server.start();
+<a class="jxr_linenumber" name="L103" href="#L103">103</a> <em class="jxr_comment">//        server.dumpStdErr();</em>
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>     }
+<a class="jxr_linenumber" name="L105" href="#L105">105</a> 
+<a class="jxr_linenumber" name="L106" href="#L106">106</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2018 <a href="http://alternet.ml">Alternet</a>. All rights reserved.</div>

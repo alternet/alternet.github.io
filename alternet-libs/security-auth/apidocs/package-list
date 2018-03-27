@@ -1,6 +1,7 @@
 ml.alternet.security.algorithms
 ml.alternet.security.auth
+ml.alternet.security.auth.crypt
 ml.alternet.security.auth.formats
-ml.alternet.security.auth.hashers
-ml.alternet.security.auth.hashers.impl
+ml.alternet.security.auth.formatters
+ml.alternet.security.auth.hasher
 ml.alternet.security.binary

@@ -1,6 +1,7 @@
 ml.alternet.concurrent
 ml.alternet.discover
 ml.alternet.discover.gen
+ml.alternet.encode
 ml.alternet.facet
 ml.alternet.grammars
 ml.alternet.io
@@ -9,15 +10,17 @@ ml.alternet.parser
 ml.alternet.parser.ast
 ml.alternet.parser.handlers
 ml.alternet.parser.util
+ml.alternet.parser.visit
 ml.alternet.properties
 ml.alternet.properties.mojo
 ml.alternet.scan
 ml.alternet.security
 ml.alternet.security.algorithms
 ml.alternet.security.auth
+ml.alternet.security.auth.crypt
 ml.alternet.security.auth.formats
-ml.alternet.security.auth.hashers
-ml.alternet.security.auth.hashers.impl
+ml.alternet.security.auth.formatters
+ml.alternet.security.auth.hasher
 ml.alternet.security.binary
 ml.alternet.security.impl
 ml.alternet.security.web

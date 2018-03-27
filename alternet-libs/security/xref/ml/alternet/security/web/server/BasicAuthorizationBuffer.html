@@ -8,255 +8,262 @@
 <div id="overview"><a href="../../../../../../../../../../security/target/site/apidocs/ml/alternet/security/web/server/BasicAuthorizationBuffer.html">View Javadoc</a></div><pre>
 <a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> ml.alternet.security.web.server;
 <a class="jxr_linenumber" name="L2" href="#L2">2</a>   
-<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.util.Base64;
-<a class="jxr_linenumber" name="L4" href="#L4">4</a>   
-<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> ml.alternet.security.Password;
-<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> ml.alternet.security.PasswordManager;
-<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> ml.alternet.security.auth.Credentials;
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   
-<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_javadoccomment"> * Extract a password of an HTTP Basic Authorization header,</em>
-<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_javadoccomment"> * and replace it with '*'.</em>
-<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_javadoccomment"> *</em>
-<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_javadoccomment"> * &lt;p&gt;When creating, one must specify the boundaries of the</em>
-<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_javadoccomment"> * portion of the buffer to analyze, and what this portion</em>
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_javadoccomment"> * contains (all the HTTP headers, only the Authorization header,</em>
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_javadoccomment"> * or only its value).&lt;/p&gt;</em>
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_javadoccomment"> *</em>
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_javadoccomment"> * @author Philippe Poulard</em>
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment"> */</em>
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../ml/alternet/security/web/server/BasicAuthorizationBuffer.html">BasicAuthorizationBuffer</a> {
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>  
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_javadoccomment">     * The scope of the lookup.</em>
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_javadoccomment">     * @author Philippe Poulard</em>
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>      <strong class="jxr_keyword">public</strong> enum <a href="../../../../../ml/alternet/security/web/server/BasicAuthorizationBuffer.html">Scope</a> {
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>          <em class="jxr_javadoccomment">/** The buffer contains all the HTTP headers. */</em>
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>          Headers,
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>          <em class="jxr_javadoccomment">/** The buffer contains the line "Authorization: Basic [base64Credential]" */</em>
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>          AuthorizationHeader,
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>          <em class="jxr_javadoccomment">/** The buffer contains the value of the authorization header "Basic [base64Credential]" */</em>
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>          AuthorizationHeaderValue
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>      }
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>  
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>      <strong class="jxr_keyword">int</strong> position;
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>      <strong class="jxr_keyword">int</strong> limit;
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>      <a href="../../../../../ml/alternet/security/web/server/BasicAuthorizationBuffer.html">Scope</a> scope;
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>  
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_javadoccomment">     * Create a buffer.</em>
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <em class="jxr_javadoccomment">     * @param scope Indicates what is delimited in the buffer :</em>
-<a class="jxr_linenumber" name="L44" href="#L44">44</a>  <em class="jxr_javadoccomment">     *      all the headers, just the Authorization header,</em>
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <em class="jxr_javadoccomment">     *      or simply its value.</em>
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <em class="jxr_javadoccomment">     * @param position The start offset of the bytes.</em>
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <em class="jxr_javadoccomment">     * @param limit The end offset of the bytes.</em>
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../../ml/alternet/security/web/server/BasicAuthorizationBuffer.html">BasicAuthorizationBuffer</a>(<a href="../../../../../ml/alternet/security/web/server/BasicAuthorizationBuffer.html">Scope</a> scope, <strong class="jxr_keyword">int</strong> position, <strong class="jxr_keyword">int</strong> limit) {
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>          <strong class="jxr_keyword">this</strong>.position = position;
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>          <strong class="jxr_keyword">this</strong>.limit = limit;
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>          <strong class="jxr_keyword">this</strong>.scope = scope;
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>      }
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>  
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>  <em class="jxr_javadoccomment">     * Get the byte at the index specified.</em>
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>  <em class="jxr_javadoccomment">     * @param i The actual index.</em>
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>  <em class="jxr_javadoccomment">     * @return The byte.</em>
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> byte get(<strong class="jxr_keyword">int</strong> i);
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>  
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>  <em class="jxr_javadoccomment">     * Set a byte at the index specified.</em>
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>  <em class="jxr_javadoccomment">     * @param i The actual index.</em>
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>  <em class="jxr_javadoccomment">     * @param b The byte to set.</em>
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">void</strong> set(<strong class="jxr_keyword">int</strong> i, byte b);
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>  
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>  <em class="jxr_javadoccomment">     * Log informations for debugging.</em>
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>  <em class="jxr_javadoccomment">     * @param msg The debug message.</em>
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">void</strong> debug(String msg);
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>  
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>      <em class="jxr_comment">// states of the parser</em>
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> READ_AUTH = 0;
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> READ_UNTIL_CRLF = 1;
-<a class="jxr_linenumber" name="L81" href="#L81">81</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> READ_OWS_BASIC = 2;
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> READ_BASIC = 3;
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> READ_CRED = 4;
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> READ_LF = 5;
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> READ_LAST_LF = 6;
-<a class="jxr_linenumber" name="L86" href="#L86">86</a>  
-<a class="jxr_linenumber" name="L87" href="#L87">87</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String AUTHORIZATION = <span class="jxr_string">"authorization:"</span>;
-<a class="jxr_linenumber" name="L88" href="#L88">88</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String BASIC = <span class="jxr_string">"basic "</span>;
-<a class="jxr_linenumber" name="L89" href="#L89">89</a>  
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>      <strong class="jxr_keyword">int</strong> auth = 0;
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>      <strong class="jxr_keyword">int</strong> basicPos = 0;
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>      <strong class="jxr_keyword">int</strong> state = READ_AUTH;
-<a class="jxr_linenumber" name="L93" href="#L93">93</a>      <strong class="jxr_keyword">int</strong> credStart = -1;
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>      <strong class="jxr_keyword">int</strong> credEnd = -1;
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>  
-<a class="jxr_linenumber" name="L96" href="#L96">96</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>  <em class="jxr_javadoccomment">     * Find the boundaries of the base64 credentials in the buffer.</em>
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L99" href="#L99">99</a>  <em class="jxr_javadoccomment">     * &lt;p&gt;String to find in the buffer : "Authorization: Basic [base64Credential]"</em>
-<a class="jxr_linenumber" name="L100" href="#L100">100</a> <em class="jxr_javadoccomment">     * (or just "Basic [base64Credential]" according to the scope)&lt;/p&gt;</em>
-<a class="jxr_linenumber" name="L101" href="#L101">101</a> <em class="jxr_javadoccomment">     * &lt;pre&gt;    header-field = field-name ":" OWS field-value OWS&lt;/pre&gt;</em>
-<a class="jxr_linenumber" name="L102" href="#L102">102</a> <em class="jxr_javadoccomment">     * &lt;p&gt;OWS means "optional whitespace" and header fields are delimited using CRLF.&lt;/p&gt;</em>
-<a class="jxr_linenumber" name="L103" href="#L103">103</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L104" href="#L104">104</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;true&lt;/code&gt; if the credentials have been found,</em>
-<a class="jxr_linenumber" name="L105" href="#L105">105</a> <em class="jxr_javadoccomment">     *         &lt;code&gt;false&lt;/code&gt; otherwise.</em>
-<a class="jxr_linenumber" name="L106" href="#L106">106</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L107" href="#L107">107</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> findCredentialsBoundaries() {
-<a class="jxr_linenumber" name="L108" href="#L108">108</a>         <strong class="jxr_keyword">if</strong> (scope == Scope.AuthorizationHeaderValue) {
-<a class="jxr_linenumber" name="L109" href="#L109">109</a>             state = READ_BASIC; <em class="jxr_comment">// start here</em>
-<a class="jxr_linenumber" name="L110" href="#L110">110</a>         }
-<a class="jxr_linenumber" name="L111" href="#L111">111</a>         <strong class="jxr_keyword">int</strong> pos;
-<a class="jxr_linenumber" name="L112" href="#L112">112</a>         loop: <strong class="jxr_keyword">for</strong> (pos = position ; pos &lt; limit ; pos++) {
-<a class="jxr_linenumber" name="L113" href="#L113">113</a>             <strong class="jxr_keyword">char</strong> c = (<strong class="jxr_keyword">char</strong>) ( get(pos) &amp; 0x7f );
-<a class="jxr_linenumber" name="L114" href="#L114">114</a>             c = Character.toLowerCase(c);
-<a class="jxr_linenumber" name="L115" href="#L115">115</a>             <strong class="jxr_keyword">switch</strong> (state) {
-<a class="jxr_linenumber" name="L116" href="#L116">116</a>             <strong class="jxr_keyword">case</strong> READ_AUTH:
-<a class="jxr_linenumber" name="L117" href="#L117">117</a>                 <strong class="jxr_keyword">if</strong> (c == AUTHORIZATION.charAt(auth)) {
-<a class="jxr_linenumber" name="L118" href="#L118">118</a>                     auth++;
-<a class="jxr_linenumber" name="L119" href="#L119">119</a>                     <strong class="jxr_keyword">if</strong> (auth == AUTHORIZATION.length()) {
-<a class="jxr_linenumber" name="L120" href="#L120">120</a>                         state = READ_OWS_BASIC;
-<a class="jxr_linenumber" name="L121" href="#L121">121</a>                     }
-<a class="jxr_linenumber" name="L122" href="#L122">122</a>                     <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L123" href="#L123">123</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (scope == Scope.AuthorizationHeaderValue || scope == Scope.AuthorizationHeader) {
-<a class="jxr_linenumber" name="L124" href="#L124">124</a>                     <strong class="jxr_keyword">return</strong> false;
-<a class="jxr_linenumber" name="L125" href="#L125">125</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (c == '\r') {
-<a class="jxr_linenumber" name="L126" href="#L126">126</a>                     auth = 0;
-<a class="jxr_linenumber" name="L127" href="#L127">127</a>                     state = READ_LAST_LF;
-<a class="jxr_linenumber" name="L128" href="#L128">128</a>                     <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L129" href="#L129">129</a>                 } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L130" href="#L130">130</a>                     auth = 0;
-<a class="jxr_linenumber" name="L131" href="#L131">131</a>                     state = READ_UNTIL_CRLF;
-<a class="jxr_linenumber" name="L132" href="#L132">132</a>                     <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L133" href="#L133">133</a>                 }
-<a class="jxr_linenumber" name="L134" href="#L134">134</a>             <strong class="jxr_keyword">case</strong> READ_UNTIL_CRLF:
-<a class="jxr_linenumber" name="L135" href="#L135">135</a>                 <strong class="jxr_keyword">if</strong> (c == '\r') {
-<a class="jxr_linenumber" name="L136" href="#L136">136</a>                     state = READ_LF;
-<a class="jxr_linenumber" name="L137" href="#L137">137</a>                 }
-<a class="jxr_linenumber" name="L138" href="#L138">138</a>                 <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L139" href="#L139">139</a>             <strong class="jxr_keyword">case</strong> READ_OWS_BASIC:
-<a class="jxr_linenumber" name="L140" href="#L140">140</a>                 <strong class="jxr_keyword">if</strong> (c == ' ') {
-<a class="jxr_linenumber" name="L141" href="#L141">141</a>                     <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L142" href="#L142">142</a>                 } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L143" href="#L143">143</a>                     state = READ_BASIC;
-<a class="jxr_linenumber" name="L144" href="#L144">144</a>                     <em class="jxr_comment">// do NOT break</em>
-<a class="jxr_linenumber" name="L145" href="#L145">145</a>                 }
-<a class="jxr_linenumber" name="L146" href="#L146">146</a>             <strong class="jxr_keyword">case</strong> READ_BASIC:
-<a class="jxr_linenumber" name="L147" href="#L147">147</a>                 <strong class="jxr_keyword">if</strong> (c == BASIC.charAt(basicPos)) {
-<a class="jxr_linenumber" name="L148" href="#L148">148</a>                     basicPos++;
-<a class="jxr_linenumber" name="L149" href="#L149">149</a>                     <strong class="jxr_keyword">if</strong> (basicPos == BASIC.length()) {
-<a class="jxr_linenumber" name="L150" href="#L150">150</a>                         state = READ_CRED;
-<a class="jxr_linenumber" name="L151" href="#L151">151</a>                         credStart = pos + 1;
-<a class="jxr_linenumber" name="L152" href="#L152">152</a>                     }
-<a class="jxr_linenumber" name="L153" href="#L153">153</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (scope == Scope.AuthorizationHeaderValue || scope == Scope.AuthorizationHeader) {
-<a class="jxr_linenumber" name="L154" href="#L154">154</a>                     <strong class="jxr_keyword">return</strong> false;
-<a class="jxr_linenumber" name="L155" href="#L155">155</a>                 } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L156" href="#L156">156</a>                     basicPos = 0;
-<a class="jxr_linenumber" name="L157" href="#L157">157</a>                     state = READ_UNTIL_CRLF;
-<a class="jxr_linenumber" name="L158" href="#L158">158</a>                 }
-<a class="jxr_linenumber" name="L159" href="#L159">159</a>                 <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L160" href="#L160">160</a>             <strong class="jxr_keyword">case</strong> READ_CRED:
-<a class="jxr_linenumber" name="L161" href="#L161">161</a>                 <em class="jxr_comment">// TODO : handle EOF ?</em>
-<a class="jxr_linenumber" name="L162" href="#L162">162</a>                 <strong class="jxr_keyword">if</strong> (c == ' ') {
-<a class="jxr_linenumber" name="L163" href="#L163">163</a>                     credEnd = pos;
-<a class="jxr_linenumber" name="L164" href="#L164">164</a>                     <strong class="jxr_keyword">break</strong> loop;
-<a class="jxr_linenumber" name="L165" href="#L165">165</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (c == '\r') {
-<a class="jxr_linenumber" name="L166" href="#L166">166</a>                     credEnd = pos;
-<a class="jxr_linenumber" name="L167" href="#L167">167</a>                     state = READ_LF;
-<a class="jxr_linenumber" name="L168" href="#L168">168</a>                 }
-<a class="jxr_linenumber" name="L169" href="#L169">169</a>                 <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L170" href="#L170">170</a>             <strong class="jxr_keyword">case</strong> READ_LF:
-<a class="jxr_linenumber" name="L171" href="#L171">171</a>                 <strong class="jxr_keyword">if</strong> (c != '\n') {
-<a class="jxr_linenumber" name="L172" href="#L172">172</a>                     <em class="jxr_comment">// error will be raised normally</em>
-<a class="jxr_linenumber" name="L173" href="#L173">173</a>                     credEnd = -1;
-<a class="jxr_linenumber" name="L174" href="#L174">174</a>                     <strong class="jxr_keyword">break</strong> loop;
-<a class="jxr_linenumber" name="L175" href="#L175">175</a>                 }
-<a class="jxr_linenumber" name="L176" href="#L176">176</a>                 <strong class="jxr_keyword">if</strong> (credEnd &gt; 0) {
-<a class="jxr_linenumber" name="L177" href="#L177">177</a>                     <strong class="jxr_keyword">break</strong> loop;
-<a class="jxr_linenumber" name="L178" href="#L178">178</a>                 }
-<a class="jxr_linenumber" name="L179" href="#L179">179</a>                 state = READ_AUTH;
-<a class="jxr_linenumber" name="L180" href="#L180">180</a>                 <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L181" href="#L181">181</a>             <strong class="jxr_keyword">case</strong> READ_LAST_LF:
-<a class="jxr_linenumber" name="L182" href="#L182">182</a>                 <strong class="jxr_keyword">if</strong> (c != '\n') {
-<a class="jxr_linenumber" name="L183" href="#L183">183</a>                     <em class="jxr_comment">// error will be raised normally</em>
-<a class="jxr_linenumber" name="L184" href="#L184">184</a>                     credEnd = -1;
-<a class="jxr_linenumber" name="L185" href="#L185">185</a>                 }
-<a class="jxr_linenumber" name="L186" href="#L186">186</a>                 <em class="jxr_comment">// end of headers</em>
-<a class="jxr_linenumber" name="L187" href="#L187">187</a>                 <strong class="jxr_keyword">break</strong> loop;
-<a class="jxr_linenumber" name="L188" href="#L188">188</a>             <strong class="jxr_keyword">default</strong>:
-<a class="jxr_linenumber" name="L189" href="#L189">189</a>             }
-<a class="jxr_linenumber" name="L190" href="#L190">190</a>         }
-<a class="jxr_linenumber" name="L191" href="#L191">191</a>         <strong class="jxr_keyword">if</strong> (scope == Scope.AuthorizationHeaderValue || scope == Scope.AuthorizationHeader) {
-<a class="jxr_linenumber" name="L192" href="#L192">192</a>             <em class="jxr_comment">// we weren't able to handle end of line</em>
-<a class="jxr_linenumber" name="L193" href="#L193">193</a>             credEnd = pos; <em class="jxr_comment">// the last pos known is the end</em>
-<a class="jxr_linenumber" name="L194" href="#L194">194</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L195" href="#L195">195</a>         }
-<a class="jxr_linenumber" name="L196" href="#L196">196</a>         <strong class="jxr_keyword">return</strong> credEnd != -1;
-<a class="jxr_linenumber" name="L197" href="#L197">197</a>     }
-<a class="jxr_linenumber" name="L198" href="#L198">198</a> 
-<a class="jxr_linenumber" name="L199" href="#L199">199</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L200" href="#L200">200</a> <em class="jxr_javadoccomment">     * Replace the raw password in the buffer with '*'</em>
-<a class="jxr_linenumber" name="L201" href="#L201">201</a> <em class="jxr_javadoccomment">     * and reencode the credentials in Base64.</em>
-<a class="jxr_linenumber" name="L202" href="#L202">202</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L203" href="#L203">203</a> <em class="jxr_javadoccomment">     * &lt;p&gt;This method have to be called if {@link #findCredentialsBoundaries()}</em>
-<a class="jxr_linenumber" name="L204" href="#L204">204</a> <em class="jxr_javadoccomment">     * has returned &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;</em>
-<a class="jxr_linenumber" name="L205" href="#L205">205</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L206" href="#L206">206</a> <em class="jxr_javadoccomment">     * @param passwordManager Allow to create a secure password.</em>
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.util.Arrays;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> java.util.stream.IntStream;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> ml.alternet.encode.BytesEncoder;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> ml.alternet.security.Password;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> ml.alternet.security.PasswordManager;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> ml.alternet.security.auth.Credentials;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_javadoccomment"> * Extract a password of an HTTP Basic Authorization header,</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_javadoccomment"> * and replace it with '*'.</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_javadoccomment"> * &lt;p&gt;When creating, one must specify the boundaries of the</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_javadoccomment"> * portion of the buffer to analyze, and what this portion</em>
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_javadoccomment"> * contains (all the HTTP headers, only the Authorization header,</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_javadoccomment"> * or only its value).&lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_javadoccomment"> * @author Philippe Poulard</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../ml/alternet/security/web/server/BasicAuthorizationBuffer.html">BasicAuthorizationBuffer</a> {
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_javadoccomment">     * The scope of the lookup.</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment">     * @author Philippe Poulard</em>
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>      <strong class="jxr_keyword">public</strong> enum <a href="../../../../../ml/alternet/security/web/server/BasicAuthorizationBuffer.html">Scope</a> {
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>          <em class="jxr_javadoccomment">/** The buffer contains all the HTTP headers. */</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>          Headers,
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>          <em class="jxr_javadoccomment">/** The buffer contains the line "Authorization: Basic [base64Credential]" */</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>          AuthorizationHeader,
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>          <em class="jxr_javadoccomment">/** The buffer contains the value of the authorization header "Basic [base64Credential]" */</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>          AuthorizationHeaderValue
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>      }
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>      <strong class="jxr_keyword">int</strong> position;
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>      <strong class="jxr_keyword">int</strong> limit;
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>      <a href="../../../../../ml/alternet/security/web/server/BasicAuthorizationBuffer.html">Scope</a> scope;
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <em class="jxr_javadoccomment">     * Create a buffer.</em>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <em class="jxr_javadoccomment">     * @param scope Indicates what is delimited in the buffer :</em>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <em class="jxr_javadoccomment">     *      all the headers, just the Authorization header,</em>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>  <em class="jxr_javadoccomment">     *      or simply its value.</em>
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  <em class="jxr_javadoccomment">     * @param position The start offset of the bytes.</em>
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>  <em class="jxr_javadoccomment">     * @param limit The end offset of the bytes.</em>
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../../ml/alternet/security/web/server/BasicAuthorizationBuffer.html">BasicAuthorizationBuffer</a>(<a href="../../../../../ml/alternet/security/web/server/BasicAuthorizationBuffer.html">Scope</a> scope, <strong class="jxr_keyword">int</strong> position, <strong class="jxr_keyword">int</strong> limit) {
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>          <strong class="jxr_keyword">this</strong>.position = position;
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>          <strong class="jxr_keyword">this</strong>.limit = limit;
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>          <strong class="jxr_keyword">this</strong>.scope = scope;
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>      }
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  <em class="jxr_javadoccomment">     * Get the byte at the index specified.</em>
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>  <em class="jxr_javadoccomment">     * @param i The actual index.</em>
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>  <em class="jxr_javadoccomment">     * @return The byte.</em>
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> byte get(<strong class="jxr_keyword">int</strong> i);
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>  
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>  <em class="jxr_javadoccomment">     * Set a byte at the index specified.</em>
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>  <em class="jxr_javadoccomment">     * @param i The actual index.</em>
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>  <em class="jxr_javadoccomment">     * @param b The byte to set.</em>
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">void</strong> set(<strong class="jxr_keyword">int</strong> i, byte b);
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>  
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>  <em class="jxr_javadoccomment">     * Log informations for debugging.</em>
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>  <em class="jxr_javadoccomment">     * @param msg The debug message.</em>
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">void</strong> debug(String msg);
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>  
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>      <em class="jxr_comment">// states of the parser</em>
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> READ_AUTH = 0;
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> READ_UNTIL_CRLF = 1;
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> READ_OWS_BASIC = 2;
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> READ_BASIC = 3;
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> READ_CRED = 4;
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> READ_LF = 5;
+<a class="jxr_linenumber" name="L87" href="#L87">87</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> READ_LAST_LF = 6;
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>  
+<a class="jxr_linenumber" name="L89" href="#L89">89</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String AUTHORIZATION = <span class="jxr_string">"authorization:"</span>;
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String BASIC = <span class="jxr_string">"basic "</span>;
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>  
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>      <strong class="jxr_keyword">int</strong> auth = 0;
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>      <strong class="jxr_keyword">int</strong> basicPos = 0;
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>      <strong class="jxr_keyword">int</strong> state = READ_AUTH;
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>      <strong class="jxr_keyword">int</strong> credStart = -1;
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>      <strong class="jxr_keyword">int</strong> credEnd = -1;
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>  
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>  <em class="jxr_javadoccomment">     * Find the boundaries of the base64 credentials in the buffer.</em>
+<a class="jxr_linenumber" name="L100" href="#L100">100</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L101" href="#L101">101</a> <em class="jxr_javadoccomment">     * &lt;p&gt;String to find in the buffer : "Authorization: Basic [base64Credential]"</em>
+<a class="jxr_linenumber" name="L102" href="#L102">102</a> <em class="jxr_javadoccomment">     * (or just "Basic [base64Credential]" according to the scope)&lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L103" href="#L103">103</a> <em class="jxr_javadoccomment">     * &lt;pre&gt;    header-field = field-name ":" OWS field-value OWS&lt;/pre&gt;</em>
+<a class="jxr_linenumber" name="L104" href="#L104">104</a> <em class="jxr_javadoccomment">     * &lt;p&gt;OWS means "optional whitespace" and header fields are delimited using CRLF.&lt;/p&gt;</em>
+<a class="jxr_linenumber" name="L105" href="#L105">105</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L106" href="#L106">106</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;true&lt;/code&gt; if the credentials have been found,</em>
+<a class="jxr_linenumber" name="L107" href="#L107">107</a> <em class="jxr_javadoccomment">     *         &lt;code&gt;false&lt;/code&gt; otherwise.</em>
+<a class="jxr_linenumber" name="L108" href="#L108">108</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> findCredentialsBoundaries() {
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>         <strong class="jxr_keyword">if</strong> (scope == Scope.AuthorizationHeaderValue) {
+<a class="jxr_linenumber" name="L111" href="#L111">111</a>             state = READ_BASIC; <em class="jxr_comment">// start here</em>
+<a class="jxr_linenumber" name="L112" href="#L112">112</a>         }
+<a class="jxr_linenumber" name="L113" href="#L113">113</a>         <strong class="jxr_keyword">int</strong> pos;
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>         loop: <strong class="jxr_keyword">for</strong> (pos = position ; pos &lt; limit ; pos++) {
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>             <strong class="jxr_keyword">char</strong> c = (<strong class="jxr_keyword">char</strong>) ( get(pos) &amp; 0x7f );
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>             c = Character.toLowerCase(c);
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>             <strong class="jxr_keyword">switch</strong> (state) {
+<a class="jxr_linenumber" name="L118" href="#L118">118</a>             <strong class="jxr_keyword">case</strong> READ_AUTH:
+<a class="jxr_linenumber" name="L119" href="#L119">119</a>                 <strong class="jxr_keyword">if</strong> (c == AUTHORIZATION.charAt(auth)) {
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>                     auth++;
+<a class="jxr_linenumber" name="L121" href="#L121">121</a>                     <strong class="jxr_keyword">if</strong> (auth == AUTHORIZATION.length()) {
+<a class="jxr_linenumber" name="L122" href="#L122">122</a>                         state = READ_OWS_BASIC;
+<a class="jxr_linenumber" name="L123" href="#L123">123</a>                     }
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>                     <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (scope == Scope.AuthorizationHeaderValue || scope == Scope.AuthorizationHeader) {
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>                     <strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (c == '\r') {
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>                     auth = 0;
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>                     state = READ_LAST_LF;
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>                     <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>                 } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>                     auth = 0;
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>                     state = READ_UNTIL_CRLF;
+<a class="jxr_linenumber" name="L134" href="#L134">134</a>                     <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>                 }
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>             <strong class="jxr_keyword">case</strong> READ_UNTIL_CRLF:
+<a class="jxr_linenumber" name="L137" href="#L137">137</a>                 <strong class="jxr_keyword">if</strong> (c == '\r') {
+<a class="jxr_linenumber" name="L138" href="#L138">138</a>                     state = READ_LF;
+<a class="jxr_linenumber" name="L139" href="#L139">139</a>                 }
+<a class="jxr_linenumber" name="L140" href="#L140">140</a>                 <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L141" href="#L141">141</a>             <strong class="jxr_keyword">case</strong> READ_OWS_BASIC:
+<a class="jxr_linenumber" name="L142" href="#L142">142</a>                 <strong class="jxr_keyword">if</strong> (c == ' ') {
+<a class="jxr_linenumber" name="L143" href="#L143">143</a>                     <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>                 } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>                     state = READ_BASIC;
+<a class="jxr_linenumber" name="L146" href="#L146">146</a>                     <em class="jxr_comment">// do NOT break</em>
+<a class="jxr_linenumber" name="L147" href="#L147">147</a>                 }
+<a class="jxr_linenumber" name="L148" href="#L148">148</a>             <strong class="jxr_keyword">case</strong> READ_BASIC:
+<a class="jxr_linenumber" name="L149" href="#L149">149</a>                 <strong class="jxr_keyword">if</strong> (c == BASIC.charAt(basicPos)) {
+<a class="jxr_linenumber" name="L150" href="#L150">150</a>                     basicPos++;
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>                     <strong class="jxr_keyword">if</strong> (basicPos == BASIC.length()) {
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>                         state = READ_CRED;
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>                         credStart = pos + 1;
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>                     }
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (scope == Scope.AuthorizationHeaderValue || scope == Scope.AuthorizationHeader) {
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>                     <strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>                 } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>                     basicPos = 0;
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>                     state = READ_UNTIL_CRLF;
+<a class="jxr_linenumber" name="L160" href="#L160">160</a>                 }
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>                 <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>             <strong class="jxr_keyword">case</strong> READ_CRED:
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>                 <em class="jxr_comment">// TODO : handle EOF ?</em>
+<a class="jxr_linenumber" name="L164" href="#L164">164</a>                 <strong class="jxr_keyword">if</strong> (c == ' ') {
+<a class="jxr_linenumber" name="L165" href="#L165">165</a>                     credEnd = pos;
+<a class="jxr_linenumber" name="L166" href="#L166">166</a>                     <strong class="jxr_keyword">break</strong> loop;
+<a class="jxr_linenumber" name="L167" href="#L167">167</a>                 } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (c == '\r') {
+<a class="jxr_linenumber" name="L168" href="#L168">168</a>                     credEnd = pos;
+<a class="jxr_linenumber" name="L169" href="#L169">169</a>                     state = READ_LF;
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>                 }
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>                 <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L172" href="#L172">172</a>             <strong class="jxr_keyword">case</strong> READ_LF:
+<a class="jxr_linenumber" name="L173" href="#L173">173</a>                 <strong class="jxr_keyword">if</strong> (c != '\n') {
+<a class="jxr_linenumber" name="L174" href="#L174">174</a>                     <em class="jxr_comment">// error will be raised normally</em>
+<a class="jxr_linenumber" name="L175" href="#L175">175</a>                     credEnd = -1;
+<a class="jxr_linenumber" name="L176" href="#L176">176</a>                     <strong class="jxr_keyword">break</strong> loop;
+<a class="jxr_linenumber" name="L177" href="#L177">177</a>                 }
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>                 <strong class="jxr_keyword">if</strong> (credEnd &gt; 0) {
+<a class="jxr_linenumber" name="L179" href="#L179">179</a>                     <strong class="jxr_keyword">break</strong> loop;
+<a class="jxr_linenumber" name="L180" href="#L180">180</a>                 }
+<a class="jxr_linenumber" name="L181" href="#L181">181</a>                 state = READ_AUTH;
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>                 <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>             <strong class="jxr_keyword">case</strong> READ_LAST_LF:
+<a class="jxr_linenumber" name="L184" href="#L184">184</a>                 <strong class="jxr_keyword">if</strong> (c != '\n') {
+<a class="jxr_linenumber" name="L185" href="#L185">185</a>                     <em class="jxr_comment">// error will be raised normally</em>
+<a class="jxr_linenumber" name="L186" href="#L186">186</a>                     credEnd = -1;
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>                 }
+<a class="jxr_linenumber" name="L188" href="#L188">188</a>                 <em class="jxr_comment">// end of headers</em>
+<a class="jxr_linenumber" name="L189" href="#L189">189</a>                 <strong class="jxr_keyword">break</strong> loop;
+<a class="jxr_linenumber" name="L190" href="#L190">190</a>             <strong class="jxr_keyword">default</strong>:
+<a class="jxr_linenumber" name="L191" href="#L191">191</a>             }
+<a class="jxr_linenumber" name="L192" href="#L192">192</a>         }
+<a class="jxr_linenumber" name="L193" href="#L193">193</a>         <strong class="jxr_keyword">if</strong> (scope == Scope.AuthorizationHeaderValue || scope == Scope.AuthorizationHeader) {
+<a class="jxr_linenumber" name="L194" href="#L194">194</a>             <em class="jxr_comment">// we weren't able to handle end of line</em>
+<a class="jxr_linenumber" name="L195" href="#L195">195</a>             credEnd = pos; <em class="jxr_comment">// the last pos known is the end</em>
+<a class="jxr_linenumber" name="L196" href="#L196">196</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="L197" href="#L197">197</a>         }
+<a class="jxr_linenumber" name="L198" href="#L198">198</a>         <strong class="jxr_keyword">return</strong> credEnd != -1;
+<a class="jxr_linenumber" name="L199" href="#L199">199</a>     }
+<a class="jxr_linenumber" name="L200" href="#L200">200</a> 
+<a class="jxr_linenumber" name="L201" href="#L201">201</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L202" href="#L202">202</a> <em class="jxr_javadoccomment">     * Replace the raw password in the buffer with '*'</em>
+<a class="jxr_linenumber" name="L203" href="#L203">203</a> <em class="jxr_javadoccomment">     * and reencode the credentials in Base64.</em>
+<a class="jxr_linenumber" name="L204" href="#L204">204</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L205" href="#L205">205</a> <em class="jxr_javadoccomment">     * &lt;p&gt;This method have to be called if {@link #findCredentialsBoundaries()}</em>
+<a class="jxr_linenumber" name="L206" href="#L206">206</a> <em class="jxr_javadoccomment">     * has returned &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;</em>
 <a class="jxr_linenumber" name="L207" href="#L207">207</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L208" href="#L208">208</a> <em class="jxr_javadoccomment">     * @return The credentials with the captured password and the user name.</em>
-<a class="jxr_linenumber" name="L209" href="#L209">209</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L210" href="#L210">210</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../ml/alternet/security/auth/Credentials.html">Credentials</a> replace(<a href="../../../../../ml/alternet/security/PasswordManager.html">PasswordManager</a> passwordManager) {
-<a class="jxr_linenumber" name="L211" href="#L211">211</a>         <a href="../../../../../ml/alternet/security/auth/Credentials.html">Credentials</a> credentials = <strong class="jxr_keyword">new</strong> <a href="../../../../../ml/alternet/security/auth/Credentials.html">Credentials</a>();
-<a class="jxr_linenumber" name="L212" href="#L212">212</a>         byte[] encodedCred = <strong class="jxr_keyword">new</strong> byte[credEnd - credStart];
-<a class="jxr_linenumber" name="L213" href="#L213">213</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0 ; i &lt; encodedCred.length ; i++) {
-<a class="jxr_linenumber" name="L214" href="#L214">214</a>             encodedCred[i] = get(credStart + i);
-<a class="jxr_linenumber" name="L215" href="#L215">215</a>         }
-<a class="jxr_linenumber" name="L216" href="#L216">216</a>         byte[] decodedCred = Base64.getDecoder().decode(encodedCred);
-<a class="jxr_linenumber" name="L217" href="#L217">217</a>         <em class="jxr_comment">// "encodedCred" will be cleaned later</em>
-<a class="jxr_linenumber" name="L218" href="#L218">218</a> 
-<a class="jxr_linenumber" name="L219" href="#L219">219</a>         <strong class="jxr_keyword">char</strong>[] password = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L220" href="#L220">220</a>         <strong class="jxr_keyword">int</strong> pwdStart = -1;
-<a class="jxr_linenumber" name="L221" href="#L221">221</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0 ; i &lt; decodedCred.length ; i++) {
-<a class="jxr_linenumber" name="L222" href="#L222">222</a>             <strong class="jxr_keyword">if</strong> (pwdStart == -1) {
-<a class="jxr_linenumber" name="L223" href="#L223">223</a>                 <strong class="jxr_keyword">if</strong> (decodedCred[i] == ':') {
-<a class="jxr_linenumber" name="L224" href="#L224">224</a>                     credentials.withUser(<strong class="jxr_keyword">new</strong> String(decodedCred, 0, i));
-<a class="jxr_linenumber" name="L225" href="#L225">225</a>                     pwdStart = i + 1;
-<a class="jxr_linenumber" name="L226" href="#L226">226</a>                     password = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">char</strong>[decodedCred.length - pwdStart];
-<a class="jxr_linenumber" name="L227" href="#L227">227</a>                 }
-<a class="jxr_linenumber" name="L228" href="#L228">228</a>             } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L229" href="#L229">229</a>                 password[i - pwdStart] = (<strong class="jxr_keyword">char</strong>) decodedCred[i];
-<a class="jxr_linenumber" name="L230" href="#L230">230</a>                 decodedCred[i] = '*';
-<a class="jxr_linenumber" name="L231" href="#L231">231</a>                 <em class="jxr_comment">// this is the pwd value that will be available later in HttpField</em>
-<a class="jxr_linenumber" name="L232" href="#L232">232</a>             }
-<a class="jxr_linenumber" name="L233" href="#L233">233</a>         }
-<a class="jxr_linenumber" name="L234" href="#L234">234</a>         byte[] reEncodedCred = Base64.getEncoder().encode(decodedCred);
-<a class="jxr_linenumber" name="L235" href="#L235">235</a>         <em class="jxr_comment">// not sure whether "reEncodedCred" has the same length of "encodedCred"</em>
-<a class="jxr_linenumber" name="L236" href="#L236">236</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0 ; i &lt; encodedCred.length ; i++) {
-<a class="jxr_linenumber" name="L237" href="#L237">237</a>             encodedCred[i] = ' '; <em class="jxr_comment">// clean intermediate data</em>
-<a class="jxr_linenumber" name="L238" href="#L238">238</a>             byte b = ' '; <em class="jxr_comment">// fill with blanks if "reEncodedCred" was too short</em>
-<a class="jxr_linenumber" name="L239" href="#L239">239</a>             <strong class="jxr_keyword">if</strong> (i &lt; reEncodedCred.length) {
-<a class="jxr_linenumber" name="L240" href="#L240">240</a>                 b = reEncodedCred[i];
-<a class="jxr_linenumber" name="L241" href="#L241">241</a>             }
-<a class="jxr_linenumber" name="L242" href="#L242">242</a>             set(credStart + i, b);
-<a class="jxr_linenumber" name="L243" href="#L243">243</a>         }
-<a class="jxr_linenumber" name="L244" href="#L244">244</a>         debug(<span class="jxr_string">"HTTP Headers successfully parsed"</span>);
-<a class="jxr_linenumber" name="L245" href="#L245">245</a>         <em class="jxr_comment">// now, we have it, and the buffer is filled with "*****" instead</em>
-<a class="jxr_linenumber" name="L246" href="#L246">246</a>         <a href="../../../../../ml/alternet/security/Password.html">Password</a> pwd = passwordManager.newPassword(password);
-<a class="jxr_linenumber" name="L247" href="#L247">247</a>         credentials.withPassword(pwd);
-<a class="jxr_linenumber" name="L248" href="#L248">248</a>         <strong class="jxr_keyword">return</strong> credentials;
-<a class="jxr_linenumber" name="L249" href="#L249">249</a>     }
-<a class="jxr_linenumber" name="L250" href="#L250">250</a> 
-<a class="jxr_linenumber" name="L251" href="#L251">251</a> }
+<a class="jxr_linenumber" name="L208" href="#L208">208</a> <em class="jxr_javadoccomment">     * @param passwordManager Allow to create a secure password.</em>
+<a class="jxr_linenumber" name="L209" href="#L209">209</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L210" href="#L210">210</a> <em class="jxr_javadoccomment">     * @return The credentials with the captured password and the user name.</em>
+<a class="jxr_linenumber" name="L211" href="#L211">211</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L212" href="#L212">212</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../ml/alternet/security/auth/Credentials.html">Credentials</a> replace(<a href="../../../../../ml/alternet/security/PasswordManager.html">PasswordManager</a> passwordManager) {
+<a class="jxr_linenumber" name="L213" href="#L213">213</a>         <strong class="jxr_keyword">class</strong> <a href="../../../../../ml/alternet/security/web/server/BasicAuthorizationBuffer.html">State</a> {
+<a class="jxr_linenumber" name="L214" href="#L214">214</a>             <strong class="jxr_keyword">int</strong> i = 0; <em class="jxr_comment">// in index</em>
+<a class="jxr_linenumber" name="L215" href="#L215">215</a>             <strong class="jxr_keyword">int</strong> p = 0; <em class="jxr_comment">// pwd index</em>
+<a class="jxr_linenumber" name="L216" href="#L216">216</a>             <strong class="jxr_keyword">int</strong> outi = 0; <em class="jxr_comment">// out index</em>
+<a class="jxr_linenumber" name="L217" href="#L217">217</a>             StringBuffer user = <strong class="jxr_keyword">new</strong> StringBuffer();
+<a class="jxr_linenumber" name="L218" href="#L218">218</a>             <strong class="jxr_keyword">char</strong>[] password;
+<a class="jxr_linenumber" name="L219" href="#L219">219</a>         }
+<a class="jxr_linenumber" name="L220" href="#L220">220</a>         <a href="../../../../../ml/alternet/security/web/server/BasicAuthorizationBuffer.html">State</a> s = <strong class="jxr_keyword">new</strong> <a href="../../../../../ml/alternet/security/web/server/BasicAuthorizationBuffer.html">State</a>();
+<a class="jxr_linenumber" name="L221" href="#L221">221</a>         BytesEncoder.base64.encode( <em class="jxr_comment">// reencode...</em>
+<a class="jxr_linenumber" name="L222" href="#L222">222</a>             BytesEncoder.base64.decode( <em class="jxr_comment">// ...what was decoded</em>
+<a class="jxr_linenumber" name="L223" href="#L223">223</a>                 IntStream.generate(() -&gt; get(credStart + s.i++))
+<a class="jxr_linenumber" name="L224" href="#L224">224</a>                     .mapToObj(c -&gt; (<strong class="jxr_keyword">char</strong>) (c &amp; 0xff)) <em class="jxr_comment">// as char</em>
+<a class="jxr_linenumber" name="L225" href="#L225">225</a>                     .limit(credEnd - credStart)
+<a class="jxr_linenumber" name="L226" href="#L226">226</a>             ).map(c -&gt; {
+<a class="jxr_linenumber" name="L227" href="#L227">227</a>                 <strong class="jxr_keyword">if</strong> (s.password == <strong class="jxr_keyword">null</strong>) { <em class="jxr_comment">// capture user</em>
+<a class="jxr_linenumber" name="L228" href="#L228">228</a>                     <strong class="jxr_keyword">if</strong> (c == ':') {
+<a class="jxr_linenumber" name="L229" href="#L229">229</a>                         s.password = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">char</strong>[credEnd - credStart - s.i];
+<a class="jxr_linenumber" name="L230" href="#L230">230</a>                     } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L231" href="#L231">231</a>                         s.user.append((<strong class="jxr_keyword">char</strong>) c);
+<a class="jxr_linenumber" name="L232" href="#L232">232</a>                     }
+<a class="jxr_linenumber" name="L233" href="#L233">233</a>                     <strong class="jxr_keyword">return</strong> c; <em class="jxr_comment">// unchanged</em>
+<a class="jxr_linenumber" name="L234" href="#L234">234</a>                 } <strong class="jxr_keyword">else</strong> { <em class="jxr_comment">// capture pwd</em>
+<a class="jxr_linenumber" name="L235" href="#L235">235</a>                     s.password[s.p++] = (<strong class="jxr_keyword">char</strong>) c;
+<a class="jxr_linenumber" name="L236" href="#L236">236</a>                     <strong class="jxr_keyword">return</strong> '*';
+<a class="jxr_linenumber" name="L237" href="#L237">237</a>                     <em class="jxr_comment">// this is the pwd value that will be available later in HttpField</em>
+<a class="jxr_linenumber" name="L238" href="#L238">238</a>                 }
+<a class="jxr_linenumber" name="L239" href="#L239">239</a>             })
+<a class="jxr_linenumber" name="L240" href="#L240">240</a>         ).forEach(c -&gt; set(credStart + s.outi++, (byte) (<strong class="jxr_keyword">char</strong>) c));
+<a class="jxr_linenumber" name="L241" href="#L241">241</a>         <em class="jxr_comment">// not sure whether the reencoded Cred has the same length of the encoded Cred</em>
+<a class="jxr_linenumber" name="L242" href="#L242">242</a>         <strong class="jxr_keyword">while</strong> (credStart + s.outi &lt; credEnd) {
+<a class="jxr_linenumber" name="L243" href="#L243">243</a>             set(credStart + s.outi++, (byte) ' ');
+<a class="jxr_linenumber" name="L244" href="#L244">244</a>         }
+<a class="jxr_linenumber" name="L245" href="#L245">245</a>         <strong class="jxr_keyword">if</strong> (s.password.length &gt; s.p) {
+<a class="jxr_linenumber" name="L246" href="#L246">246</a>             <em class="jxr_comment">// adjust size</em>
+<a class="jxr_linenumber" name="L247" href="#L247">247</a>             <strong class="jxr_keyword">char</strong>[] pwd = Arrays.copyOf(s.password, s.p);
+<a class="jxr_linenumber" name="L248" href="#L248">248</a>             Arrays.fill(s.password, ' ');
+<a class="jxr_linenumber" name="L249" href="#L249">249</a>             s.password = pwd;
+<a class="jxr_linenumber" name="L250" href="#L250">250</a>         }
+<a class="jxr_linenumber" name="L251" href="#L251">251</a>         debug(<span class="jxr_string">"HTTP Headers successfully parsed"</span>);
+<a class="jxr_linenumber" name="L252" href="#L252">252</a>         <em class="jxr_comment">// now, we have it, and the buffer is filled with "*****" instead</em>
+<a class="jxr_linenumber" name="L253" href="#L253">253</a>         <a href="../../../../../ml/alternet/security/Password.html">Password</a> pwd = passwordManager.newPassword(s.password);
+<a class="jxr_linenumber" name="L254" href="#L254">254</a>         <a href="../../../../../ml/alternet/security/auth/Credentials.html">Credentials</a> credentials = Credentials.fromUserPassword(s.user.toString(), pwd);
+<a class="jxr_linenumber" name="L255" href="#L255">255</a>         <strong class="jxr_keyword">return</strong> credentials;
+<a class="jxr_linenumber" name="L256" href="#L256">256</a>     }
+<a class="jxr_linenumber" name="L257" href="#L257">257</a> 
+<a class="jxr_linenumber" name="L258" href="#L258">258</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2018 <a href="http://alternet.ml">Alternet</a>. All rights reserved.</div>

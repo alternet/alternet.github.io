@@ -214,7 +214,7 @@
 <a class="jxr_linenumber" name="L206" href="#L206">206</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L207" href="#L207">207</a> <em class="jxr_javadoccomment">     * @see ml.alternet.security.impl.StrongPasswordManager</em>
 <a class="jxr_linenumber" name="L208" href="#L208">208</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L209" href="#L209">209</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../ml/alternet/security/web/jetty/AltHttpConnectionFactory.html">AltHttpConnectionFactory</a>(@Name(value=<span class="jxr_string">"webAppContext"</span>) WebAppContext wac) {
+<a class="jxr_linenumber" name="L209" href="#L209">209</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../ml/alternet/security/web/jetty/AltHttpConnectionFactory.html">AltHttpConnectionFactory</a>(@Name(value = <span class="jxr_string">"webAppContext"</span>) WebAppContext wac) {
 <a class="jxr_linenumber" name="L210" href="#L210">210</a>         <strong class="jxr_keyword">this</strong>(PasswordManagerFactory.getStrongPasswordManager(), wac);
 <a class="jxr_linenumber" name="L211" href="#L211">211</a>     }
 <a class="jxr_linenumber" name="L212" href="#L212">212</a> 
@@ -293,7 +293,7 @@
 <a class="jxr_linenumber" name="L285" href="#L285">285</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L286" href="#L286">286</a> <em class="jxr_javadoccomment">     * @see ml.alternet.security.impl.StrongPasswordManager</em>
 <a class="jxr_linenumber" name="L287" href="#L287">287</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L288" href="#L288">288</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../ml/alternet/security/web/jetty/AltHttpConnectionFactory.html">AltHttpConnectionFactory</a>(@Name(value=<span class="jxr_string">"server"</span>) Server server) {
+<a class="jxr_linenumber" name="L288" href="#L288">288</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../ml/alternet/security/web/jetty/AltHttpConnectionFactory.html">AltHttpConnectionFactory</a>(@Name(value = <span class="jxr_string">"server"</span>) Server server) {
 <a class="jxr_linenumber" name="L289" href="#L289">289</a>         <strong class="jxr_keyword">this</strong>(PasswordManagerFactory.getStrongPasswordManager(), server);
 <a class="jxr_linenumber" name="L290" href="#L290">290</a>     }
 <a class="jxr_linenumber" name="L291" href="#L291">291</a> 
@@ -380,57 +380,59 @@
 <a class="jxr_linenumber" name="L372" href="#L372">372</a>                             <strong class="jxr_keyword">if</strong> (authBuf.findCredentialsBoundaries()) {
 <a class="jxr_linenumber" name="L373" href="#L373">373</a>                                 <em class="jxr_comment">// capture pwd</em>
 <a class="jxr_linenumber" name="L374" href="#L374">374</a>                                 Credentials credentials = authBuf.replace(pm);
-<a class="jxr_linenumber" name="L375" href="#L375">375</a>                                 getHttpChannel().getRequest().setAttribute(Passwords.BASIC_AUTH_ATTRIBUTE_KEY, credentials);
-<a class="jxr_linenumber" name="L376" href="#L376">376</a>                             }
-<a class="jxr_linenumber" name="L377" href="#L377">377</a>                         }
-<a class="jxr_linenumber" name="L378" href="#L378">378</a>                         <em class="jxr_comment">// do things normally</em>
-<a class="jxr_linenumber" name="L379" href="#L379">379</a>                         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">super</strong>.parseHeaders(buffer);
-<a class="jxr_linenumber" name="L380" href="#L380">380</a>                     }
-<a class="jxr_linenumber" name="L381" href="#L381">381</a>                 };
-<a class="jxr_linenumber" name="L382" href="#L382">382</a>             }
-<a class="jxr_linenumber" name="L383" href="#L383">383</a> 
-<a class="jxr_linenumber" name="L384" href="#L384">384</a>             @Override
-<a class="jxr_linenumber" name="L385" href="#L385">385</a>             <strong class="jxr_keyword">protected</strong> HttpChannelOverHttp newHttpChannel(HttpInput&lt;ByteBuffer&gt; httpInput) {
-<a class="jxr_linenumber" name="L386" href="#L386">386</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> HttpChannelOverHttp(getConnector(), getHttpConfiguration(), getEndPoint(), <strong class="jxr_keyword">this</strong>, httpInput) {
-<a class="jxr_linenumber" name="L387" href="#L387">387</a> 
-<a class="jxr_linenumber" name="L388" href="#L388">388</a>                     @Override
-<a class="jxr_linenumber" name="L389" href="#L389">389</a>                     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> handle() {
-<a class="jxr_linenumber" name="L390" href="#L390">390</a>                         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L391" href="#L391">391</a>                             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">super</strong>.handle();
-<a class="jxr_linenumber" name="L392" href="#L392">392</a>                         } <strong class="jxr_keyword">finally</strong> {
-<a class="jxr_linenumber" name="L393" href="#L393">393</a>                             CaptureContext&lt;ByteBuffer&gt; cc = captureContext;
-<a class="jxr_linenumber" name="L394" href="#L394">394</a>                             <strong class="jxr_keyword">if</strong> (cc != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L395" href="#L395">395</a>                                 <em class="jxr_comment">// at the end, clean the capture context</em>
-<a class="jxr_linenumber" name="L396" href="#L396">396</a>                                 cc.destroy();
-<a class="jxr_linenumber" name="L397" href="#L397">397</a>                                 cc = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="L398" href="#L398">398</a>                             }
-<a class="jxr_linenumber" name="L399" href="#L399">399</a>                         }
-<a class="jxr_linenumber" name="L400" href="#L400">400</a>                     }
-<a class="jxr_linenumber" name="L401" href="#L401">401</a> 
-<a class="jxr_linenumber" name="L402" href="#L402">402</a>                     @Override
-<a class="jxr_linenumber" name="L403" href="#L403">403</a>                     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> startRequest(HttpMethod httpMethod, String method,
-<a class="jxr_linenumber" name="L404" href="#L404">404</a>                             ByteBuffer uri, HttpVersion version)
-<a class="jxr_linenumber" name="L405" href="#L405">405</a>                     {
-<a class="jxr_linenumber" name="L406" href="#L406">406</a>                         <em class="jxr_comment">// let parse the URI</em>
-<a class="jxr_linenumber" name="L407" href="#L407">407</a>                         <strong class="jxr_keyword">boolean</strong> result = <strong class="jxr_keyword">super</strong>.startRequest(httpMethod, method, uri, version);
-<a class="jxr_linenumber" name="L408" href="#L408">408</a> 
-<a class="jxr_linenumber" name="L409" href="#L409">409</a>                         pfm.matches(getRequest()).ifPresent(fields -&gt; {
-<a class="jxr_linenumber" name="L410" href="#L410">410</a>                             <em class="jxr_comment">// the incoming request URI matches a known path</em>
-<a class="jxr_linenumber" name="L411" href="#L411">411</a> 
-<a class="jxr_linenumber" name="L412" href="#L412">412</a>                             <em class="jxr_comment">// we are creating a capture context with the field names</em>
-<a class="jxr_linenumber" name="L413" href="#L413">413</a>                             captureContext = <strong class="jxr_keyword">new</strong> CaptureContext&lt;ByteBuffer&gt;(fields);
-<a class="jxr_linenumber" name="L414" href="#L414">414</a>                             Passwords pwd = captureContext.asPasswords();
-<a class="jxr_linenumber" name="L415" href="#L415">415</a>                             getRequest().setAttribute(Passwords.ATTRIBUTE_KEY, pwd);
-<a class="jxr_linenumber" name="L416" href="#L416">416</a>                         });
-<a class="jxr_linenumber" name="L417" href="#L417">417</a> 
-<a class="jxr_linenumber" name="L418" href="#L418">418</a>                         <strong class="jxr_keyword">return</strong> result;
-<a class="jxr_linenumber" name="L419" href="#L419">419</a>                     }
-<a class="jxr_linenumber" name="L420" href="#L420">420</a>                 };
-<a class="jxr_linenumber" name="L421" href="#L421">421</a>             }
-<a class="jxr_linenumber" name="L422" href="#L422">422</a>         }, connector, endPoint);
-<a class="jxr_linenumber" name="L423" href="#L423">423</a>     }
-<a class="jxr_linenumber" name="L424" href="#L424">424</a> 
-<a class="jxr_linenumber" name="L425" href="#L425">425</a> }
+<a class="jxr_linenumber" name="L375" href="#L375">375</a>                                 getHttpChannel().getRequest().setAttribute(
+<a class="jxr_linenumber" name="L376" href="#L376">376</a>                                     Passwords.BASIC_AUTH_ATTRIBUTE_KEY, credentials
+<a class="jxr_linenumber" name="L377" href="#L377">377</a>                                 );
+<a class="jxr_linenumber" name="L378" href="#L378">378</a>                             }
+<a class="jxr_linenumber" name="L379" href="#L379">379</a>                         }
+<a class="jxr_linenumber" name="L380" href="#L380">380</a>                         <em class="jxr_comment">// do things normally</em>
+<a class="jxr_linenumber" name="L381" href="#L381">381</a>                         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">super</strong>.parseHeaders(buffer);
+<a class="jxr_linenumber" name="L382" href="#L382">382</a>                     }
+<a class="jxr_linenumber" name="L383" href="#L383">383</a>                 };
+<a class="jxr_linenumber" name="L384" href="#L384">384</a>             }
+<a class="jxr_linenumber" name="L385" href="#L385">385</a> 
+<a class="jxr_linenumber" name="L386" href="#L386">386</a>             @Override
+<a class="jxr_linenumber" name="L387" href="#L387">387</a>             <strong class="jxr_keyword">protected</strong> HttpChannelOverHttp newHttpChannel(HttpInput&lt;ByteBuffer&gt; httpInput) {
+<a class="jxr_linenumber" name="L388" href="#L388">388</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> HttpChannelOverHttp(getConnector(), getHttpConfiguration(), getEndPoint(), <strong class="jxr_keyword">this</strong>, httpInput) {
+<a class="jxr_linenumber" name="L389" href="#L389">389</a> 
+<a class="jxr_linenumber" name="L390" href="#L390">390</a>                     @Override
+<a class="jxr_linenumber" name="L391" href="#L391">391</a>                     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> handle() {
+<a class="jxr_linenumber" name="L392" href="#L392">392</a>                         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L393" href="#L393">393</a>                             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">super</strong>.handle();
+<a class="jxr_linenumber" name="L394" href="#L394">394</a>                         } <strong class="jxr_keyword">finally</strong> {
+<a class="jxr_linenumber" name="L395" href="#L395">395</a>                             CaptureContext&lt;ByteBuffer&gt; cc = captureContext;
+<a class="jxr_linenumber" name="L396" href="#L396">396</a>                             <strong class="jxr_keyword">if</strong> (cc != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L397" href="#L397">397</a>                                 <em class="jxr_comment">// at the end, clean the capture context</em>
+<a class="jxr_linenumber" name="L398" href="#L398">398</a>                                 cc.destroy();
+<a class="jxr_linenumber" name="L399" href="#L399">399</a>                                 cc = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="L400" href="#L400">400</a>                             }
+<a class="jxr_linenumber" name="L401" href="#L401">401</a>                         }
+<a class="jxr_linenumber" name="L402" href="#L402">402</a>                     }
+<a class="jxr_linenumber" name="L403" href="#L403">403</a> 
+<a class="jxr_linenumber" name="L404" href="#L404">404</a>                     @Override
+<a class="jxr_linenumber" name="L405" href="#L405">405</a>                     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> startRequest(HttpMethod httpMethod, String method,
+<a class="jxr_linenumber" name="L406" href="#L406">406</a>                             ByteBuffer uri, HttpVersion version)
+<a class="jxr_linenumber" name="L407" href="#L407">407</a>                     {
+<a class="jxr_linenumber" name="L408" href="#L408">408</a>                         <em class="jxr_comment">// let parse the URI</em>
+<a class="jxr_linenumber" name="L409" href="#L409">409</a>                         <strong class="jxr_keyword">boolean</strong> result = <strong class="jxr_keyword">super</strong>.startRequest(httpMethod, method, uri, version);
+<a class="jxr_linenumber" name="L410" href="#L410">410</a> 
+<a class="jxr_linenumber" name="L411" href="#L411">411</a>                         pfm.matches(getRequest()).ifPresent(fields -&gt; {
+<a class="jxr_linenumber" name="L412" href="#L412">412</a>                             <em class="jxr_comment">// the incoming request URI matches a known path</em>
+<a class="jxr_linenumber" name="L413" href="#L413">413</a> 
+<a class="jxr_linenumber" name="L414" href="#L414">414</a>                             <em class="jxr_comment">// we are creating a capture context with the field names</em>
+<a class="jxr_linenumber" name="L415" href="#L415">415</a>                             captureContext = <strong class="jxr_keyword">new</strong> CaptureContext&lt;ByteBuffer&gt;(fields);
+<a class="jxr_linenumber" name="L416" href="#L416">416</a>                             Passwords pwd = captureContext.asPasswords();
+<a class="jxr_linenumber" name="L417" href="#L417">417</a>                             getRequest().setAttribute(Passwords.ATTRIBUTE_KEY, pwd);
+<a class="jxr_linenumber" name="L418" href="#L418">418</a>                         });
+<a class="jxr_linenumber" name="L419" href="#L419">419</a> 
+<a class="jxr_linenumber" name="L420" href="#L420">420</a>                         <strong class="jxr_keyword">return</strong> result;
+<a class="jxr_linenumber" name="L421" href="#L421">421</a>                     }
+<a class="jxr_linenumber" name="L422" href="#L422">422</a>                 };
+<a class="jxr_linenumber" name="L423" href="#L423">423</a>             }
+<a class="jxr_linenumber" name="L424" href="#L424">424</a>         }, connector, endPoint);
+<a class="jxr_linenumber" name="L425" href="#L425">425</a>     }
+<a class="jxr_linenumber" name="L426" href="#L426">426</a> 
+<a class="jxr_linenumber" name="L427" href="#L427">427</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2018 <a href="http://alternet.ml">Alternet</a>. All rights reserved.</div>

@@ -17,8 +17,8 @@
 <a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> ml.alternet.parser.Grammar.Rule;
 <a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> ml.alternet.parser.handlers.TreeHandler;
 <a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> ml.alternet.parser.step3.Expression;
-<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> ml.alternet.parser.step3.CalcGrammar.Additive;
-<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> ml.alternet.parser.step3.CalcGrammar.Multiplicative;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> ml.alternet.parser.step3.Calc.Additive;
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> ml.alternet.parser.step3.Calc.Multiplicative;
 <a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> ml.alternet.parser.step3.Expression.Constant;
 <a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">import</strong> ml.alternet.parser.step3.Expression.Exponent;
 <a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> ml.alternet.parser.step3.Expression.Product;
@@ -29,16 +29,16 @@
 <a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> ml.alternet.scan.Scanner;
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>  
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment"> * Build evaluable expressions based on the {@link CalcGrammar}.</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment"> * Build evaluable expressions based on the {@link Calc}.</em>
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_javadoccomment"> *</em>
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment"> * @see #build(String)</em>
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment"> *</em>
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment"> * @author Philippe Poulard</em>
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment"> */</em>
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../ml/alternet/parser/step3/ExpressionBuilder.html">ExpressionBuilder</a> <strong class="jxr_keyword">extends</strong> TreeHandler&lt;Expression&gt; {
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../ml/alternet/parser/step3/ExpressionBuilder.html">ExpressionBuilder</a> <strong class="jxr_keyword">extends</strong> TreeHandler&lt;Expression, Expression&gt; {
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>  
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>      @Override
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>      <strong class="jxr_keyword">public</strong> Value&lt;Expression&gt; tokenToNode(TokenValue&lt;?&gt; token, Deque&lt;Value&lt;Expression&gt;&gt; next) {
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>      <strong class="jxr_keyword">public</strong> Value&lt;Expression&gt; tokenToValue(TokenValue&lt;?&gt; token, Deque&lt;Value&lt;Expression&gt;&gt; next) {
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>          String tokenName = token.getRule().getName(); <em class="jxr_comment">// e.g. "FUNCTION"</em>
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>          <em class="jxr_comment">// find it with the same name and ask it to transform the token to an expression</em>
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>          <a href="../../../../ml/alternet/parser/step3/Expression.html">Expression</a> expr = Tokens.valueOf(tokenName).asExpression(token, next);
@@ -52,7 +52,7 @@
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>      }
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>  
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>      @Override
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>      <strong class="jxr_keyword">public</strong> Value&lt;Expression&gt; ruleToNode(Rule rule, Deque&lt;Value&lt;Expression&gt;&gt; args) {
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>      <strong class="jxr_keyword">public</strong> Value&lt;Expression&gt; ruleToValue(Rule rule, Deque&lt;Value&lt;Expression&gt;&gt; args) {
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>          String ruleName = rule.getName(); <em class="jxr_comment">// e.g. "Product"</em>
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>          <em class="jxr_comment">// find it with the same name and ask it to transform the rule to an expression</em>
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>          <a href="../../../../ml/alternet/parser/step3/Expression.html">Expression</a> expr = Rules.valueOf(ruleName).asExpression(rule, args);
@@ -72,11 +72,11 @@
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>  <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  <em class="jxr_javadoccomment">     * @throws IOException</em>
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>  <em class="jxr_javadoccomment">     * @see CalcGrammar</em>
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>  <em class="jxr_javadoccomment">     * @see Calc</em>
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> Optional&lt;Expression&gt; build(String input) <strong class="jxr_keyword">throws</strong> IOException {
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>          <a href="../../../../ml/alternet/parser/step3/ExpressionBuilder.html">ExpressionBuilder</a> eb = <strong class="jxr_keyword">new</strong> <a href="../../../../ml/alternet/parser/step3/ExpressionBuilder.html">ExpressionBuilder</a>();
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>          <strong class="jxr_keyword">if</strong> (CalcGrammar.Calc.parse(Scanner.of(input), eb, <strong class="jxr_keyword">true</strong>)) {
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>          <strong class="jxr_keyword">if</strong> (Calc.$.parse(Scanner.of(input), eb, <strong class="jxr_keyword">true</strong>)) {
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>              <strong class="jxr_keyword">return</strong> Optional.of(eb.get());
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>          } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>              <strong class="jxr_keyword">return</strong> Optional.empty();
@@ -141,7 +141,7 @@
 <a class="jxr_linenumber" name="L133" href="#L133">133</a>                 <em class="jxr_comment">// Factor ::= Argument ('^' SignedFactor)?</em>
 <a class="jxr_linenumber" name="L134" href="#L134">134</a>                 <a href="../../../../ml/alternet/parser/step3/Expression.html">Expression</a> base = args.pollFirst().getTarget();
 <a class="jxr_linenumber" name="L135" href="#L135">135</a>                 Value&lt;Expression&gt; raised = args.peekFirst();
-<a class="jxr_linenumber" name="L136" href="#L136">136</a>                 <strong class="jxr_keyword">if</strong> (raised != <strong class="jxr_keyword">null</strong> &amp;&amp; raised.isSource() &amp;&amp; raised.getSource().getRule() == CalcGrammar.RAISED) {
+<a class="jxr_linenumber" name="L136" href="#L136">136</a>                 <strong class="jxr_keyword">if</strong> (raised != <strong class="jxr_keyword">null</strong> &amp;&amp; raised.isSource() &amp;&amp; raised.getSource().getRule() == Calc.RAISED) {
 <a class="jxr_linenumber" name="L137" href="#L137">137</a>                     args.pollFirst(); <em class="jxr_comment">// ^</em>
 <a class="jxr_linenumber" name="L138" href="#L138">138</a>                     <a href="../../../../ml/alternet/parser/step3/Expression.html">Expression</a> exponent = args.pollFirst().getTarget();
 <a class="jxr_linenumber" name="L139" href="#L139">139</a>                     <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../ml/alternet/parser/step3/Expression.html">Exponent</a>(base, exponent);
@@ -167,7 +167,7 @@
 <a class="jxr_linenumber" name="L159" href="#L159">159</a>             <strong class="jxr_keyword">public</strong> <a href="../../../../ml/alternet/parser/step3/Expression.html">Expression</a> asExpression(TokenValue&lt;?&gt; token, Deque&lt;Value&lt;Expression&gt;&gt; next) {
 <a class="jxr_linenumber" name="L160" href="#L160">160</a>                 <em class="jxr_comment">// e.g.   sin  x</em>
 <a class="jxr_linenumber" name="L161" href="#L161">161</a>                 <em class="jxr_comment">//   function  argument</em>
-<a class="jxr_linenumber" name="L162" href="#L162">162</a>                 CalcGrammar.Function function = token.getValue();   <em class="jxr_comment">// e.g.   CalcGrammar.Function.sin</em>
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>                 Calc.Function function = token.getValue();   <em class="jxr_comment">// e.g.   CalcGrammar.Function.sin</em>
 <a class="jxr_linenumber" name="L163" href="#L163">163</a>                 <a href="../../../../ml/alternet/parser/step3/Expression.html">Expression</a> argument = next.pollFirst().getTarget(); <em class="jxr_comment">// e.g.   Expression.Variable("x")</em>
 <a class="jxr_linenumber" name="L164" href="#L164">164</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> Expression.Function(function, argument);
 <a class="jxr_linenumber" name="L165" href="#L165">165</a>             }
@@ -183,7 +183,7 @@
 <a class="jxr_linenumber" name="L175" href="#L175">175</a>             @Override
 <a class="jxr_linenumber" name="L176" href="#L176">176</a>             <strong class="jxr_keyword">public</strong> <a href="../../../../ml/alternet/parser/step3/Expression.html">Expression</a> asExpression(TokenValue&lt;?&gt; token, Deque&lt;Value&lt;Expression&gt;&gt; next) {
 <a class="jxr_linenumber" name="L177" href="#L177">177</a>                 <em class="jxr_comment">// e.g. a + b</em>
-<a class="jxr_linenumber" name="L178" href="#L178">178</a>                 <a href="../../../../ml/alternet/parser/step3/CalcGrammar.html">Additive</a> op = token.getValue(); <em class="jxr_comment">// + | -</em>
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>                 <a href="../../../../ml/alternet/parser/step3/Calc.html">Additive</a> op = token.getValue(); <em class="jxr_comment">// + | -</em>
 <a class="jxr_linenumber" name="L179" href="#L179">179</a>                 <strong class="jxr_keyword">if</strong> (next.isEmpty()) { <em class="jxr_comment">// in SignedTerm and SignedFactor, the ADDITIVE term</em>
 <a class="jxr_linenumber" name="L180" href="#L180">180</a>                                       <em class="jxr_comment">// is within an optional term therefore always alone,</em>
 <a class="jxr_linenumber" name="L181" href="#L181">181</a>                                       <em class="jxr_comment">// it is the optional term that is followed by a Product term</em>
@@ -205,7 +205,7 @@
 <a class="jxr_linenumber" name="L197" href="#L197">197</a>             @Override
 <a class="jxr_linenumber" name="L198" href="#L198">198</a>             <strong class="jxr_keyword">public</strong> <a href="../../../../ml/alternet/parser/step3/Expression.html">Expression</a> asExpression(TokenValue&lt;?&gt; token, Deque&lt;Value&lt;Expression&gt;&gt; next) {
 <a class="jxr_linenumber" name="L199" href="#L199">199</a>                 <em class="jxr_comment">// e.g. a * b</em>
-<a class="jxr_linenumber" name="L200" href="#L200">200</a>                 <a href="../../../../ml/alternet/parser/step3/CalcGrammar.html">Multiplicative</a> op = token.getValue(); <em class="jxr_comment">// * | /</em>
+<a class="jxr_linenumber" name="L200" href="#L200">200</a>                 <a href="../../../../ml/alternet/parser/step3/Calc.html">Multiplicative</a> op = token.getValue(); <em class="jxr_comment">// * | /</em>
 <a class="jxr_linenumber" name="L201" href="#L201">201</a>                 <em class="jxr_comment">// * is always followed by an argument</em>
 <a class="jxr_linenumber" name="L202" href="#L202">202</a>                 <a href="../../../../ml/alternet/parser/step3/Expression.html">Expression</a> arg = next.pollFirst().getTarget(); <em class="jxr_comment">// b argument</em>
 <a class="jxr_linenumber" name="L203" href="#L203">203</a>                 Term&lt;Multiplicative&gt; term = <strong class="jxr_keyword">new</strong> Term&lt;&gt;(op, arg);

@@ -20,19 +20,19 @@ under the License.
 <rss version="0.91">
   <channel>
     <title>Alternet Jetty Security - Checkstyle report</title>
-    <link>http://alternet.ml/alternet-libs/security-jetty/security-jetty.html</link>
+    <link>http://alternet.ml/alternet-libs/security-jetty-9.1/security-jetty.html</link>
     <description>Alternet Jetty Security - Checkstyle report</description>
     <language>en-us</language>
     <copyright>&#169;2018 Alternet</copyright>
     <item>
-      <title>File: 7,
-             Errors: 29,
-             Warnings: 8,
+      <title>File: 2,
+             Errors: 2,
+             Warnings: 4,
              Infos: 0
       </title>
-            <link>http://alternet.ml/alternet-libs/security-jetty/security-jetty.html/checkstyle.html</link>
+            <link>http://alternet.ml/alternet-libs/security-jetty-9.1/security-jetty.html/checkstyle.html</link>
       <description>
-        <p>Click <a href="http://alternet.ml/alternet-libs/security-jetty/security-jetty.html/checkstyle.html">here</a> for the full Checkstyle report.</p>
+        <p>Click <a href="http://alternet.ml/alternet-libs/security-jetty-9.1/security-jetty.html/checkstyle.html">here</a> for the full Checkstyle report.</p>
 
         <table summary="Files" boder="1">
           <thead>
@@ -46,49 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/security-jetty/security-jetty.html/checkstyle.html#ml.alternet.security.web.jetty.WebappPasswordFieldMatcher.java">ml/alternet/security/web/jetty/WebappPasswordFieldMatcher.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  2
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://alternet.ml/alternet-libs/security-jetty/security-jetty.html/checkstyle.html#ml.alternet.security.web.jetty.auth.CredentialsCallback.java">ml/alternet/security/web/jetty/auth/CredentialsCallback.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  4
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://alternet.ml/alternet-libs/security-jetty/security-jetty.html/checkstyle.html#ml.alternet.security.web.jetty.AltHttpConnectionFactory.java">ml/alternet/security/web/jetty/AltHttpConnectionFactory.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  5
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://alternet.ml/alternet-libs/security-jetty/security-jetty.html/checkstyle.html#ml.alternet.security.web.jetty.auth.AltJDBCLoginService.java">ml/alternet/security/web/jetty/auth/AltJDBCLoginService.java</a>
+                  <a href="http://alternet.ml/alternet-libs/security-jetty-9.1/security-jetty.html/checkstyle.html#ml.alternet.security.web.jetty.auth.AltJDBCLoginService.java">ml/alternet/security/web/jetty/auth/AltJDBCLoginService.java</a>
                 </td>
                 <td>
                   0
@@ -102,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/security-jetty/security-jetty.html/checkstyle.html#ml.alternet.security.web.jetty.package-info.java">ml/alternet/security/web/jetty/package-info.java</a>
+                  <a href="http://alternet.ml/alternet-libs/security-jetty-9.1/security-jetty.html/checkstyle.html#ml.alternet.security.web.jetty.auth.AltLdapLoginModule.java">ml/alternet/security/web/jetty/auth/AltLdapLoginModule.java</a>
                 </td>
                 <td>
                   0
@@ -111,35 +69,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://alternet.ml/alternet-libs/security-jetty/security-jetty.html/checkstyle.html#ml.alternet.security.web.jetty.auth.package-info.java">ml/alternet/security/web/jetty/auth/package-info.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://alternet.ml/alternet-libs/security-jetty/security-jetty.html/checkstyle.html#ml.alternet.security.web.jetty.auth.AltLdapLoginModule.java">ml/alternet/security/web/jetty/auth/AltLdapLoginModule.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  21
+                  1
                 </td>
               </tr>
                       </tbody>

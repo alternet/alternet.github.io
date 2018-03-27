@@ -3,3 +3,4 @@ ml.alternet.parser
 ml.alternet.parser.ast
 ml.alternet.parser.handlers
 ml.alternet.parser.util
+ml.alternet.parser.visit

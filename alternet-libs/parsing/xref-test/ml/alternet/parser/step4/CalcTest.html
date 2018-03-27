@@ -37,7 +37,7 @@
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>          variables.put(<span class="jxr_string">"x"</span>, 1.0);
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>          variables.put(<span class="jxr_string">"var_12"</span>, 10.0);
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>  
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>          Optional&lt;NumericExpression&gt; exp = <strong class="jxr_keyword">new</strong> <a href="../../../../ml/alternet/parser/step4/ExpressionBuilder.html">ExpressionBuilder</a>().build(<span class="jxr_string">"sin(x)*(1+var_12)"</span>, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>          Optional&lt;NumericExpression&gt; exp = <strong class="jxr_keyword">new</strong> <a href="../../../../ml/alternet/parser/step4/ExpressionBuilder.html">ExpressionBuilder</a>().parse(<span class="jxr_string">"sin(x)*(1+var_12)"</span>, <strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>  
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>          assertThat(exp).isNotEmpty();
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  
@@ -69,7 +69,7 @@
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>          variables.put(<span class="jxr_string">"x"</span>, 1.0);
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>          variables.put(<span class="jxr_string">"var_12"</span>, 10.0);
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>  
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>          Optional&lt;NumericExpression&gt; exp = <strong class="jxr_keyword">new</strong> <a href="../../../../ml/alternet/parser/step4/ExpressionBuilder.html">ExpressionBuilder</a>().build(expression, <strong class="jxr_keyword">true</strong>);
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>          Optional&lt;NumericExpression&gt; exp = <strong class="jxr_keyword">new</strong> <a href="../../../../ml/alternet/parser/step4/ExpressionBuilder.html">ExpressionBuilder</a>().parse(expression, <strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>  
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>          assertThat(exp).isNotEmpty();
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>  
