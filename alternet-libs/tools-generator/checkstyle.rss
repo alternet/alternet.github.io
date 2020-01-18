@@ -20,19 +20,19 @@ under the License.
 <rss version="0.91">
   <channel>
     <title>Alternet Tools - Generator - Checkstyle report</title>
-    <link>http://alternet.ml/alternet-tools-generator/</link>
+    <link>http://alternet.github.io/alternet-tools-generator/</link>
     <description>Alternet Tools - Generator - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2018 Alternet</copyright>
+    <copyright>&#169;2020 Alternet</copyright>
     <item>
       <title>File: 5,
              Errors: 10,
              Warnings: 2,
              Infos: 2
       </title>
-            <link>http://alternet.ml/alternet-tools-generator//checkstyle.html</link>
+            <link>http://alternet.github.io/alternet-tools-generator//checkstyle.html</link>
       <description>
-        <p>Click <a href="http://alternet.ml/alternet-tools-generator//checkstyle.html">here</a> for the full Checkstyle report.</p>
+        <p>Click <a href="http://alternet.github.io/alternet-tools-generator//checkstyle.html">here</a> for the full Checkstyle report.</p>
 
         <table summary="Files" boder="1">
           <thead>
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-tools-generator//checkstyle.html#ml.alternet.util.gen.sample.SampleAbstractClass.java">ml/alternet/util/gen/sample/SampleAbstractClass.java</a>
+                  <a href="http://alternet.github.io/alternet-tools-generator//checkstyle.html#ml.alternet.util.gen.sample.SampleAbstractClass.java">ml/alternet/util/gen/sample/SampleAbstractClass.java</a>
                 </td>
                 <td>
                   0
@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-tools-generator//checkstyle.html#ml.alternet.util.gen.ByteCodeFactoryGenerator.java">ml/alternet/util/gen/ByteCodeFactoryGenerator.java</a>
+                  <a href="http://alternet.github.io/alternet-tools-generator//checkstyle.html#ml.alternet.util.gen.ByteCodeFactoryGenerator.java">ml/alternet/util/gen/ByteCodeFactoryGenerator.java</a>
                 </td>
                 <td>
                   0
@@ -74,7 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-tools-generator//checkstyle.html#ml.alternet.util.gen.sample.SampleImpl.java">ml/alternet/util/gen/sample/SampleImpl.java</a>
+                  <a href="http://alternet.github.io/alternet-tools-generator//checkstyle.html#ml.alternet.util.gen.sample.SampleImpl.java">ml/alternet/util/gen/sample/SampleImpl.java</a>
                 </td>
                 <td>
                   1
@@ -88,7 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-tools-generator//checkstyle.html#ml.alternet.util.gen.sample.SampleInterface.java">ml/alternet/util/gen/sample/SampleInterface.java</a>
+                  <a href="http://alternet.github.io/alternet-tools-generator//checkstyle.html#ml.alternet.util.gen.sample.SampleInterface.java">ml/alternet/util/gen/sample/SampleInterface.java</a>
                 </td>
                 <td>
                   0
@@ -102,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-tools-generator//checkstyle.html#ml.alternet.util.gen.sample.SampleInterfaceImpl.java">ml/alternet/util/gen/sample/SampleInterfaceImpl.java</a>
+                  <a href="http://alternet.github.io/alternet-tools-generator//checkstyle.html#ml.alternet.util.gen.sample.SampleInterfaceImpl.java">ml/alternet/util/gen/sample/SampleInterfaceImpl.java</a>
                 </td>
                 <td>
                   1

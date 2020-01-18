@@ -20,19 +20,19 @@ under the License.
 <rss version="0.91">
   <channel>
     <title>Alternet Scanner - Checkstyle report</title>
-    <link>http://alternet.ml/alternet-libs/scanner/scanner.html</link>
+    <link>http://alternet.github.io/alternet-libs/scanner/scanner.html</link>
     <description>Alternet Scanner - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2018 Alternet</copyright>
+    <copyright>&#169;2020 Alternet</copyright>
     <item>
       <title>File: 2,
              Errors: 3,
              Warnings: 0,
              Infos: 0
       </title>
-            <link>http://alternet.ml/alternet-libs/scanner/scanner.html/checkstyle.html</link>
+            <link>http://alternet.github.io/alternet-libs/scanner/scanner.html/checkstyle.html</link>
       <description>
-        <p>Click <a href="http://alternet.ml/alternet-libs/scanner/scanner.html/checkstyle.html">here</a> for the full Checkstyle report.</p>
+        <p>Click <a href="http://alternet.github.io/alternet-libs/scanner/scanner.html/checkstyle.html">here</a> for the full Checkstyle report.</p>
 
         <table summary="Files" boder="1">
           <thead>
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/scanner/scanner.html/checkstyle.html#ml.alternet.scan.ReaderScanner.java">ml/alternet/scan/ReaderScanner.java</a>
+                  <a href="http://alternet.github.io/alternet-libs/scanner/scanner.html/checkstyle.html#ml.alternet.scan.ReaderScanner.java">ml/alternet/scan/ReaderScanner.java</a>
                 </td>
                 <td>
                   0
@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/scanner/scanner.html/checkstyle.html#ml.alternet.scan.Scanner.java">ml/alternet/scan/Scanner.java</a>
+                  <a href="http://alternet.github.io/alternet-libs/scanner/scanner.html/checkstyle.html#ml.alternet.scan.Scanner.java">ml/alternet/scan/Scanner.java</a>
                 </td>
                 <td>
                   0

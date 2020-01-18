@@ -5,5 +5,5 @@ alternet.github.io
 
 Common Alternet Libraries
 
-[Alternet Libs Web site](http://alternet.ml/alternet-libs/)
+[Alternet Libs Web site](http://http://alternet.github.io/alternet-libs/)
 

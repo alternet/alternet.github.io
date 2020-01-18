@@ -80,14 +80,14 @@
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>      <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> <a href="../../../ml/alternet/properties/Generator.html">PropertiesTemplate</a> {
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>  
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>          InputStream input; <em class="jxr_comment">// the properties template</em>
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>          <a href="../../../ml/alternet/misc/Type.html">Type</a> className; <em class="jxr_comment">// the target class name</em>
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>          <a href="../../../ml/alternet/misc/Type$.html">Type</a> className; <em class="jxr_comment">// the target class name</em>
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>          <a href="../../../ml/alternet/properties/Generator.html">PropertiesTemplate</a>(InputStream is) {
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>              <strong class="jxr_keyword">this</strong>.input = is;
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>              <strong class="jxr_keyword">this</strong>.className = Type.of(<strong class="jxr_keyword">null</strong>, <span class="jxr_string">""</span>); <em class="jxr_comment">// the target class name will be set later</em>
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>          }
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>  
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>          <a href="../../../ml/alternet/properties/Generator.html">PropertiesTemplate</a>(Path path, <a href="../../../ml/alternet/misc/Type.html">Type</a> name) {
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>          <a href="../../../ml/alternet/properties/Generator.html">PropertiesTemplate</a>(Path path, <a href="../../../ml/alternet/misc/Type$.html">Type</a> name) {
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>              LOG.info(<span class="jxr_string">"Reading properties file "</span> + path.toAbsolutePath());
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>              <strong class="jxr_keyword">this</strong>.input = safeCall(() -&gt; <strong class="jxr_keyword">new</strong> FileInputStream(path.toFile()));
 <a class="jxr_linenumber" name="L85" href="#L85">85</a>              <strong class="jxr_keyword">this</strong>.className = name;
@@ -131,7 +131,7 @@
 <a class="jxr_linenumber" name="L123" href="#L123">123</a> <em class="jxr_javadoccomment">     * @return &lt;code&gt;this&lt;/code&gt;, for chaining.</em>
 <a class="jxr_linenumber" name="L124" href="#L124">124</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L125" href="#L125">125</a>     <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/properties/Generator.html">Generator</a> setPropertiesTemplateFile(Path propertyTemplatePath, String className) {
-<a class="jxr_linenumber" name="L126" href="#L126">126</a>         <a href="../../../ml/alternet/misc/Type.html">Type</a> name = className == <strong class="jxr_keyword">null</strong> ? Type.of(<strong class="jxr_keyword">null</strong>, <span class="jxr_string">""</span>) : Type.of(className);
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>         <a href="../../../ml/alternet/misc/Type$.html">Type</a> name = className == <strong class="jxr_keyword">null</strong> ? Type.of(<strong class="jxr_keyword">null</strong>, <span class="jxr_string">""</span>) : Type.of(className);
 <a class="jxr_linenumber" name="L127" href="#L127">127</a>         <strong class="jxr_keyword">this</strong>.propertiesTemplates = Stream.of(
 <a class="jxr_linenumber" name="L128" href="#L128">128</a>             <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/properties/Generator.html">PropertiesTemplate</a>(propertyTemplatePath.toAbsolutePath(), name)
 <a class="jxr_linenumber" name="L129" href="#L129">129</a>         );
@@ -204,7 +204,7 @@
 <a class="jxr_linenumber" name="L196" href="#L196">196</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L197" href="#L197">197</a>     <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/properties/Generator.html">Generator</a> setOutputDirectory(Path outputDirectory) {
 <a class="jxr_linenumber" name="L198" href="#L198">198</a>         setOutputFactory(className -&gt; {
-<a class="jxr_linenumber" name="L199" href="#L199">199</a>             <a href="../../../ml/alternet/misc/Type.html">Type</a> type = Type.of(className);
+<a class="jxr_linenumber" name="L199" href="#L199">199</a>             <a href="../../../ml/alternet/misc/Type$.html">Type</a> type = Type.of(className);
 <a class="jxr_linenumber" name="L200" href="#L200">200</a>             String pkg = type.getPackageName();
 <a class="jxr_linenumber" name="L201" href="#L201">201</a>             Path baseDirectory = outputDirectory;
 <a class="jxr_linenumber" name="L202" href="#L202">202</a>             <strong class="jxr_keyword">if</strong> (pkg != <strong class="jxr_keyword">null</strong>) {
@@ -282,7 +282,7 @@
 <a class="jxr_linenumber" name="L274" href="#L274">274</a>                     <strong class="jxr_keyword">if</strong> (strType.length() == 0) {
 <a class="jxr_linenumber" name="L275" href="#L275">275</a>                         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"Empty import \&quot;. = !\&quot;, a class name was expected."</span>);
 <a class="jxr_linenumber" name="L276" href="#L276">276</a>                     }
-<a class="jxr_linenumber" name="L277" href="#L277">277</a>                     <a href="../../../ml/alternet/misc/Type.html">Type</a> iType = Type.parseTypeDefinition(strType);
+<a class="jxr_linenumber" name="L277" href="#L277">277</a>                     <a href="../../../ml/alternet/misc/Type$.html">Type</a> iType = Type.parseTypeDefinition(strType);
 <a class="jxr_linenumber" name="L278" href="#L278">278</a>                     strType = iType.toString();
 <a class="jxr_linenumber" name="L279" href="#L279">279</a>                     <strong class="jxr_keyword">if</strong> (iType instanceof GenericArrayType || iType instanceof ParameterizedType) {
 <a class="jxr_linenumber" name="L280" href="#L280">280</a>                         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"Can't import the composed type \&quot;"</span>
@@ -302,7 +302,7 @@
 <a class="jxr_linenumber" name="L294" href="#L294">294</a>                             <span class="jxr_string">"Type definition incomplete \&quot;. = #\&quot;, a class name was expected."</span>
 <a class="jxr_linenumber" name="L295" href="#L295">295</a>                         );
 <a class="jxr_linenumber" name="L296" href="#L296">296</a>                     }
-<a class="jxr_linenumber" name="L297" href="#L297">297</a>                     <a href="../../../ml/alternet/misc/Type.html">Type</a> type = Type.parseTypeDefinition(strType); <em class="jxr_comment">// org.example.conf.TheConf</em>
+<a class="jxr_linenumber" name="L297" href="#L297">297</a>                     <a href="../../../ml/alternet/misc/Type$.html">Type</a> type = Type.parseTypeDefinition(strType); <em class="jxr_comment">// org.example.conf.TheConf</em>
 <a class="jxr_linenumber" name="L298" href="#L298">298</a>                     <strong class="jxr_keyword">if</strong> (type instanceof GenericArrayType || type instanceof ParameterizedType) {
 <a class="jxr_linenumber" name="L299" href="#L299">299</a>                         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"Can't define the composed type \&quot;"</span>
 <a class="jxr_linenumber" name="L300" href="#L300">300</a>                             + strType + <span class="jxr_string">"\&quot;, a simple type was expected."</span>);
@@ -367,7 +367,7 @@
 <a class="jxr_linenumber" name="L359" href="#L359">359</a>     <strong class="jxr_keyword">class</strong> <a href="../../../ml/alternet/properties/Generator.html">ValueDef</a> <strong class="jxr_keyword">extends</strong> <a href="../../../ml/alternet/properties/Generator.html">Def</a> {
 <a class="jxr_linenumber" name="L360" href="#L360">360</a> 
 <a class="jxr_linenumber" name="L361" href="#L361">361</a>         <a href="../../../ml/alternet/properties/Generator.html">ClassDef</a> parent; <em class="jxr_comment">// null for MainClassDef only</em>
-<a class="jxr_linenumber" name="L362" href="#L362">362</a>         <a href="../../../ml/alternet/misc/Type.html">Type</a> type;
+<a class="jxr_linenumber" name="L362" href="#L362">362</a>         <a href="../../../ml/alternet/misc/Type$.html">Type</a> type;
 <a class="jxr_linenumber" name="L363" href="#L363">363</a>         <strong class="jxr_keyword">boolean</strong> isExistingType = false;
 <a class="jxr_linenumber" name="L364" href="#L364">364</a>         <strong class="jxr_keyword">boolean</strong> isTrue = false; <em class="jxr_comment">// default value for booleans</em>
 <a class="jxr_linenumber" name="L365" href="#L365">365</a>         <strong class="jxr_keyword">boolean</strong> isMap = false; <em class="jxr_comment">// contains unknown names, e.g. "map.*.geo=48.864716, 2.349014"</em>
@@ -399,7 +399,7 @@
 <a class="jxr_linenumber" name="L391" href="#L391">391</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.parent.getImports();
 <a class="jxr_linenumber" name="L392" href="#L392">392</a>         }
 <a class="jxr_linenumber" name="L393" href="#L393">393</a> 
-<a class="jxr_linenumber" name="L394" href="#L394">394</a>         <strong class="jxr_keyword">void</strong> setType(<a href="../../../ml/alternet/misc/Type.html">Type</a> type) {
+<a class="jxr_linenumber" name="L394" href="#L394">394</a>         <strong class="jxr_keyword">void</strong> setType(<a href="../../../ml/alternet/misc/Type$.html">Type</a> type) {
 <a class="jxr_linenumber" name="L395" href="#L395">395</a>             <strong class="jxr_keyword">this</strong>.type = type;
 <a class="jxr_linenumber" name="L396" href="#L396">396</a>         }
 <a class="jxr_linenumber" name="L397" href="#L397">397</a> 
@@ -422,7 +422,7 @@
 <a class="jxr_linenumber" name="L414" href="#L414">414</a>             <strong class="jxr_keyword">if</strong> (value.contains(<span class="jxr_string">"|"</span>) &amp;&amp; ! value.startsWith(<span class="jxr_string">"$"</span>)) {
 <a class="jxr_linenumber" name="L415" href="#L415">415</a>                 <em class="jxr_comment">// enum</em>
 <a class="jxr_linenumber" name="L416" href="#L416">416</a>                 <strong class="jxr_keyword">boolean</strong> ownClass = value.startsWith(<span class="jxr_string">"#"</span>);
-<a class="jxr_linenumber" name="L417" href="#L417">417</a>                 <a href="../../../ml/alternet/misc/Type.html">Type</a> type;
+<a class="jxr_linenumber" name="L417" href="#L417">417</a>                 <a href="../../../ml/alternet/misc/Type$.html">Type</a> type;
 <a class="jxr_linenumber" name="L418" href="#L418">418</a>                 <strong class="jxr_keyword">if</strong> (ownClass) {
 <a class="jxr_linenumber" name="L419" href="#L419">419</a>                     <em class="jxr_comment">// e.g                #Status Inactive | Active | Pending</em>
 <a class="jxr_linenumber" name="L420" href="#L420">420</a>                     <em class="jxr_comment">//    or  #org.example.Status Inactive | Active | Pending</em>
@@ -452,7 +452,7 @@
 <a class="jxr_linenumber" name="L444" href="#L444">444</a>                 <em class="jxr_comment">//              #org.example.data.Status    =&gt; type to create</em>
 <a class="jxr_linenumber" name="L445" href="#L445">445</a>                 value = value.substring(1).trim();
 <a class="jxr_linenumber" name="L446" href="#L446">446</a>                 Type.Parsed typeParsed = <strong class="jxr_keyword">new</strong> Type.Parsed(value);
-<a class="jxr_linenumber" name="L447" href="#L447">447</a>                 <a href="../../../ml/alternet/misc/Type.html">Type</a> type = typeParsed.get();
+<a class="jxr_linenumber" name="L447" href="#L447">447</a>                 <a href="../../../ml/alternet/misc/Type$.html">Type</a> type = typeParsed.get();
 <a class="jxr_linenumber" name="L448" href="#L448">448</a>                 <strong class="jxr_keyword">if</strong> (! <strong class="jxr_keyword">this</strong>.isExistingType  &amp;&amp; (type instanceof GenericArrayType || type instanceof ParameterizedType)) {
 <a class="jxr_linenumber" name="L449" href="#L449">449</a>                     <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"Can't define the composed type \&quot;"</span>
 <a class="jxr_linenumber" name="L450" href="#L450">450</a>                                 +  type + <span class="jxr_string">"\&quot;, a simple type was expected."</span>);
@@ -474,7 +474,7 @@
 <a class="jxr_linenumber" name="L466" href="#L466">466</a>                     String javaValue = value.substring(<span class="jxr_string">"java:"</span>.length());
 <a class="jxr_linenumber" name="L467" href="#L467">467</a>                     <strong class="jxr_keyword">if</strong> (! javaValue.startsWith(<span class="jxr_string">"/"</span>)) {
 <a class="jxr_linenumber" name="L468" href="#L468">468</a>                         wasJava = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L469" href="#L469">469</a>                         <a href="../../../ml/alternet/misc/Type.html">Type</a> type;
+<a class="jxr_linenumber" name="L469" href="#L469">469</a>                         <a href="../../../ml/alternet/misc/Type$.html">Type</a> type;
 <a class="jxr_linenumber" name="L470" href="#L470">470</a>                         <strong class="jxr_keyword">if</strong> (javaValue.startsWith(<span class="jxr_string">"?"</span>)) {
 <a class="jxr_linenumber" name="L471" href="#L471">471</a>                             type = Type.of(<span class="jxr_string">"?"</span>);
 <a class="jxr_linenumber" name="L472" href="#L472">472</a>                             value = javaValue.substring(1).trim();
@@ -610,7 +610,7 @@
 <a class="jxr_linenumber" name="L602" href="#L602">602</a>             }
 <a class="jxr_linenumber" name="L603" href="#L603">603</a>         }
 <a class="jxr_linenumber" name="L604" href="#L604">604</a> 
-<a class="jxr_linenumber" name="L605" href="#L605">605</a>         <strong class="jxr_keyword">boolean</strong> omitPackage(<a href="../../../ml/alternet/misc/Type.html">Type</a> type) {
+<a class="jxr_linenumber" name="L605" href="#L605">605</a>         <strong class="jxr_keyword">boolean</strong> omitPackage(<a href="../../../ml/alternet/misc/Type$.html">Type</a> type) {
 <a class="jxr_linenumber" name="L606" href="#L606">606</a>             <strong class="jxr_keyword">if</strong> (hasSimpleNameInScope(type, <strong class="jxr_keyword">this</strong>)) {
 <a class="jxr_linenumber" name="L607" href="#L607">607</a>                 <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L608" href="#L608">608</a>             }
@@ -620,7 +620,7 @@
 <a class="jxr_linenumber" name="L612" href="#L612">612</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L613" href="#L613">613</a>         }
 <a class="jxr_linenumber" name="L614" href="#L614">614</a> 
-<a class="jxr_linenumber" name="L615" href="#L615">615</a>         <strong class="jxr_keyword">boolean</strong> hasSimpleNameInScope(<a href="../../../ml/alternet/misc/Type.html">Type</a> type, <a href="../../../ml/alternet/properties/Generator.html">ValueDef</a> def) {
+<a class="jxr_linenumber" name="L615" href="#L615">615</a>         <strong class="jxr_keyword">boolean</strong> hasSimpleNameInScope(<a href="../../../ml/alternet/misc/Type$.html">Type</a> type, <a href="../../../ml/alternet/properties/Generator.html">ValueDef</a> def) {
 <a class="jxr_linenumber" name="L616" href="#L616">616</a>             <strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.parent == <strong class="jxr_keyword">null</strong>) {
 <a class="jxr_linenumber" name="L617" href="#L617">617</a>                 <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="L618" href="#L618">618</a>             } <strong class="jxr_keyword">else</strong> {
@@ -665,7 +665,7 @@
 <a class="jxr_linenumber" name="L657" href="#L657">657</a>         Set&lt;String&gt; imports = <strong class="jxr_keyword">new</strong> TreeSet&lt;&gt;(); <em class="jxr_comment">// e.g. "java.io.IOException"</em>
 <a class="jxr_linenumber" name="L658" href="#L658">658</a>         List&lt;ValueDef&gt; defs = <strong class="jxr_keyword">new</strong> LinkedList&lt;&gt;();
 <a class="jxr_linenumber" name="L659" href="#L659">659</a> 
-<a class="jxr_linenumber" name="L660" href="#L660">660</a>         <a href="../../../ml/alternet/properties/Generator.html">ClassDef</a>(<a href="../../../ml/alternet/misc/Type.html">Type</a> clName) {
+<a class="jxr_linenumber" name="L660" href="#L660">660</a>         <a href="../../../ml/alternet/properties/Generator.html">ClassDef</a>(<a href="../../../ml/alternet/misc/Type$.html">Type</a> clName) {
 <a class="jxr_linenumber" name="L661" href="#L661">661</a>             <strong class="jxr_keyword">super</strong>(clName.getSimpleName());
 <a class="jxr_linenumber" name="L662" href="#L662">662</a>             <strong class="jxr_keyword">this</strong>.type = clName;
 <a class="jxr_linenumber" name="L663" href="#L663">663</a>             <strong class="jxr_keyword">this</strong>.imports.add(Generated.<strong class="jxr_keyword">class</strong>.getCanonicalName());
@@ -803,7 +803,7 @@
 <a class="jxr_linenumber" name="L795" href="#L795">795</a> 
 <a class="jxr_linenumber" name="L796" href="#L796">796</a>         String[] values;
 <a class="jxr_linenumber" name="L797" href="#L797">797</a> 
-<a class="jxr_linenumber" name="L798" href="#L798">798</a>         <a href="../../../ml/alternet/properties/Generator.html">EnumDef</a>(String propName, <a href="../../../ml/alternet/misc/Type.html">Type</a> propType, String[] values) {
+<a class="jxr_linenumber" name="L798" href="#L798">798</a>         <a href="../../../ml/alternet/properties/Generator.html">EnumDef</a>(String propName, <a href="../../../ml/alternet/misc/Type$.html">Type</a> propType, String[] values) {
 <a class="jxr_linenumber" name="L799" href="#L799">799</a>             <strong class="jxr_keyword">super</strong>(propType);
 <a class="jxr_linenumber" name="L800" href="#L800">800</a>             <strong class="jxr_keyword">this</strong>.name = propName;
 <a class="jxr_linenumber" name="L801" href="#L801">801</a>             <strong class="jxr_keyword">this</strong>.values = values;
@@ -834,7 +834,7 @@
 <a class="jxr_linenumber" name="L826" href="#L826">826</a>         List&lt;String&gt; adapters; <em class="jxr_comment">// Java code for getting an instance of adapter</em>
 <a class="jxr_linenumber" name="L827" href="#L827">827</a>                                <em class="jxr_comment">// e.g. "Adapter.map(Document.class, Utils::parseXml)"</em>
 <a class="jxr_linenumber" name="L828" href="#L828">828</a> 
-<a class="jxr_linenumber" name="L829" href="#L829">829</a>         <a href="../../../ml/alternet/properties/Generator.html">MainClassDef</a>(<a href="../../../ml/alternet/misc/Type.html">Type</a> clName) {
+<a class="jxr_linenumber" name="L829" href="#L829">829</a>         <a href="../../../ml/alternet/properties/Generator.html">MainClassDef</a>(<a href="../../../ml/alternet/misc/Type$.html">Type</a> clName) {
 <a class="jxr_linenumber" name="L830" href="#L830">830</a>             <strong class="jxr_keyword">super</strong>(clName);
 <a class="jxr_linenumber" name="L831" href="#L831">831</a>             <strong class="jxr_keyword">this</strong>.isExistingType = false;
 <a class="jxr_linenumber" name="L832" href="#L832">832</a>         }
@@ -971,6 +971,6 @@
 <a class="jxr_linenumber" name="L963" href="#L963">963</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2018 <a href="http://alternet.ml">Alternet</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2020 <a href="http://alternet.github.io">Alternet</a>. All rights reserved.</div>
 </body>
 </html>

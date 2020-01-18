@@ -62,7 +62,7 @@
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>  <em class="jxr_javadoccomment"> * Base interface for defining grammars.</em>
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>  <em class="jxr_javadoccomment"> *</em>
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>  <em class="jxr_javadoccomment"> * @see &lt;a href="<a href="http://alternet.ml/alternet-libs/parsing/parsing.html" target="alexandria_uri">http://alternet.ml/alternet-libs/parsing/parsing.html</a>"&gt;<a href="http://alternet.ml/alternet-libs/parsing/parsing.html" target="alexandria_uri">http://alternet.ml/alternet-libs/parsing/parsing.html</a>&lt;/a&gt;</em>
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  <em class="jxr_javadoccomment"> * @see &lt;a href="<a href="http://alternet.github.io/alternet-libs/parsing/parsing.html" target="alexandria_uri">http://alternet.github.io/alternet-libs/parsing/parsing.html</a>"&gt;<a href="http://alternet.github.io/alternet-libs/parsing/parsing.html" target="alexandria_uri">http://alternet.github.io/alternet-libs/parsing/parsing.html</a>&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>  <em class="jxr_javadoccomment"> *</em>
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>  <em class="jxr_javadoccomment"> * &lt;h1&gt;Skeleton&lt;/h1&gt;</em>
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>  <em class="jxr_javadoccomment"> *</em>
@@ -1825,14 +1825,14 @@
 <a class="jxr_linenumber" name="L1817" href="#L1817">1817</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L1818" href="#L1818">1818</a>     <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">class</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> <strong class="jxr_keyword">extends</strong> <a href="../../../ml/alternet/parser/Grammar.html">Token</a> {
 <a class="jxr_linenumber" name="L1819" href="#L1819">1819</a> 
-<a class="jxr_linenumber" name="L1820" href="#L1820">1820</a>         <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> charRange;
+<a class="jxr_linenumber" name="L1820" href="#L1820">1820</a>         <a href="../../../ml/alternet/misc/CharRange$.html">CharRange</a> charRange;
 <a class="jxr_linenumber" name="L1821" href="#L1821">1821</a> 
 <a class="jxr_linenumber" name="L1822" href="#L1822">1822</a>         <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L1823" href="#L1823">1823</a> <em class="jxr_javadoccomment">         * Create a char token based on a char range.</em>
 <a class="jxr_linenumber" name="L1824" href="#L1824">1824</a> <em class="jxr_javadoccomment">         *</em>
 <a class="jxr_linenumber" name="L1825" href="#L1825">1825</a> <em class="jxr_javadoccomment">         * @param charRange The underlying char range.</em>
 <a class="jxr_linenumber" name="L1826" href="#L1826">1826</a> <em class="jxr_javadoccomment">         */</em>
-<a class="jxr_linenumber" name="L1827" href="#L1827">1827</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(<a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> charRange) {
+<a class="jxr_linenumber" name="L1827" href="#L1827">1827</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a>(<a href="../../../ml/alternet/misc/CharRange$.html">CharRange</a> charRange) {
 <a class="jxr_linenumber" name="L1828" href="#L1828">1828</a>             <strong class="jxr_keyword">this</strong>.charRange = charRange;
 <a class="jxr_linenumber" name="L1829" href="#L1829">1829</a>         }
 <a class="jxr_linenumber" name="L1830" href="#L1830">1830</a> 
@@ -1844,7 +1844,7 @@
 <a class="jxr_linenumber" name="L1836" href="#L1836">1836</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token union the Unicode codepoint.</em>
 <a class="jxr_linenumber" name="L1837" href="#L1837">1837</a> <em class="jxr_javadoccomment">         */</em>
 <a class="jxr_linenumber" name="L1838" href="#L1838">1838</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> union(<strong class="jxr_keyword">int</strong> codepoint) {
-<a class="jxr_linenumber" name="L1839" href="#L1839">1839</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(CharRange.is(codepoint));
+<a class="jxr_linenumber" name="L1839" href="#L1839">1839</a>             <a href="../../../ml/alternet/misc/CharRange$.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(CharRange.is(codepoint));
 <a class="jxr_linenumber" name="L1840" href="#L1840">1840</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> CharToken.Single(cr);
 <a class="jxr_linenumber" name="L1841" href="#L1841">1841</a>         }
 <a class="jxr_linenumber" name="L1842" href="#L1842">1842</a> 
@@ -1857,7 +1857,7 @@
 <a class="jxr_linenumber" name="L1849" href="#L1849">1849</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token union the given range.</em>
 <a class="jxr_linenumber" name="L1850" href="#L1850">1850</a> <em class="jxr_javadoccomment">         */</em>
 <a class="jxr_linenumber" name="L1851" href="#L1851">1851</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> union(<strong class="jxr_keyword">int</strong> startCodepoint, <strong class="jxr_keyword">int</strong> endCodepoint) {
-<a class="jxr_linenumber" name="L1852" href="#L1852">1852</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(CharRange.range(startCodepoint, endCodepoint));
+<a class="jxr_linenumber" name="L1852" href="#L1852">1852</a>             <a href="../../../ml/alternet/misc/CharRange$.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(CharRange.range(startCodepoint, endCodepoint));
 <a class="jxr_linenumber" name="L1853" href="#L1853">1853</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> CharToken.Single(cr);
 <a class="jxr_linenumber" name="L1854" href="#L1854">1854</a>         }
 <a class="jxr_linenumber" name="L1855" href="#L1855">1855</a> 
@@ -1869,7 +1869,7 @@
 <a class="jxr_linenumber" name="L1861" href="#L1861">1861</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token union all the characters given.</em>
 <a class="jxr_linenumber" name="L1862" href="#L1862">1862</a> <em class="jxr_javadoccomment">         */</em>
 <a class="jxr_linenumber" name="L1863" href="#L1863">1863</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> union(CharSequence characters) {
-<a class="jxr_linenumber" name="L1864" href="#L1864">1864</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(CharRange.isOneOf(characters));
+<a class="jxr_linenumber" name="L1864" href="#L1864">1864</a>             <a href="../../../ml/alternet/misc/CharRange$.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(CharRange.isOneOf(characters));
 <a class="jxr_linenumber" name="L1865" href="#L1865">1865</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> CharToken.Single(cr);
 <a class="jxr_linenumber" name="L1866" href="#L1866">1866</a>         }
 <a class="jxr_linenumber" name="L1867" href="#L1867">1867</a> 
@@ -1881,7 +1881,7 @@
 <a class="jxr_linenumber" name="L1873" href="#L1873">1873</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token union the given char ranges.</em>
 <a class="jxr_linenumber" name="L1874" href="#L1874">1874</a> <em class="jxr_javadoccomment">         */</em>
 <a class="jxr_linenumber" name="L1875" href="#L1875">1875</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> union(CharRange... charRanges) {
-<a class="jxr_linenumber" name="L1876" href="#L1876">1876</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(charRanges);
+<a class="jxr_linenumber" name="L1876" href="#L1876">1876</a>             <a href="../../../ml/alternet/misc/CharRange$.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.union(charRanges);
 <a class="jxr_linenumber" name="L1877" href="#L1877">1877</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> CharToken.Single(cr);
 <a class="jxr_linenumber" name="L1878" href="#L1878">1878</a>         }
 <a class="jxr_linenumber" name="L1879" href="#L1879">1879</a> 
@@ -1911,7 +1911,7 @@
 <a class="jxr_linenumber" name="L1903" href="#L1903">1903</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token minus the Unicode codepoint.</em>
 <a class="jxr_linenumber" name="L1904" href="#L1904">1904</a> <em class="jxr_javadoccomment">         */</em>
 <a class="jxr_linenumber" name="L1905" href="#L1905">1905</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> except(<strong class="jxr_keyword">int</strong> codepoint) {
-<a class="jxr_linenumber" name="L1906" href="#L1906">1906</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(CharRange.is(codepoint));
+<a class="jxr_linenumber" name="L1906" href="#L1906">1906</a>             <a href="../../../ml/alternet/misc/CharRange$.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(CharRange.is(codepoint));
 <a class="jxr_linenumber" name="L1907" href="#L1907">1907</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> CharToken.Single(cr);
 <a class="jxr_linenumber" name="L1908" href="#L1908">1908</a>         }
 <a class="jxr_linenumber" name="L1909" href="#L1909">1909</a> 
@@ -1924,7 +1924,7 @@
 <a class="jxr_linenumber" name="L1916" href="#L1916">1916</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token minus the given range.</em>
 <a class="jxr_linenumber" name="L1917" href="#L1917">1917</a> <em class="jxr_javadoccomment">         */</em>
 <a class="jxr_linenumber" name="L1918" href="#L1918">1918</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> except(<strong class="jxr_keyword">int</strong> startCodepoint, <strong class="jxr_keyword">int</strong> endCodepoint) {
-<a class="jxr_linenumber" name="L1919" href="#L1919">1919</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(CharRange.range(startCodepoint, endCodepoint));
+<a class="jxr_linenumber" name="L1919" href="#L1919">1919</a>             <a href="../../../ml/alternet/misc/CharRange$.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(CharRange.range(startCodepoint, endCodepoint));
 <a class="jxr_linenumber" name="L1920" href="#L1920">1920</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> CharToken.Single(cr);
 <a class="jxr_linenumber" name="L1921" href="#L1921">1921</a>         }
 <a class="jxr_linenumber" name="L1922" href="#L1922">1922</a> 
@@ -1936,7 +1936,7 @@
 <a class="jxr_linenumber" name="L1928" href="#L1928">1928</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token minus all the characters given.</em>
 <a class="jxr_linenumber" name="L1929" href="#L1929">1929</a> <em class="jxr_javadoccomment">         */</em>
 <a class="jxr_linenumber" name="L1930" href="#L1930">1930</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> except(CharSequence characters) {
-<a class="jxr_linenumber" name="L1931" href="#L1931">1931</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(CharRange.isOneOf(characters));
+<a class="jxr_linenumber" name="L1931" href="#L1931">1931</a>             <a href="../../../ml/alternet/misc/CharRange$.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(CharRange.isOneOf(characters));
 <a class="jxr_linenumber" name="L1932" href="#L1932">1932</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> CharToken.Single(cr);
 <a class="jxr_linenumber" name="L1933" href="#L1933">1933</a>         }
 <a class="jxr_linenumber" name="L1934" href="#L1934">1934</a> 
@@ -1948,7 +1948,7 @@
 <a class="jxr_linenumber" name="L1940" href="#L1940">1940</a> <em class="jxr_javadoccomment">         * @return A char token made of this char token minus the char ranges given.</em>
 <a class="jxr_linenumber" name="L1941" href="#L1941">1941</a> <em class="jxr_javadoccomment">         */</em>
 <a class="jxr_linenumber" name="L1942" href="#L1942">1942</a>         <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">CharToken</a> except(CharRange... charRanges) {
-<a class="jxr_linenumber" name="L1943" href="#L1943">1943</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(charRanges);
+<a class="jxr_linenumber" name="L1943" href="#L1943">1943</a>             <a href="../../../ml/alternet/misc/CharRange$.html">CharRange</a> cr = <strong class="jxr_keyword">this</strong>.charRange.except(charRanges);
 <a class="jxr_linenumber" name="L1944" href="#L1944">1944</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> CharToken.Single(cr);
 <a class="jxr_linenumber" name="L1945" href="#L1945">1945</a>         }
 <a class="jxr_linenumber" name="L1946" href="#L1946">1946</a> 
@@ -1999,7 +1999,7 @@
 <a class="jxr_linenumber" name="L1991" href="#L1991">1991</a> <em class="jxr_javadoccomment">             *</em>
 <a class="jxr_linenumber" name="L1992" href="#L1992">1992</a> <em class="jxr_javadoccomment">             * @param charRange The actual char range.</em>
 <a class="jxr_linenumber" name="L1993" href="#L1993">1993</a> <em class="jxr_javadoccomment">             */</em>
-<a class="jxr_linenumber" name="L1994" href="#L1994">1994</a>             <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">Single</a>(<a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> charRange) {
+<a class="jxr_linenumber" name="L1994" href="#L1994">1994</a>             <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">Single</a>(<a href="../../../ml/alternet/misc/CharRange$.html">CharRange</a> charRange) {
 <a class="jxr_linenumber" name="L1995" href="#L1995">1995</a>                 <strong class="jxr_keyword">super</strong>(charRange);
 <a class="jxr_linenumber" name="L1996" href="#L1996">1996</a>             }
 <a class="jxr_linenumber" name="L1997" href="#L1997">1997</a>         }
@@ -2014,9 +2014,9 @@
 <a class="jxr_linenumber" name="L2006" href="#L2006">2006</a>             <em class="jxr_comment">// we must keep the memory of the base char range and its components,</em>
 <a class="jxr_linenumber" name="L2007" href="#L2007">2007</a>             <em class="jxr_comment">// because they may be affected by substitutions ; in this case, the</em>
 <a class="jxr_linenumber" name="L2008" href="#L2008">2008</a>             <em class="jxr_comment">// simplify() function must be run again</em>
-<a class="jxr_linenumber" name="L2009" href="#L2009">2009</a>             <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> base;
+<a class="jxr_linenumber" name="L2009" href="#L2009">2009</a>             <a href="../../../ml/alternet/misc/CharRange$.html">CharRange</a> base;
 <a class="jxr_linenumber" name="L2010" href="#L2010">2010</a>             List&lt;Rule&gt; charTokens;
-<a class="jxr_linenumber" name="L2011" href="#L2011">2011</a>             BiFunction&lt;CharRange, <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a>[], CharRange&gt; composition;
+<a class="jxr_linenumber" name="L2011" href="#L2011">2011</a>             BiFunction&lt;CharRange, <a href="../../../ml/alternet/misc/CharRange$.html">CharRange</a>[], CharRange&gt; composition;
 <a class="jxr_linenumber" name="L2012" href="#L2012">2012</a> 
 <a class="jxr_linenumber" name="L2013" href="#L2013">2013</a>             <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L2014" href="#L2014">2014</a> <em class="jxr_javadoccomment">             * Create composable char token.</em>
@@ -2028,8 +2028,8 @@
 <a class="jxr_linenumber" name="L2020" href="#L2020">2020</a> <em class="jxr_javadoccomment">             * @see CharRange#union(CharRange...)</em>
 <a class="jxr_linenumber" name="L2021" href="#L2021">2021</a> <em class="jxr_javadoccomment">             * @see CharRange#except(CharRange...)</em>
 <a class="jxr_linenumber" name="L2022" href="#L2022">2022</a> <em class="jxr_javadoccomment">             */</em>
-<a class="jxr_linenumber" name="L2023" href="#L2023">2023</a>             <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">Composed</a>(<a href="../../../ml/alternet/misc/CharRange.html">CharRange</a> charRange, List&lt;Rule&gt; charTokens,
-<a class="jxr_linenumber" name="L2024" href="#L2024">2024</a>                     BiFunction&lt;CharRange, <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a>[], CharRange&gt; composition)
+<a class="jxr_linenumber" name="L2023" href="#L2023">2023</a>             <strong class="jxr_keyword">public</strong> <a href="../../../ml/alternet/parser/Grammar.html">Composed</a>(<a href="../../../ml/alternet/misc/CharRange$.html">CharRange</a> charRange, List&lt;Rule&gt; charTokens,
+<a class="jxr_linenumber" name="L2024" href="#L2024">2024</a>                     BiFunction&lt;CharRange, <a href="../../../ml/alternet/misc/CharRange$.html">CharRange</a>[], CharRange&gt; composition)
 <a class="jxr_linenumber" name="L2025" href="#L2025">2025</a>             {
 <a class="jxr_linenumber" name="L2026" href="#L2026">2026</a>                 <strong class="jxr_keyword">super</strong>(<strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="L2027" href="#L2027">2027</a>                 <strong class="jxr_keyword">this</strong>.base = charRange;
@@ -2057,7 +2057,7 @@
 <a class="jxr_linenumber" name="L2049" href="#L2049">2049</a>                         <strong class="jxr_keyword">this</strong>.base,
 <a class="jxr_linenumber" name="L2050" href="#L2050">2050</a>                         <strong class="jxr_keyword">this</strong>.charTokens.stream()
 <a class="jxr_linenumber" name="L2051" href="#L2051">2051</a>                             .map(c -&gt; ((CharToken) c).charRange)
-<a class="jxr_linenumber" name="L2052" href="#L2052">2052</a>                             .toArray(l -&gt; <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/misc/CharRange.html">CharRange</a>[l])
+<a class="jxr_linenumber" name="L2052" href="#L2052">2052</a>                             .toArray(l -&gt; <strong class="jxr_keyword">new</strong> <a href="../../../ml/alternet/misc/CharRange$.html">CharRange</a>[l])
 <a class="jxr_linenumber" name="L2053" href="#L2053">2053</a>                     );
 <a class="jxr_linenumber" name="L2054" href="#L2054">2054</a>                 <em class="jxr_comment">// in a grammar point of view, this didn't change the underlying rule</em>
 <a class="jxr_linenumber" name="L2055" href="#L2055">2055</a>                 <strong class="jxr_keyword">return</strong> java.util.Optional.empty();
@@ -2750,6 +2750,6 @@
 <a class="jxr_linenumber" name="L2742" href="#L2742">2742</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2018 <a href="http://alternet.ml">Alternet</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2020 <a href="http://alternet.github.io">Alternet</a>. All rights reserved.</div>
 </body>
 </html>

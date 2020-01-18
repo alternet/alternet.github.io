@@ -20,19 +20,19 @@ under the License.
 <rss version="0.91">
   <channel>
     <title>Alternet Tools - Checkstyle report</title>
-    <link>http://alternet.ml/alternet-libs/tools/tools.html</link>
+    <link>http://alternet.github.io/alternet-libs/tools/tools.html</link>
     <description>Alternet Tools - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2018 Alternet</copyright>
+    <copyright>&#169;2020 Alternet</copyright>
     <item>
       <title>File: 7,
              Errors: 14,
              Warnings: 0,
              Infos: 0
       </title>
-            <link>http://alternet.ml/alternet-libs/tools/tools.html/checkstyle.html</link>
+            <link>http://alternet.github.io/alternet-libs/tools/tools.html/checkstyle.html</link>
       <description>
-        <p>Click <a href="http://alternet.ml/alternet-libs/tools/tools.html/checkstyle.html">here</a> for the full Checkstyle report.</p>
+        <p>Click <a href="http://alternet.github.io/alternet-libs/tools/tools.html/checkstyle.html">here</a> for the full Checkstyle report.</p>
 
         <table summary="Files" boder="1">
           <thead>
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/tools/tools.html/checkstyle.html#ml.alternet.misc.Type.java">ml/alternet/misc/Type.java</a>
+                  <a href="http://alternet.github.io/alternet-libs/tools/tools.html/checkstyle.html#ml.alternet.misc.Type.java">ml/alternet/misc/Type.java</a>
                 </td>
                 <td>
                   0
@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/tools/tools.html/checkstyle.html#ml.alternet.properties.$.java">ml/alternet/properties/$.java</a>
+                  <a href="http://alternet.github.io/alternet-libs/tools/tools.html/checkstyle.html#ml.alternet.properties.$.java">ml/alternet/properties/$.java</a>
                 </td>
                 <td>
                   0
@@ -74,7 +74,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/tools/tools.html/checkstyle.html#ml.alternet.encode.BytesEncoding.java">ml/alternet/encode/BytesEncoding.java</a>
+                  <a href="http://alternet.github.io/alternet-libs/tools/tools.html/checkstyle.html#ml.alternet.encode.BytesEncoding.java">ml/alternet/encode/BytesEncoding.java</a>
                 </td>
                 <td>
                   0
@@ -88,7 +88,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/tools/tools.html/checkstyle.html#ml.alternet.misc.CharRange.java">ml/alternet/misc/CharRange.java</a>
+                  <a href="http://alternet.github.io/alternet-libs/tools/tools.html/checkstyle.html#ml.alternet.misc.CharRange.java">ml/alternet/misc/CharRange.java</a>
                 </td>
                 <td>
                   0
@@ -102,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/tools/tools.html/checkstyle.html#ml.alternet.properties.Binder.java">ml/alternet/properties/Binder.java</a>
+                  <a href="http://alternet.github.io/alternet-libs/tools/tools.html/checkstyle.html#ml.alternet.properties.Binder.java">ml/alternet/properties/Binder.java</a>
                 </td>
                 <td>
                   0
@@ -116,7 +116,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/tools/tools.html/checkstyle.html#ml.alternet.misc.CharRange$.java">ml/alternet/misc/CharRange$.java</a>
+                  <a href="http://alternet.github.io/alternet-libs/tools/tools.html/checkstyle.html#ml.alternet.misc.CharRange$.java">ml/alternet/misc/CharRange$.java</a>
                 </td>
                 <td>
                   0
@@ -130,7 +130,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/tools/tools.html/checkstyle.html#ml.alternet.properties.package-info.java">ml/alternet/properties/package-info.java</a>
+                  <a href="http://alternet.github.io/alternet-libs/tools/tools.html/checkstyle.html#ml.alternet.properties.package-info.java">ml/alternet/properties/package-info.java</a>
                 </td>
                 <td>
                   0

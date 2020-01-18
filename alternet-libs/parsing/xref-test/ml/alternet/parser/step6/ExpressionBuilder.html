@@ -140,7 +140,7 @@
 <a class="jxr_linenumber" name="L132" href="#L132">132</a>             <em class="jxr_comment">//   function  argument</em>
 <a class="jxr_linenumber" name="L133" href="#L133">133</a>             Operation.Function function = token.getValue();   <em class="jxr_comment">// e.g.   Calc.Function.sin</em>
 <a class="jxr_linenumber" name="L134" href="#L134">134</a>             <a href="../../../../ml/alternet/parser/step6/NumericExpression.html">NumericExpression</a> argument = next.pollFirst().getTarget(); <em class="jxr_comment">// e.g.   Expression.Variable("x")</em>
-<a class="jxr_linenumber" name="L135" href="#L135">135</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../ml/alternet/parser/step6/Operation.html">Function</a>(function, argument);
+<a class="jxr_linenumber" name="L135" href="#L135">135</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../ml/alternet/parser/step6/NumericExpression.html">Function</a>(function, argument);
 <a class="jxr_linenumber" name="L136" href="#L136">136</a>         }),
 <a class="jxr_linenumber" name="L137" href="#L137">137</a>         RAISED( (stack, token, next) -&gt; {
 <a class="jxr_linenumber" name="L138" href="#L138">138</a>             <em class="jxr_comment">// mapper for : Token RAISED = is('^');</em>
@@ -207,6 +207,6 @@
 <a class="jxr_linenumber" name="L199" href="#L199">199</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2018 <a href="http://alternet.ml">Alternet</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2020 <a href="http://alternet.github.io">Alternet</a>. All rights reserved.</div>
 </body>
 </html>

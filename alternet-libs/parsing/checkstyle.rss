@@ -20,19 +20,19 @@ under the License.
 <rss version="0.91">
   <channel>
     <title>Alternet Parsing - Checkstyle report</title>
-    <link>http://alternet.ml/alternet-libs/parsing/parsing.html</link>
+    <link>http://alternet.github.io/alternet-libs/parsing/parsing.html</link>
     <description>Alternet Parsing - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2018 Alternet</copyright>
+    <copyright>&#169;2020 Alternet</copyright>
     <item>
       <title>File: 7,
              Errors: 18,
              Warnings: 0,
              Infos: 22
       </title>
-            <link>http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html</link>
+            <link>http://alternet.github.io/alternet-libs/parsing/parsing.html/checkstyle.html</link>
       <description>
-        <p>Click <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html">here</a> for the full Checkstyle report.</p>
+        <p>Click <a href="http://alternet.github.io/alternet-libs/parsing/parsing.html/checkstyle.html">here</a> for the full Checkstyle report.</p>
 
         <table summary="Files" boder="1">
           <thead>
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.visit.Transform.java">ml/alternet/parser/visit/Transform.java</a>
+                  <a href="http://alternet.github.io/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.visit.Transform.java">ml/alternet/parser/visit/Transform.java</a>
                 </td>
                 <td>
                   0
@@ -60,7 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.util.Grammar$.java">ml/alternet/parser/util/Grammar$.java</a>
+                  <a href="http://alternet.github.io/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.util.Grammar$.java">ml/alternet/parser/util/Grammar$.java</a>
                 </td>
                 <td>
                   0
@@ -74,7 +74,21 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.grammars.RegexpGrammar.java">ml/alternet/grammars/RegexpGrammar.java</a>
+                  <a href="http://alternet.github.io/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.handlers.HandlerAccumulator.java">ml/alternet/parser/handlers/HandlerAccumulator.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://alternet.github.io/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.grammars.RegexpGrammar.java">ml/alternet/grammars/RegexpGrammar.java</a>
                 </td>
                 <td>
                   22
@@ -88,21 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.handlers.HandlerAccumulator.java">ml/alternet/parser/handlers/HandlerAccumulator.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.util.ByteCodeFactory$.java">ml/alternet/parser/util/ByteCodeFactory$.java</a>
+                  <a href="http://alternet.github.io/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.util.ByteCodeFactory$.java">ml/alternet/parser/util/ByteCodeFactory$.java</a>
                 </td>
                 <td>
                   0
@@ -116,7 +116,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.EventsHandler.java">ml/alternet/parser/EventsHandler.java</a>
+                  <a href="http://alternet.github.io/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.EventsHandler.java">ml/alternet/parser/EventsHandler.java</a>
                 </td>
                 <td>
                   0
@@ -130,7 +130,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.Grammar.java">ml/alternet/parser/Grammar.java</a>
+                  <a href="http://alternet.github.io/alternet-libs/parsing/parsing.html/checkstyle.html#ml.alternet.parser.Grammar.java">ml/alternet/parser/Grammar.java</a>
                 </td>
                 <td>
                   0

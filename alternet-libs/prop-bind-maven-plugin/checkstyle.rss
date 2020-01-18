@@ -20,19 +20,19 @@ under the License.
 <rss version="0.91">
   <channel>
     <title>Alternet Tools - Properties Binder Maven Plugin - Checkstyle report</title>
-    <link>http://alternet.ml/prop-bind-maven-plugin/</link>
+    <link>http://alternet.github.io/prop-bind-maven-plugin/</link>
     <description>Alternet Tools - Properties Binder Maven Plugin - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2018 Alternet</copyright>
+    <copyright>&#169;2020 Alternet</copyright>
     <item>
       <title>File: 1,
              Errors: 2,
              Warnings: 0,
              Infos: 2
       </title>
-            <link>http://alternet.ml/prop-bind-maven-plugin//checkstyle.html</link>
+            <link>http://alternet.github.io/prop-bind-maven-plugin//checkstyle.html</link>
       <description>
-        <p>Click <a href="http://alternet.ml/prop-bind-maven-plugin//checkstyle.html">here</a> for the full Checkstyle report.</p>
+        <p>Click <a href="http://alternet.github.io/prop-bind-maven-plugin//checkstyle.html">here</a> for the full Checkstyle report.</p>
 
         <table summary="Files" boder="1">
           <thead>
@@ -46,7 +46,7 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://alternet.ml/prop-bind-maven-plugin//checkstyle.html#ml.alternet.properties.mojo.PropBindMojo.java">ml/alternet/properties/mojo/PropBindMojo.java</a>
+                  <a href="http://alternet.github.io/prop-bind-maven-plugin//checkstyle.html#ml.alternet.properties.mojo.PropBindMojo.java">ml/alternet/properties/mojo/PropBindMojo.java</a>
                 </td>
                 <td>
                   2
